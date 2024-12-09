@@ -1,0 +1,11 @@
+# Ignore Visual Studio files
+.vs/
+*.user
+*.suo
+*.vcxproj.user
+*.db
+*.ipch/
+
+# Ignore build outputs
+x64/Debug/
+x64/Release/
