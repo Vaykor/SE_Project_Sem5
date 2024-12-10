@@ -3,7 +3,6 @@
 *.user
 *.suo
 *.vcxproj.user
-*.db
 *.ipch/
 
 # Ignore build outputs
