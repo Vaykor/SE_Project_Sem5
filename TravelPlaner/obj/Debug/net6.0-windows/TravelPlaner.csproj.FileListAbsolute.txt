@@ -1,0 +1,17 @@
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\TravelPlaner.exe
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\TravelPlaner.deps.json
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\TravelPlaner.runtimeconfig.json
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\TravelPlaner.dll
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\TravelPlaner.pdb
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.csproj.AssemblyReference.cache
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.MainForm.resources
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.csproj.GenerateResource.cache
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.GeneratedMSBuildEditorConfig.editorconfig
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.AssemblyInfoInputs.cache
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.AssemblyInfo.cs
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.csproj.CoreCompileInputs.cache
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.dll
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\refint\TravelPlaner.dll
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.pdb
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.genruntimeconfig.cache
+E:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\ref\TravelPlaner.dll
