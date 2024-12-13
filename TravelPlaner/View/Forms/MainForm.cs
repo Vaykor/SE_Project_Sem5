@@ -24,7 +24,7 @@ namespace TravelPlaner.View.Forms
             RestingPoint restingPoint = controller.AddRestingPoint("ASD", "ASDASD", Model.Enums.RestingPointType.Hostel, 3, "a");
             var theDate = new DateOnly(2015, 10, 21);
             var theDate2 = new DateOnly(2016, 10, 21);
-            Trip trip = controller.AddTrip("Trip to Poland", theDate, theDate, (null));
+            Trip trip = controller.AddTrip("Trip to Poland", theDate, theDate2, (null));
             TripMemory tripMemory = controller.AddTripMemory("Name");
             TripMemory tripMemory1 = controller.AddTripMemory("Name2", "Photo", "Note", "SongURL");
             TripSegment tripSegment = controller.AddTripSegment("NameSegment", (null), (null), (null));
@@ -37,6 +37,11 @@ namespace TravelPlaner.View.Forms
             label6.Text = tripMemory.Name;
             label7.Text = tripMemory1.Photo;
             label8.Text = tripSegment.Name;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
