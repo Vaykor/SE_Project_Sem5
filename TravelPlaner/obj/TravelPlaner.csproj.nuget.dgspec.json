@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\TravelPlaner.csproj": {}
+    "C:\\Users\\patry\\Documents\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {}
   },
   "projects": {
-    "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\TravelPlaner.csproj": {
+    "C:\\Users\\patry\\Documents\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\TravelPlaner.csproj",
+        "projectUniqueName": "C:\\Users\\patry\\Documents\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
         "projectName": "TravelPlaner",
-        "projectPath": "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\TravelPlaner.csproj",
-        "packagesPath": "C:\\Users\\smiec\\.nuget\\packages\\",
-        "outputPath": "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\obj\\",
+        "projectPath": "C:\\Users\\patry\\Documents\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
+        "packagesPath": "C:\\Users\\patry\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\patry\\Documents\\SE_Project_Sem5\\TravelPlaner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "M:\\Programs\\VSC\\VSSDKnShit\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\smiec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\patry\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -78,7 +78,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
