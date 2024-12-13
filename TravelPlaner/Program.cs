@@ -1,3 +1,4 @@
+using System.Globalization;
 using TravelPlaner.Controller;
 using TravelPlaner.View.Forms;
 
@@ -17,7 +18,7 @@ namespace TravelPlaner
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
             ProgramController controller = new ProgramController();
-            controller.AddExpense("Test", 1.20);
+            
         }
     }
 }
