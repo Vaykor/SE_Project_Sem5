@@ -7,7 +7,7 @@ using TravelPlaner.Model.Enums;
 
 namespace TravelPlaner.Model.Classes.Database
 {
-    public class RestingPoint
+    public class RestingPoint : Destination
     {
         public string Name { get; set; }
         public string Address { get; set; }

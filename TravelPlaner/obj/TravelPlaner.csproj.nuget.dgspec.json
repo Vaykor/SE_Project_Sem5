@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {}
+    "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\TravelPlaner.csproj": {}
   },
   "projects": {
-    "E:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {
+    "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\TravelPlaner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
+        "projectUniqueName": "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\TravelPlaner.csproj",
         "projectName": "TravelPlaner",
-        "projectPath": "E:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
-        "packagesPath": "C:\\Users\\Szymon\\.nuget\\packages\\",
-        "outputPath": "E:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\obj\\",
+        "projectPath": "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\TravelPlaner.csproj",
+        "packagesPath": "C:\\Users\\smiec\\.nuget\\packages\\",
+        "outputPath": "M:\\Polibuda\\SE\\Sem 5\\GithubProject\\TravelPlaner\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "M:\\Programs\\VSC\\VSSDKnShit\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Szymon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\smiec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +39,26 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.5.1, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +78,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

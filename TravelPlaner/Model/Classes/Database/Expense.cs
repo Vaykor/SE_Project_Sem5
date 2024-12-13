@@ -10,7 +10,6 @@ namespace TravelPlaner.Model.Classes.Database
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public DateOnly Date { get; set; }
         public double Value { get; set; }
 
     }
