@@ -1,3 +1,4 @@
+using TravelPlaner.Controller;
 using TravelPlaner.View.Forms;
 
 namespace TravelPlaner
@@ -10,10 +11,13 @@ namespace TravelPlaner
         [STAThread]
         static void Main()
         {
+            
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new MainForm());
+            ProgramController controller = new ProgramController();
+            controller.AddExpense("Test", 1.20);
         }
     }
 }
