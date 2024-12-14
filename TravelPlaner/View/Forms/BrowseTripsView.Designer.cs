@@ -31,7 +31,7 @@
             label1 = new Label();
             listView1 = new ListView();
             idTrip = new ColumnHeader();
-            Name = new ColumnHeader();
+            Trip_name = new ColumnHeader();
             Date_of_start = new ColumnHeader();
             Date_of_end = new ColumnHeader();
             Number_of_segments = new ColumnHeader();
@@ -50,7 +50,7 @@
             // 
             listView1.Activation = ItemActivation.OneClick;
             listView1.AllowDrop = true;
-            listView1.Columns.AddRange(new ColumnHeader[] { idTrip, Name, Date_of_start, Date_of_end, Number_of_segments });
+            listView1.Columns.AddRange(new ColumnHeader[] { idTrip, Trip_name, Date_of_start, Date_of_end, Number_of_segments });
             listView1.FullRowSelect = true;
             listView1.HoverSelection = true;
             listView1.Location = new Point(12, 63);
@@ -65,9 +65,10 @@
             // 
             idTrip.Width = 0;
             // 
-            // Name
+            // Trip_name
             // 
-            Name.Text = "Name";
+            Trip_name.Text = "Trip Name";
+            Trip_name.Width = 200;
             // 
             // Date_of_start
             // 
@@ -91,8 +92,8 @@
             ClientSize = new Size(800, 450);
             Controls.Add(listView1);
             Controls.Add(label1);
-         //   Name = "BrowseTripsView";
-            Text = "BrowseTripsView:)";
+            Name = "BrowseTripsView";
+            Text = "Browse Trips";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -101,7 +102,7 @@
 
         private Label label1;
         private ListView listView1;
-        private ColumnHeader Name;
+        private ColumnHeader Trip_name;
         private ColumnHeader Date_of_start;
         private ColumnHeader Date_of_end;
         private ColumnHeader Number_of_segments;

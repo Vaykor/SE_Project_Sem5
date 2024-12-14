@@ -6789,23 +6789,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pawel\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\smiec\\.nuget\\packages\\": {},
+    "M:\\Programs\\VSC\\VSSDKnShit\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\nauka\\5semester\\SE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
+      "projectUniqueName": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
       "projectName": "TravelPlaner",
-      "projectPath": "C:\\nauka\\5semester\\SE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
-      "packagesPath": "C:\\Users\\pawel\\.nuget\\packages\\",
-      "outputPath": "C:\\nauka\\5semester\\SE\\SE_Project_Sem5\\TravelPlaner\\obj\\",
+      "projectPath": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
+      "packagesPath": "C:\\Users\\smiec\\.nuget\\packages\\",
+      "outputPath": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        "M:\\Programs\\VSC\\VSSDKnShit\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\pawel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\smiec\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6814,6 +6814,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6857,24 +6858,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.28, 6.0.28]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.28, 6.0.28]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.28, 6.0.28]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.28, 6.0.28]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -6883,7 +6866,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
