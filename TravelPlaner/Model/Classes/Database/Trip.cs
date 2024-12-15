@@ -12,9 +12,12 @@ namespace TravelPlaner.Model.Classes.Database
 
         public string Name { get; set; }
 
-        public DateOnly StartDate { get; set; }
+        //Changed DateOnly to DateTime
+        //If you wanna use DateOnly use it like this:
+        //DateTime(DateOnly, TimeOnly)
+        public DateTime StartDate { get; set; }
 
-        public DateOnly EndDate { get; set; }
+        public DateTime EndDate { get; set; }
 
         public List<TripSegment>? TripSegments { get; set; }
 

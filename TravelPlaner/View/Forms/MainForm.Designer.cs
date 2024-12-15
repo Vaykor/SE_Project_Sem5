@@ -36,6 +36,7 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            button = new Button();
             SuspendLayout();
             // 
             // label1
@@ -118,11 +119,22 @@
             label8.TabIndex = 7;
             label8.Text = "Text";
             // 
+            // button
+            // 
+            button.Location = new Point(639, 186);
+            button.Name = "button";
+            button.Size = new Size(182, 87);
+            button.TabIndex = 8;
+            button.Text = "Click me:)";
+            button.UseVisualStyleBackColor = true;
+            button.Click += button1_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1000, 562);
+            Controls.Add(button);
             Controls.Add(label8);
             Controls.Add(label5);
             Controls.Add(label6);
@@ -148,5 +160,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private Button button;
     }
 }
