@@ -11,10 +11,11 @@ namespace TravelPlaner.Model.Classes.Context
 {
     public class TravelPlannerContext : DbContext
     {
-        public DbSet<Trip>? Trips { get; set; }
+        public DbSet<Trip> Trips { get; set; }
+        public DbSet<Expense> Expenses { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("Connection_String");
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=TravelPlannerDB;Trusted_Connection=True;TrustServerCertificate=True;");
         }
         
     }

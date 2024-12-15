@@ -55,7 +55,7 @@ namespace TravelPlaner.Controller
             return restingPoint;
         }
 
-        public Trip AddTrip(string Name, DateOnly StartDate, DateOnly EndDate, List<TripSegment>? tripSegments)
+        public Trip AddTrip(string Name, DateTime StartDate, DateTime EndDate, List<TripSegment>? tripSegments)
         {
             var trip = new Trip { Name = Name, StartDate = StartDate, EndDate = EndDate };
             using (var context = new TravelPlannerContext())
