@@ -19,7 +19,7 @@ namespace TravelPlaner.Model.Classes.Database
 
         public List<Destination> Destinations  { get; set; }
 
-        [ForeignKey]
+        [ForeignKey("TripId")]
         public int TripId { get; set; }
         public Trip Trip { get; set; }
     }
