@@ -21,5 +21,7 @@ namespace TravelPlaner.Model.Classes.Database
 
         public List<TripSegment>? TripSegments { get; set; }
 
+
+
     }
 }
