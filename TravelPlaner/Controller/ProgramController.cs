@@ -11,53 +11,49 @@ namespace TravelPlaner.Controller
 {
     public class ProgramController
     {
-        public void AddExpense(string Name, double Value)
+
+        #region DBSet
+        public void AddExpense(string Name, double Value, int tripSegmentId)
         {
            
             using (var context = new TravelPlannerContext())
             {
-                var expense = new Expense { Name = Name, Value = Value };
+                var expense = new Expense { Name = Name, Value = Value, TripSegmentId = tripSegmentId };
                 context.Expenses.Add(expense);
                 context.SaveChanges();
             }
         }
-
-        public void AddDestination(string Country, string City)
-        {
-           
-            using (var context = new TravelPlannerContext())
-            {
-                var destination = new Destination { Country = Country, City = City };
-                context.Destinations.Add(destination);
-                context.SaveChanges();
-            }
-            //return destination;          
-        }
-
+        
+        
+        // Not yet working
+        //public void AddDestination(string Country, string City, int tripSegmentId)
+        //{  
+        //    using (var context = new TravelPlannerContext())
+        //    {
+        //        var destination = new Destination { Country = Country, City = City, TripSegmentId = tripSegmentId };
+        //        context.Destination.Add(destination);
+        //        context.SaveChanges();
+        //    }       
+        //}
         public void AddLandmark(string Name, string Address, string Description)
-        {
-           
+        {      
             using (var context = new TravelPlannerContext())
             {
                 var landmark = new Landmark { Name = Name, Address = Address, Description = Description };
                 context.Landmarks.Add(landmark);
                 context.SaveChanges();
             }
-            //return landmark;
         }
-
         public void AddRestingPoint(string Name, string Address, RestingPointType Type, int LengthOfStay, string ContactInfo)
-        {
-            
+        {          
             using (var context = new TravelPlannerContext())
             {
                 var restingPoint = new RestingPoint { Name = Name, Address = Address, Type = Type, LengthOfStay = LengthOfStay, ContactInfo = ContactInfo };
                 context.RestingPoints.Add(restingPoint);
                 context.SaveChanges();
             }
-            //return restingPoint;
-        }
 
+        }
         public void AddTrip(string Name, DateTime StartDate, DateTime EndDate, List<TripSegment>? tripSegments)
         {
             using (var context = new TravelPlannerContext())
@@ -66,48 +62,80 @@ namespace TravelPlaner.Controller
                 context.Trips.Add(trip);
                 context.SaveChanges();
             }
-            //return trip;
-        }
 
-        public void AddTripMemory(string Name)
-        {
-            
+        }
+        public void AddTripMemory(string Name, int tripSegmentId)
+        {      
             using (var context = new TravelPlannerContext())
             {
-                var memory = new TripMemory { Name = Name };
-                context.TripMemories.Add(memory);
+                var memory = new TripMemory { Name = Name, TripSegmentId = tripSegmentId};
+                context.TripMemory.Add(memory);
                 context.SaveChanges();
             }
-            //return memory;
         }
-        public void AddTripMemory(string Name, string? Photo, string? Note, string? SongURL)
+
+
+        // Not yet implemented with relations
+        //public void AddTripMemory(string Name, string? Photo, string? Note, string? SongURL)
+        //{         
+        //    using (var context = new TravelPlannerContext())
+        //    {
+        //        var memory = new TripMemory { Name = Name, Photo = Photo, Note = Note, SongURL = SongURL };
+        //        context.TripMemory.Add(memory);
+        //        context.SaveChanges();
+        //    }
+        //}
+        public void AddTripSegment(string name, List<TripMemory> memories, List<Expense> expenses, List<Destination> destinations, int tripId)
         {
-            
             using (var context = new TravelPlannerContext())
             {
-                var memory = new TripMemory { Name = Name, Photo = Photo, Note = Note, SongURL = SongURL };
-                context.TripMemories.Add(memory);
-                context.SaveChanges();
+                // Fetch the Trip entity
+                var trip = context.Trips.FirstOrDefault(t => t.Id == tripId);
+
+                // Check if the Trip exists
+                if (trip != null)
+                {
+                    // Ensure that collections are initialized even if null is passed
+                    var tripSegment = new TripSegment
+                    {
+                        Name = name,
+                        TripId = trip.Id,
+                        Memories = memories ?? new List<TripMemory>(),
+                        Expenses = expenses ?? new List<Expense>(),
+                        Destinations = destinations ?? new List<Destination>()
+                    };
+
+                    // Add the new TripSegment
+                    context.TripSegment.Add(tripSegment);
+
+                    // Save changes
+                    context.SaveChanges();
+                }
+                else
+                {
+                    // Handle the case where the Trip does not exist
+                    throw new Exception($"Trip with ID {tripId} does not exist.");
+                }
             }
-            //return memory;
         }
-        public void AddTripSegment(string Name, List<TripMemory> memories, List<Expense> expenses, List<Destination> destinations)
+
+        #endregion
+
+
+
+        #region DBGet
+
+        public List<TripSegment> GetAllTripSegmentsByTripId(int tripId)
         {
+            List<TripSegment> tripSegments = new List<TripSegment>();
 
             using (var context = new TravelPlannerContext())
             {
-                //var TripSegment = new TripSegment { Name = Name, Memories = memories, Expenses = expenses, Destinations = destinations };
-
-                var TripSegment = new TripSegment { Name = "1", Memories = new List<TripMemory>(), Expenses = new List<Expense>(), Destinations = new List<Destination>() };
-                context.TripSegment.Add(TripSegment);
-
-
-                context.SaveChanges();
+                tripSegments = context.TripSegment.Where(ts => ts.TripId == tripId).ToList();           
             }
-            //return TripSegment;
+
+            return tripSegments;
         }
-
-
         public List<Trip> GetAllTrips()
         {
             List<Trip> trips = new List<Trip>();
@@ -117,58 +145,60 @@ namespace TravelPlaner.Controller
             }
             return trips;
         }
-
-        public Trip GetTripById(int id)
+        public Trip GetFirstTrip()
         { 
             Trip trip = new Trip();
 
             using(var context = new TravelPlannerContext())
             { 
-                trip = context.Trips.Where(t => t.Id == id).FirstOrDefault();
+                trip = context.Trips.FirstOrDefault();
             }
             return trip;       
         }
-
-        public TripSegment GetFirstTripSegment()
-        { 
-            TripSegment tripSegment = new TripSegment();
-
-            using (var context = new TravelPlannerContext())
-            {
-                tripSegment = context.TripSegment.FirstOrDefault();
-            }
-            return tripSegment;
-
-        }
-
-        public void AddTripSegmentToTrip(Trip tripId, int tripSegmentId)
+        public Trip GetTripById(int tripId)
         {
+            Trip trip = new Trip();
 
             using (var context = new TravelPlannerContext())
-            {
-                var trip = context.Trips.Where(t => t.Id == tripId.Id).FirstOrDefault();
-                var tripSegment = context.TripSegment.Where(ts => ts.Id == tripSegmentId ).FirstOrDefault();
-
-                tripSegment.Trip = trip;
-
-                context.SaveChanges();
+            { 
+                trip = context.Trips.Where(t => t.Id == tripId).FirstOrDefault();
             }
 
+            return trip;
         }
-
-
-
-
-        public void ClearTripsTable()
+        public List<TripMemory> GetAllTripMemoriesByTripSegmentId(int tripSegmentId)
         {
+            List<TripMemory> tripMemories = new List<TripMemory>();
+
+            using(var context = new TravelPlannerContext()) 
+            {
+                tripMemories = context.TripMemory.Where(tm => tm.TripSegmentId == tripSegmentId).ToList();
+            }
+         
+            return tripMemories;
+        }
+        public List<Expense> GetAllExpensesByTripSegmentId(int tripSegmentId)
+        {
+            List<Expense> expenses = new List<Expense>();   
             using (var context = new TravelPlannerContext())
             {
-                var allEntities = context.Trips.ToList(); 
-                context.Trips.RemoveRange(allEntities);   
-                context.SaveChanges();
+                expenses = context.Expenses.Where(ex => ex.TripSegmentId == tripSegmentId).ToList();
             }
+
+            return expenses;
         }
-    
-    
+        public List<Destination> GetAllDestinationsByTripSegmentId(int tripSegmentId) 
+        {
+            List<Destination> destinations  = new List<Destination>();
+
+            using (var context = new TravelPlannerContext())
+            {
+                destinations = context.Destination.Where(ds => ds.TripSegmentId == tripSegmentId).ToList();
+            }
+            return destinations;
+        }
+
+        #endregion
+
     }
 }

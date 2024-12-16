@@ -22,20 +22,9 @@ namespace TravelPlaner.View.Forms
         {
             InitializeComponent();
 
-
-            controller.ClearTripsTable();
-
-            controller.AddTrip("Trip_1", DateTime.Now, DateTime.Now, new List<TripSegment>());
-            controller.AddTrip("Trip_2", DateTime.Now, DateTime.Now, new List<TripSegment>());
-            controller.AddTrip("Trip_3", DateTime.Now, DateTime.Now, new List<TripSegment>());
-
-
-            controller.AddTripSegment("TestSegment",new List<TripMemory>(), new List<Expense>(), new List<Destination>());
-
-
-            
-
-
+            //controller.AddTrip("Trip_1", DateTime.Now, DateTime.Now, new List<TripSegment>());
+            //controller.AddTrip("Trip_2", DateTime.Now, DateTime.Now, new List<TripSegment>());
+            // controller.AddTrip("Trip_3", DateTime.Now, DateTime.Now, new List<TripSegment>());
 
             // Destination destination = controller.AddDestination("Poland", "Warsaw");
 
@@ -55,7 +44,7 @@ namespace TravelPlaner.View.Forms
 
             //TripSegment tripSegment = controller.AddTripSegment("NameSegment", (null), (null), (null));
 
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -63,9 +52,23 @@ namespace TravelPlaner.View.Forms
             List<Trip> tripsFromDB = new List<Trip>();
             tripsFromDB = controller.GetAllTrips();
 
-            Trip tripFromDB = controller.GetTripById(18);
+            Trip tripFromDB = controller.GetFirstTrip();
 
-            controller.AddTripSegmentToTrip(tripFromDB,1);
+            controller.AddTripSegment("TestSegment", new List<TripMemory>(), new List<Expense>(), new List<Destination>(), tripFromDB.Id);
+
+            List<TripSegment> tripSegments = controller.GetAllTripSegmentsByTripId(tripFromDB.Id);
+
+            tripFromDB.TripSegments = tripSegments;
+
+
+            controller.AddTripMemory("Memory 1", tripFromDB.TripSegments[0].Id);
+            List<TripMemory> tripMemories = controller.GetAllTripMemoriesByTripSegmentId(tripFromDB.TripSegments[0].Id);
+
+            controller.AddExpense("Expense 1", 3.5, tripFromDB.TripSegments[0].Id);
+            List<Expense> expenses = controller.GetAllExpensesByTripSegmentId(tripFromDB.TripSegments[0].Id);
+
+            //controller.AddDestination("Poland", "Gliwice", tripFromDB.TripSegments[0].Id);
+            //List<Destination> destinations = controller.GetAllDestinationsByTripSegmentId(tripFromDB.TripSegments[0].Id);
 
 
 
