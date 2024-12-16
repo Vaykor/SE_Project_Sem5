@@ -12,6 +12,8 @@ namespace TravelPlaner.Model.Classes.Database
         public string Name { get; set; }
         public double Value { get; set; }
 
+        public int TripSegmentId { get; set; }
+        public TripSegment TripSegment { get; set; }
 
     }
 }

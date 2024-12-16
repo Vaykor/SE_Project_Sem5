@@ -19,7 +19,7 @@ namespace TravelPlaner.Model.Classes.Database
 
         public DateTime EndDate { get; set; }
 
-        public List<TripSegment>? TripSegments { get; set; }
+        public List<TripSegment> TripSegments { get; set; } = new List<TripSegment>();
 
 
 
