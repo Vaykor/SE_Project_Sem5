@@ -21,10 +21,10 @@ namespace TravelPlaner.View.Forms
         public MainForm()
         {
             InitializeComponent();
-
+            
             //controller.AddTrip("Trip_1", DateTime.Now, DateTime.Now, new List<TripSegment>());
             //controller.AddTrip("Trip_2", DateTime.Now, DateTime.Now, new List<TripSegment>());
-            // controller.AddTrip("Trip_3", DateTime.Now, DateTime.Now, new List<TripSegment>());
+            //controller.AddTrip("Trip_3", DateTime.Now, DateTime.Now, new List<TripSegment>());
 
             // Destination destination = controller.AddDestination("Poland", "Warsaw");
 
