@@ -1,62 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\",
+  "WorkspaceRootPath": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsegmentsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsegmentsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\browsetripsegmentsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsegmentsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\browsetripsegmentsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\view\\forms\\browsetripsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\browsetripsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\browsetripsview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsegmentsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\browsetripsegmentsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\model\\classes\\database\\tripmemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:model\\classes\\database\\tripmemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\browsetripsview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\view\\forms\\mainview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\mainview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\view\\forms\\segmentdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\segmentdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\model\\classes\\database\\destination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:model\\classes\\database\\destination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\view\\forms\\segmentdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\segmentdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\model\\classes\\database\\restingpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:model\\classes\\database\\restingpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsegmentsview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\browsetripsegmentsview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\controller\\programcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:controller\\programcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\view\\forms\\segmentdetails.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\segmentdetails.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\model\\classes\\database\\landmark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:model\\classes\\database\\landmark.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\model\\classes\\database\\tripsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:model\\classes\\database\\tripsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\view\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|m:\\polibuda\\se\\sem 5\\se_project_sem5\\travelplaner\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\view\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|c:\\nauka\\5semester\\se\\projekt\\se_project_sem5\\travelplaner\\view\\forms\\browsetripsview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{87365AC8-9992-41BD-96D5-BB2827C143F7}|TravelPlaner.csproj|solutionrelative:view\\forms\\browsetripsview.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -65,185 +49,134 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 479,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BrowseTripsView.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.cs",
-              "RelativeDocumentMoniker": "View\\Forms\\BrowseTripsView.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.cs",
-              "RelativeToolTip": "View\\Forms\\BrowseTripsView.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwCUAAAAgAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "TripMemory.cs",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\TripMemory.cs",
+              "RelativeDocumentMoniker": "Model\\Classes\\Database\\TripMemory.cs",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\TripMemory.cs",
+              "RelativeToolTip": "Model\\Classes\\Database\\TripMemory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T14:55:54.094Z",
+              "WhenOpened": "2024-12-17T17:06:24.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SegmentDetails.cs",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\SegmentDetails.cs",
+              "RelativeDocumentMoniker": "View\\Forms\\SegmentDetails.cs",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\SegmentDetails.cs",
+              "RelativeToolTip": "View\\Forms\\SegmentDetails.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAwwBAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T15:48:07.835Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "BrowseTripsView.cs [Design]",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.cs",
+              "RelativeDocumentMoniker": "View\\Forms\\BrowseTripsView.cs",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.cs [Design]",
+              "RelativeToolTip": "View\\Forms\\BrowseTripsView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T15:48:27.021Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "BrowseTripSegmentsView.cs [Design]",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.cs",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.cs",
               "RelativeDocumentMoniker": "View\\Forms\\BrowseTripSegmentsView.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.cs [Design]",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.cs [Design]",
               "RelativeToolTip": "View\\Forms\\BrowseTripSegmentsView.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T14:45:13.098Z",
+              "WhenOpened": "2024-12-17T15:38:20.824Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "BrowseTripSegmentsView.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.cs",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.cs",
               "RelativeDocumentMoniker": "View\\Forms\\BrowseTripSegmentsView.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.cs",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.cs",
               "RelativeToolTip": "View\\Forms\\BrowseTripSegmentsView.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAC4AAAAQAAAAAAAAAA==",
+              "ViewState": "AQIAACYAAAAAAAAAAAAIwCwAAABJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T13:07:06.484Z",
+              "WhenOpened": "2024-12-17T15:48:12.977Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BrowseTripsView.Designer.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.Designer.cs",
-              "RelativeDocumentMoniker": "View\\Forms\\BrowseTripsView.Designer.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.Designer.cs",
-              "RelativeToolTip": "View\\Forms\\BrowseTripsView.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T14:39:45.31Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "BrowseTripsView.cs [Design]",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.cs",
+              "DocumentIndex": 4,
+              "Title": "BrowseTripsView.cs",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.cs",
               "RelativeDocumentMoniker": "View\\Forms\\BrowseTripsView.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.cs [Design]",
-              "RelativeToolTip": "View\\Forms\\BrowseTripsView.cs [Design]",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.cs",
+              "RelativeToolTip": "View\\Forms\\BrowseTripsView.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAADwvx4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T12:10:12.362Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainView.cs [Design]",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\MainView.cs",
-              "RelativeDocumentMoniker": "View\\Forms\\MainView.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\MainView.cs [Design]",
-              "RelativeToolTip": "View\\Forms\\MainView.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T11:53:36.397Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-17T15:48:29.44Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Destination.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\Destination.cs",
-              "RelativeDocumentMoniker": "Model\\Classes\\Database\\Destination.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\Destination.cs",
-              "RelativeToolTip": "Model\\Classes\\Database\\Destination.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Title": "SegmentDetails.cs [Design]",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\SegmentDetails.cs",
+              "RelativeDocumentMoniker": "View\\Forms\\SegmentDetails.cs",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\SegmentDetails.cs [Design]",
+              "RelativeToolTip": "View\\Forms\\SegmentDetails.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T13:28:29.747Z"
+              "WhenOpened": "2024-12-17T15:45:55.497Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "RestingPoint.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\RestingPoint.cs",
-              "RelativeDocumentMoniker": "Model\\Classes\\Database\\RestingPoint.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\RestingPoint.cs",
-              "RelativeToolTip": "Model\\Classes\\Database\\RestingPoint.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
+              "Title": "BrowseTripSegmentsView.Designer.cs",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.Designer.cs",
+              "RelativeDocumentMoniker": "View\\Forms\\BrowseTripSegmentsView.Designer.cs",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripSegmentsView.Designer.cs",
+              "RelativeToolTip": "View\\Forms\\BrowseTripSegmentsView.Designer.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAkwDMAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T13:28:48.796Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Landmark.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\Landmark.cs",
-              "RelativeDocumentMoniker": "Model\\Classes\\Database\\Landmark.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\Landmark.cs",
-              "RelativeToolTip": "Model\\Classes\\Database\\Landmark.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T13:28:38.753Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TripSegment.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\TripSegment.cs",
-              "RelativeDocumentMoniker": "Model\\Classes\\Database\\TripSegment.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Model\\Classes\\Database\\TripSegment.cs",
-              "RelativeToolTip": "Model\\Classes\\Database\\TripSegment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T12:41:47.02Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "MainForm.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "View\\Forms\\MainForm.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\MainForm.cs",
-              "RelativeToolTip": "View\\Forms\\MainForm.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAwBgAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T02:42:41.902Z",
+              "WhenOpened": "2024-12-17T16:20:28.021Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBIAAAAoAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "SegmentDetails.Designer.cs",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\SegmentDetails.Designer.cs",
+              "RelativeDocumentMoniker": "View\\Forms\\SegmentDetails.Designer.cs",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\SegmentDetails.Designer.cs",
+              "RelativeToolTip": "View\\Forms\\SegmentDetails.Designer.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAYwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T02:42:38.244Z"
+              "WhenOpened": "2024-12-17T16:18:27.53Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "MainForm.cs [Design]",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\MainForm.cs",
-              "RelativeDocumentMoniker": "View\\Forms\\MainForm.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\MainForm.cs [Design]",
-              "RelativeToolTip": "View\\Forms\\MainForm.cs [Design]",
+              "DocumentIndex": 9,
+              "Title": "BrowseTripsView.Designer.cs",
+              "DocumentMoniker": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.Designer.cs",
+              "RelativeDocumentMoniker": "View\\Forms\\BrowseTripsView.Designer.cs",
+              "ToolTip": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\View\\Forms\\BrowseTripsView.Designer.cs",
+              "RelativeToolTip": "View\\Forms\\BrowseTripsView.Designer.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAYwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T11:37:04.262Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 33,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ProgramController.cs",
-              "DocumentMoniker": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Controller\\ProgramController.cs",
-              "RelativeDocumentMoniker": "Controller\\ProgramController.cs",
-              "ToolTip": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\Controller\\ProgramController.cs",
-              "RelativeToolTip": "Controller\\ProgramController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-17T11:58:40.031Z",
+              "WhenOpened": "2024-12-17T16:17:04.714Z",
               "EditorCaption": ""
             }
           ]
