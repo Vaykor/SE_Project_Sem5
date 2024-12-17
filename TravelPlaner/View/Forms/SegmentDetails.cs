@@ -14,10 +14,7 @@ namespace TravelPlaner.View.Forms
 {
     public partial class SegmentDetails : UserControl
     {
-        public SegmentDetails()
-        {
-            InitializeComponent();
-        }
+
         public SegmentDetails(int tsId)
         {
             ProgramController controller = new ProgramController();
@@ -32,7 +29,9 @@ namespace TravelPlaner.View.Forms
                 item.SubItems.Add(expense.Value.ToString());  // Third column (StartDate)
                 // Add row to ListView
                 listView1.Items.Add(item);
+                
             }
+            label1.Text = tsId.ToString();
 
 
         }

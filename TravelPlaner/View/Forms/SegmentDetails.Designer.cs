@@ -32,6 +32,9 @@
             label2 = new Label();
             label3 = new Label();
             listView1 = new ListView();
+            ExpenseID = new ColumnHeader();
+            ExpenseName = new ColumnHeader();
+            ExpenseValue = new ColumnHeader();
             SuspendLayout();
             // 
             // label1
@@ -63,11 +66,28 @@
             // 
             // listView1
             // 
-            listView1.Location = new Point(17, 35);
+            listView1.Columns.AddRange(new ColumnHeader[] { ExpenseID, ExpenseName, ExpenseValue });
+            listView1.Location = new Point(17, 92);
             listView1.Name = "listView1";
-            listView1.Size = new Size(139, 503);
+            listView1.Size = new Size(228, 512);
             listView1.TabIndex = 3;
             listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // ExpenseID
+            // 
+            ExpenseID.Text = "Expense";
+            ExpenseID.Width = 0;
+            // 
+            // ExpenseName
+            // 
+            ExpenseName.Text = "Name";
+            ExpenseName.Width = 120;
+            // 
+            // ExpenseValue
+            // 
+            ExpenseValue.Text = "Value";
+            ExpenseValue.Width = 100;
             // 
             // SegmentDetails
             // 
@@ -89,5 +109,8 @@
         private Label label2;
         private Label label3;
         private ListView listView1;
+        private ColumnHeader ExpenseID;
+        private ColumnHeader ExpenseName;
+        private ColumnHeader ExpenseValue;
     }
 }
