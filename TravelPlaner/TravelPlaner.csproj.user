@@ -8,6 +8,9 @@
     <Compile Update="View\Forms\BrowseTripsView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Forms\GUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

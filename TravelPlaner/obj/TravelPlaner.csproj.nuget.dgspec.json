@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {}
+    "C:\\nauka\\5semester\\SE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {}
   },
   "projects": {
-    "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {
+    "C:\\nauka\\5semester\\SE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
+        "projectUniqueName": "C:\\nauka\\5semester\\SE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
         "projectName": "TravelPlaner",
-        "projectPath": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
+        "projectPath": "C:\\nauka\\5semester\\SE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
         "packagesPath": "C:\\Users\\pawel\\.nuget\\packages\\",
-        "outputPath": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\obj\\",
+        "outputPath": "C:\\nauka\\5semester\\SE\\SE_Project_Sem5\\TravelPlaner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
