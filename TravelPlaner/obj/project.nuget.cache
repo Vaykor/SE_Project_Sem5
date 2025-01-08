@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/VgNjQ7a+bOcTCWUVCq6clxKqAVbfF9BbPkF4rqq4k0UveXKGq42R9YLL/1hjxkBx/KAcIdB0nqweguomq3fqw==",
+  "dgSpecHash": "JH1I7CMCTUrJ3dATzkB4H9oe38bc8hxSVwWJRNFJFCAiZz2qpAXxydNlQR8TyvPnt4isLCPN7GvmlOrELUb+xg==",
   "success": true,
-  "projectFilePath": "C:\\nauka\\5semester\\SE\\Projekt\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
+  "projectFilePath": "C:\\nauka\\5semester\\SE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\pawel\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\pawel\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
