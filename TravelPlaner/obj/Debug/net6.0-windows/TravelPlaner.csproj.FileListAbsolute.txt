@@ -455,3 +455,10 @@ C:\nauka\5semester\SE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\ref\
 C:\nauka\5semester\SE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.GUI.resources
 M:\Polibuda\SE\Sem 5\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.GUI.resources
 M:\Polibuda\SE\Sem 5\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.Properties.Resources.resources
+H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.Properties.Resources.resources
+H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.BrowseTripSegmentsView.resources
+H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.BrowseTripsView.resources
+H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.GUI.resources
+H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.MainView.resources
+H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.SegmentDetails.resources
+H:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
