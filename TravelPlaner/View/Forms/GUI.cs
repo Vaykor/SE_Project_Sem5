@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Security;
@@ -16,6 +17,8 @@ namespace TravelPlaner.View.Forms
     public partial class GUI : Form
     {
         ProgramController controller = new ProgramController();
+        private List<FlowLayoutPanel> expenseSegmentPanels = new List<FlowLayoutPanel>();
+
         public GUI()
         {
             InitializeComponent();
@@ -43,6 +46,7 @@ namespace TravelPlaner.View.Forms
         //----------------Trip details panel-------------------
         private void ShowTripDetails(Trip trip, List<TripSegment> tripSegments)
         {
+            Trip passedTrip = trip;
             int labelY = 40;
             menuPanel.Visible = false;
             newTripPanel.Visible = false;
@@ -51,7 +55,21 @@ namespace TravelPlaner.View.Forms
 
             inspectTripPanel.Visible = true;
             inspectTripPanel.BringToFront();
-
+            Button editButton = new Button
+            {
+                Text = "✏",
+                Location = new Point(0, 0),
+                AutoSize = true
+            };
+            editButtonPanel.Controls.Add(editButton);
+            editButton.Click += (sender, e) =>
+            {
+                ShowPanel(editTripPanel);
+                editNameTextBox.Text = passedTrip.Name;
+                editDepDateTextBox.Text = passedTrip.StartDate.ToString();
+                editReturnDateTextBox.Text = passedTrip.EndDate.ToString();
+                AddTripSegment(editTripFlowLayoutPanel, passedTrip);
+            };
             Label nameLabel = new Label
             {
                 Text = $"Name: {trip.Name}",  //{destinationName}",
@@ -71,6 +89,13 @@ namespace TravelPlaner.View.Forms
 
             foreach (TripSegment tripSegment in tripSegments)
             {
+                bool isExpanded = false;
+                // Panel pojedynczego segmentu
+                var segmentPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                };
                 Label segmentNameLabel = new Label
                 {
                     Text = $"{tripSegment.Name}",  //{destinationName}",
@@ -78,11 +103,50 @@ namespace TravelPlaner.View.Forms
                     Location = new Point(10, labelY += 30),
                     AutoSize = true
                 };
-                tripInfoPanel.Controls.Add(segmentNameLabel);
+                segmentPanel.Controls.Add(segmentNameLabel);
+                var btnExpandSegmentInfo = new Button
+                {
+                    Text = "+",
+                    Location = new Point(130, labelY),
+                    AutoSize = true
+                };
+                segmentPanel.Controls.Add(btnExpandSegmentInfo);
+                var expandingPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.TopDown,
+                    //BorderStyle = BorderStyle.FixedSingle,
+                    Padding = new Padding(5),
+                    Visible = false
+                };
+
+
+                tripInfoPanel.Controls.Add(segmentPanel);
+                tripInfoPanel.Controls.Add(expandingPanel);
+                btnExpandSegmentInfo.Click += (s, e) =>
+                { if (!isExpanded)
+                    {
+                        isExpanded = true;
+                        expandingPanel.BorderStyle = BorderStyle.FixedSingle;
+                        btnExpandSegmentInfo.Text = "-";
+                        expandTripSegment(expandingPanel, tripSegment);
+                    } else {
+                        isExpanded = false;
+                        expandingPanel.BorderStyle = BorderStyle.None;
+                        btnExpandSegmentInfo.Text = "+";
+                        collapseTripSegment(expandingPanel);
+                        }
+                };
             }
+
+
+
         }
 
         //-----------menu panel--------------------
+        /** GOING FROM THE MAIN MENU TO THE "ADD NEW TRIP" MENU
+         * 
+         */
         private void newTripButton_Click(object sender, EventArgs e)
         {
             ShowPanel(newTripPanel);
@@ -90,6 +154,9 @@ namespace TravelPlaner.View.Forms
 
 
         }
+        /** FUNCTION FOR CREATING THE "FORM" FOR ADDING TRIP SEGMENT SECTIONS
+         * USED IN "ADD NEW TRIP" AND "EDIT TRIP"
+         */
         private void AddTripSegmentSection(FlowLayoutPanel flowLayoutPanel)
         {
             // Panel sekcji
@@ -116,14 +183,203 @@ namespace TravelPlaner.View.Forms
                 Text = "+",
                 AutoSize = true
             };
-            btnAddSegment.Click += (s, e) => AddTripSegment(sectionPanel);
+            btnAddSegment.Click += (s, e) => AddTripSegment(sectionPanel, null);
             sectionPanel.Controls.Add(btnAddSegment);
 
             flowLayoutPanel.Controls.Add(sectionPanel);
         }
-
-        private void AddTripSegment(FlowLayoutPanel sectionPanel)
+        /** USED WHEN SHOWCASING DETAILS OF THE TRIP. IT EXPANDS THE HIDDEN DETAILS OF A CERTAIN TRIP SEGMENT WHEN + IS PRESSED
+         * 
+         * TODO: TRY REMOVING THE LOCATIONS FROM EVERYTHING AND SEE IF IT SCREWS UP MAJORLY; ADD COLLAPSING TO DESTINATION WHEN THAT GETS ADDED
+         */
+        private void expandTripSegment(FlowLayoutPanel flowLayoutPanel, TripSegment tripsegment)
         {
+            List<TripMemory> memories = controller.GetAllTripMemoriesByTripSegmentId(tripsegment.Id);
+            List<Expense> expenses = controller.GetAllExpensesByTripSegmentId(tripsegment.Id);
+            
+            bool isDestinationExpanded = false; //to be used in the future
+            bool isExpenseExpanded = false;
+            
+            Label labelCountry = new Label
+            {
+                Text = $"{"Country: WIP"}",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                Location = new Point(10, 0),
+                AutoSize = true
+            };
+            Label labelCity = new Label
+            {
+                Text = $"{"City: WIP"}",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                Location = new Point(10, 30),
+                AutoSize = true
+            };
+            var landmarkPanel = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            Label landmarkLabel = new Label
+            {
+                Text = $"{"Destinations"}",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                Location = new Point(10, 50),
+                AutoSize = true
+            };
+            var btnExpandLandmarks = new Button
+            {
+                Text = "+",
+                Location = new Point(130, 50),
+                AutoSize = true
+            };
+            flowLayoutPanel.Controls.Add(labelCountry);
+            flowLayoutPanel.Controls.Add(labelCity);
+            flowLayoutPanel.Controls.Add(landmarkPanel);
+            landmarkPanel.Controls.Add(landmarkLabel);
+            landmarkPanel.Controls.Add(btnExpandLandmarks);
+            var expensePanel = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            Label expensesLabel = new Label
+            {
+                Text = $"{"Expenses"}",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                Location = new Point(10, 50),
+                AutoSize = true
+            };
+            var btnExpandExpenses = new Button
+            {
+                Text = "+",
+                Location = new Point(130, 50),
+                AutoSize = true
+            };
+            flowLayoutPanel.Controls.Add(expensePanel);
+            expensePanel.Controls.Add(expensesLabel);
+            expensePanel.Controls.Add(btnExpandExpenses);
+            btnExpandExpenses.Click += (s, e) =>
+            {
+
+                if (!isExpenseExpanded)
+                {
+                    isExpenseExpanded = true;
+                    btnExpandExpenses.Text = "-";
+                    foreach (Expense expense in expenses)
+                    {
+                        var segmentPanel = new FlowLayoutPanel
+                        {
+                            AutoSize = true,
+                            FlowDirection = FlowDirection.TopDown,
+                            BorderStyle = BorderStyle.FixedSingle
+                        };
+                        Label labelExpenseName = new Label
+                        {
+                            Text = $"{"Name: " + expense.Name}",
+                            Font = new Font("Arial", 10, FontStyle.Bold),
+                            AutoSize = true
+                        };
+                        Label labelExpenseValue = new Label
+                        {
+                            Text = $"{"Value: " + expense.Value}",
+                            Font = new Font("Arial", 10, FontStyle.Bold),
+                            AutoSize = true
+                        };
+                        segmentPanel.Controls.Add(labelExpenseName);
+                        segmentPanel.Controls.Add(labelExpenseValue);
+                        flowLayoutPanel.Controls.Add(segmentPanel);
+                        expenseSegmentPanels.Add(segmentPanel);
+                    }
+                }
+                else
+                {
+                    isExpenseExpanded = false;
+                    btnExpandExpenses.Text = "+";
+                    foreach (var panel in expenseSegmentPanels)
+                    {
+                        flowLayoutPanel.Controls.Remove(panel);
+                    }
+                    expenseSegmentPanels.Clear();
+                }
+            };
+            var memoryPanel = new FlowLayoutPanel
+            {
+                AutoSize = true,
+                FlowDirection = FlowDirection.LeftToRight,
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            Label memoryLabel = new Label
+            {
+                Text = $"{"Memories"}",
+                Font = new Font("Arial", 10, FontStyle.Bold),
+                Location = new Point(10, 50),
+                AutoSize = true
+            };
+            var btnExpandMemories = new Button
+            {
+                Text = "+",
+                Location = new Point(130, 50),
+                AutoSize = true
+            };
+            flowLayoutPanel.Controls.Add(expensePanel);
+            expensePanel.Controls.Add(expensesLabel);
+            expensePanel.Controls.Add(btnExpandExpenses);
+            flowLayoutPanel.Controls.Add(memoryPanel);
+            foreach (TripMemory memo in memories)
+            {
+                var singleMemoryPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.TopDown,
+                    //BorderStyle = BorderStyle.FixedSingle
+                };
+                Label memoryNameLabel = new Label
+                {
+                    Text = $"{memo.Name}",
+                    Font = new Font("Arial", 10, FontStyle.Bold),
+                    Location = new Point(10, 10),
+                    AutoSize = true
+                };
+                var memoryPicture = new PictureBox()
+                {
+                    ImageLocation = memo.Photo,
+                    SizeMode = PictureBoxSizeMode.StretchImage,
+                    MaximumSize = new Size(800, 800),
+                    MinimumSize = new Size(250, 250)
+                };
+                Label memoryNoteLabel = new Label
+                {
+                    Text = $"{memo.Note}",
+                    Font = new Font("Arial", 10, FontStyle.Bold),
+                    Location = new Point(10, 10),
+                    AutoSize = true
+                };
+                TextBox memorySongLabel = new TextBox
+                {
+                    Text = $"{memo.SongURL}",
+                    Font = new Font("Arial", 10, FontStyle.Bold),
+                    Location = new Point(10, 10),
+                    AutoSize = true
+                };
+                memoryPanel.Controls.Add(singleMemoryPanel);
+                singleMemoryPanel.Controls.Add(memoryNameLabel);
+                singleMemoryPanel.Controls.Add(memoryPicture);
+                singleMemoryPanel.Controls.Add(memoryNoteLabel);
+                singleMemoryPanel.Controls.Add(memorySongLabel);
+
+            }
+            flowLayoutPanel.Visible = true;
+
+        }
+        private void collapseTripSegment(FlowLayoutPanel flowLayoutPanel)
+        {
+            flowLayoutPanel.Controls.Clear();
+        }
+/*        private void AddTripSegment(FlowLayoutPanel sectionPanel)
+        {
+
             // Panel pojedynczego segmentu
             var segmentPanel = new FlowLayoutPanel
             {
@@ -181,7 +437,7 @@ namespace TravelPlaner.View.Forms
                 Text = "+",
                 AutoSize = true
             };
-            btnAddExpense.Click += (s, e) => AddExpense(expensePanel);
+            btnAddExpense.Click += (s, e) => AddExpense(expensePanel, null);
             segmentPanel.Controls.Add(expenseLabel);
             segmentPanel.Controls.Add(btnAddExpense);
             segmentPanel.Controls.Add(expensePanel);
@@ -200,7 +456,7 @@ namespace TravelPlaner.View.Forms
                 Text = "+",
                 AutoSize = true
             };
-            btnAddMemory.Click += (s, e) => AddMemory(memoryPanel);
+            btnAddMemory.Click += (s, e) => AddMemory(memoryPanel, null);
             segmentPanel.Controls.Add(memoryLabel);
             segmentPanel.Controls.Add(btnAddMemory);
             segmentPanel.Controls.Add(memoryPanel);
@@ -226,8 +482,187 @@ namespace TravelPlaner.View.Forms
                 Text = "Save",
                 AutoSize = true
             };
+        }*/
+      /** ADDING THE ACTUAL TRIP SEGMENTS (NOT JUST THE PANELS LIKE AddTripSegmentSection() BUT THE ACTUAL INSIDES)
+       * IF YOU WANT TO CREATE A NEW BLANK TRIPSEGMENT INSERTING FIELD, PASS NULL IN THE SECOND ARGUMENT (like AddTripSegment(examplePanel, null)
+       * IF YOU WANT TO CREATE FIELDS FOR AN EXISTING TRIPSEGMENT (like in editTrip) THEN PASS THE TRIP YOU WANT TO USE
+       */
+        private void AddTripSegment(FlowLayoutPanel sectionPanel, Trip trip)
+        {
+            int amount;
+            List<Expense> expenses;
+            List<TripMemory> memories;
+            List<TripSegment> tripsegments= new List<TripSegment>();
+            if (trip != null)
+            {
+                tripsegments = controller.GetAllTripSegmentsByTripId(trip.Id);
+                amount = tripsegments.Count();
+                
+                //string country = trip==null ? "" : trip.;
+            } else
+            {
+                amount = 1;
+            }
+            for (int i = 0; i < amount; i++)
+            {
+
+                // Panel pojedynczego segmentu
+                var segmentPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.TopDown,
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Padding = new Padding(15)
+                };
+                //TODO WHEN LANDMARKS WORK
+                //Country panel
+                var countryPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                };
+                // Pole Country
+                var lblCountry = new Label { Text = "Country:" , AutoSize = true };
+                var txtCountry = new TextBox { Width = 200 };
+                countryPanel.Controls.Add(lblCountry);
+                countryPanel.Controls.Add(txtCountry);
+                segmentPanel.Controls.Add(countryPanel);
+
+
+                //City panel
+                var cityPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                };
+                // Pole City
+                var lblCity = new Label { Text = "City:", AutoSize = true };
+                var txtCity = new TextBox { Width = 200 };
+                cityPanel.Controls.Add(lblCity);
+                cityPanel.Controls.Add(txtCity);
+                segmentPanel.Controls.Add(cityPanel);
+
+
+                var landmarkPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    Padding = new Padding(5)
+                };
+                var newLandmarkPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                };
+                var landmarkLabel = new Label { Text = "Add landmark:", AutoSize = true };
+
+                // Przycisk do dodawania segmentów
+                var btnAddLandmark = new Button
+                {
+                    Text = "+",
+                    AutoSize = true
+                };
+
+                btnAddLandmark.Click += (s, e) => AddLandmark(newLandmarkPanel);
+                landmarkPanel.Controls.Add(landmarkLabel);
+                landmarkPanel.Controls.Add(btnAddLandmark);
+                segmentPanel.Controls.Add(landmarkPanel);
+                segmentPanel.Controls.Add(newLandmarkPanel);
+
+                //EXPENSES
+                var expensePanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    Padding = new Padding(5)
+                };
+                var newExpensePanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                };
+                var expenseLabel = new Label { Text = "Add expense:", AutoSize = true };
+
+                // Przycisk do dodawania segmentów
+                var btnAddExpense = new Button
+                {
+                    Text = "+",
+                    AutoSize = true
+                };
+                btnAddExpense.Click += (s, e) => AddExpense(newExpensePanel, null);
+                expensePanel.Controls.Add(expenseLabel);
+                expensePanel.Controls.Add(btnAddExpense);
+                segmentPanel.Controls.Add(expensePanel);
+                segmentPanel.Controls.Add(newExpensePanel);
+                if (trip != null)
+                {
+                    expenses = controller.GetAllExpensesByTripSegmentId(tripsegments[i].Id);
+                    foreach (var item in expenses)
+                    {
+                        AddExpense(newExpensePanel, item);
+                    }
+                }
+                var memoryPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+                    Padding = new Padding(5)
+                };
+                var newMemoryPanel = new FlowLayoutPanel
+                {
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.LeftToRight,
+
+                };
+                var memoryLabel = new Label { Text = "Add memory:", AutoSize = true };
+                // Przycisk do dodawania segmentów
+
+                // MEMORIES
+
+                var btnAddMemory = new Button
+                {
+                    Text = "+",
+                    AutoSize = true
+                };
+                btnAddMemory.Click += (s, e) => AddMemory(newMemoryPanel, null);
+                memoryPanel.Controls.Add(memoryLabel);
+                memoryPanel.Controls.Add(btnAddMemory);
+                segmentPanel.Controls.Add(memoryPanel);
+                segmentPanel.Controls.Add(newMemoryPanel);
+                if (trip != null)
+                {
+                    memories = controller.GetAllTripMemoriesByTripSegmentId(tripsegments[i].Id);
+                    foreach (var item in memories)
+                    {
+                        AddMemory(newMemoryPanel, item);
+                    }
+                }
+                // Przycisk usuwania
+                var btnRemove = new Button
+                {
+                    Text = "-",
+                    AutoSize = true
+                };
+                btnRemove.Click += (s, e) => sectionPanel.Controls.Remove(segmentPanel);
+                segmentPanel.Controls.Add(btnRemove);
+
+
+
+
+
+
+                sectionPanel.Controls.Add(segmentPanel);
+
+                var btnSave = new Button
+                {
+                    Text = "Save",
+                    AutoSize = true
+                };
+            }
         }
 
+        /** WIP TODO when Landmarks get fixed in the database
+         */
         private void AddLandmark(FlowLayoutPanel sectionPanel)
         {
             var segmentPanel = new FlowLayoutPanel
@@ -260,9 +695,19 @@ namespace TravelPlaner.View.Forms
             segmentPanel.Controls.Add(btnRemove);
             sectionPanel.Controls.Add(segmentPanel);
         }
-
-        private void AddExpense(FlowLayoutPanel sectionPanel)
+        /** FUNCTION FOR ADDING EXPENSES-RELATED TEXTFIELDS AND LABELS
+         * IF YOU PASS NULL IN THE PLACE OF EXPENSE (like AddExpense(examplePanel, null), IT WILL CREATE FIELDS FOR INSERTING NEW DATA
+         * OTHERWISE, IF YOU PASS AN EXISTING EXPENSE, IT WILL PRINT OUT THE CONNECTED TEXT, AND CAN BE USED IN STUFF LIKE editTrip
+         */
+        private void AddExpense(FlowLayoutPanel sectionPanel, Expense expense)
         {
+            String expName = "";
+            String expValue = "";
+            if (expense != null)
+            {
+                expName = expense.Name;
+                expValue = expense.Value.ToString();
+            }
             var segmentPanel = new FlowLayoutPanel
             {
                 AutoSize = true,
@@ -273,13 +718,13 @@ namespace TravelPlaner.View.Forms
 
             // Pole Name
             var lblName = new Label { Text = "Name:", AutoSize = true };
-            var txtName = new TextBox { Width = 200 };
+            var txtName = new TextBox { Width = 200, Text = expName };
             segmentPanel.Controls.Add(lblName);
             segmentPanel.Controls.Add(txtName);
 
             // Pole Value
             var lblValue = new Label { Text = "Value:", AutoSize = true };
-            var txtValue = new TextBox { Width = 200 };
+            var txtValue = new TextBox { Width = 200, Text = expValue };
             segmentPanel.Controls.Add(lblValue);
             segmentPanel.Controls.Add(txtValue);
 
@@ -293,9 +738,17 @@ namespace TravelPlaner.View.Forms
             segmentPanel.Controls.Add(btnRemove);
             sectionPanel.Controls.Add(segmentPanel);
         }
-
-        private void AddMemory(FlowLayoutPanel sectionPanel)
+        /** FUNCTION FOR ADDING MEMORY-RELATED TEXTFIELDS AND LABELS
+                 * IF YOU PASS NULL IN THE PLACE OF MEMORY (like AddMemory(examplePanel, null), IT WILL CREATE FIELDS FOR INSERTING NEW DATA
+                 * OTHERWISE, IF YOU PASS AN EXISTING MEMORY, IT WILL PRINT OUT THE CONNECTED TEXT, AND CAN BE USED IN STUFF LIKE editTrip
+                 */
+        private void AddMemory(FlowLayoutPanel sectionPanel, TripMemory memory)
         {
+            String memName = "";
+            if (memory != null)
+            {
+                memName = memory.Name;
+            }
             var segmentPanel = new FlowLayoutPanel
             {
                 AutoSize = true,
@@ -303,7 +756,10 @@ namespace TravelPlaner.View.Forms
                 BorderStyle = BorderStyle.FixedSingle,
                 Padding = new Padding(5)
             };
-
+            var lblName = new Label { Text = "Name:", AutoSize = true };
+            var txtName = new TextBox { Width = 200, Text = memName };
+            segmentPanel.Controls.Add(lblName);
+            segmentPanel.Controls.Add(txtName);
             var photoPanel = new FlowLayoutPanel
             {
                 AutoSize = true,
@@ -345,11 +801,11 @@ namespace TravelPlaner.View.Forms
                 Text = "+",
                 AutoSize = true
             };
-            btnAddSong.Click += (s, e) => AddSong(songPanel);
+            btnAddSong.Click += (s, e) => AddSong(songPanel, null);
             segmentPanel.Controls.Add(songLabel);
             segmentPanel.Controls.Add(btnAddSong);
             segmentPanel.Controls.Add(songPanel);
-
+            if (memory != null) { AddSong(songPanel, memory); }
 
             var notePanel = new FlowLayoutPanel
             {
@@ -366,11 +822,11 @@ namespace TravelPlaner.View.Forms
                 Text = "+",
                 AutoSize = true
             };
-            btnAddNote.Click += (s, e) => AddNote(notePanel);
+            btnAddNote.Click += (s, e) => AddNote(notePanel, null);
             segmentPanel.Controls.Add(noteLabel);
             segmentPanel.Controls.Add(btnAddNote);
             segmentPanel.Controls.Add(notePanel);
-
+            if (memory != null) { AddNote(notePanel, memory); }
             // Przycisk usuwania
             var btnRemove = new Button
             {
@@ -381,7 +837,8 @@ namespace TravelPlaner.View.Forms
             segmentPanel.Controls.Add(btnRemove);
             sectionPanel.Controls.Add(segmentPanel);
         }
-
+        /** TO (RE)CONSIDER, SINCE OUR DATABASE STRUCTURE IS SOMEWHAT DIFFERENT
+                 */
         private void AddPhoto(TextBox textbox)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
@@ -404,8 +861,19 @@ namespace TravelPlaner.View.Forms
             }
         }
 
-        private void AddSong(FlowLayoutPanel sectionPanel)
+        /** FUNCTION FOR ADDING SONG-RELATED TEXTFIELDS AND LABELS
+                 * IF YOU PASS NULL IN THE PLACE OF SONG (like AddSong(examplePanel, null), IT WILL CREATE FIELDS FOR INSERTING NEW DATA
+                 * OTHERWISE, IF YOU PASS AN EXISTING MEMORY, IT WILL PRINT OUT THE CONNECTED TEXT, AND CAN BE USED IN STUFF LIKE editTrip
+                 * 
+                 * TODO: MAKE THE LINK CLICKABLE? OR FIND A WAY TO PLAY IT FROM THE PROGRAM??
+                 */
+        private void AddSong(FlowLayoutPanel sectionPanel, TripMemory memory)
         {
+            String URL = "";
+            if (memory != null)
+            {
+                URL = memory.SongURL;
+            }
             var segmentPanel = new FlowLayoutPanel
             {
                 AutoSize = true,
@@ -416,7 +884,7 @@ namespace TravelPlaner.View.Forms
 
             // Pole Name
             var lblURL = new Label { Text = "URL:", AutoSize = true };
-            var txtURL = new TextBox { Width = 200 };
+            var txtURL = new TextBox { Width = 200, Text = URL };
             segmentPanel.Controls.Add(lblURL);
             segmentPanel.Controls.Add(txtURL);
             // Przycisk usuwania
@@ -429,9 +897,15 @@ namespace TravelPlaner.View.Forms
             segmentPanel.Controls.Add(btnRemove);
             sectionPanel.Controls.Add(segmentPanel);
         }
-
-        private void AddNote(FlowLayoutPanel sectionPanel)
+        /** FUNCTION FOR ADDING NOTE-RELATED TEXTFIELDS AND LABELS
+                 * IF YOU PASS NULL IN THE PLACE OF NOTE (like AddNote(examplePanel, null), IT WILL CREATE FIELDS FOR INSERTING NEW DATA
+                 * OTHERWISE, IF YOU PASS AN EXISTING MEMORY, IT WILL PRINT OUT THE CONNECTED TEXT, AND CAN BE USED IN STUFF LIKE editTrip
+                 */
+        private void AddNote(FlowLayoutPanel sectionPanel, TripMemory memory)
         {
+            String note = "";
+            if (memory != null)
+            { note = memory.Note; }
             var segmentPanel = new FlowLayoutPanel
             {
                 AutoSize = true,
@@ -442,7 +916,7 @@ namespace TravelPlaner.View.Forms
 
             // Pole Name
             var lblNote = new Label { Text = "Note:", AutoSize = true };
-            var txtNote = new TextBox { Width = 200 };
+            var txtNote = new TextBox { Width = 200, Text = note };
             segmentPanel.Controls.Add(lblNote);
             segmentPanel.Controls.Add(txtNote);
             // Przycisk usuwania
@@ -455,17 +929,12 @@ namespace TravelPlaner.View.Forms
             segmentPanel.Controls.Add(btnRemove);
             sectionPanel.Controls.Add(segmentPanel);
         }
-
+        /** FUNCTION FOR VIEWING THE "BROWSE TRIPS" MENU, ACCESSIBLE FROM THE MAIN MENU
+                 */
         private void browseTripsButton_Click(object sender, EventArgs e)
         {
             ShowPanel(browseTripPanel);
 
-            //Panel parentPanel = new Panel
-            // {
-            //     AutoScroll = true,
-            // Dock = DockStyle.Fill
-            // };
-            // this.Controls.Add(tripListPanel);
 
             // Fetch trips from database
             List<Trip> trips = controller.GetAllTrips();
@@ -477,6 +946,7 @@ namespace TravelPlaner.View.Forms
                 List<TripSegment> tripSegments = controller.GetAllTripSegmentsByTripId(trip.Id);
                 int segmentCount = tripSegments.Count;
 
+                //TODO (When destinations get fixed)
                 // Fetch destinations for the first segment (if needed)
                 //string destinationName = tripSegments.FirstOrDefault() != null
                 //     ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country
@@ -536,14 +1006,14 @@ namespace TravelPlaner.View.Forms
             }
         }
 
-        //---------------------add new trips panel--------------------
+        //---------------------returning from add new trips panel--------------------
         private void returnFromAddButton_Click(object sender, EventArgs e)
         {
             ShowPanel(menuPanel);
             addTripFlowLayoutPanel.Controls.Clear();
         }
 
-        //---------browse trips panel----------------------
+        //---------returning from browse trips panel----------------------
 
         private void returnFromBrowseButton_Click(object sender, EventArgs e)
         {
@@ -552,28 +1022,23 @@ namespace TravelPlaner.View.Forms
         }
 
 
-        //-------------------inpect trips panel --------------------
+        //-------------------returning from inpect trips panel (the magnifying glass button)--------------------
         private void returnFromInspectButton_Click(object sender, EventArgs e)
         {
+
             ShowPanel(browseTripPanel);
             tripInfoPanel.Controls.Clear();
-        }
-
-        private void editTripButton_Click(object sender, EventArgs e)
-        {
-            ShowPanel(editTripPanel);
-            AddTripSegmentSection(editTripFlowLayoutPanel);
+            editButtonPanel.Controls.Clear();
         }
 
 
 
-        //------------------------edit trips panel----------------------
+        //------------------------returning from edit trips panel----------------------
         private void returnFromEditTrip_Click(object sender, EventArgs e)
         {
             ShowPanel(inspectTripPanel);
-            editTripFlowLayoutPanel.Controls.Clear();   
+            editTripFlowLayoutPanel.Controls.Clear();
         }
-
     }
 
 }

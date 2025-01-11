@@ -51,13 +51,12 @@
             searchTextBox = new TextBox();
             returnFromBrowseButton = new Button();
             inspectTripPanel = new Panel();
+            editButtonPanel = new Panel();
+            tripInfoPanel = new FlowLayoutPanel();
             returnFromInspectButton = new Button();
             tripDetailsLabel = new Label();
-            tripInfoPanel = new Panel();
-            editTripButton = new Button();
             editTripPanel = new Panel();
             editTripLabel = new Label();
-            editTripFlowLayoutPanel = new FlowLayoutPanel();
             editReturnDateTextBox = new TextBox();
             editDepDateTextBox = new TextBox();
             editReturnDateLabel = new Label();
@@ -65,6 +64,7 @@
             editNameTextBox = new TextBox();
             editNameLabel = new Label();
             returnFromEditTrip = new Button();
+            editTripFlowLayoutPanel = new FlowLayoutPanel();
             menuPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             newTripPanel.SuspendLayout();
@@ -82,22 +82,22 @@
             menuPanel.Controls.Add(settingsButton);
             menuPanel.Controls.Add(browseTripsButton);
             menuPanel.Controls.Add(newTripButton);
-            menuPanel.Location = new Point(12, 56);
+            menuPanel.Location = new Point(12, 14);
             menuPanel.Name = "menuPanel";
-            menuPanel.Size = new Size(559, 480);
+            menuPanel.Size = new Size(591, 448);
             menuPanel.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(3, 113);
+            pictureBox1.Location = new Point(17, 109);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(205, 207);
+            pictureBox1.Size = new Size(280, 207);
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(220, 113);
+            monthCalendar1.Location = new Point(309, 109);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 5;
             // 
@@ -151,9 +151,9 @@
             newTripPanel.Controls.Add(tripNameTextBox);
             newTripPanel.Controls.Add(nameLabel);
             newTripPanel.Controls.Add(returnFromAddButton);
-            newTripPanel.Location = new Point(593, 56);
+            newTripPanel.Location = new Point(612, 13);
             newTripPanel.Name = "newTripPanel";
-            newTripPanel.Size = new Size(593, 480);
+            newTripPanel.Size = new Size(609, 448);
             newTripPanel.TabIndex = 0;
             newTripPanel.Visible = false;
             // 
@@ -171,9 +171,9 @@
             addTripFlowLayoutPanel.AutoScroll = true;
             addTripFlowLayoutPanel.Dock = DockStyle.Bottom;
             addTripFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            addTripFlowLayoutPanel.Location = new Point(0, 171);
+            addTripFlowLayoutPanel.Location = new Point(0, 149);
             addTripFlowLayoutPanel.Name = "addTripFlowLayoutPanel";
-            addTripFlowLayoutPanel.Size = new Size(593, 309);
+            addTripFlowLayoutPanel.Size = new Size(609, 299);
             addTripFlowLayoutPanel.TabIndex = 7;
             addTripFlowLayoutPanel.WrapContents = false;
             // 
@@ -242,9 +242,9 @@
             browseTripPanel.Controls.Add(browseLabel);
             browseTripPanel.Controls.Add(searchTextBox);
             browseTripPanel.Controls.Add(returnFromBrowseButton);
-            browseTripPanel.Location = new Point(1202, 57);
+            browseTripPanel.Location = new Point(1227, 13);
             browseTripPanel.Name = "browseTripPanel";
-            browseTripPanel.Size = new Size(606, 479);
+            browseTripPanel.Size = new Size(581, 463);
             browseTripPanel.TabIndex = 1;
             browseTripPanel.Visible = false;
             // 
@@ -252,9 +252,9 @@
             // 
             tripListPanel.AutoScroll = true;
             tripListPanel.Dock = DockStyle.Bottom;
-            tripListPanel.Location = new Point(0, 129);
+            tripListPanel.Location = new Point(0, 116);
             tripListPanel.Name = "tripListPanel";
-            tripListPanel.Size = new Size(606, 350);
+            tripListPanel.Size = new Size(581, 347);
             tripListPanel.TabIndex = 4;
             // 
             // browseLabel
@@ -287,15 +287,31 @@
             // inspectTripPanel
             // 
             inspectTripPanel.BackColor = Color.FromArgb(255, 255, 192);
+            inspectTripPanel.Controls.Add(editButtonPanel);
+            inspectTripPanel.Controls.Add(tripInfoPanel);
             inspectTripPanel.Controls.Add(returnFromInspectButton);
             inspectTripPanel.Controls.Add(tripDetailsLabel);
-            inspectTripPanel.Controls.Add(tripInfoPanel);
-            inspectTripPanel.Controls.Add(editTripButton);
-            inspectTripPanel.Location = new Point(15, 570);
+            inspectTripPanel.Location = new Point(29, 497);
             inspectTripPanel.Name = "inspectTripPanel";
-            inspectTripPanel.Size = new Size(542, 398);
+            inspectTripPanel.Size = new Size(863, 471);
             inspectTripPanel.TabIndex = 2;
             inspectTripPanel.Visible = false;
+            // 
+            // editButtonPanel
+            // 
+            editButtonPanel.Location = new Point(61, 0);
+            editButtonPanel.Name = "editButtonPanel";
+            editButtonPanel.Size = new Size(92, 30);
+            editButtonPanel.TabIndex = 10;
+            // 
+            // tripInfoPanel
+            // 
+            tripInfoPanel.Dock = DockStyle.Bottom;
+            tripInfoPanel.FlowDirection = FlowDirection.TopDown;
+            tripInfoPanel.Location = new Point(0, 36);
+            tripInfoPanel.Name = "tripInfoPanel";
+            tripInfoPanel.Size = new Size(863, 435);
+            tripInfoPanel.TabIndex = 9;
             // 
             // returnFromInspectButton
             // 
@@ -310,36 +326,16 @@
             // tripDetailsLabel
             // 
             tripDetailsLabel.AutoSize = true;
-            tripDetailsLabel.Location = new Point(200, 9);
+            tripDetailsLabel.Location = new Point(365, 9);
             tripDetailsLabel.Name = "tripDetailsLabel";
             tripDetailsLabel.Size = new Size(97, 20);
             tripDetailsLabel.TabIndex = 8;
             tripDetailsLabel.Text = "TRIP DETAILS";
             // 
-            // tripInfoPanel
-            // 
-            tripInfoPanel.AutoScroll = true;
-            tripInfoPanel.Dock = DockStyle.Bottom;
-            tripInfoPanel.Location = new Point(0, 35);
-            tripInfoPanel.Name = "tripInfoPanel";
-            tripInfoPanel.Size = new Size(542, 363);
-            tripInfoPanel.TabIndex = 7;
-            // 
-            // editTripButton
-            // 
-            editTripButton.Location = new Point(56, 0);
-            editTripButton.Name = "editTripButton";
-            editTripButton.Size = new Size(94, 29);
-            editTripButton.TabIndex = 6;
-            editTripButton.Text = "EDIT";
-            editTripButton.UseVisualStyleBackColor = true;
-            editTripButton.Click += editTripButton_Click;
-            // 
             // editTripPanel
             // 
             editTripPanel.BackColor = SystemColors.ActiveCaption;
             editTripPanel.Controls.Add(editTripLabel);
-            editTripPanel.Controls.Add(editTripFlowLayoutPanel);
             editTripPanel.Controls.Add(editReturnDateTextBox);
             editTripPanel.Controls.Add(editDepDateTextBox);
             editTripPanel.Controls.Add(editReturnDateLabel);
@@ -347,9 +343,10 @@
             editTripPanel.Controls.Add(editNameTextBox);
             editTripPanel.Controls.Add(editNameLabel);
             editTripPanel.Controls.Add(returnFromEditTrip);
-            editTripPanel.Location = new Point(593, 570);
+            editTripPanel.Controls.Add(editTripFlowLayoutPanel);
+            editTripPanel.Location = new Point(1051, 497);
             editTripPanel.Name = "editTripPanel";
-            editTripPanel.Size = new Size(587, 400);
+            editTripPanel.Size = new Size(609, 471);
             editTripPanel.TabIndex = 9;
             editTripPanel.Visible = false;
             // 
@@ -361,17 +358,6 @@
             editTripLabel.Size = new Size(73, 20);
             editTripLabel.TabIndex = 8;
             editTripLabel.Text = "EDIT TRIP";
-            // 
-            // editTripFlowLayoutPanel
-            // 
-            editTripFlowLayoutPanel.AutoScroll = true;
-            editTripFlowLayoutPanel.Dock = DockStyle.Bottom;
-            editTripFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
-            editTripFlowLayoutPanel.Location = new Point(0, 150);
-            editTripFlowLayoutPanel.Name = "editTripFlowLayoutPanel";
-            editTripFlowLayoutPanel.Size = new Size(587, 250);
-            editTripFlowLayoutPanel.TabIndex = 7;
-            editTripFlowLayoutPanel.WrapContents = false;
             // 
             // editReturnDateTextBox
             // 
@@ -431,16 +417,26 @@
             returnFromEditTrip.UseVisualStyleBackColor = true;
             returnFromEditTrip.Click += returnFromEditTrip_Click;
             // 
+            // editTripFlowLayoutPanel
+            // 
+            editTripFlowLayoutPanel.AutoScroll = true;
+            editTripFlowLayoutPanel.Dock = DockStyle.Bottom;
+            editTripFlowLayoutPanel.Location = new Point(0, 146);
+            editTripFlowLayoutPanel.Name = "editTripFlowLayoutPanel";
+            editTripFlowLayoutPanel.Size = new Size(609, 325);
+            editTripFlowLayoutPanel.TabIndex = 7;
+            editTripFlowLayoutPanel.WrapContents = false;
+            // 
             // GUI
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1820, 980);
+            Controls.Add(browseTripPanel);
+            Controls.Add(newTripPanel);
+            Controls.Add(menuPanel);
             Controls.Add(editTripPanel);
             Controls.Add(inspectTripPanel);
-            Controls.Add(browseTripPanel);
-            Controls.Add(menuPanel);
-            Controls.Add(newTripPanel);
             Name = "GUI";
             Text = "Travel Planner";
             menuPanel.ResumeLayout(false);
@@ -475,8 +471,6 @@
         private Panel tripListPanel;
         private Panel inspectTripPanel;
         private Button returnFromInspectButton;
-        private Panel tripInfoPanel;
-        private Button editTripButton;
         private TextBox returnDateTextBox;
         private TextBox DepDateTextBox;
         private Label returnDateLabel;
@@ -496,5 +490,7 @@
         private TextBox editNameTextBox;
         private Label editNameLabel;
         private Button returnFromEditTrip;
+        private FlowLayoutPanel tripInfoPanel;
+        private Panel editButtonPanel;
     }
 }

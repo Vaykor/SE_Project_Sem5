@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TravelPlaner")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5664254b0b4ad7a11bc49d8ce8c5d2f7c9f730e9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ac40b1fdc1d3fbfeb54b712f22af2bc3d609bde")]
 [assembly: System.Reflection.AssemblyProductAttribute("TravelPlaner")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TravelPlaner")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

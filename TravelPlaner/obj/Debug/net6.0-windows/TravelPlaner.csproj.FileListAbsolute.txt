@@ -453,3 +453,5 @@ C:\nauka\5semester\SE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\Trav
 C:\nauka\5semester\SE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.genruntimeconfig.cache
 C:\nauka\5semester\SE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\ref\TravelPlaner.dll
 C:\nauka\5semester\SE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.GUI.resources
+M:\Polibuda\SE\Sem 5\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.GUI.resources
+M:\Polibuda\SE\Sem 5\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.Properties.Resources.resources
