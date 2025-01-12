@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelPlaner.Model.Classes.PlacesAPI
 {
-    public class TuristLandmark
+    public class TouristLandmark
     {
         public string? Name { get; set; }
         public string? Country { get; set; }
