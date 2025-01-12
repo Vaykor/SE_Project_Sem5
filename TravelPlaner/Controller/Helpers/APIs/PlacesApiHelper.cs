@@ -18,9 +18,9 @@ namespace TravelPlaner.Controller.Helpers.APIs
         private const string PLACES_BASE_URL = "https://api.geoapify.com/v2/places?";
 
         //Get Turist landmark list for display in program
-        public async Task<List<TuristLandmark>> GetTuristLandmarksAsync(string cityName)
+        public async Task<List<TouristLandmark>> GetTouristLandmarksAsync(string cityName)
         {
-            List<TuristLandmark> turistLandmarks = new List<TuristLandmark>();
+            List<TouristLandmark> turistLandmarks = new List<TouristLandmark>();
 
             try
             {
@@ -32,7 +32,7 @@ namespace TravelPlaner.Controller.Helpers.APIs
             {
                 Console.WriteLine(ex.Message);
             }
-            catch(TurismSightsNotFoundException ex)
+            catch(TouristSightsNotFoundException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -41,9 +41,9 @@ namespace TravelPlaner.Controller.Helpers.APIs
         }
 
         //Get TuristLandmarks list with API request
-        private async Task<List<TuristLandmark>> GetTurismSightsAsync(string placeId)
+        private async Task<List<TouristLandmark>> GetTouristSightsAsync(string placeId)
         {
-            List<TuristLandmark> landmarksNames = new List<TuristLandmark>();
+            List<TouristLandmark> landmarksNames = new List<TouristLandmark>();
 
             const string PLACE_URL = "categories=tourism.sights&filter=place:{0}&limit=5&apiKey={1}";
             string url = PLACES_BASE_URL + string.Format(PLACE_URL, placeId, API_KEY);
@@ -61,20 +61,20 @@ namespace TravelPlaner.Controller.Helpers.APIs
                     {
                         if (sight.properties != null && !string.IsNullOrEmpty(sight.properties.name))
                         {
-                            TuristLandmark turistLandmark = new TuristLandmark();
+                            TouristLandmark touristLandmark = new TouristLandmark();
 
-                            turistLandmark.Name = sight.properties.name;
-                            turistLandmark.Country = sight.properties.country;
-                            turistLandmark.City = sight.properties.city;
-                            turistLandmark.Street = sight.properties.street;
-                            turistLandmark.Phone = sight.properties.contact.phone;
+                            touristLandmark.Name = sight.properties.name;
+                            touristLandmark.Country = sight.properties.country;
+                            touristLandmark.City = sight.properties.city;
+                            touristLandmark.Street = sight.properties.street;
+                            touristLandmark.Phone = sight.properties.contact.phone;
 
-                            landmarksNames.Add(turistLandmark);
+                            landmarksNames.Add(touristLandmark);
                         }
                     }
                 }
                 else { 
-                    throw new TurismSightsNotFoundException();
+                    throw new TouristSightsNotFoundException();
                 }
             }
 
