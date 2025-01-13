@@ -462,3 +462,4 @@ H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.MainView.resources
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.SegmentDetails.resources
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+M:\Polibuda\SE\Sem 5\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\Newtonsoft.Json.dll

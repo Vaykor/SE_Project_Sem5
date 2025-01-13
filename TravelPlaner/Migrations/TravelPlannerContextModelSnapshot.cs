@@ -31,14 +31,16 @@ namespace TravelPlaner.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TripSegmentId")
+                    b.Property<int>("TripSegmentId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -46,6 +48,10 @@ namespace TravelPlaner.Migrations
                     b.HasIndex("TripSegmentId");
 
                     b.ToTable("Destination");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Destination");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.Expense", b =>
@@ -60,7 +66,7 @@ namespace TravelPlaner.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TripSegmentId")
+                    b.Property<int>("TripSegmentId")
                         .HasColumnType("int");
 
                     b.Property<double>("Value")
@@ -117,7 +123,7 @@ namespace TravelPlaner.Migrations
                     b.Property<string>("SongURL")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TripSegmentId")
+                    b.Property<int>("TripSegmentId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -139,7 +145,7 @@ namespace TravelPlaner.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TripId")
+                    b.Property<int>("TripId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -149,32 +155,97 @@ namespace TravelPlaner.Migrations
                     b.ToTable("TripSegment");
                 });
 
+            modelBuilder.Entity("TravelPlaner.Model.Classes.Database.Landmark", b =>
+                {
+                    b.HasBaseType("TravelPlaner.Model.Classes.Database.Destination");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("Landmark");
+                });
+
+            modelBuilder.Entity("TravelPlaner.Model.Classes.Database.RestingPoint", b =>
+                {
+                    b.HasBaseType("TravelPlaner.Model.Classes.Database.Destination");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContactInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NightsSpentThere")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.ToTable("Destination", t =>
+                        {
+                            t.Property("Address")
+                                .HasColumnName("RestingPoint_Address");
+
+                            t.Property("Name")
+                                .HasColumnName("RestingPoint_Name");
+                        });
+
+                    b.HasDiscriminator().HasValue("RestingPoint");
+                });
+
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.Destination", b =>
                 {
-                    b.HasOne("TravelPlaner.Model.Classes.Database.TripSegment", null)
+                    b.HasOne("TravelPlaner.Model.Classes.Database.TripSegment", "TripSegment")
                         .WithMany("Destinations")
-                        .HasForeignKey("TripSegmentId");
+                        .HasForeignKey("TripSegmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TripSegment");
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.Expense", b =>
                 {
-                    b.HasOne("TravelPlaner.Model.Classes.Database.TripSegment", null)
+                    b.HasOne("TravelPlaner.Model.Classes.Database.TripSegment", "TripSegment")
                         .WithMany("Expenses")
-                        .HasForeignKey("TripSegmentId");
+                        .HasForeignKey("TripSegmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TripSegment");
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.TripMemory", b =>
                 {
-                    b.HasOne("TravelPlaner.Model.Classes.Database.TripSegment", null)
+                    b.HasOne("TravelPlaner.Model.Classes.Database.TripSegment", "TripSegment")
                         .WithMany("Memories")
-                        .HasForeignKey("TripSegmentId");
+                        .HasForeignKey("TripSegmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TripSegment");
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.TripSegment", b =>
                 {
-                    b.HasOne("TravelPlaner.Model.Classes.Database.Trip", null)
+                    b.HasOne("TravelPlaner.Model.Classes.Database.Trip", "Trip")
                         .WithMany("TripSegments")
-                        .HasForeignKey("TripId");
+                        .HasForeignKey("TripId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Trip");
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.Trip", b =>

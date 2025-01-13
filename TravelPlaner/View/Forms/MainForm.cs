@@ -8,8 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelPlaner.Controller;
+using TravelPlaner.Controller.Helpers.APIs;
 using TravelPlaner.Model.Classes.Context;
 using TravelPlaner.Model.Classes.Database;
+using TravelPlaner.Model.Classes.PlacesAPI;
 
 namespace TravelPlaner.View.Forms
 {
@@ -21,7 +23,7 @@ namespace TravelPlaner.View.Forms
         public MainForm()
         {
             InitializeComponent();
-            
+
             //controller.AddTrip("Trip_1", DateTime.Now, DateTime.Now, new List<TripSegment>());
             //controller.AddTrip("Trip_2", DateTime.Now, DateTime.Now, new List<TripSegment>());
             //controller.AddTrip("Trip_3", DateTime.Now, DateTime.Now, new List<TripSegment>());
@@ -47,9 +49,9 @@ namespace TravelPlaner.View.Forms
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
-            List<Trip> tripsFromDB = new List<Trip>();
+            /*List<Trip> tripsFromDB = new List<Trip>();
             tripsFromDB = controller.GetAllTrips();
 
             Trip tripFromDB = controller.GetFirstTrip();
@@ -77,7 +79,7 @@ namespace TravelPlaner.View.Forms
             label3.Text = tripFromDB.StartDate.ToString();
             label4.Text = tripFromDB.EndDate.ToString();
 
-            if(tripFromDB.TripSegments != null)
+            if (tripFromDB.TripSegments != null)
             {
                 label5.Text = tripFromDB.TripSegments.Count.ToString();
             }
@@ -85,12 +87,25 @@ namespace TravelPlaner.View.Forms
             {
 
                 label5.Text = "0";
-            }
-            
+            }*/
+
             //label6.Text = tripMemory.Name;
             //label7.Text = tripMemory1.Photo;
             //label8.Text = tripSegment.Name;
+            PlacesApiHelper placesApiHelper = new PlacesApiHelper();
+            String place = await placesApiHelper.GetPlaceIdAsync("Paris");
 
+            List<TouristLandmark> touristLandmarks = await placesApiHelper.GetTouristSightsAsync(place);
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
