@@ -206,7 +206,6 @@ H:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\runtimes\win-
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.csproj.AssemblyReference.cache
-H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.MainForm.resources
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.csproj.GenerateResource.cache
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.GeneratedMSBuildEditorConfig.editorconfig
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.AssemblyInfoInputs.cache
@@ -463,3 +462,4 @@ H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.SegmentDetails.resources
 H:\ProjektSE\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 M:\Polibuda\SE\Sem 5\SE_Project_Sem5\TravelPlaner\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+H:\ProjektSE\SE_Project_Sem5\TravelPlaner\obj\Debug\net6.0-windows\TravelPlaner.View.Forms.TouristLandmarkTestForm.resources

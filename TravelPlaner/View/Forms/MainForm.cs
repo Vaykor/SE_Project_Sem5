@@ -15,12 +15,12 @@ using TravelPlaner.Model.Classes.PlacesAPI;
 
 namespace TravelPlaner.View.Forms
 {
-    public partial class MainForm : Form
+    public partial class TouristLandmarkTestForm : Form
     {
 
         ProgramController controller = new ProgramController();
 
-        public MainForm()
+        public TouristLandmarkTestForm()
         {
             InitializeComponent();
 
@@ -92,21 +92,51 @@ namespace TravelPlaner.View.Forms
             //label6.Text = tripMemory.Name;
             //label7.Text = tripMemory1.Photo;
             //label8.Text = tripSegment.Name;
-            PlacesApiHelper placesApiHelper = new PlacesApiHelper();
-            String place = await placesApiHelper.GetPlaceIdAsync("Paris");
 
-            List<TouristLandmark> touristLandmarks = await placesApiHelper.GetTouristSightsAsync(place);
+            await PopulateListViewAsync();
+        }
+
+        private async Task PopulateListViewAsync()
+        {
+            if (!string.IsNullOrEmpty(APITestBox.Text) || !string.IsNullOrEmpty(APITestBox.Text))
+            {
+                PlacesApiHelper placesApiHelper = new PlacesApiHelper();
+                List<TouristLandmark> touristLandmarks = await placesApiHelper.GetTouristLandmarksAsync(APITestBox.Text);
+
+                TouristLandmarkListView.Items.Clear();
+                foreach (TouristLandmark landmark in touristLandmarks)
+                {
+                    if (landmark != null)
+                    {
+
+                        if (landmark.Phone != null)
+                        {
+                            string?[] row = { landmark.Name, landmark.Country, landmark.City, landmark.Street, landmark.Phone };
+                            var listViewItem = new ListViewItem(row);
+                            TouristLandmarkListView.Items.Add(listViewItem);
+                        }
+                        else
+                        {
+                            string?[] row = { landmark.Name, landmark.Country, landmark.City, landmark.Street, "None" };
+                            var listViewItem = new ListViewItem(row);
+                            TouristLandmarkListView.Items.Add(listViewItem);
+                        }
+                    }
+
+
+                }
+            }
+
+
 
         }
+
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

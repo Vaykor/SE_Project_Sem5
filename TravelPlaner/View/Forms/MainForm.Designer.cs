@@ -1,6 +1,6 @@
 ﻿namespace TravelPlaner.View.Forms
 {
-    partial class MainForm
+    partial class TouristLandmarkTestForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,102 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
             button = new Button();
             APITestBox = new TextBox();
-            listView1 = new ListView();
-            Name = new ColumnHeader();
-            Country = new ColumnHeader();
-            City = new ColumnHeader();
-            Street = new ColumnHeader();
-            Phone = new ColumnHeader();
+            TouristLandmarkListView = new ListView();
+            NameColumn = new ColumnHeader();
+            CountryColumn = new ColumnHeader();
+            CityColumn = new ColumnHeader();
+            StreetColumn = new ColumnHeader();
+            PhoneColumn = new ColumnHeader();
+            label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(85, 38);
-            label1.Name = "label1";
-            label1.Size = new Size(36, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Text";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(85, 149);
-            label2.Name = "label2";
-            label2.Size = new Size(36, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Text";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(85, 73);
-            label3.Name = "label3";
-            label3.Size = new Size(36, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Text";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(85, 111);
-            label4.Name = "label4";
-            label4.Size = new Size(36, 20);
-            label4.TabIndex = 3;
-            label4.Text = "Text";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(85, 229);
-            label5.Name = "label5";
-            label5.Size = new Size(36, 20);
-            label5.TabIndex = 6;
-            label5.Text = "Text";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(85, 190);
-            label6.Name = "label6";
-            label6.Size = new Size(36, 20);
-            label6.TabIndex = 5;
-            label6.Text = "Text";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(85, 266);
-            label7.Name = "label7";
-            label7.Size = new Size(36, 20);
-            label7.TabIndex = 4;
-            label7.Text = "Text";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(85, 301);
-            label8.Name = "label8";
-            label8.Size = new Size(36, 20);
-            label8.TabIndex = 7;
-            label8.Text = "Text";
             // 
             // button
             // 
-            button.Location = new Point(1228, 13);
+            button.Location = new Point(739, 85);
             button.Margin = new Padding(2);
             button.Name = "button";
-            button.Size = new Size(146, 70);
+            button.Size = new Size(128, 52);
             button.TabIndex = 8;
             button.Text = "Click me:)";
             button.UseVisualStyleBackColor = true;
@@ -131,69 +53,95 @@
             // 
             // APITestBox
             // 
-            APITestBox.Location = new Point(157, 66);
+            APITestBox.Location = new Point(258, 101);
+            APITestBox.Margin = new Padding(3, 2, 3, 2);
             APITestBox.Name = "APITestBox";
-            APITestBox.Size = new Size(1066, 27);
+            APITestBox.Size = new Size(475, 23);
             APITestBox.TabIndex = 9;
             APITestBox.TextChanged += textBox1_TextChanged;
             // 
-            // listView1
+            // TouristLandmarkListView
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Name, Country, City, Street, Phone });
-            listView1.Location = new Point(157, 111);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(1217, 564);
-            listView1.TabIndex = 10;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            TouristLandmarkListView.Columns.AddRange(new ColumnHeader[] { NameColumn, CountryColumn, CityColumn, StreetColumn, PhoneColumn });
+            TouristLandmarkListView.Location = new Point(208, 142);
+            TouristLandmarkListView.Name = "TouristLandmarkListView";
+            TouristLandmarkListView.Size = new Size(659, 208);
+            TouristLandmarkListView.TabIndex = 10;
+            TouristLandmarkListView.UseCompatibleStateImageBehavior = false;
+            TouristLandmarkListView.View = System.Windows.Forms.View.Details;
             // 
-            // Name
+            // NameColumn
             // 
-            Name.Text = "Name";
+            NameColumn.Text = "Name";
+            NameColumn.Width = 120;
             // 
-            // Country
+            // CountryColumn
             // 
-            Country.Text = "Country";
+            CountryColumn.Text = "Country";
+            CountryColumn.Width = 100;
             // 
-            // MainForm
+            // CityColumn
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            CityColumn.Text = "City";
+            CityColumn.Width = 100;
+            // 
+            // StreetColumn
+            // 
+            StreetColumn.Text = "Street";
+            StreetColumn.Width = 180;
+            // 
+            // PhoneColumn
+            // 
+            PhoneColumn.Text = "Phone";
+            PhoneColumn.Width = 100;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(208, 50);
+            label1.Name = "label1";
+            label1.Size = new Size(194, 28);
+            label1.TabIndex = 11;
+            label1.Text = "Tourist landmark test";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(208, 101);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 21);
+            label2.TabIndex = 12;
+            label2.Text = "City: ";
+            // 
+            // TouristLandmarkTestForm
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1423, 704);
-            Controls.Add(listView1);
-            Controls.Add(APITestBox);
-            Controls.Add(button);
-            Controls.Add(label8);
-            Controls.Add(label5);
-            Controls.Add(label6);
-            Controls.Add(label7);
-            Controls.Add(label4);
-            Controls.Add(label3);
+            ClientSize = new Size(1245, 528);
             Controls.Add(label2);
             Controls.Add(label1);
-            
-            Text = "MainForm";
+            Controls.Add(TouristLandmarkListView);
+            Controls.Add(APITestBox);
+            Controls.Add(button);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "TouristLandmarkTestForm";
+            Text = "TouristLandmarkTestForm";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
         private Button button;
         private TextBox APITestBox;
-        private ListView listView1;
-        private ColumnHeader Name;
-        private ColumnHeader Country;
-        private ColumnHeader City;
-        private ColumnHeader Street;
-        private ColumnHeader Phone;
+        private ListView TouristLandmarkListView;
+        private ColumnHeader NameColumn;
+        private ColumnHeader CountryColumn;
+        private ColumnHeader CityColumn;
+        private ColumnHeader StreetColumn;
+        private ColumnHeader PhoneColumn;
+        private Label label1;
+        private Label label2;
     }
 }

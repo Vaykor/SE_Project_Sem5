@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {}
+    "H:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {}
   },
   "projects": {
-    "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {
+    "H:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
+        "projectUniqueName": "H:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
         "projectName": "TravelPlaner",
-        "projectPath": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
-        "packagesPath": "C:\\Users\\smiec\\.nuget\\packages\\",
-        "outputPath": "M:\\Polibuda\\SE\\Sem 5\\SE_Project_Sem5\\TravelPlaner\\obj\\",
+        "projectPath": "H:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\TravelPlaner.csproj",
+        "packagesPath": "C:\\Users\\Szymon\\.nuget\\packages\\",
+        "outputPath": "H:\\ProjektSE\\SE_Project_Sem5\\TravelPlaner\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "M:\\Programs\\VSC\\VSSDKnShit\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\smiec\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Szymon\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,11 +38,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -88,7 +82,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

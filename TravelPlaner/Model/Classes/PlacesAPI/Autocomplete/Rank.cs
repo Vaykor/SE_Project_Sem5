@@ -9,8 +9,8 @@ namespace TravelPlaner.Model.Classes.PlacesAPI.Autocomplete
     public class Rank
     {
         public double importance { get; set; }
-        public int confidence { get; set; }
-        public int confidence_city_level { get; set; }
+        public double confidence { get; set; }
+        public double confidence_city_level { get; set; }
         public string? match_type { get; set; }
     }
 }

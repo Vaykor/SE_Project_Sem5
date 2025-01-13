@@ -45,8 +45,10 @@ namespace TravelPlaner.Controller.Helpers.APIs
         {
             List<TouristLandmark> landmarksNames = new List<TouristLandmark>();
 
-            const string PLACE_URL = "categories=tourism.sights&filter=place:{0}&limit=5&apiKey={1}";
+            const string PLACE_URL = "categories=building.tourism&filter=place:{0}&limit=5&apiKey={1}";
             string url = PLACES_BASE_URL + string.Format(PLACE_URL, placeId, API_KEY);
+            
+
 
             //Get turist sights info for landmarks
             using (HttpClient httpClient = new HttpClient())
@@ -55,9 +57,9 @@ namespace TravelPlaner.Controller.Helpers.APIs
                 string json = await response.Content.ReadAsStringAsync();
                 SightsResponse? sightsResponse = JsonConvert.DeserializeObject<SightsResponse>(json);
 
-                if (sightsResponse != null && sightsResponse.sights != null)
+                if (sightsResponse != null && sightsResponse.features != null)
                 {
-                    foreach (var sight in sightsResponse.sights)
+                    foreach (var sight in sightsResponse.features)
                     {
                         if (sight.properties != null && !string.IsNullOrEmpty(sight.properties.name))
                         {
@@ -67,7 +69,11 @@ namespace TravelPlaner.Controller.Helpers.APIs
                             touristLandmark.Country = sight.properties.country;
                             touristLandmark.City = sight.properties.city;
                             touristLandmark.Street = sight.properties.street;
-                            touristLandmark.Phone = sight.properties.contact.phone;
+                            if (sight.properties.contact != null)
+                            {
+                                touristLandmark.Phone = sight.properties.contact.phone;
+                            }
+                            
 
                             landmarksNames.Add(touristLandmark);
                         }
