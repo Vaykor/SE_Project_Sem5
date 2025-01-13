@@ -26,16 +26,25 @@ namespace TravelPlaner.Controller
         
         
         // Not yet working
-        //public void AddDestination(string Country, string City, int tripSegmentId)
-        //{  
-        //    using (var context = new TravelPlannerContext())
-        //    {
-        //        var destination = new Destination { Country = Country, City = City, TripSegmentId = tripSegmentId };
-        //        context.Destination.Add(destination);
-        //        context.SaveChanges();
-        //    }       
-        //}
-        public void AddLandmark(string Name, string Address, string Description)
+        public void AddDestination(string Country, string City, int tripSegmentId)
+        {  
+            using (var context = new TravelPlannerContext())
+            {
+                var destination = new Destination { Country = Country, City = City, TripSegmentId = tripSegmentId };
+                context.Destination.Add(destination);
+                context.SaveChanges();
+            }       
+        }
+        public void AddDestination(Landmark landmark)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+
+                context.Destination.Add(landmark);
+                context.SaveChanges();
+            }
+        }
+        /*public void AddLandmark(string Name, string Address, string Description)
         {      
             using (var context = new TravelPlannerContext())
             {
@@ -43,8 +52,8 @@ namespace TravelPlaner.Controller
                 context.Landmarks.Add(landmark);
                 context.SaveChanges();
             }
-        }
-        public void AddRestingPoint(string Name, string Address, RestingPointType Type, int LengthOfStay, string ContactInfo)
+        }*/
+        /*public void AddRestingPoint(string Name, string Address, RestingPointType Type, int LengthOfStay, string ContactInfo)
         {          
             using (var context = new TravelPlannerContext())
             {
@@ -53,7 +62,7 @@ namespace TravelPlaner.Controller
                 context.SaveChanges();
             }
 
-        }
+        }*/
         public void AddTrip(string Name, DateTime StartDate, DateTime EndDate, List<TripSegment>? tripSegments)
         {
             using (var context = new TravelPlannerContext())

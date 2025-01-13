@@ -152,7 +152,6 @@ namespace TravelPlaner.View.Forms
             ShowPanel(newTripPanel);
             AddTripSegmentSection(addTripFlowLayoutPanel);
 
-
         }
         /** FUNCTION FOR CREATING THE "FORM" FOR ADDING TRIP SEGMENT SECTIONS
          * USED IN "ADD NEW TRIP" AND "EDIT TRIP"
@@ -647,7 +646,13 @@ namespace TravelPlaner.View.Forms
                 segmentPanel.Controls.Add(btnRemove);
 
 
-
+                var btnAdd = new Button
+                {
+                    Text = "Add New Trip",
+                    AutoSize = true
+                };
+                btnAdd.Click += (s,e) => { controller.AddTrip(tripNameTextBox.Text, addTripDepartureDatePicker.Value, addTripReturnDatePicker.Value, new List<TripSegment>()); };
+                sectionPanel.Controls.Add(btnAdd);
 
 
 
@@ -659,6 +664,11 @@ namespace TravelPlaner.View.Forms
                     AutoSize = true
                 };
             }
+        }
+
+        private void BtnAdd_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         /** WIP TODO when Landmarks get fixed in the database

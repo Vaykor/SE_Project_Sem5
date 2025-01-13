@@ -13,20 +13,20 @@ namespace TravelPlaner.Controller.Helpers.APIs
 {
     public class PlacesApiHelper
     {
-        private const string API_KEY = "";
+        private const string API_KEY = "412c53f384c148188a226b83015571bb";
         private const string AUTOCOMPLETE_BASE_URL = "https://api.geoapify.com/v1/geocode/autocomplete?";
         private const string PLACES_BASE_URL = "https://api.geoapify.com/v2/places?";
 
         //Get Turist landmark list for display in program
         public async Task<List<TouristLandmark>> GetTouristLandmarksAsync(string cityName)
         {
-            List<TouristLandmark> turistLandmarks = new List<TouristLandmark>();
+            List<TouristLandmark> touristLandmarks = new List<TouristLandmark>();
 
             try
             {
-                string placeId = await GetPlaceId(cityName);
+                string placeId = await GetPlaceIdAsync(cityName);
 
-                turistLandmarks = await GetTuristLandmarks(placeId);
+                touristLandmarks = await GetTouristSightsAsync(placeId);
             }
             catch(CityNotFoundException ex)
             {
@@ -37,11 +37,11 @@ namespace TravelPlaner.Controller.Helpers.APIs
                 Console.WriteLine(ex.Message);
             }
 
-            return turistLandmarks;
+            return touristLandmarks;
         }
 
         //Get TuristLandmarks list with API request
-        private async Task<List<TouristLandmark>> GetTouristSightsAsync(string placeId)
+        public async Task<List<TouristLandmark>> GetTouristSightsAsync(string placeId)
         {
             List<TouristLandmark> landmarksNames = new List<TouristLandmark>();
 
@@ -82,7 +82,7 @@ namespace TravelPlaner.Controller.Helpers.APIs
         }
 
         //Get PlcaeId value for sights API request
-        private async Task<string> GetPlaceIdAsync(string query)
+        public async Task<string> GetPlaceIdAsync(string query)
         {
             string placeId = string.Empty;
 

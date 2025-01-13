@@ -10,11 +10,11 @@ namespace TravelPlaner.Model.Classes.Database
     public class RestingPoint : Destination
     {
         public string Name { get; set; }
-        public string Address { get; set; }
+        public string? Address { get; set; }
         public RestingPointType Type { get; set; } //Added as enum but not sure if database can store such type. Always can change to string using function nameof() 
-        public int LengthOfStay { get; set; }
-        public string ContactInfo { get; set; } // Email or phone number
-        public int DestinationId { get; set; }
+        public int NightsSpentThere { get; set; }
+        public string? ContactInfo { get; set; } // Email or phone number
+
 
     }
 }

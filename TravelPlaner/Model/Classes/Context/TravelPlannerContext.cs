@@ -14,8 +14,8 @@ namespace TravelPlaner.Model.Classes.Context
         public DbSet<Trip> Trips { get; set; }
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<Destination> Destination { get; set; }
-        public DbSet<Landmark> Landmarks { get; set; }
-        public DbSet<RestingPoint> RestingPoints { get; set; }
+        public DbSet<Landmark> Landmark {  get; set; }
+        public DbSet<RestingPoint> RestingPoint { get; set; }
         public DbSet<TripMemory> TripMemory { get; set; }
         public DbSet<TripSegment> TripSegment { get; set; }
 

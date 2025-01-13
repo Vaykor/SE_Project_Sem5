@@ -36,10 +36,10 @@
             browseTripsButton = new Button();
             newTripButton = new Button();
             newTripPanel = new Panel();
+            addTripReturnDatePicker = new DateTimePicker();
+            addTripDepartureDatePicker = new DateTimePicker();
             newTripLabel = new Label();
             addTripFlowLayoutPanel = new FlowLayoutPanel();
-            returnDateTextBox = new TextBox();
-            DepDateTextBox = new TextBox();
             returnDateLabel = new Label();
             depDateLabel = new Label();
             tripNameTextBox = new TextBox();
@@ -142,20 +142,34 @@
             // newTripPanel
             // 
             newTripPanel.BackColor = SystemColors.ActiveCaption;
+            newTripPanel.Controls.Add(addTripReturnDatePicker);
+            newTripPanel.Controls.Add(addTripDepartureDatePicker);
             newTripPanel.Controls.Add(newTripLabel);
             newTripPanel.Controls.Add(addTripFlowLayoutPanel);
-            newTripPanel.Controls.Add(returnDateTextBox);
-            newTripPanel.Controls.Add(DepDateTextBox);
             newTripPanel.Controls.Add(returnDateLabel);
             newTripPanel.Controls.Add(depDateLabel);
             newTripPanel.Controls.Add(tripNameTextBox);
             newTripPanel.Controls.Add(nameLabel);
             newTripPanel.Controls.Add(returnFromAddButton);
-            newTripPanel.Location = new Point(612, 13);
+            newTripPanel.Location = new Point(619, 17);
             newTripPanel.Name = "newTripPanel";
-            newTripPanel.Size = new Size(609, 448);
+            newTripPanel.Size = new Size(589, 435);
             newTripPanel.TabIndex = 0;
             newTripPanel.Visible = false;
+            // 
+            // addTripReturnDatePicker
+            // 
+            addTripReturnDatePicker.Location = new Point(163, 116);
+            addTripReturnDatePicker.Name = "addTripReturnDatePicker";
+            addTripReturnDatePicker.Size = new Size(250, 27);
+            addTripReturnDatePicker.TabIndex = 10;
+            // 
+            // addTripDepartureDatePicker
+            // 
+            addTripDepartureDatePicker.Location = new Point(163, 83);
+            addTripDepartureDatePicker.Name = "addTripDepartureDatePicker";
+            addTripDepartureDatePicker.Size = new Size(250, 27);
+            addTripDepartureDatePicker.TabIndex = 9;
             // 
             // newTripLabel
             // 
@@ -173,23 +187,9 @@
             addTripFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
             addTripFlowLayoutPanel.Location = new Point(0, 149);
             addTripFlowLayoutPanel.Name = "addTripFlowLayoutPanel";
-            addTripFlowLayoutPanel.Size = new Size(609, 299);
+            addTripFlowLayoutPanel.Size = new Size(589, 286);
             addTripFlowLayoutPanel.TabIndex = 7;
             addTripFlowLayoutPanel.WrapContents = false;
-            // 
-            // returnDateTextBox
-            // 
-            returnDateTextBox.Location = new Point(163, 116);
-            returnDateTextBox.Name = "returnDateTextBox";
-            returnDateTextBox.Size = new Size(156, 27);
-            returnDateTextBox.TabIndex = 6;
-            // 
-            // DepDateTextBox
-            // 
-            DepDateTextBox.Location = new Point(163, 83);
-            DepDateTextBox.Name = "DepDateTextBox";
-            DepDateTextBox.Size = new Size(156, 27);
-            DepDateTextBox.TabIndex = 5;
             // 
             // returnDateLabel
             // 
@@ -242,9 +242,9 @@
             browseTripPanel.Controls.Add(browseLabel);
             browseTripPanel.Controls.Add(searchTextBox);
             browseTripPanel.Controls.Add(returnFromBrowseButton);
-            browseTripPanel.Location = new Point(1227, 13);
+            browseTripPanel.Location = new Point(1227, 14);
             browseTripPanel.Name = "browseTripPanel";
-            browseTripPanel.Size = new Size(581, 463);
+            browseTripPanel.Size = new Size(581, 447);
             browseTripPanel.TabIndex = 1;
             browseTripPanel.Visible = false;
             // 
@@ -252,7 +252,7 @@
             // 
             tripListPanel.AutoScroll = true;
             tripListPanel.Dock = DockStyle.Bottom;
-            tripListPanel.Location = new Point(0, 116);
+            tripListPanel.Location = new Point(0, 100);
             tripListPanel.Name = "tripListPanel";
             tripListPanel.Size = new Size(581, 347);
             tripListPanel.TabIndex = 4;
@@ -471,8 +471,6 @@
         private Panel tripListPanel;
         private Panel inspectTripPanel;
         private Button returnFromInspectButton;
-        private TextBox returnDateTextBox;
-        private TextBox DepDateTextBox;
         private Label returnDateLabel;
         private Label depDateLabel;
         private TextBox tripNameTextBox;
@@ -492,5 +490,7 @@
         private Button returnFromEditTrip;
         private FlowLayoutPanel tripInfoPanel;
         private Panel editButtonPanel;
+        private DateTimePicker addTripReturnDatePicker;
+        private DateTimePicker addTripDepartureDatePicker;
     }
 }
