@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelPlaner.Model.Classes.PlacesAPI.Sights
 {
-    public class Sights
+    public class Feature
     {
         public string? type { get; set; }
         public Properties? properties { get; set; }

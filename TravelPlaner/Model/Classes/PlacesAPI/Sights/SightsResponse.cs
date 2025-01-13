@@ -9,6 +9,6 @@ namespace TravelPlaner.Model.Classes.PlacesAPI.Sights
     public class SightsResponse
     {
         public string? type { get; set; }
-        public IList<Sights>? sights { get; set; }
+        public IList<Feature>? features { get; set; }
     }
 }
