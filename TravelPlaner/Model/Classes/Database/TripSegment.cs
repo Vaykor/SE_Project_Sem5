@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,13 @@ namespace TravelPlaner.Model.Classes.Database
 
         public string Name { get; set; }
 
-        public List<TripMemory> Memories { get; set; }
+        // Navigation Properties for Related Entities
+        public List<TripMemory> Memories { get; set; } = new List<TripMemory>();
+        public List<Expense> Expenses { get; set; } = new List<Expense>();
+        public List<Destination> Destinations { get; set; } = new List<Destination>();
 
-        public List<Expense> Expenses { get; set; }
-
-        public List<Destination> Destinations  { get; set; }
-
-        
+        // Foreign Key and Navigation Property for Trip
+        public int TripId { get; set; }
+        public Trip Trip { get; set; }
     }
 }
