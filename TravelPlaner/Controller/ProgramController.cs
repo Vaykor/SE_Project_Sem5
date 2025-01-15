@@ -44,25 +44,25 @@ namespace TravelPlaner.Controller
                 context.SaveChanges();
             }
         }
-        /*public void AddLandmark(string Name, string Address, string Description)
+        public void AddLandmark(string Name, string Address, string Description, int tripSegmentId)
         {      
             using (var context = new TravelPlannerContext())
             {
-                var landmark = new Landmark { Name = Name, Address = Address, Description = Description };
-                context.Landmarks.Add(landmark);
+                var landmark = new Landmark { Name = Name, Address = Address, Description = Description, TripSegmentId=tripSegmentId };
+                context.Landmark.Add(landmark);
                 context.SaveChanges();
             }
-        }*/
-        /*public void AddRestingPoint(string Name, string Address, RestingPointType Type, int LengthOfStay, string ContactInfo)
+        }
+        public void AddRestingPoint(string Name, string Address, RestingPointType Type, int NightsSpentThere, string ContactInfo, int tripSegmentId)
         {          
             using (var context = new TravelPlannerContext())
             {
-                var restingPoint = new RestingPoint { Name = Name, Address = Address, Type = Type, LengthOfStay = LengthOfStay, ContactInfo = ContactInfo };
-                context.RestingPoints.Add(restingPoint);
+                var restingPoint = new RestingPoint { Name = Name, Address = Address, Type = Type, NightsSpentThere = NightsSpentThere, ContactInfo = ContactInfo, TripSegmentId=tripSegmentId};
+                context.RestingPoint.Add(restingPoint);
                 context.SaveChanges();
             }
 
-        }*/
+        }
         public void AddTrip(string Name, DateTime StartDate, DateTime EndDate, List<TripSegment>? tripSegments)
         {
             using (var context = new TravelPlannerContext())
@@ -84,16 +84,16 @@ namespace TravelPlaner.Controller
         }
 
 
-        // Not yet implemented with relations
-        //public void AddTripMemory(string Name, string? Photo, string? Note, string? SongURL)
-        //{         
-        //    using (var context = new TravelPlannerContext())
-        //    {
-        //        var memory = new TripMemory { Name = Name, Photo = Photo, Note = Note, SongURL = SongURL };
-        //        context.TripMemory.Add(memory);
-        //        context.SaveChanges();
-        //    }
-        //}
+        // Not sure if functional?? Might be smth wrong with relations
+        public void AddTripMemory(string Name, string? Photo, string? Note, string? SongURL, int tripSegmentId)
+        {         
+            using (var context = new TravelPlannerContext())
+            {
+                var memory = new TripMemory { Name = Name, Photo = Photo, Note = Note, SongURL = SongURL, TripSegmentId = tripSegmentId};
+                context.TripMemory.Add(memory);
+                context.SaveChanges();
+            }
+        }
         public void AddTripSegment(string name, List<TripMemory> memories, List<Expense> expenses, List<Destination> destinations, int tripId)
         {
             using (var context = new TravelPlannerContext())
@@ -206,7 +206,25 @@ namespace TravelPlaner.Controller
             }
             return destinations;
         }
+        public List<Landmark> GetAllLandmarksByTripSegmentId(int tripSegmentId)
+        {
+            List<Landmark> landmarks = new List<Landmark>();
+            using (var context = new TravelPlannerContext())
+            {
+                landmarks = context.Landmark.Where(ds => ds.TripSegmentId == tripSegmentId).ToList();
+            }
+            return landmarks;
+        }
 
+        public List<RestingPoint> GetAllRestingPointsByTripSegmentId(int tripSegmentId)
+        {
+            List<RestingPoint> restingPoints = new List<RestingPoint>();
+            using (var context = new TravelPlannerContext())
+            {
+                restingPoints = context.RestingPoint.Where(ds => ds.TripSegmentId == tripSegmentId).ToList();
+            }
+            return restingPoints;
+        }
         #endregion
 
     }

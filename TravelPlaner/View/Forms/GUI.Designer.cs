@@ -82,37 +82,40 @@
             menuPanel.Controls.Add(settingsButton);
             menuPanel.Controls.Add(browseTripsButton);
             menuPanel.Controls.Add(newTripButton);
-            menuPanel.Location = new Point(12, 14);
+            menuPanel.Dock = DockStyle.Fill;
+            menuPanel.Location = new Point(0, 0);
             menuPanel.Name = "menuPanel";
-            menuPanel.Size = new Size(591, 448);
+            menuPanel.Size = new Size(1820, 980);
             menuPanel.TabIndex = 0;
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(17, 109);
+            pictureBox1.Location = new Point(29, 180);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(280, 207);
+            pictureBox1.Size = new Size(1091, 531);
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             // 
             // monthCalendar1
             // 
-            monthCalendar1.Location = new Point(309, 109);
+            monthCalendar1.CalendarDimensions = new Size(2, 2);
+            monthCalendar1.Location = new Point(1174, 180);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 5;
             // 
             // titleLabel
             // 
             titleLabel.AutoSize = true;
-            titleLabel.Location = new Point(220, 35);
+            titleLabel.Font = new Font("Segoe UI", 70F, FontStyle.Regular, GraphicsUnit.Point);
+            titleLabel.Location = new Point(588, -4);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(101, 20);
+            titleLabel.Size = new Size(782, 155);
             titleLabel.TabIndex = 4;
             titleLabel.Text = "Travel Planner";
             // 
             // settingsButton
             // 
-            settingsButton.Location = new Point(279, 409);
+            settingsButton.Location = new Point(394, 851);
             settingsButton.Name = "settingsButton";
             settingsButton.Size = new Size(117, 29);
             settingsButton.TabIndex = 3;
@@ -121,7 +124,7 @@
             // 
             // browseTripsButton
             // 
-            browseTripsButton.Location = new Point(159, 409);
+            browseTripsButton.Location = new Point(243, 851);
             browseTripsButton.Name = "browseTripsButton";
             browseTripsButton.Size = new Size(114, 29);
             browseTripsButton.TabIndex = 2;
@@ -131,7 +134,7 @@
             // 
             // newTripButton
             // 
-            newTripButton.Location = new Point(34, 409);
+            newTripButton.Location = new Point(90, 851);
             newTripButton.Name = "newTripButton";
             newTripButton.Size = new Size(119, 29);
             newTripButton.TabIndex = 1;
@@ -151,9 +154,10 @@
             newTripPanel.Controls.Add(tripNameTextBox);
             newTripPanel.Controls.Add(nameLabel);
             newTripPanel.Controls.Add(returnFromAddButton);
-            newTripPanel.Location = new Point(619, 17);
+            newTripPanel.Dock = DockStyle.Fill;
+            newTripPanel.Location = new Point(0, 0);
             newTripPanel.Name = "newTripPanel";
-            newTripPanel.Size = new Size(589, 435);
+            newTripPanel.Size = new Size(1820, 980);
             newTripPanel.TabIndex = 0;
             newTripPanel.Visible = false;
             // 
@@ -174,9 +178,10 @@
             // newTripLabel
             // 
             newTripLabel.AutoSize = true;
-            newTripLabel.Location = new Point(246, 27);
+            newTripLabel.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            newTripLabel.Location = new Point(707, 3);
             newTripLabel.Name = "newTripLabel";
-            newTripLabel.Size = new Size(111, 20);
+            newTripLabel.Size = new Size(365, 67);
             newTripLabel.TabIndex = 8;
             newTripLabel.Text = "ADD NEW TRIP";
             // 
@@ -187,7 +192,7 @@
             addTripFlowLayoutPanel.FlowDirection = FlowDirection.TopDown;
             addTripFlowLayoutPanel.Location = new Point(0, 149);
             addTripFlowLayoutPanel.Name = "addTripFlowLayoutPanel";
-            addTripFlowLayoutPanel.Size = new Size(589, 286);
+            addTripFlowLayoutPanel.Size = new Size(1820, 831);
             addTripFlowLayoutPanel.TabIndex = 7;
             addTripFlowLayoutPanel.WrapContents = false;
             // 
@@ -242,9 +247,10 @@
             browseTripPanel.Controls.Add(browseLabel);
             browseTripPanel.Controls.Add(searchTextBox);
             browseTripPanel.Controls.Add(returnFromBrowseButton);
-            browseTripPanel.Location = new Point(1227, 14);
+            browseTripPanel.Dock = DockStyle.Fill;
+            browseTripPanel.Location = new Point(0, 0);
             browseTripPanel.Name = "browseTripPanel";
-            browseTripPanel.Size = new Size(581, 447);
+            browseTripPanel.Size = new Size(1820, 980);
             browseTripPanel.TabIndex = 1;
             browseTripPanel.Visible = false;
             // 
@@ -252,23 +258,24 @@
             // 
             tripListPanel.AutoScroll = true;
             tripListPanel.Dock = DockStyle.Bottom;
-            tripListPanel.Location = new Point(0, 100);
+            tripListPanel.Location = new Point(0, 103);
             tripListPanel.Name = "tripListPanel";
-            tripListPanel.Size = new Size(581, 347);
+            tripListPanel.Size = new Size(1820, 877);
             tripListPanel.TabIndex = 4;
             // 
             // browseLabel
             // 
             browseLabel.AutoSize = true;
-            browseLabel.Location = new Point(245, 34);
+            browseLabel.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            browseLabel.Location = new Point(728, 0);
             browseLabel.Name = "browseLabel";
-            browseLabel.Size = new Size(109, 20);
+            browseLabel.Size = new Size(362, 67);
             browseLabel.TabIndex = 3;
             browseLabel.Text = "BROWSE TRIPS";
             // 
             // searchTextBox
             // 
-            searchTextBox.Location = new Point(195, 77);
+            searchTextBox.Location = new Point(806, 70);
             searchTextBox.Name = "searchTextBox";
             searchTextBox.Size = new Size(207, 27);
             searchTextBox.TabIndex = 2;
@@ -291,9 +298,10 @@
             inspectTripPanel.Controls.Add(tripInfoPanel);
             inspectTripPanel.Controls.Add(returnFromInspectButton);
             inspectTripPanel.Controls.Add(tripDetailsLabel);
-            inspectTripPanel.Location = new Point(29, 497);
+            inspectTripPanel.Dock = DockStyle.Fill;
+            inspectTripPanel.Location = new Point(0, 0);
             inspectTripPanel.Name = "inspectTripPanel";
-            inspectTripPanel.Size = new Size(863, 471);
+            inspectTripPanel.Size = new Size(1820, 980);
             inspectTripPanel.TabIndex = 2;
             inspectTripPanel.Visible = false;
             // 
@@ -308,9 +316,9 @@
             // 
             tripInfoPanel.Dock = DockStyle.Bottom;
             tripInfoPanel.FlowDirection = FlowDirection.TopDown;
-            tripInfoPanel.Location = new Point(0, 36);
+            tripInfoPanel.Location = new Point(0, 62);
             tripInfoPanel.Name = "tripInfoPanel";
-            tripInfoPanel.Size = new Size(863, 435);
+            tripInfoPanel.Size = new Size(1820, 918);
             tripInfoPanel.TabIndex = 9;
             // 
             // returnFromInspectButton
@@ -326,9 +334,10 @@
             // tripDetailsLabel
             // 
             tripDetailsLabel.AutoSize = true;
-            tripDetailsLabel.Location = new Point(365, 9);
+            tripDetailsLabel.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            tripDetailsLabel.Location = new Point(753, 0);
             tripDetailsLabel.Name = "tripDetailsLabel";
-            tripDetailsLabel.Size = new Size(97, 20);
+            tripDetailsLabel.Size = new Size(319, 67);
             tripDetailsLabel.TabIndex = 8;
             tripDetailsLabel.Text = "TRIP DETAILS";
             // 
@@ -344,18 +353,20 @@
             editTripPanel.Controls.Add(editNameLabel);
             editTripPanel.Controls.Add(returnFromEditTrip);
             editTripPanel.Controls.Add(editTripFlowLayoutPanel);
-            editTripPanel.Location = new Point(1051, 497);
+            editTripPanel.Dock = DockStyle.Fill;
+            editTripPanel.Location = new Point(0, 0);
             editTripPanel.Name = "editTripPanel";
-            editTripPanel.Size = new Size(609, 471);
+            editTripPanel.Size = new Size(1820, 980);
             editTripPanel.TabIndex = 9;
             editTripPanel.Visible = false;
             // 
             // editTripLabel
             // 
             editTripLabel.AutoSize = true;
-            editTripLabel.Location = new Point(246, 27);
+            editTripLabel.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            editTripLabel.Location = new Point(793, 9);
             editTripLabel.Name = "editTripLabel";
-            editTripLabel.Size = new Size(73, 20);
+            editTripLabel.Size = new Size(239, 67);
             editTripLabel.TabIndex = 8;
             editTripLabel.Text = "EDIT TRIP";
             // 
@@ -421,9 +432,9 @@
             // 
             editTripFlowLayoutPanel.AutoScroll = true;
             editTripFlowLayoutPanel.Dock = DockStyle.Bottom;
-            editTripFlowLayoutPanel.Location = new Point(0, 146);
+            editTripFlowLayoutPanel.Location = new Point(0, 149);
             editTripFlowLayoutPanel.Name = "editTripFlowLayoutPanel";
-            editTripFlowLayoutPanel.Size = new Size(609, 325);
+            editTripFlowLayoutPanel.Size = new Size(1820, 831);
             editTripFlowLayoutPanel.TabIndex = 7;
             editTripFlowLayoutPanel.WrapContents = false;
             // 
@@ -432,10 +443,10 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1820, 980);
-            Controls.Add(browseTripPanel);
-            Controls.Add(newTripPanel);
-            Controls.Add(menuPanel);
             Controls.Add(editTripPanel);
+            Controls.Add(browseTripPanel);
+            Controls.Add(menuPanel);
+            Controls.Add(newTripPanel);
             Controls.Add(inspectTripPanel);
             Name = "GUI";
             Text = "Travel Planner";

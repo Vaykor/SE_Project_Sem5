@@ -32,6 +32,8 @@
             button1 = new Button();
             button2 = new Button();
             button3 = new Button();
+            numericUpDown1 = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -72,17 +74,28 @@
             button3.Text = "Settings";
             button3.UseVisualStyleBackColor = true;
             // 
+            // numericUpDown1
+            // 
+            numericUpDown1.DecimalPlaces = 2;
+            numericUpDown1.Location = new Point(926, 350);
+            numericUpDown1.Maximum = new decimal(new int[] { -469762049, -590869294, 5421010, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(150, 27);
+            numericUpDown1.TabIndex = 4;
+            // 
             // MainView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1162, 735);
+            Controls.Add(numericUpDown1);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);
             Name = "MainView";
             Text = "MainView";
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -93,5 +106,6 @@
         private Button button1;
         private Button button2;
         private Button button3;
+        private NumericUpDown numericUpDown1;
     }
 }

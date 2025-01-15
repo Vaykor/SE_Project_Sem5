@@ -17,6 +17,9 @@
     <Compile Update="View\Forms\MainView.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Forms\PopupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Forms\SegmentDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
