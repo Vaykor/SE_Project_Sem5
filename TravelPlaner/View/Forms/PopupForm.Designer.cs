@@ -35,7 +35,7 @@
             // button1
             // 
             button1.DialogResult = DialogResult.OK;
-            button1.Location = new Point(157, 85);
+            button1.Location = new Point(163, 103);
             button1.Name = "button1";
             button1.Size = new Size(142, 51);
             button1.TabIndex = 0;
@@ -45,10 +45,10 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top;
-            label1.Location = new Point(1, 8);
+            label1.Dock = DockStyle.Top;
+            label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(459, 74);
+            label1.Size = new Size(462, 100);
             label1.TabIndex = 1;
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;

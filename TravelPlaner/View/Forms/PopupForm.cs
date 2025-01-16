@@ -16,17 +16,21 @@ namespace TravelPlaner.View.Forms
         {
             InitializeComponent();
         }
-        public PopupForm(bool success)
+        public PopupForm(int message)
         {
             InitializeComponent();
-            if (success)
+            switch (message)
             {
-                label1.Text = "Success! Your trip should now appear in the database.";
-            }
-            else
-            {
-                label1.Text = "The values which you have inserted are empty. Please correct them before submitting changes.";
-            }
+                case 1:
+                    label1.Text = "Success! Your trip should now appear in the database.";
+                    break;
+                case 2:
+                    label1.Text = "The values which you have inserted are empty. Please correct them before submitting changes.";
+                    break;
+                case 3:
+                    label1.Text = "Please insert a City into the text field, before searching for recommended landmarks.";
+                    break;
+                }
         }
 
         private void button1_Click(object sender, EventArgs e)
