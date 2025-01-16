@@ -164,6 +164,16 @@ namespace TravelPlaner.Controller
             }
             return trip;       
         }
+        public Trip GetLastTrip()
+        {
+            Trip trip = new Trip();
+
+            using (var context = new TravelPlannerContext())
+            {
+                trip = context.Trips.OrderBy(trip => trip.Id).Last();
+            }
+            return trip;
+        }
         public Trip GetTripById(int tripId)
         {
             Trip trip = new Trip();

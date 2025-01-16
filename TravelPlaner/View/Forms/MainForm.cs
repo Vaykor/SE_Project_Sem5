@@ -15,12 +15,13 @@ using TravelPlaner.Model.Classes.PlacesAPI;
 
 namespace TravelPlaner.View.Forms
 {
-    public partial class TouristLandmarkTestForm : Form
+    public partial class RecommendedLandmarks : Form
     {
 
         ProgramController controller = new ProgramController();
+        string passedCity;
 
-        public TouristLandmarkTestForm()
+        public RecommendedLandmarks()
         {
             InitializeComponent();
 
@@ -48,8 +49,13 @@ namespace TravelPlaner.View.Forms
 
 
         }
-
-        private async void button1_Click(object sender, EventArgs e)
+        public RecommendedLandmarks(string city)
+        {
+            InitializeComponent();
+            passedCity = city;
+            PopulateListViewAsync();
+        }
+        private void button1_Click(object sender, EventArgs e)
         {
             /*List<Trip> tripsFromDB = new List<Trip>();
             tripsFromDB = controller.GetAllTrips();
@@ -92,38 +98,45 @@ namespace TravelPlaner.View.Forms
             //label6.Text = tripMemory.Name;
             //label7.Text = tripMemory1.Photo;
             //label8.Text = tripSegment.Name;
-
-            await PopulateListViewAsync();
+            this.Parent.Dispose();
+            
         }
 
         private async Task PopulateListViewAsync()
         {
-            if (!string.IsNullOrEmpty(APITestBox.Text) || !string.IsNullOrEmpty(APITestBox.Text))
+            if (!string.IsNullOrEmpty(passedCity) || !string.IsNullOrEmpty(passedCity))
             {
+                label1.Text = "Searching for landmarks near " + passedCity + "...";
                 PlacesApiHelper placesApiHelper = new PlacesApiHelper();
-                List<TouristLandmark> touristLandmarks = await placesApiHelper.GetTouristLandmarksAsync(APITestBox.Text);
-
+                List<TouristLandmark> touristLandmarks = await placesApiHelper.GetTouristLandmarksAsync(passedCity);
                 TouristLandmarkListView.Items.Clear();
-                foreach (TouristLandmark landmark in touristLandmarks)
+                if (touristLandmarks.Count() != 0)
                 {
-                    if (landmark != null)
+                    foreach (TouristLandmark landmark in touristLandmarks)
                     {
+                        if (landmark != null)
+                        {
 
-                        if (landmark.Phone != null)
-                        {
-                            string?[] row = { landmark.Name, landmark.Country, landmark.City, landmark.Street, landmark.Phone };
-                            var listViewItem = new ListViewItem(row);
-                            TouristLandmarkListView.Items.Add(listViewItem);
+                            if (landmark.Phone != null)
+                            {
+                                string?[] row = { landmark.Name, landmark.Country, landmark.City, landmark.Street, landmark.Phone };
+                                var listViewItem = new ListViewItem(row);
+                                TouristLandmarkListView.Items.Add(listViewItem);
+                            }
+                            else
+                            {
+                                string?[] row = { landmark.Name, landmark.Country, landmark.City, landmark.Street, "None" };
+                                var listViewItem = new ListViewItem(row);
+                                TouristLandmarkListView.Items.Add(listViewItem);
+                            }
                         }
-                        else
-                        {
-                            string?[] row = { landmark.Name, landmark.Country, landmark.City, landmark.Street, "None" };
-                            var listViewItem = new ListViewItem(row);
-                            TouristLandmarkListView.Items.Add(listViewItem);
-                        }
+
+
                     }
-
-
+                    label1.Text = "Success! We found some landmarks near " + passedCity;
+                } else
+                {
+                    label1.Text = "We couldn't find any landmarks near " + passedCity;
                 }
             }
 

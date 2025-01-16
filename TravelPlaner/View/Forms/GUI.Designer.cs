@@ -117,10 +117,11 @@
             // 
             settingsButton.Location = new Point(394, 851);
             settingsButton.Name = "settingsButton";
-            settingsButton.Size = new Size(117, 29);
+            settingsButton.Size = new Size(238, 29);
             settingsButton.TabIndex = 3;
-            settingsButton.Text = "Settings";
+            settingsButton.Text = "Test Adders (DO NOT SPAM)";
             settingsButton.UseVisualStyleBackColor = true;
+            settingsButton.Click += settingsButton_Click;
             // 
             // browseTripsButton
             // 
@@ -443,11 +444,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1820, 980);
-            Controls.Add(editTripPanel);
-            Controls.Add(browseTripPanel);
             Controls.Add(menuPanel);
             Controls.Add(newTripPanel);
             Controls.Add(inspectTripPanel);
+            Controls.Add(editTripPanel);
+            Controls.Add(browseTripPanel);
             Name = "GUI";
             Text = "Travel Planner";
             menuPanel.ResumeLayout(false);
