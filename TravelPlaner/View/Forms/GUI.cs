@@ -69,6 +69,7 @@ namespace TravelPlaner.View.Forms
                 editNameTextBox.Text = passedTrip.Name;
                 editDepDateTextBox.Text = passedTrip.StartDate.ToString();
                 editReturnDateTextBox.Text = passedTrip.EndDate.ToString();
+                AddTripSegmentSection(editTripFlowLayoutPanel);
                 AddTripSegment(editTripFlowLayoutPanel, passedTrip);
             };
             Label nameLabel = new Label
@@ -651,6 +652,7 @@ namespace TravelPlaner.View.Forms
             string city = "";
             bool checkDestination = true;
             List<Expense> expenses;
+            List<Landmark> landmarks;
             List<TripMemory> memories;
             List<TripSegment> tripsegments = new List<TripSegment>();
             List<Destination> destinations = new List<Destination>();
@@ -753,12 +755,19 @@ namespace TravelPlaner.View.Forms
                     AutoSize = true
                 };
 
-                btnAddLandmark.Click += (s, e) => AddLandmark(newLandmarkPanel);
+                btnAddLandmark.Click += (s, e) => AddLandmark(newLandmarkPanel, null);
                 landmarkPanel.Controls.Add(landmarkLabel);
                 landmarkPanel.Controls.Add(btnAddLandmark);
                 segmentPanel.Controls.Add(landmarkPanel);
                 segmentPanel.Controls.Add(newLandmarkPanel);
-
+                if (trip != null && checkDestination)
+                {
+                    landmarks = controller.GetAllLandmarksByTripSegmentId(tripsegments[i].Id);
+                    foreach (var item in landmarks)
+                    {
+                        AddLandmark(newLandmarkPanel, item);
+                    }
+                }
                 //EXPENSES
                 var expensePanel = new FlowLayoutPanel
                 {
@@ -846,8 +855,15 @@ namespace TravelPlaner.View.Forms
 
         /** WIP TODO when Landmarks get fixed in the database
          */
-        private void AddLandmark(FlowLayoutPanel sectionPanel)
+        private void AddLandmark(FlowLayoutPanel sectionPanel, Landmark landmark)
         {
+            String lndName = "";
+            String lndAddress = "";
+            if (landmark != null)
+            {
+                lndName = landmark.Name;
+                lndAddress = landmark.Address;
+            }
             var segmentPanel = new FlowLayoutPanel
             {
                 AutoSize = true,
@@ -858,13 +874,13 @@ namespace TravelPlaner.View.Forms
 
             // Pole Name
             var lblName = new Label { Text = "Name:", AutoSize = true };
-            var txtName = new TextBox { Width = 200 };
+            var txtName = new TextBox { Width = 200, Text=lndName};
             segmentPanel.Controls.Add(lblName);
             segmentPanel.Controls.Add(txtName);
 
             // Pole Address
             var lblAddress = new Label { Text = "Address:", AutoSize = true };
-            var txtAddress = new TextBox { Width = 200 };
+            var txtAddress = new TextBox { Width = 200, Text=lndAddress};
             segmentPanel.Controls.Add(lblAddress);
             segmentPanel.Controls.Add(txtAddress);
 
