@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelPlaner.Model.Classes.Context;
+﻿using TravelPlaner.Model.Classes.Context;
 using TravelPlaner.Model.Classes.Database;
 using TravelPlaner.Model.Enums;
 
@@ -130,8 +125,6 @@ namespace TravelPlaner.Controller
 
         #endregion
 
-
-
         #region DBGet
 
         public List<TripSegment> GetAllTripSegmentsByTripId(int tripId)
@@ -235,6 +228,139 @@ namespace TravelPlaner.Controller
             }
             return restingPoints;
         }
+        #endregion
+
+        #region DbUpdate
+
+        public void UpdateExpense(Expense updatedExpense)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                var existingExpense = context.Expenses.FirstOrDefault(e => e.Id == updatedExpense.Id);
+
+                if (updatedExpense != null)
+                {
+                    existingExpense.Name = updatedExpense.Name;
+                    existingExpense.Value = updatedExpense.Value;
+                    existingExpense.TripSegmentId = updatedExpense.TripSegmentId;
+                   
+                    context.SaveChanges();
+                }
+            }
+
+        }
+
+        public void UpdateDestination(Destination updatedDestination)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                var existingDestination = context.Destination.FirstOrDefault(e => e.Id == updatedDestination.Id);
+
+                if (existingDestination != null)
+                {
+                    existingDestination.Country = updatedDestination.Country;
+                    existingDestination.City = updatedDestination.City;
+                    existingDestination.TripSegmentId = updatedDestination.TripSegmentId;
+
+                    context.SaveChanges();
+                }
+            }
+
+        }
+
+        public void UpdateLandmark(Landmark updatedLandmark)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                var existingLandmark = context.Landmark.FirstOrDefault(e => e.Id == updatedLandmark.Id);
+
+                if (existingLandmark != null)
+                {
+                    existingLandmark.Name = updatedLandmark.Name;
+                    existingLandmark.Address = updatedLandmark.Address;
+                    existingLandmark.Description = updatedLandmark.Description;
+
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void UpdateRestingPoint(RestingPoint updatedRestingPoint)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                var existingRestingPoint = context.RestingPoint.FirstOrDefault(e => e.Id == updatedRestingPoint.Id);
+
+                if (existingRestingPoint != null)
+                {
+                    existingRestingPoint.Name = updatedRestingPoint.Name;
+                    existingRestingPoint.Address = updatedRestingPoint.Address;
+                    existingRestingPoint.Type = updatedRestingPoint.Type;
+                    existingRestingPoint.NightsSpentThere = updatedRestingPoint.NightsSpentThere;
+                    existingRestingPoint.ContactInfo = updatedRestingPoint.ContactInfo;
+
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void UpdateTrip(Trip updatedTrip)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                var existingTrip = context.Trips.FirstOrDefault(e => e.Id == updatedTrip.Id);
+
+                if (existingTrip != null)
+                {
+                    existingTrip.Name = updatedTrip.Name;
+                    existingTrip.StartDate = updatedTrip.StartDate;
+                    existingTrip.EndDate = updatedTrip.EndDate;
+                    existingTrip.TripSegments = updatedTrip.TripSegments;
+
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void UpdateTripMemory(TripMemory updatedTripMemory)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                var existingTripMemory = context.TripMemory.FirstOrDefault(e => e.Id == updatedTripMemory.Id);
+
+                if (existingTripMemory != null)
+                {
+                    existingTripMemory.Name = updatedTripMemory.Name;
+                    existingTripMemory.Photo = updatedTripMemory.Photo;
+                    existingTripMemory.Note = updatedTripMemory.Note;
+                    existingTripMemory.SongURL = updatedTripMemory.SongURL;
+                    existingTripMemory.TripSegmentId = updatedTripMemory.TripSegmentId;
+
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void UpdateTripSegment(TripSegment updatedTripSegment)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                var existingTripSegment = context.TripSegment.FirstOrDefault(e => e.Id == updatedTripSegment.Id);
+
+                if (existingTripSegment != null)
+                {
+                    existingTripSegment.Name = updatedTripSegment.Name;
+                    existingTripSegment.Memories = updatedTripSegment.Memories;
+                    existingTripSegment.Expenses = updatedTripSegment.Expenses;
+                    existingTripSegment.Destinations = updatedTripSegment.Destinations;
+                    existingTripSegment.TripId = updatedTripSegment.TripId;
+
+                    context.SaveChanges();
+                }
+            }
+        }
+
+
         #endregion
 
     }
