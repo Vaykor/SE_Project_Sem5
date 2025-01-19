@@ -230,7 +230,7 @@ namespace TravelPlaner.Controller
         }
         #endregion
 
-        #region DbUpdate
+        #region DBUpdate
 
         public void UpdateExpense(Expense updatedExpense)
         {
@@ -363,5 +363,90 @@ namespace TravelPlaner.Controller
 
         #endregion
 
+        #region DBDelete
+
+        public void DeleteExpense(Expense expenseToDelete)
+        {
+            using (var context = new TravelPlannerContext())
+            {      
+                if (expenseToDelete != null)
+                {
+                    context.Expenses.Remove(expenseToDelete);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void DeleteDestination(Destination destinationToDelete)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                if (destinationToDelete != null)
+                {
+                    context.Destination.Remove(destinationToDelete);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void DeleteLandmark(Landmark landmarkToDelete)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                if (landmarkToDelete != null)
+                {
+                    context.Landmark.Remove(landmarkToDelete);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void DeleteRestingPoint(RestingPoint restingPointToDelete)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                if (restingPointToDelete != null)
+                {
+                    context.RestingPoint.Remove(restingPointToDelete);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void DeleteTrip(Trip tripToDelete)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                if (tripToDelete != null)
+                {
+                    context.Trips.Remove(tripToDelete);
+                    context.SaveChanges();
+                }
+            }
+        }
+        public void DeleteTripMemory(TripMemory tripMemoryToDelete)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                if (tripMemoryToDelete != null)
+                {
+                    context.TripMemory.Remove(tripMemoryToDelete);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+        public void DeleteTripSegment(TripSegment tripSegmentToDelete)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                if (tripSegmentToDelete != null)
+                {
+                    context.TripSegment.Remove(tripSegmentToDelete);
+                    context.SaveChanges();
+                }
+            }
+        }
+        #endregion
     }
 }
