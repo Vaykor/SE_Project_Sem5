@@ -6,7 +6,6 @@ namespace TravelPlaner.Controller
 {
     public class ProgramController
     {
-
         #region DBSet
         public void AddExpense(string Name, double Value, int tripSegmentId)
         {
