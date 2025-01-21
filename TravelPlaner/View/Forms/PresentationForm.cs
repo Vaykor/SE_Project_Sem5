@@ -21,7 +21,7 @@ namespace TravelPlaner.View.Forms
 
         public PresentationForm(string tripName)
         {
-            InitializeComponent();
+            /*InitializeComponent();
             Text = tripName + " photo memories";
 
             LoadImages();
@@ -40,12 +40,12 @@ namespace TravelPlaner.View.Forms
             else
             {
                 MessageBox.Show("Nie znaleziono zdjęć dla wyjazdu.");
-            }
+            }*/
         }
 
         private void TimerTick(object sender, EventArgs e)
         {
-            if (currentImageIndex == (images.Length - 1))
+            /*if (currentImageIndex == (images.Length - 1))
             {
                 timer.Stop();
                 MessageBox.Show("Koniec pokazu","Koniec", MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -54,7 +54,7 @@ namespace TravelPlaner.View.Forms
             {
                 currentImageIndex = (currentImageIndex + 1) % images.Length;
                 photoPresenter.Image = Image.FromFile(images[currentImageIndex]);
-            }
+            }*/
 
         }
 
@@ -62,8 +62,8 @@ namespace TravelPlaner.View.Forms
         {
             // For now loading images from folder. In future should be replaced with loading images from data strings saved to database.
 
-            string imageFolderPath = Path.Combine(baseDirectory, IMAGE_FOLDER_NAME);
-            images = System.IO.Directory.GetFiles(imageFolderPath, "*.png");
+            //string imageFolderPath = Path.Combine(baseDirectory, IMAGE_FOLDER_NAME);
+            //images = System.IO.Directory.GetFiles(imageFolderPath, "*.png");
         }
 
     }

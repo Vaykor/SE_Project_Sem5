@@ -157,7 +157,7 @@ namespace TravelPlaner.View.Forms
         private void newTripButton_Click(object sender, EventArgs e)
         {
             ShowPanel(newTripPanel);
-            AddTripSegmentSection(addTripFlowLayoutPanel);
+            //AddTripSegmentSection(addTripFlowLayoutPanel);
 
         }
         /** FUNCTION FOR CREATING THE "FORM" FOR ADDING TRIP SEGMENT SECTIONS
@@ -874,13 +874,13 @@ namespace TravelPlaner.View.Forms
 
             // Pole Name
             var lblName = new Label { Text = "Name:", AutoSize = true };
-            var txtName = new TextBox { Width = 200, Text=lndName};
+            var txtName = new TextBox { Width = 200, Text = lndName };
             segmentPanel.Controls.Add(lblName);
             segmentPanel.Controls.Add(txtName);
 
             // Pole Address
             var lblAddress = new Label { Text = "Address:", AutoSize = true };
-            var txtAddress = new TextBox { Width = 200, Text=lndAddress};
+            var txtAddress = new TextBox { Width = 200, Text = lndAddress };
             segmentPanel.Controls.Add(lblAddress);
             segmentPanel.Controls.Add(txtAddress);
 
@@ -1155,17 +1155,19 @@ namespace TravelPlaner.View.Forms
                 Panel tripPanel = new Panel
                 {
                     BorderStyle = BorderStyle.FixedSingle,
-                    Size = new Size(tripListPanel.Width - 40, 100),
-                    Location = new Point(10, panelY),
+                    Size = new Size(tripListPanel.Width - 200, 100),
+                    Location = new Point(50, panelY),
+                    BackColor = Color.White,
                     Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
                 };
 
                 // Add a label for the trip name and destination
                 Label nameLabel = new Label
                 {
-                    Text = $"Name: {trip.Name} - Destination:{destinationName}",  //",
-                    Font = new Font("Arial", 10, FontStyle.Bold),
+                    Text = $"{trip.Name},    Destination: {destinationName}",  //",
+                    Font = new Font("Arial", 14, FontStyle.Bold),
                     Location = new Point(10, 10),
+                    ForeColor = Color.Black,
                     AutoSize = true
                 };
                 tripPanel.Controls.Add(nameLabel);
@@ -1174,7 +1176,9 @@ namespace TravelPlaner.View.Forms
                 Label dateLabel = new Label
                 {
 
-                    Text = $"Start: {trip.StartDate.ToShortDateString()} - End: {trip.EndDate.ToShortDateString()}",
+                    Text = $"Date of the trip: {trip.StartDate.ToShortDateString()} - {trip.EndDate.ToShortDateString()}",
+                    Font = new Font("Arial", 12, FontStyle.Regular),
+                    ForeColor = Color.Black,
                     Location = new Point(10, 40),
                     AutoSize = true
                 };
@@ -1184,6 +1188,8 @@ namespace TravelPlaner.View.Forms
                 Label segmentLabel = new Label
                 {
                     Text = $"Number of Segments: {segmentCount}",
+                    Font = new Font("Arial", 12, FontStyle.Regular),
+                    ForeColor = Color.Black,
                     Location = new Point(10, 70),
                     AutoSize = true
                 };
@@ -1192,9 +1198,18 @@ namespace TravelPlaner.View.Forms
                 Button viewButton = new Button
                 {
                     Text = "🔍",
-                    Location = new Point(tripPanel.Width - 100, 40),
-                    AutoSize = true
+                    Font = new Font("Arial", 30, FontStyle.Regular),
+                    Size = new Size(40, 40),
+                    Location = new Point(tripPanel.Width - 100, 20),
+                    AutoSize = true,
+                    ForeColor = Color.FromArgb(1,183,99),
+                    FlatStyle = FlatStyle.Flat
                 };
+
+                // Remove the border
+                viewButton.FlatAppearance.BorderSize = 0;
+                viewButton.BackColor = Color.White;
+
                 tripPanel.Controls.Add(viewButton);
 
                 viewButton.Click += (sender, e) => ShowTripDetails(trip, tripSegments);
@@ -1209,7 +1224,7 @@ namespace TravelPlaner.View.Forms
         private void returnFromAddButton_Click(object sender, EventArgs e)
         {
             ShowPanel(menuPanel);
-            addTripFlowLayoutPanel.Controls.Clear();
+            //addTripFlowLayoutPanel.Controls.Clear();
         }
 
         //---------returning from browse trips panel----------------------
@@ -1242,17 +1257,22 @@ namespace TravelPlaner.View.Forms
         //THIS IS JUST FOR TESTING/SHOWCASING THE FUNCTIONALITY OF ADDERS.
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            controller.AddTrip("Test Trip to verify Adders", DateTime.Now, DateTime.Now , new List<TripSegment>());
+            controller.AddTrip("Test Trip to verify Adders", DateTime.Now, DateTime.Now, new List<TripSegment>());
             Trip testTrip = controller.GetLastTrip();
             controller.AddTripSegment("1st Test Segment", new List<TripMemory>(), new List<Expense>(), new List<Destination>(), testTrip.Id);
             controller.AddTripSegment("2nd Test Segment", new List<TripMemory>(), new List<Expense>(), new List<Destination>(), testTrip.Id);
             List<TripSegment> segments = controller.GetAllTripSegmentsByTripId(testTrip.Id);
             controller.AddDestination("Poland", "Gliwice", segments[0].Id);
             controller.AddDestination("Italy", "Rome", segments[1].Id);
-            controller.AddLandmark("Radiostacja Gliwice", "Tarnogórska 129","Nasza mała wieża Eiffel", segments[0].Id);
+            controller.AddLandmark("Radiostacja Gliwice", "Tarnogórska 129", "Nasza mała wieża Eiffel", segments[0].Id);
             controller.AddRestingPoint("Hotel Ceasar", "Via Romana 123", Model.Enums.RestingPointType.Hotel, 7, "+48 32 47 32 997", segments[1].Id);
             controller.AddExpense("Pizza", 400.50, segments[1].Id);
             controller.AddTripMemory("Politechnika", "https://www.polsl.pl/rau/wp-content/uploads/sites/42/2021/02/wydzial_aei.jpg", "The (in)famous Mage Tower", "", segments[0].Id);
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
         }
     }
 
