@@ -62,7 +62,7 @@ namespace TravelPlaner.View.Forms
                 Location = new Point(0, 0),
                 AutoSize = true
             };
-            editButtonPanel.Controls.Add(editButton);
+            /*editButtonPanel.Controls.Add(editButton);
             editButton.Click += (sender, e) =>
             {
                 ShowPanel(editTripPanel);
@@ -87,7 +87,7 @@ namespace TravelPlaner.View.Forms
                 Location = new Point(10, 40),
                 AutoSize = true
             };
-            tripInfoPanel.Controls.Add(dateLabel);
+            tripInfoPanel.Controls.Add(dateLabel);*/
 
             foreach (TripSegment tripSegment in tripSegments)
             {
@@ -125,8 +125,8 @@ namespace TravelPlaner.View.Forms
                 };
 
 
-                tripInfoPanel.Controls.Add(segmentPanel);
-                tripInfoPanel.Controls.Add(expandingPanel);
+                /*tripInfoPanel.Controls.Add(segmentPanel);
+                tripInfoPanel.Controls.Add(expandingPanel);*/
                 btnExpandSegmentInfo.Click += (s, e) =>
                 {
                     if (!isExpanded)
@@ -1241,8 +1241,8 @@ namespace TravelPlaner.View.Forms
         {
 
             ShowPanel(browseTripPanel);
-            tripInfoPanel.Controls.Clear();
-            editButtonPanel.Controls.Clear();
+            /*tripInfoPanel.Controls.Clear();
+            editButtonPanel.Controls.Clear();*/
         }
 
 
@@ -1251,7 +1251,7 @@ namespace TravelPlaner.View.Forms
         private void returnFromEditTrip_Click(object sender, EventArgs e)
         {
             ShowPanel(inspectTripPanel);
-            editTripFlowLayoutPanel.Controls.Clear();
+            //editTripFlowLayoutPanel.Controls.Clear();
         }
 
         //THIS IS JUST FOR TESTING/SHOWCASING THE FUNCTIONALITY OF ADDERS.

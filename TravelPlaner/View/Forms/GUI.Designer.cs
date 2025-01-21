@@ -39,8 +39,60 @@
             newTripButton = new Button();
             titleLabel = new Label();
             newTripPanel = new Panel();
-            button2 = new Button();
-            button1 = new Button();
+            memNoteInput = new RichTextBox();
+            memPictureBox = new PictureBox();
+            segNameInput = new TextBox();
+            memSongInput = new TextBox();
+            expValueInput = new TextBox();
+            expNameInput = new TextBox();
+            restContactInput = new TextBox();
+            restAddressInput = new TextBox();
+            restCityInput = new TextBox();
+            restCountryInput = new TextBox();
+            restNameInput = new TextBox();
+            landDescInput = new TextBox();
+            landAddressInput = new TextBox();
+            landCityInput = new TextBox();
+            landCountryInput = new TextBox();
+            landNameInput = new TextBox();
+            restCampingRadioButton = new RadioButton();
+            restApartmRadioButton = new RadioButton();
+            restRoomRadioButton = new RadioButton();
+            restHostelRadioButton = new RadioButton();
+            restHotelRadioButton = new RadioButton();
+            restTypeLabel = new Label();
+            restContactLabel = new Label();
+            restAddressLabel = new Label();
+            restCityLabel = new Label();
+            restCountryLabel = new Label();
+            restNameLabel = new Label();
+            memNoteLabel = new Label();
+            memSongLabel = new Label();
+            memPhotoLabel = new Label();
+            expValueLabel = new Label();
+            expNameLabel = new Label();
+            landDescLabel = new Label();
+            landAddressLabel = new Label();
+            landCityLabel = new Label();
+            landCountryLabel = new Label();
+            landNameLabel = new Label();
+            segNameLabel = new Label();
+            landUpdateButton = new Button();
+            landAddButton = new Button();
+            landRemoveButton = new Button();
+            restUpdateButton = new Button();
+            restAddButton = new Button();
+            restRemoveButton = new Button();
+            expUpdateButton = new Button();
+            expAddButton = new Button();
+            expRemoveButton = new Button();
+            memUpdateButton = new Button();
+            memAddButton = new Button();
+            memRemoveButton = new Button();
+            segUpdateButton = new Button();
+            segAddButton = new Button();
+            segRemoveButton = new Button();
+            saveTripButton = new Button();
             addMemoryLabel = new Label();
             addExpenseLabel = new Label();
             addRestingPointLabel = new Label();
@@ -69,26 +121,121 @@
             tripNameTextBox = new TextBox();
             nameLabel = new Label();
             returnFromAddButton = new Button();
-            browseTripPanel = new Panel();
-            tripListPanel = new Panel();
-            browseLabel = new Label();
-            searchTextBox = new TextBox();
-            returnFromBrowseButton = new Button();
             inspectTripPanel = new Panel();
-            editButtonPanel = new Panel();
-            tripInfoPanel = new FlowLayoutPanel();
-            returnFromInspectButton = new Button();
-            tripDetailsLabel = new Label();
+            richTextBox1 = new RichTextBox();
+            pictureBox2 = new PictureBox();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            textBox3 = new TextBox();
+            textBox4 = new TextBox();
+            textBox5 = new TextBox();
+            textBox6 = new TextBox();
+            textBox7 = new TextBox();
+            textBox8 = new TextBox();
+            textBox9 = new TextBox();
+            textBox10 = new TextBox();
+            textBox11 = new TextBox();
+            textBox12 = new TextBox();
+            textBox13 = new TextBox();
+            textBox14 = new TextBox();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton3 = new RadioButton();
+            radioButton4 = new RadioButton();
+            radioButton6 = new RadioButton();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label13 = new Label();
+            label14 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label19 = new Label();
+            label20 = new Label();
+            button16 = new Button();
+            label21 = new Label();
+            label22 = new Label();
+            label23 = new Label();
+            label24 = new Label();
+            label25 = new Label();
+            label26 = new Label();
+            label27 = new Label();
+            label28 = new Label();
+            label29 = new Label();
+            label30 = new Label();
+            listView1 = new ListView();
+            listView2 = new ListView();
+            listView3 = new ListView();
+            listView4 = new ListView();
+            listView5 = new ListView();
+            listView6 = new ListView();
+            listView7 = new ListView();
+            listView8 = new ListView();
+            listView9 = new ListView();
+            listView10 = new ListView();
+            label31 = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            dateTimePicker2 = new DateTimePicker();
+            label33 = new Label();
+            textBox15 = new TextBox();
+            label34 = new Label();
+            button17 = new Button();
+            label32 = new Label();
+            returnFromBrowseButton = new Button();
+            searchTextBox = new TextBox();
+            browseLabel = new Label();
+            tripListPanel = new Panel();
+            browseTripPanel = new Panel();
             editTripPanel = new Panel();
-            editTripLabel = new Label();
-            editReturnDateTextBox = new TextBox();
-            editDepDateTextBox = new TextBox();
-            editReturnDateLabel = new Label();
-            editDepDateLabel = new Label();
-            editNameTextBox = new TextBox();
-            editNameLabel = new Label();
-            returnFromEditTrip = new Button();
-            editTripFlowLayoutPanel = new FlowLayoutPanel();
+            button20 = new Button();
+            richTextBox2 = new RichTextBox();
+            pictureBox3 = new PictureBox();
+            textBox16 = new TextBox();
+            textBox17 = new TextBox();
+            textBox18 = new TextBox();
+            textBox19 = new TextBox();
+            textBox20 = new TextBox();
+            textBox21 = new TextBox();
+            textBox22 = new TextBox();
+            textBox23 = new TextBox();
+            textBox24 = new TextBox();
+            textBox25 = new TextBox();
+            textBox26 = new TextBox();
+            textBox27 = new TextBox();
+            textBox28 = new TextBox();
+            textBox29 = new TextBox();
+            radioButton5 = new RadioButton();
+            radioButton7 = new RadioButton();
+            radioButton8 = new RadioButton();
+            radioButton9 = new RadioButton();
+            radioButton10 = new RadioButton();
+            label35 = new Label();
+            label36 = new Label();
+            label37 = new Label();
+            label38 = new Label();
+            label39 = new Label();
+            label40 = new Label();
+            label41 = new Label();
+            label42 = new Label();
+            label43 = new Label();
+            label44 = new Label();
+            label45 = new Label();
+            label46 = new Label();
+            label47 = new Label();
+            label48 = new Label();
+            label49 = new Label();
+            label50 = new Label();
+            label51 = new Label();
+            button1 = new Button();
+            button2 = new Button();
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
@@ -102,14 +249,45 @@
             button13 = new Button();
             button14 = new Button();
             button15 = new Button();
-            button16 = new Button();
+            button18 = new Button();
+            label52 = new Label();
+            label53 = new Label();
+            label54 = new Label();
+            label55 = new Label();
+            label56 = new Label();
+            label57 = new Label();
+            label58 = new Label();
+            label59 = new Label();
+            label60 = new Label();
+            label61 = new Label();
+            listView11 = new ListView();
+            listView12 = new ListView();
+            listView13 = new ListView();
+            listView14 = new ListView();
+            listView15 = new ListView();
+            listView16 = new ListView();
+            listView17 = new ListView();
+            listView18 = new ListView();
+            listView19 = new ListView();
+            listView20 = new ListView();
+            label62 = new Label();
+            dateTimePicker3 = new DateTimePicker();
+            dateTimePicker4 = new DateTimePicker();
+            label63 = new Label();
+            label64 = new Label();
+            textBox30 = new TextBox();
+            label65 = new Label();
+            returnFromEditTrip = new Button();
             menuPanel.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             newTripPanel.SuspendLayout();
-            browseTripPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)memPictureBox).BeginInit();
             inspectTripPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            browseTripPanel.SuspendLayout();
             editTripPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // menuPanel
@@ -239,22 +417,60 @@
             // newTripPanel
             // 
             newTripPanel.BackColor = Color.FromArgb(246, 246, 246);
-            newTripPanel.Controls.Add(button14);
-            newTripPanel.Controls.Add(button15);
-            newTripPanel.Controls.Add(button16);
-            newTripPanel.Controls.Add(button11);
-            newTripPanel.Controls.Add(button12);
-            newTripPanel.Controls.Add(button13);
-            newTripPanel.Controls.Add(button8);
-            newTripPanel.Controls.Add(button9);
-            newTripPanel.Controls.Add(button10);
-            newTripPanel.Controls.Add(button5);
-            newTripPanel.Controls.Add(button6);
-            newTripPanel.Controls.Add(button7);
-            newTripPanel.Controls.Add(button4);
-            newTripPanel.Controls.Add(button3);
-            newTripPanel.Controls.Add(button2);
-            newTripPanel.Controls.Add(button1);
+            newTripPanel.Controls.Add(memNoteInput);
+            newTripPanel.Controls.Add(memPictureBox);
+            newTripPanel.Controls.Add(segNameInput);
+            newTripPanel.Controls.Add(memSongInput);
+            newTripPanel.Controls.Add(expValueInput);
+            newTripPanel.Controls.Add(expNameInput);
+            newTripPanel.Controls.Add(restContactInput);
+            newTripPanel.Controls.Add(restAddressInput);
+            newTripPanel.Controls.Add(restCityInput);
+            newTripPanel.Controls.Add(restCountryInput);
+            newTripPanel.Controls.Add(restNameInput);
+            newTripPanel.Controls.Add(landDescInput);
+            newTripPanel.Controls.Add(landAddressInput);
+            newTripPanel.Controls.Add(landCityInput);
+            newTripPanel.Controls.Add(landCountryInput);
+            newTripPanel.Controls.Add(landNameInput);
+            newTripPanel.Controls.Add(restCampingRadioButton);
+            newTripPanel.Controls.Add(restApartmRadioButton);
+            newTripPanel.Controls.Add(restRoomRadioButton);
+            newTripPanel.Controls.Add(restHostelRadioButton);
+            newTripPanel.Controls.Add(restHotelRadioButton);
+            newTripPanel.Controls.Add(restTypeLabel);
+            newTripPanel.Controls.Add(restContactLabel);
+            newTripPanel.Controls.Add(restAddressLabel);
+            newTripPanel.Controls.Add(restCityLabel);
+            newTripPanel.Controls.Add(restCountryLabel);
+            newTripPanel.Controls.Add(restNameLabel);
+            newTripPanel.Controls.Add(memNoteLabel);
+            newTripPanel.Controls.Add(memSongLabel);
+            newTripPanel.Controls.Add(memPhotoLabel);
+            newTripPanel.Controls.Add(expValueLabel);
+            newTripPanel.Controls.Add(expNameLabel);
+            newTripPanel.Controls.Add(landDescLabel);
+            newTripPanel.Controls.Add(landAddressLabel);
+            newTripPanel.Controls.Add(landCityLabel);
+            newTripPanel.Controls.Add(landCountryLabel);
+            newTripPanel.Controls.Add(landNameLabel);
+            newTripPanel.Controls.Add(segNameLabel);
+            newTripPanel.Controls.Add(landUpdateButton);
+            newTripPanel.Controls.Add(landAddButton);
+            newTripPanel.Controls.Add(landRemoveButton);
+            newTripPanel.Controls.Add(restUpdateButton);
+            newTripPanel.Controls.Add(restAddButton);
+            newTripPanel.Controls.Add(restRemoveButton);
+            newTripPanel.Controls.Add(expUpdateButton);
+            newTripPanel.Controls.Add(expAddButton);
+            newTripPanel.Controls.Add(expRemoveButton);
+            newTripPanel.Controls.Add(memUpdateButton);
+            newTripPanel.Controls.Add(memAddButton);
+            newTripPanel.Controls.Add(memRemoveButton);
+            newTripPanel.Controls.Add(segUpdateButton);
+            newTripPanel.Controls.Add(segAddButton);
+            newTripPanel.Controls.Add(segRemoveButton);
+            newTripPanel.Controls.Add(saveTripButton);
             newTripPanel.Controls.Add(addMemoryLabel);
             newTripPanel.Controls.Add(addExpenseLabel);
             newTripPanel.Controls.Add(addRestingPointLabel);
@@ -291,28 +507,562 @@
             newTripPanel.TabIndex = 0;
             newTripPanel.Visible = false;
             // 
-            // button2
+            // memNoteInput
             // 
-            button2.BackColor = Color.FromArgb(1, 183, 99);
-            button2.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(1308, 377);
-            button2.Name = "button2";
-            button2.Size = new Size(90, 36);
-            button2.TabIndex = 33;
-            button2.Text = "Remove";
-            button2.UseVisualStyleBackColor = false;
+            memNoteInput.Location = new Point(1286, 837);
+            memNoteInput.Name = "memNoteInput";
+            memNoteInput.Size = new Size(292, 91);
+            memNoteInput.TabIndex = 86;
+            memNoteInput.Text = "";
             // 
-            // button1
+            // memPictureBox
             // 
-            button1.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = Color.FromArgb(1, 183, 99);
-            button1.Location = new Point(51, 1);
-            button1.Name = "button1";
-            button1.Size = new Size(48, 52);
-            button1.TabIndex = 32;
-            button1.Text = "💾";
-            button1.UseVisualStyleBackColor = true;
+            memPictureBox.Location = new Point(1286, 739);
+            memPictureBox.Name = "memPictureBox";
+            memPictureBox.Size = new Size(292, 50);
+            memPictureBox.TabIndex = 85;
+            memPictureBox.TabStop = false;
+            // 
+            // segNameInput
+            // 
+            segNameInput.Location = new Point(874, 203);
+            segNameInput.Name = "segNameInput";
+            segNameInput.Size = new Size(715, 23);
+            segNameInput.TabIndex = 84;
+            // 
+            // memSongInput
+            // 
+            memSongInput.Location = new Point(1286, 805);
+            memSongInput.Name = "memSongInput";
+            memSongInput.Size = new Size(292, 23);
+            memSongInput.TabIndex = 82;
+            // 
+            // expValueInput
+            // 
+            expValueInput.Location = new Point(892, 768);
+            expValueInput.Name = "expValueInput";
+            expValueInput.Size = new Size(292, 23);
+            expValueInput.TabIndex = 81;
+            // 
+            // expNameInput
+            // 
+            expNameInput.Location = new Point(892, 739);
+            expNameInput.Name = "expNameInput";
+            expNameInput.Size = new Size(292, 23);
+            expNameInput.TabIndex = 80;
+            // 
+            // restContactInput
+            // 
+            restContactInput.Location = new Point(497, 854);
+            restContactInput.Name = "restContactInput";
+            restContactInput.Size = new Size(292, 23);
+            restContactInput.TabIndex = 79;
+            // 
+            // restAddressInput
+            // 
+            restAddressInput.Location = new Point(497, 825);
+            restAddressInput.Name = "restAddressInput";
+            restAddressInput.Size = new Size(292, 23);
+            restAddressInput.TabIndex = 78;
+            // 
+            // restCityInput
+            // 
+            restCityInput.Location = new Point(497, 796);
+            restCityInput.Name = "restCityInput";
+            restCityInput.Size = new Size(292, 23);
+            restCityInput.TabIndex = 77;
+            // 
+            // restCountryInput
+            // 
+            restCountryInput.Location = new Point(497, 768);
+            restCountryInput.Name = "restCountryInput";
+            restCountryInput.Size = new Size(292, 23);
+            restCountryInput.TabIndex = 76;
+            // 
+            // restNameInput
+            // 
+            restNameInput.Location = new Point(497, 739);
+            restNameInput.Name = "restNameInput";
+            restNameInput.Size = new Size(292, 23);
+            restNameInput.TabIndex = 75;
+            // 
+            // landDescInput
+            // 
+            landDescInput.Location = new Point(96, 856);
+            landDescInput.Name = "landDescInput";
+            landDescInput.Size = new Size(292, 23);
+            landDescInput.TabIndex = 74;
+            // 
+            // landAddressInput
+            // 
+            landAddressInput.Location = new Point(96, 827);
+            landAddressInput.Name = "landAddressInput";
+            landAddressInput.Size = new Size(292, 23);
+            landAddressInput.TabIndex = 73;
+            // 
+            // landCityInput
+            // 
+            landCityInput.Location = new Point(96, 798);
+            landCityInput.Name = "landCityInput";
+            landCityInput.Size = new Size(292, 23);
+            landCityInput.TabIndex = 72;
+            // 
+            // landCountryInput
+            // 
+            landCountryInput.Location = new Point(96, 769);
+            landCountryInput.Name = "landCountryInput";
+            landCountryInput.Size = new Size(292, 23);
+            landCountryInput.TabIndex = 71;
+            // 
+            // landNameInput
+            // 
+            landNameInput.Location = new Point(96, 739);
+            landNameInput.Name = "landNameInput";
+            landNameInput.Size = new Size(292, 23);
+            landNameInput.TabIndex = 70;
+            // 
+            // restCampingRadioButton
+            // 
+            restCampingRadioButton.AutoSize = true;
+            restCampingRadioButton.BackColor = Color.White;
+            restCampingRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restCampingRadioButton.Location = new Point(565, 909);
+            restCampingRadioButton.Name = "restCampingRadioButton";
+            restCampingRadioButton.Size = new Size(81, 20);
+            restCampingRadioButton.TabIndex = 69;
+            restCampingRadioButton.TabStop = true;
+            restCampingRadioButton.Text = "Camping";
+            restCampingRadioButton.UseVisualStyleBackColor = false;
+            // 
+            // restApartmRadioButton
+            // 
+            restApartmRadioButton.AutoSize = true;
+            restApartmRadioButton.BackColor = Color.White;
+            restApartmRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restApartmRadioButton.Location = new Point(642, 884);
+            restApartmRadioButton.Name = "restApartmRadioButton";
+            restApartmRadioButton.Size = new Size(90, 20);
+            restApartmRadioButton.TabIndex = 68;
+            restApartmRadioButton.TabStop = true;
+            restApartmRadioButton.Text = "Apartment";
+            restApartmRadioButton.UseVisualStyleBackColor = false;
+            // 
+            // restRoomRadioButton
+            // 
+            restRoomRadioButton.AutoSize = true;
+            restRoomRadioButton.BackColor = Color.White;
+            restRoomRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restRoomRadioButton.Location = new Point(497, 909);
+            restRoomRadioButton.Name = "restRoomRadioButton";
+            restRoomRadioButton.Size = new Size(62, 20);
+            restRoomRadioButton.TabIndex = 67;
+            restRoomRadioButton.TabStop = true;
+            restRoomRadioButton.Text = "Room";
+            restRoomRadioButton.UseVisualStyleBackColor = false;
+            // 
+            // restHostelRadioButton
+            // 
+            restHostelRadioButton.AutoSize = true;
+            restHostelRadioButton.BackColor = Color.White;
+            restHostelRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restHostelRadioButton.Location = new Point(565, 884);
+            restHostelRadioButton.Name = "restHostelRadioButton";
+            restHostelRadioButton.Size = new Size(64, 20);
+            restHostelRadioButton.TabIndex = 66;
+            restHostelRadioButton.TabStop = true;
+            restHostelRadioButton.Text = "Hostel";
+            restHostelRadioButton.UseVisualStyleBackColor = false;
+            // 
+            // restHotelRadioButton
+            // 
+            restHotelRadioButton.AutoSize = true;
+            restHotelRadioButton.BackColor = Color.White;
+            restHotelRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restHotelRadioButton.Location = new Point(497, 884);
+            restHotelRadioButton.Name = "restHotelRadioButton";
+            restHotelRadioButton.Size = new Size(57, 20);
+            restHotelRadioButton.TabIndex = 65;
+            restHotelRadioButton.TabStop = true;
+            restHotelRadioButton.Text = "Hotel";
+            restHotelRadioButton.UseVisualStyleBackColor = false;
+            // 
+            // restTypeLabel
+            // 
+            restTypeLabel.AutoSize = true;
+            restTypeLabel.BackColor = SystemColors.ControlLightLight;
+            restTypeLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restTypeLabel.Location = new Point(453, 884);
+            restTypeLabel.Name = "restTypeLabel";
+            restTypeLabel.Size = new Size(38, 16);
+            restTypeLabel.TabIndex = 64;
+            restTypeLabel.Text = "Type";
+            // 
+            // restContactLabel
+            // 
+            restContactLabel.AutoSize = true;
+            restContactLabel.BackColor = SystemColors.ControlLightLight;
+            restContactLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restContactLabel.Location = new Point(410, 858);
+            restContactLabel.Name = "restContactLabel";
+            restContactLabel.Size = new Size(83, 16);
+            restContactLabel.TabIndex = 63;
+            restContactLabel.Text = "Contact info";
+            // 
+            // restAddressLabel
+            // 
+            restAddressLabel.AutoSize = true;
+            restAddressLabel.BackColor = SystemColors.ControlLightLight;
+            restAddressLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restAddressLabel.Location = new Point(434, 834);
+            restAddressLabel.Name = "restAddressLabel";
+            restAddressLabel.Size = new Size(59, 16);
+            restAddressLabel.TabIndex = 62;
+            restAddressLabel.Text = "Address";
+            // 
+            // restCityLabel
+            // 
+            restCityLabel.AutoSize = true;
+            restCityLabel.BackColor = SystemColors.ControlLightLight;
+            restCityLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restCityLabel.Location = new Point(460, 805);
+            restCityLabel.Name = "restCityLabel";
+            restCityLabel.Size = new Size(31, 16);
+            restCityLabel.TabIndex = 61;
+            restCityLabel.Text = "City";
+            // 
+            // restCountryLabel
+            // 
+            restCountryLabel.AutoSize = true;
+            restCountryLabel.BackColor = SystemColors.ControlLightLight;
+            restCountryLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restCountryLabel.Location = new Point(434, 776);
+            restCountryLabel.Name = "restCountryLabel";
+            restCountryLabel.Size = new Size(57, 16);
+            restCountryLabel.TabIndex = 60;
+            restCountryLabel.Text = "Country";
+            // 
+            // restNameLabel
+            // 
+            restNameLabel.AutoSize = true;
+            restNameLabel.BackColor = SystemColors.ControlLightLight;
+            restNameLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restNameLabel.Location = new Point(448, 746);
+            restNameLabel.Name = "restNameLabel";
+            restNameLabel.Size = new Size(43, 16);
+            restNameLabel.TabIndex = 59;
+            restNameLabel.Text = "Name";
+            // 
+            // memNoteLabel
+            // 
+            memNoteLabel.AutoSize = true;
+            memNoteLabel.BackColor = SystemColors.ControlLightLight;
+            memNoteLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memNoteLabel.Location = new Point(1244, 839);
+            memNoteLabel.Name = "memNoteLabel";
+            memNoteLabel.Size = new Size(36, 16);
+            memNoteLabel.TabIndex = 58;
+            memNoteLabel.Text = "Note";
+            // 
+            // memSongLabel
+            // 
+            memSongLabel.AutoSize = true;
+            memSongLabel.BackColor = SystemColors.ControlLightLight;
+            memSongLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memSongLabel.Location = new Point(1229, 812);
+            memSongLabel.Name = "memSongLabel";
+            memSongLabel.Size = new Size(51, 16);
+            memSongLabel.TabIndex = 57;
+            memSongLabel.Text = "Song/s";
+            // 
+            // memPhotoLabel
+            // 
+            memPhotoLabel.AutoSize = true;
+            memPhotoLabel.BackColor = SystemColors.ControlLightLight;
+            memPhotoLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memPhotoLabel.Location = new Point(1225, 741);
+            memPhotoLabel.Name = "memPhotoLabel";
+            memPhotoLabel.Size = new Size(55, 16);
+            memPhotoLabel.TabIndex = 56;
+            memPhotoLabel.Text = "Photo/s";
+            // 
+            // expValueLabel
+            // 
+            expValueLabel.AutoSize = true;
+            expValueLabel.BackColor = SystemColors.ControlLightLight;
+            expValueLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expValueLabel.Location = new Point(844, 769);
+            expValueLabel.Name = "expValueLabel";
+            expValueLabel.Size = new Size(42, 16);
+            expValueLabel.TabIndex = 55;
+            expValueLabel.Text = "Value";
+            // 
+            // expNameLabel
+            // 
+            expNameLabel.AutoSize = true;
+            expNameLabel.BackColor = SystemColors.ControlLightLight;
+            expNameLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expNameLabel.Location = new Point(843, 741);
+            expNameLabel.Name = "expNameLabel";
+            expNameLabel.Size = new Size(43, 16);
+            expNameLabel.TabIndex = 54;
+            expNameLabel.Text = "Name";
+            // 
+            // landDescLabel
+            // 
+            landDescLabel.AutoSize = true;
+            landDescLabel.BackColor = SystemColors.ControlLightLight;
+            landDescLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landDescLabel.Location = new Point(12, 858);
+            landDescLabel.Name = "landDescLabel";
+            landDescLabel.Size = new Size(78, 16);
+            landDescLabel.TabIndex = 53;
+            landDescLabel.Text = "Description";
+            // 
+            // landAddressLabel
+            // 
+            landAddressLabel.AutoSize = true;
+            landAddressLabel.BackColor = SystemColors.ControlLightLight;
+            landAddressLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landAddressLabel.Location = new Point(31, 834);
+            landAddressLabel.Name = "landAddressLabel";
+            landAddressLabel.Size = new Size(59, 16);
+            landAddressLabel.TabIndex = 52;
+            landAddressLabel.Text = "Address";
+            // 
+            // landCityLabel
+            // 
+            landCityLabel.AutoSize = true;
+            landCityLabel.BackColor = SystemColors.ControlLightLight;
+            landCityLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landCityLabel.Location = new Point(59, 805);
+            landCityLabel.Name = "landCityLabel";
+            landCityLabel.Size = new Size(31, 16);
+            landCityLabel.TabIndex = 51;
+            landCityLabel.Text = "City";
+            // 
+            // landCountryLabel
+            // 
+            landCountryLabel.AutoSize = true;
+            landCountryLabel.BackColor = SystemColors.ControlLightLight;
+            landCountryLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landCountryLabel.Location = new Point(33, 776);
+            landCountryLabel.Name = "landCountryLabel";
+            landCountryLabel.Size = new Size(57, 16);
+            landCountryLabel.TabIndex = 50;
+            landCountryLabel.Text = "Country";
+            // 
+            // landNameLabel
+            // 
+            landNameLabel.AutoSize = true;
+            landNameLabel.BackColor = SystemColors.ControlLightLight;
+            landNameLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landNameLabel.Location = new Point(47, 746);
+            landNameLabel.Name = "landNameLabel";
+            landNameLabel.Size = new Size(43, 16);
+            landNameLabel.TabIndex = 49;
+            landNameLabel.Text = "Name";
+            // 
+            // segNameLabel
+            // 
+            segNameLabel.AutoSize = true;
+            segNameLabel.BackColor = SystemColors.ControlLightLight;
+            segNameLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segNameLabel.Location = new Point(825, 205);
+            segNameLabel.Name = "segNameLabel";
+            segNameLabel.Size = new Size(43, 16);
+            segNameLabel.TabIndex = 48;
+            segNameLabel.Text = "Name";
+            // 
+            // landUpdateButton
+            // 
+            landUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
+            landUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landUpdateButton.ForeColor = SystemColors.ControlLightLight;
+            landUpdateButton.Location = new Point(212, 937);
+            landUpdateButton.Name = "landUpdateButton";
+            landUpdateButton.Size = new Size(90, 36);
+            landUpdateButton.TabIndex = 47;
+            landUpdateButton.Text = "Update";
+            landUpdateButton.UseVisualStyleBackColor = false;
+            // 
+            // landAddButton
+            // 
+            landAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            landAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landAddButton.ForeColor = SystemColors.ControlLightLight;
+            landAddButton.Location = new Point(308, 937);
+            landAddButton.Name = "landAddButton";
+            landAddButton.Size = new Size(90, 36);
+            landAddButton.TabIndex = 46;
+            landAddButton.Text = "Add";
+            landAddButton.UseVisualStyleBackColor = false;
+            // 
+            // landRemoveButton
+            // 
+            landRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
+            landRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landRemoveButton.ForeColor = SystemColors.ControlLightLight;
+            landRemoveButton.Location = new Point(116, 937);
+            landRemoveButton.Name = "landRemoveButton";
+            landRemoveButton.Size = new Size(90, 36);
+            landRemoveButton.TabIndex = 45;
+            landRemoveButton.Text = "Remove";
+            landRemoveButton.UseVisualStyleBackColor = false;
+            // 
+            // restUpdateButton
+            // 
+            restUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
+            restUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restUpdateButton.ForeColor = SystemColors.ControlLightLight;
+            restUpdateButton.Location = new Point(610, 935);
+            restUpdateButton.Name = "restUpdateButton";
+            restUpdateButton.Size = new Size(90, 36);
+            restUpdateButton.TabIndex = 44;
+            restUpdateButton.Text = "Update";
+            restUpdateButton.UseVisualStyleBackColor = false;
+            // 
+            // restAddButton
+            // 
+            restAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            restAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restAddButton.ForeColor = SystemColors.ControlLightLight;
+            restAddButton.Location = new Point(706, 935);
+            restAddButton.Name = "restAddButton";
+            restAddButton.Size = new Size(90, 36);
+            restAddButton.TabIndex = 43;
+            restAddButton.Text = "Add";
+            restAddButton.UseVisualStyleBackColor = false;
+            // 
+            // restRemoveButton
+            // 
+            restRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
+            restRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restRemoveButton.ForeColor = SystemColors.ControlLightLight;
+            restRemoveButton.Location = new Point(514, 935);
+            restRemoveButton.Name = "restRemoveButton";
+            restRemoveButton.Size = new Size(90, 36);
+            restRemoveButton.TabIndex = 42;
+            restRemoveButton.Text = "Remove";
+            restRemoveButton.UseVisualStyleBackColor = false;
+            // 
+            // expUpdateButton
+            // 
+            expUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
+            expUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expUpdateButton.ForeColor = SystemColors.ControlLightLight;
+            expUpdateButton.Location = new Point(1008, 934);
+            expUpdateButton.Name = "expUpdateButton";
+            expUpdateButton.Size = new Size(90, 36);
+            expUpdateButton.TabIndex = 41;
+            expUpdateButton.Text = "Update";
+            expUpdateButton.UseVisualStyleBackColor = false;
+            // 
+            // expAddButton
+            // 
+            expAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            expAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expAddButton.ForeColor = SystemColors.ControlLightLight;
+            expAddButton.Location = new Point(1104, 934);
+            expAddButton.Name = "expAddButton";
+            expAddButton.Size = new Size(90, 36);
+            expAddButton.TabIndex = 40;
+            expAddButton.Text = "Add";
+            expAddButton.UseVisualStyleBackColor = false;
+            // 
+            // expRemoveButton
+            // 
+            expRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
+            expRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expRemoveButton.ForeColor = SystemColors.ControlLightLight;
+            expRemoveButton.Location = new Point(912, 934);
+            expRemoveButton.Name = "expRemoveButton";
+            expRemoveButton.Size = new Size(90, 36);
+            expRemoveButton.TabIndex = 39;
+            expRemoveButton.Text = "Remove";
+            expRemoveButton.UseVisualStyleBackColor = false;
+            // 
+            // memUpdateButton
+            // 
+            memUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
+            memUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memUpdateButton.ForeColor = SystemColors.ControlLightLight;
+            memUpdateButton.Location = new Point(1412, 934);
+            memUpdateButton.Name = "memUpdateButton";
+            memUpdateButton.Size = new Size(90, 36);
+            memUpdateButton.TabIndex = 38;
+            memUpdateButton.Text = "Update";
+            memUpdateButton.UseVisualStyleBackColor = false;
+            // 
+            // memAddButton
+            // 
+            memAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            memAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memAddButton.ForeColor = SystemColors.ControlLightLight;
+            memAddButton.Location = new Point(1508, 934);
+            memAddButton.Name = "memAddButton";
+            memAddButton.Size = new Size(90, 36);
+            memAddButton.TabIndex = 37;
+            memAddButton.Text = "Add";
+            memAddButton.UseVisualStyleBackColor = false;
+            // 
+            // memRemoveButton
+            // 
+            memRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
+            memRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memRemoveButton.ForeColor = SystemColors.ControlLightLight;
+            memRemoveButton.Location = new Point(1316, 934);
+            memRemoveButton.Name = "memRemoveButton";
+            memRemoveButton.Size = new Size(90, 36);
+            memRemoveButton.TabIndex = 36;
+            memRemoveButton.Text = "Remove";
+            memRemoveButton.UseVisualStyleBackColor = false;
+            // 
+            // segUpdateButton
+            // 
+            segUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
+            segUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segUpdateButton.ForeColor = SystemColors.ControlLightLight;
+            segUpdateButton.Location = new Point(1404, 377);
+            segUpdateButton.Name = "segUpdateButton";
+            segUpdateButton.Size = new Size(90, 36);
+            segUpdateButton.TabIndex = 35;
+            segUpdateButton.Text = "Update";
+            segUpdateButton.UseVisualStyleBackColor = false;
+            // 
+            // segAddButton
+            // 
+            segAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            segAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segAddButton.ForeColor = SystemColors.ControlLightLight;
+            segAddButton.Location = new Point(1500, 377);
+            segAddButton.Name = "segAddButton";
+            segAddButton.Size = new Size(90, 36);
+            segAddButton.TabIndex = 34;
+            segAddButton.Text = "Add";
+            segAddButton.UseVisualStyleBackColor = false;
+            // 
+            // segRemoveButton
+            // 
+            segRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
+            segRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segRemoveButton.ForeColor = SystemColors.ControlLightLight;
+            segRemoveButton.Location = new Point(1308, 377);
+            segRemoveButton.Name = "segRemoveButton";
+            segRemoveButton.Size = new Size(90, 36);
+            segRemoveButton.TabIndex = 33;
+            segRemoveButton.Text = "Remove";
+            segRemoveButton.UseVisualStyleBackColor = false;
+            // 
+            // saveTripButton
+            // 
+            saveTripButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            saveTripButton.ForeColor = Color.FromArgb(1, 183, 99);
+            saveTripButton.Location = new Point(51, 1);
+            saveTripButton.Name = "saveTripButton";
+            saveTripButton.Size = new Size(48, 52);
+            saveTripButton.TabIndex = 32;
+            saveTripButton.Text = "💾";
+            saveTripButton.UseVisualStyleBackColor = true;
             // 
             // addMemoryLabel
             // 
@@ -464,7 +1214,8 @@
             // 
             // newRestngPointList
             // 
-            newRestngPointList.Location = new Point(407, 732);
+            newRestngPointList.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            newRestngPointList.Location = new Point(407, 733);
             newRestngPointList.Name = "newRestngPointList";
             newRestngPointList.Size = new Size(392, 241);
             newRestngPointList.TabIndex = 19;
@@ -565,10 +1316,10 @@
             // depDateLabel
             // 
             depDateLabel.AutoSize = true;
-            depDateLabel.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            depDateLabel.Location = new Point(979, 82);
+            depDateLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            depDateLabel.Location = new Point(986, 84);
             depDateLabel.Name = "depDateLabel";
-            depDateLabel.Size = new Size(110, 18);
+            depDateLabel.Size = new Size(101, 16);
             depDateLabel.TabIndex = 3;
             depDateLabel.Text = "Date of the trip";
             // 
@@ -583,10 +1334,10 @@
             // nameLabel
             // 
             nameLabel.AutoSize = true;
-            nameLabel.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            nameLabel.Location = new Point(30, 79);
+            nameLabel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            nameLabel.Location = new Point(41, 84);
             nameLabel.Name = "nameLabel";
-            nameLabel.Size = new Size(118, 18);
+            nameLabel.Size = new Size(107, 16);
             nameLabel.TabIndex = 1;
             nameLabel.Text = "Name of the trip";
             // 
@@ -603,53 +1354,749 @@
             returnFromAddButton.UseVisualStyleBackColor = true;
             returnFromAddButton.Click += returnFromAddButton_Click;
             // 
-            // browseTripPanel
+            // inspectTripPanel
             // 
-            browseTripPanel.BackColor = Color.FromArgb(246, 246, 246);
-            browseTripPanel.Controls.Add(tripListPanel);
-            browseTripPanel.Controls.Add(browseLabel);
-            browseTripPanel.Controls.Add(searchTextBox);
-            browseTripPanel.Controls.Add(returnFromBrowseButton);
-            browseTripPanel.Dock = DockStyle.Fill;
-            browseTripPanel.Location = new Point(0, 0);
-            browseTripPanel.Margin = new Padding(3, 2, 3, 2);
-            browseTripPanel.Name = "browseTripPanel";
-            browseTripPanel.Size = new Size(1601, 973);
-            browseTripPanel.TabIndex = 1;
-            browseTripPanel.Visible = false;
+            inspectTripPanel.BackColor = Color.FromArgb(246, 246, 246);
+            inspectTripPanel.Controls.Add(richTextBox1);
+            inspectTripPanel.Controls.Add(pictureBox2);
+            inspectTripPanel.Controls.Add(textBox1);
+            inspectTripPanel.Controls.Add(textBox2);
+            inspectTripPanel.Controls.Add(textBox3);
+            inspectTripPanel.Controls.Add(textBox4);
+            inspectTripPanel.Controls.Add(textBox5);
+            inspectTripPanel.Controls.Add(textBox6);
+            inspectTripPanel.Controls.Add(textBox7);
+            inspectTripPanel.Controls.Add(textBox8);
+            inspectTripPanel.Controls.Add(textBox9);
+            inspectTripPanel.Controls.Add(textBox10);
+            inspectTripPanel.Controls.Add(textBox11);
+            inspectTripPanel.Controls.Add(textBox12);
+            inspectTripPanel.Controls.Add(textBox13);
+            inspectTripPanel.Controls.Add(textBox14);
+            inspectTripPanel.Controls.Add(radioButton1);
+            inspectTripPanel.Controls.Add(radioButton2);
+            inspectTripPanel.Controls.Add(radioButton3);
+            inspectTripPanel.Controls.Add(radioButton4);
+            inspectTripPanel.Controls.Add(radioButton6);
+            inspectTripPanel.Controls.Add(label4);
+            inspectTripPanel.Controls.Add(label5);
+            inspectTripPanel.Controls.Add(label6);
+            inspectTripPanel.Controls.Add(label7);
+            inspectTripPanel.Controls.Add(label8);
+            inspectTripPanel.Controls.Add(label9);
+            inspectTripPanel.Controls.Add(label10);
+            inspectTripPanel.Controls.Add(label11);
+            inspectTripPanel.Controls.Add(label12);
+            inspectTripPanel.Controls.Add(label13);
+            inspectTripPanel.Controls.Add(label14);
+            inspectTripPanel.Controls.Add(label15);
+            inspectTripPanel.Controls.Add(label16);
+            inspectTripPanel.Controls.Add(label17);
+            inspectTripPanel.Controls.Add(label18);
+            inspectTripPanel.Controls.Add(label19);
+            inspectTripPanel.Controls.Add(label20);
+            inspectTripPanel.Controls.Add(button16);
+            inspectTripPanel.Controls.Add(label21);
+            inspectTripPanel.Controls.Add(label22);
+            inspectTripPanel.Controls.Add(label23);
+            inspectTripPanel.Controls.Add(label24);
+            inspectTripPanel.Controls.Add(label25);
+            inspectTripPanel.Controls.Add(label26);
+            inspectTripPanel.Controls.Add(label27);
+            inspectTripPanel.Controls.Add(label28);
+            inspectTripPanel.Controls.Add(label29);
+            inspectTripPanel.Controls.Add(label30);
+            inspectTripPanel.Controls.Add(listView1);
+            inspectTripPanel.Controls.Add(listView2);
+            inspectTripPanel.Controls.Add(listView3);
+            inspectTripPanel.Controls.Add(listView4);
+            inspectTripPanel.Controls.Add(listView5);
+            inspectTripPanel.Controls.Add(listView6);
+            inspectTripPanel.Controls.Add(listView7);
+            inspectTripPanel.Controls.Add(listView8);
+            inspectTripPanel.Controls.Add(listView9);
+            inspectTripPanel.Controls.Add(listView10);
+            inspectTripPanel.Controls.Add(label31);
+            inspectTripPanel.Controls.Add(dateTimePicker1);
+            inspectTripPanel.Controls.Add(dateTimePicker2);
+            inspectTripPanel.Controls.Add(label33);
+            inspectTripPanel.Controls.Add(textBox15);
+            inspectTripPanel.Controls.Add(label34);
+            inspectTripPanel.Controls.Add(button17);
+            inspectTripPanel.Controls.Add(label32);
+            inspectTripPanel.Dock = DockStyle.Fill;
+            inspectTripPanel.Location = new Point(0, 0);
+            inspectTripPanel.Margin = new Padding(3, 2, 3, 2);
+            inspectTripPanel.Name = "inspectTripPanel";
+            inspectTripPanel.Size = new Size(1601, 973);
+            inspectTripPanel.TabIndex = 2;
+            inspectTripPanel.Visible = false;
             // 
-            // tripListPanel
+            // richTextBox1
             // 
-            tripListPanel.AutoScroll = true;
-            tripListPanel.Dock = DockStyle.Bottom;
-            tripListPanel.Location = new Point(0, 176);
-            tripListPanel.Margin = new Padding(3, 2, 3, 2);
-            tripListPanel.Name = "tripListPanel";
-            tripListPanel.Size = new Size(1601, 797);
-            tripListPanel.TabIndex = 4;
+            richTextBox1.Location = new Point(1286, 836);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(292, 91);
+            richTextBox1.TabIndex = 168;
+            richTextBox1.Text = "";
             // 
-            // browseLabel
+            // pictureBox2
             // 
-            browseLabel.AutoSize = true;
-            browseLabel.Font = new Font("Arial Black", 48F, FontStyle.Bold, GraphicsUnit.Point);
-            browseLabel.Location = new Point(561, 6);
-            browseLabel.Name = "browseLabel";
-            browseLabel.Size = new Size(481, 90);
-            browseLabel.TabIndex = 3;
-            browseLabel.Text = "Browse trips";
+            pictureBox2.Location = new Point(1286, 738);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(292, 50);
+            pictureBox2.TabIndex = 167;
+            pictureBox2.TabStop = false;
             // 
-            // searchTextBox
+            // textBox1
             // 
-            searchTextBox.BorderStyle = BorderStyle.None;
-            searchTextBox.Font = new Font("Arial Black", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            searchTextBox.ForeColor = Color.FromArgb(195, 195, 195);
-            searchTextBox.Location = new Point(642, 107);
-            searchTextBox.Margin = new Padding(3, 2, 3, 2);
-            searchTextBox.Name = "searchTextBox";
-            searchTextBox.Size = new Size(338, 34);
-            searchTextBox.TabIndex = 2;
-            searchTextBox.Text = "search";
-            searchTextBox.TextAlign = HorizontalAlignment.Center;
+            textBox1.Location = new Point(874, 202);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(715, 23);
+            textBox1.TabIndex = 166;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(1286, 804);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(292, 23);
+            textBox2.TabIndex = 165;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(892, 767);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(292, 23);
+            textBox3.TabIndex = 164;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(892, 738);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(292, 23);
+            textBox4.TabIndex = 163;
+            // 
+            // textBox5
+            // 
+            textBox5.Location = new Point(497, 853);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(292, 23);
+            textBox5.TabIndex = 162;
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(497, 824);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(292, 23);
+            textBox6.TabIndex = 161;
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(497, 795);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new Size(292, 23);
+            textBox7.TabIndex = 160;
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(497, 767);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(292, 23);
+            textBox8.TabIndex = 159;
+            // 
+            // textBox9
+            // 
+            textBox9.Location = new Point(497, 738);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new Size(292, 23);
+            textBox9.TabIndex = 158;
+            // 
+            // textBox10
+            // 
+            textBox10.Location = new Point(96, 855);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new Size(292, 23);
+            textBox10.TabIndex = 157;
+            // 
+            // textBox11
+            // 
+            textBox11.Location = new Point(96, 826);
+            textBox11.Name = "textBox11";
+            textBox11.Size = new Size(292, 23);
+            textBox11.TabIndex = 156;
+            // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(96, 797);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new Size(292, 23);
+            textBox12.TabIndex = 155;
+            // 
+            // textBox13
+            // 
+            textBox13.Location = new Point(96, 768);
+            textBox13.Name = "textBox13";
+            textBox13.Size = new Size(292, 23);
+            textBox13.TabIndex = 154;
+            // 
+            // textBox14
+            // 
+            textBox14.Location = new Point(96, 738);
+            textBox14.Name = "textBox14";
+            textBox14.Size = new Size(292, 23);
+            textBox14.TabIndex = 153;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.BackColor = Color.White;
+            radioButton1.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton1.Location = new Point(565, 908);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(81, 20);
+            radioButton1.TabIndex = 152;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Camping";
+            radioButton1.UseVisualStyleBackColor = false;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.BackColor = Color.White;
+            radioButton2.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton2.Location = new Point(642, 883);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(90, 20);
+            radioButton2.TabIndex = 151;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Apartment";
+            radioButton2.UseVisualStyleBackColor = false;
+            // 
+            // radioButton3
+            // 
+            radioButton3.AutoSize = true;
+            radioButton3.BackColor = Color.White;
+            radioButton3.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton3.Location = new Point(497, 908);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(62, 20);
+            radioButton3.TabIndex = 150;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "Room";
+            radioButton3.UseVisualStyleBackColor = false;
+            // 
+            // radioButton4
+            // 
+            radioButton4.AutoSize = true;
+            radioButton4.BackColor = Color.White;
+            radioButton4.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton4.Location = new Point(565, 883);
+            radioButton4.Name = "radioButton4";
+            radioButton4.Size = new Size(64, 20);
+            radioButton4.TabIndex = 149;
+            radioButton4.TabStop = true;
+            radioButton4.Text = "Hostel";
+            radioButton4.UseVisualStyleBackColor = false;
+            // 
+            // radioButton6
+            // 
+            radioButton6.AutoSize = true;
+            radioButton6.BackColor = Color.White;
+            radioButton6.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton6.Location = new Point(497, 883);
+            radioButton6.Name = "radioButton6";
+            radioButton6.Size = new Size(57, 20);
+            radioButton6.TabIndex = 148;
+            radioButton6.TabStop = true;
+            radioButton6.Text = "Hotel";
+            radioButton6.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = SystemColors.ControlLightLight;
+            label4.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(453, 883);
+            label4.Name = "label4";
+            label4.Size = new Size(38, 16);
+            label4.TabIndex = 147;
+            label4.Text = "Type";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = SystemColors.ControlLightLight;
+            label5.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(410, 857);
+            label5.Name = "label5";
+            label5.Size = new Size(83, 16);
+            label5.TabIndex = 146;
+            label5.Text = "Contact info";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = SystemColors.ControlLightLight;
+            label6.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(434, 833);
+            label6.Name = "label6";
+            label6.Size = new Size(59, 16);
+            label6.TabIndex = 145;
+            label6.Text = "Address";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = SystemColors.ControlLightLight;
+            label7.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(460, 804);
+            label7.Name = "label7";
+            label7.Size = new Size(31, 16);
+            label7.TabIndex = 144;
+            label7.Text = "City";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.BackColor = SystemColors.ControlLightLight;
+            label8.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(434, 775);
+            label8.Name = "label8";
+            label8.Size = new Size(57, 16);
+            label8.TabIndex = 143;
+            label8.Text = "Country";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = SystemColors.ControlLightLight;
+            label9.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(448, 745);
+            label9.Name = "label9";
+            label9.Size = new Size(43, 16);
+            label9.TabIndex = 142;
+            label9.Text = "Name";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.BackColor = SystemColors.ControlLightLight;
+            label10.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Location = new Point(1244, 838);
+            label10.Name = "label10";
+            label10.Size = new Size(36, 16);
+            label10.TabIndex = 141;
+            label10.Text = "Note";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.BackColor = SystemColors.ControlLightLight;
+            label11.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label11.Location = new Point(1229, 811);
+            label11.Name = "label11";
+            label11.Size = new Size(51, 16);
+            label11.TabIndex = 140;
+            label11.Text = "Song/s";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = SystemColors.ControlLightLight;
+            label12.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label12.Location = new Point(1225, 740);
+            label12.Name = "label12";
+            label12.Size = new Size(55, 16);
+            label12.TabIndex = 139;
+            label12.Text = "Photo/s";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = SystemColors.ControlLightLight;
+            label13.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label13.Location = new Point(844, 768);
+            label13.Name = "label13";
+            label13.Size = new Size(42, 16);
+            label13.TabIndex = 138;
+            label13.Text = "Value";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.BackColor = SystemColors.ControlLightLight;
+            label14.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Location = new Point(843, 740);
+            label14.Name = "label14";
+            label14.Size = new Size(43, 16);
+            label14.TabIndex = 137;
+            label14.Text = "Name";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.BackColor = SystemColors.ControlLightLight;
+            label15.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label15.Location = new Point(12, 857);
+            label15.Name = "label15";
+            label15.Size = new Size(78, 16);
+            label15.TabIndex = 136;
+            label15.Text = "Description";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.BackColor = SystemColors.ControlLightLight;
+            label16.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label16.Location = new Point(31, 833);
+            label16.Name = "label16";
+            label16.Size = new Size(59, 16);
+            label16.TabIndex = 135;
+            label16.Text = "Address";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.BackColor = SystemColors.ControlLightLight;
+            label17.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label17.Location = new Point(59, 804);
+            label17.Name = "label17";
+            label17.Size = new Size(31, 16);
+            label17.TabIndex = 134;
+            label17.Text = "City";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.BackColor = SystemColors.ControlLightLight;
+            label18.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label18.Location = new Point(33, 775);
+            label18.Name = "label18";
+            label18.Size = new Size(57, 16);
+            label18.TabIndex = 133;
+            label18.Text = "Country";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.BackColor = SystemColors.ControlLightLight;
+            label19.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label19.Location = new Point(47, 745);
+            label19.Name = "label19";
+            label19.Size = new Size(43, 16);
+            label19.TabIndex = 132;
+            label19.Text = "Name";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.BackColor = SystemColors.ControlLightLight;
+            label20.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label20.Location = new Point(825, 204);
+            label20.Name = "label20";
+            label20.Size = new Size(43, 16);
+            label20.TabIndex = 131;
+            label20.Text = "Name";
+            // 
+            // button16
+            // 
+            button16.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            button16.ForeColor = Color.FromArgb(1, 183, 99);
+            button16.Location = new Point(51, 0);
+            button16.Name = "button16";
+            button16.Size = new Size(48, 52);
+            button16.TabIndex = 115;
+            button16.Text = "🖍";
+            button16.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.BackColor = Color.FromArgb(1, 183, 99);
+            label21.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label21.ForeColor = SystemColors.ControlLightLight;
+            label21.Location = new Point(1203, 689);
+            label21.Name = "label21";
+            label21.Padding = new Padding(136, 10, 136, 10);
+            label21.Size = new Size(399, 39);
+            label21.TabIndex = 114;
+            label21.Text = "Memory details";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.BackColor = Color.FromArgb(1, 183, 99);
+            label22.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label22.ForeColor = SystemColors.ControlLightLight;
+            label22.Location = new Point(805, 689);
+            label22.Name = "label22";
+            label22.Padding = new Padding(132, 10, 130, 10);
+            label22.Size = new Size(392, 39);
+            label22.TabIndex = 113;
+            label22.Text = "Expense details";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.BackColor = Color.FromArgb(1, 183, 99);
+            label23.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label23.ForeColor = SystemColors.ControlLightLight;
+            label23.Location = new Point(408, 689);
+            label23.Name = "label23";
+            label23.Padding = new Padding(112, 10, 112, 10);
+            label23.Size = new Size(391, 39);
+            label23.TabIndex = 112;
+            label23.Text = "Resting point details";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.BackColor = Color.FromArgb(1, 183, 99);
+            label24.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label24.ForeColor = SystemColors.ControlLightLight;
+            label24.Location = new Point(-3, 689);
+            label24.Name = "label24";
+            label24.Padding = new Padding(132, 10, 132, 10);
+            label24.Size = new Size(404, 39);
+            label24.TabIndex = 111;
+            label24.Text = "Landmark details";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.BackColor = Color.FromArgb(1, 183, 99);
+            label25.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label25.ForeColor = SystemColors.ControlLightLight;
+            label25.Location = new Point(805, 124);
+            label25.Margin = new Padding(10);
+            label25.Name = "label25";
+            label25.Padding = new Padding(362, 10, 362, 10);
+            label25.Size = new Size(856, 39);
+            label25.TabIndex = 110;
+            label25.Text = "Segment details";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.BackColor = Color.FromArgb(127, 127, 127);
+            label26.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label26.ForeColor = SystemColors.ControlLightLight;
+            label26.Location = new Point(1204, 418);
+            label26.Name = "label26";
+            label26.Padding = new Padding(158, 10, 158, 10);
+            label26.Size = new Size(399, 39);
+            label26.TabIndex = 109;
+            label26.Text = "Memories";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.BackColor = Color.FromArgb(127, 127, 127);
+            label27.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label27.ForeColor = SystemColors.ControlLightLight;
+            label27.Location = new Point(805, 418);
+            label27.Name = "label27";
+            label27.Padding = new Padding(155, 10, 155, 10);
+            label27.Size = new Size(392, 39);
+            label27.TabIndex = 108;
+            label27.Text = "Expenses";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.BackColor = Color.FromArgb(127, 127, 127);
+            label28.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label28.ForeColor = SystemColors.ControlLightLight;
+            label28.Location = new Point(407, 418);
+            label28.Name = "label28";
+            label28.Padding = new Padding(136, 10, 137, 10);
+            label28.Size = new Size(392, 39);
+            label28.TabIndex = 107;
+            label28.Text = "Resting points";
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.BackColor = Color.FromArgb(127, 127, 127);
+            label29.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label29.ForeColor = SystemColors.ControlLightLight;
+            label29.Location = new Point(-1, 418);
+            label29.Name = "label29";
+            label29.Padding = new Padding(155, 10, 155, 10);
+            label29.Size = new Size(402, 39);
+            label29.TabIndex = 106;
+            label29.Text = "Landmarks";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.BackColor = Color.FromArgb(127, 127, 127);
+            label30.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label30.ForeColor = SystemColors.ControlLightLight;
+            label30.Location = new Point(0, 124);
+            label30.Margin = new Padding(10);
+            label30.Name = "label30";
+            label30.Padding = new Padding(359, 10, 356, 10);
+            label30.Size = new Size(799, 39);
+            label30.TabIndex = 105;
+            label30.Text = "Segments";
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(1203, 731);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(398, 241);
+            listView1.TabIndex = 104;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView2
+            // 
+            listView2.Location = new Point(805, 731);
+            listView2.Name = "listView2";
+            listView2.Size = new Size(392, 241);
+            listView2.TabIndex = 103;
+            listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView3
+            // 
+            listView3.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            listView3.Location = new Point(407, 732);
+            listView3.Name = "listView3";
+            listView3.Size = new Size(392, 241);
+            listView3.TabIndex = 102;
+            listView3.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView4
+            // 
+            listView4.Location = new Point(0, 731);
+            listView4.Name = "listView4";
+            listView4.Size = new Size(401, 242);
+            listView4.TabIndex = 101;
+            listView4.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView5
+            // 
+            listView5.Location = new Point(1203, 460);
+            listView5.Name = "listView5";
+            listView5.Size = new Size(398, 224);
+            listView5.TabIndex = 100;
+            listView5.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView6
+            // 
+            listView6.Location = new Point(805, 460);
+            listView6.Name = "listView6";
+            listView6.Size = new Size(393, 224);
+            listView6.TabIndex = 99;
+            listView6.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView7
+            // 
+            listView7.Location = new Point(407, 460);
+            listView7.Name = "listView7";
+            listView7.Size = new Size(392, 225);
+            listView7.TabIndex = 98;
+            listView7.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView8
+            // 
+            listView8.Location = new Point(0, 460);
+            listView8.Name = "listView8";
+            listView8.Size = new Size(401, 225);
+            listView8.TabIndex = 97;
+            listView8.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView9
+            // 
+            listView9.Location = new Point(805, 165);
+            listView9.Name = "listView9";
+            listView9.Size = new Size(796, 250);
+            listView9.TabIndex = 96;
+            listView9.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView10
+            // 
+            listView10.Location = new Point(0, 165);
+            listView10.Name = "listView10";
+            listView10.Size = new Size(799, 250);
+            listView10.TabIndex = 95;
+            listView10.UseCompatibleStateImageBehavior = false;
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label31.Location = new Point(1320, 81);
+            label31.Name = "label31";
+            label31.Size = new Size(13, 18);
+            label31.TabIndex = 94;
+            label31.Text = "-";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(1339, 78);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(219, 23);
+            dateTimePicker1.TabIndex = 93;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(1095, 78);
+            dateTimePicker2.Margin = new Padding(3, 2, 3, 2);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(219, 23);
+            dateTimePicker2.TabIndex = 92;
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label33.Location = new Point(986, 83);
+            label33.Name = "label33";
+            label33.Size = new Size(101, 16);
+            label33.TabIndex = 90;
+            label33.Text = "Date of the trip";
+            // 
+            // textBox15
+            // 
+            textBox15.Location = new Point(154, 78);
+            textBox15.Margin = new Padding(3, 2, 3, 2);
+            textBox15.Name = "textBox15";
+            textBox15.Size = new Size(438, 23);
+            textBox15.TabIndex = 89;
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label34.Location = new Point(41, 83);
+            label34.Name = "label34";
+            label34.Size = new Size(107, 16);
+            label34.TabIndex = 88;
+            label34.Text = "Name of the trip";
+            // 
+            // button17
+            // 
+            button17.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            button17.ForeColor = Color.FromArgb(1, 183, 99);
+            button17.Location = new Point(1, 0);
+            button17.Margin = new Padding(3, 2, 3, 2);
+            button17.Name = "button17";
+            button17.Size = new Size(48, 52);
+            button17.TabIndex = 87;
+            button17.Text = "◀️";
+            button17.UseVisualStyleBackColor = true;
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            label32.Location = new Point(553, -3);
+            label32.Name = "label32";
+            label32.Size = new Size(489, 68);
+            label32.TabIndex = 91;
+            label32.Text = "Details of the trip";
             // 
             // returnFromBrowseButton
             // 
@@ -666,72 +2113,140 @@
             returnFromBrowseButton.UseVisualStyleBackColor = true;
             returnFromBrowseButton.Click += returnFromBrowseButton_Click;
             // 
-            // inspectTripPanel
+            // searchTextBox
             // 
-            inspectTripPanel.BackColor = Color.FromArgb(255, 255, 192);
-            inspectTripPanel.Controls.Add(editButtonPanel);
-            inspectTripPanel.Controls.Add(tripInfoPanel);
-            inspectTripPanel.Controls.Add(returnFromInspectButton);
-            inspectTripPanel.Controls.Add(tripDetailsLabel);
-            inspectTripPanel.Dock = DockStyle.Fill;
-            inspectTripPanel.Location = new Point(0, 0);
-            inspectTripPanel.Margin = new Padding(3, 2, 3, 2);
-            inspectTripPanel.Name = "inspectTripPanel";
-            inspectTripPanel.Size = new Size(1601, 973);
-            inspectTripPanel.TabIndex = 2;
-            inspectTripPanel.Visible = false;
+            searchTextBox.BorderStyle = BorderStyle.None;
+            searchTextBox.Font = new Font("Arial Black", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            searchTextBox.ForeColor = Color.FromArgb(195, 195, 195);
+            searchTextBox.Location = new Point(642, 107);
+            searchTextBox.Margin = new Padding(3, 2, 3, 2);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(338, 34);
+            searchTextBox.TabIndex = 2;
+            searchTextBox.Text = "search";
+            searchTextBox.TextAlign = HorizontalAlignment.Center;
             // 
-            // editButtonPanel
+            // browseLabel
             // 
-            editButtonPanel.Location = new Point(53, 0);
-            editButtonPanel.Margin = new Padding(3, 2, 3, 2);
-            editButtonPanel.Name = "editButtonPanel";
-            editButtonPanel.Size = new Size(80, 22);
-            editButtonPanel.TabIndex = 10;
+            browseLabel.AutoSize = true;
+            browseLabel.Font = new Font("Arial Black", 48F, FontStyle.Bold, GraphicsUnit.Point);
+            browseLabel.Location = new Point(561, 6);
+            browseLabel.Name = "browseLabel";
+            browseLabel.Size = new Size(481, 90);
+            browseLabel.TabIndex = 3;
+            browseLabel.Text = "Browse trips";
             // 
-            // tripInfoPanel
+            // tripListPanel
             // 
-            tripInfoPanel.Dock = DockStyle.Bottom;
-            tripInfoPanel.FlowDirection = FlowDirection.TopDown;
-            tripInfoPanel.Location = new Point(0, 285);
-            tripInfoPanel.Margin = new Padding(3, 2, 3, 2);
-            tripInfoPanel.Name = "tripInfoPanel";
-            tripInfoPanel.Size = new Size(1601, 688);
-            tripInfoPanel.TabIndex = 9;
+            tripListPanel.AutoScroll = true;
+            tripListPanel.Dock = DockStyle.Bottom;
+            tripListPanel.Location = new Point(0, 176);
+            tripListPanel.Margin = new Padding(3, 2, 3, 2);
+            tripListPanel.Name = "tripListPanel";
+            tripListPanel.Size = new Size(1601, 797);
+            tripListPanel.TabIndex = 4;
             // 
-            // returnFromInspectButton
+            // browseTripPanel
             // 
-            returnFromInspectButton.Location = new Point(0, 0);
-            returnFromInspectButton.Margin = new Padding(3, 2, 3, 2);
-            returnFromInspectButton.Name = "returnFromInspectButton";
-            returnFromInspectButton.Size = new Size(48, 22);
-            returnFromInspectButton.TabIndex = 5;
-            returnFromInspectButton.Text = "◀️";
-            returnFromInspectButton.UseVisualStyleBackColor = true;
-            returnFromInspectButton.Click += returnFromInspectButton_Click;
-            // 
-            // tripDetailsLabel
-            // 
-            tripDetailsLabel.AutoSize = true;
-            tripDetailsLabel.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            tripDetailsLabel.Location = new Point(659, 0);
-            tripDetailsLabel.Name = "tripDetailsLabel";
-            tripDetailsLabel.Size = new Size(255, 54);
-            tripDetailsLabel.TabIndex = 8;
-            tripDetailsLabel.Text = "TRIP DETAILS";
+            browseTripPanel.BackColor = Color.FromArgb(246, 246, 246);
+            browseTripPanel.Controls.Add(tripListPanel);
+            browseTripPanel.Controls.Add(browseLabel);
+            browseTripPanel.Controls.Add(searchTextBox);
+            browseTripPanel.Controls.Add(returnFromBrowseButton);
+            browseTripPanel.Dock = DockStyle.Fill;
+            browseTripPanel.Location = new Point(0, 0);
+            browseTripPanel.Margin = new Padding(3, 2, 3, 2);
+            browseTripPanel.Name = "browseTripPanel";
+            browseTripPanel.Size = new Size(1601, 973);
+            browseTripPanel.TabIndex = 1;
+            browseTripPanel.Visible = false;
             // 
             // editTripPanel
             // 
-            editTripPanel.BackColor = SystemColors.ActiveCaption;
-            editTripPanel.Controls.Add(editTripLabel);
-            editTripPanel.Controls.Add(editReturnDateTextBox);
-            editTripPanel.Controls.Add(editDepDateTextBox);
-            editTripPanel.Controls.Add(editReturnDateLabel);
-            editTripPanel.Controls.Add(editDepDateLabel);
-            editTripPanel.Controls.Add(editNameTextBox);
-            editTripPanel.Controls.Add(editNameLabel);
+            editTripPanel.BackColor = Color.FromArgb(246, 246, 246);
+            editTripPanel.Controls.Add(button20);
+            editTripPanel.Controls.Add(richTextBox2);
+            editTripPanel.Controls.Add(pictureBox3);
+            editTripPanel.Controls.Add(textBox16);
+            editTripPanel.Controls.Add(textBox17);
+            editTripPanel.Controls.Add(textBox18);
+            editTripPanel.Controls.Add(textBox19);
+            editTripPanel.Controls.Add(textBox20);
+            editTripPanel.Controls.Add(textBox21);
+            editTripPanel.Controls.Add(textBox22);
+            editTripPanel.Controls.Add(textBox23);
+            editTripPanel.Controls.Add(textBox24);
+            editTripPanel.Controls.Add(textBox25);
+            editTripPanel.Controls.Add(textBox26);
+            editTripPanel.Controls.Add(textBox27);
+            editTripPanel.Controls.Add(textBox28);
+            editTripPanel.Controls.Add(textBox29);
+            editTripPanel.Controls.Add(radioButton5);
+            editTripPanel.Controls.Add(radioButton7);
+            editTripPanel.Controls.Add(radioButton8);
+            editTripPanel.Controls.Add(radioButton9);
+            editTripPanel.Controls.Add(radioButton10);
+            editTripPanel.Controls.Add(label35);
+            editTripPanel.Controls.Add(label36);
+            editTripPanel.Controls.Add(label37);
+            editTripPanel.Controls.Add(label38);
+            editTripPanel.Controls.Add(label39);
+            editTripPanel.Controls.Add(label40);
+            editTripPanel.Controls.Add(label41);
+            editTripPanel.Controls.Add(label42);
+            editTripPanel.Controls.Add(label43);
+            editTripPanel.Controls.Add(label44);
+            editTripPanel.Controls.Add(label45);
+            editTripPanel.Controls.Add(label46);
+            editTripPanel.Controls.Add(label47);
+            editTripPanel.Controls.Add(label48);
+            editTripPanel.Controls.Add(label49);
+            editTripPanel.Controls.Add(label50);
+            editTripPanel.Controls.Add(label51);
+            editTripPanel.Controls.Add(button1);
+            editTripPanel.Controls.Add(button2);
+            editTripPanel.Controls.Add(button3);
+            editTripPanel.Controls.Add(button4);
+            editTripPanel.Controls.Add(button5);
+            editTripPanel.Controls.Add(button6);
+            editTripPanel.Controls.Add(button7);
+            editTripPanel.Controls.Add(button8);
+            editTripPanel.Controls.Add(button9);
+            editTripPanel.Controls.Add(button10);
+            editTripPanel.Controls.Add(button11);
+            editTripPanel.Controls.Add(button12);
+            editTripPanel.Controls.Add(button13);
+            editTripPanel.Controls.Add(button14);
+            editTripPanel.Controls.Add(button15);
+            editTripPanel.Controls.Add(button18);
+            editTripPanel.Controls.Add(label52);
+            editTripPanel.Controls.Add(label53);
+            editTripPanel.Controls.Add(label54);
+            editTripPanel.Controls.Add(label55);
+            editTripPanel.Controls.Add(label56);
+            editTripPanel.Controls.Add(label57);
+            editTripPanel.Controls.Add(label58);
+            editTripPanel.Controls.Add(label59);
+            editTripPanel.Controls.Add(label60);
+            editTripPanel.Controls.Add(label61);
+            editTripPanel.Controls.Add(listView11);
+            editTripPanel.Controls.Add(listView12);
+            editTripPanel.Controls.Add(listView13);
+            editTripPanel.Controls.Add(listView14);
+            editTripPanel.Controls.Add(listView15);
+            editTripPanel.Controls.Add(listView16);
+            editTripPanel.Controls.Add(listView17);
+            editTripPanel.Controls.Add(listView18);
+            editTripPanel.Controls.Add(listView19);
+            editTripPanel.Controls.Add(listView20);
+            editTripPanel.Controls.Add(label62);
+            editTripPanel.Controls.Add(dateTimePicker3);
+            editTripPanel.Controls.Add(dateTimePicker4);
+            editTripPanel.Controls.Add(label63);
+            editTripPanel.Controls.Add(label64);
+            editTripPanel.Controls.Add(textBox30);
+            editTripPanel.Controls.Add(label65);
             editTripPanel.Controls.Add(returnFromEditTrip);
-            editTripPanel.Controls.Add(editTripFlowLayoutPanel);
             editTripPanel.Dock = DockStyle.Fill;
             editTripPanel.Location = new Point(0, 0);
             editTripPanel.Margin = new Padding(3, 2, 3, 2);
@@ -740,99 +2255,418 @@
             editTripPanel.TabIndex = 9;
             editTripPanel.Visible = false;
             // 
-            // editTripLabel
+            // button20
             // 
-            editTripLabel.AutoSize = true;
-            editTripLabel.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
-            editTripLabel.Location = new Point(694, 7);
-            editTripLabel.Name = "editTripLabel";
-            editTripLabel.Size = new Size(192, 54);
-            editTripLabel.TabIndex = 8;
-            editTripLabel.Text = "EDIT TRIP";
+            button20.BackColor = Color.FromArgb(1, 183, 99);
+            button20.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button20.ForeColor = SystemColors.ControlLightLight;
+            button20.Location = new Point(105, 0);
+            button20.Name = "button20";
+            button20.Size = new Size(209, 52);
+            button20.TabIndex = 169;
+            button20.Text = "Create slide show";
+            button20.UseVisualStyleBackColor = false;
             // 
-            // editReturnDateTextBox
+            // richTextBox2
             // 
-            editReturnDateTextBox.Location = new Point(143, 87);
-            editReturnDateTextBox.Margin = new Padding(3, 2, 3, 2);
-            editReturnDateTextBox.Name = "editReturnDateTextBox";
-            editReturnDateTextBox.Size = new Size(137, 23);
-            editReturnDateTextBox.TabIndex = 6;
+            richTextBox2.Location = new Point(1286, 837);
+            richTextBox2.Name = "richTextBox2";
+            richTextBox2.Size = new Size(292, 91);
+            richTextBox2.TabIndex = 168;
+            richTextBox2.Text = "";
             // 
-            // editDepDateTextBox
+            // pictureBox3
             // 
-            editDepDateTextBox.Location = new Point(143, 62);
-            editDepDateTextBox.Margin = new Padding(3, 2, 3, 2);
-            editDepDateTextBox.Name = "editDepDateTextBox";
-            editDepDateTextBox.Size = new Size(137, 23);
-            editDepDateTextBox.TabIndex = 5;
+            pictureBox3.Location = new Point(1286, 739);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(292, 50);
+            pictureBox3.TabIndex = 167;
+            pictureBox3.TabStop = false;
             // 
-            // editReturnDateLabel
+            // textBox16
             // 
-            editReturnDateLabel.AutoSize = true;
-            editReturnDateLabel.Location = new Point(6, 92);
-            editReturnDateLabel.Name = "editReturnDateLabel";
-            editReturnDateLabel.Size = new Size(98, 15);
-            editReturnDateLabel.TabIndex = 4;
-            editReturnDateLabel.Text = "DATE OF RETURN";
+            textBox16.Location = new Point(874, 203);
+            textBox16.Name = "textBox16";
+            textBox16.Size = new Size(715, 23);
+            textBox16.TabIndex = 166;
             // 
-            // editDepDateLabel
+            // textBox17
             // 
-            editDepDateLabel.AutoSize = true;
-            editDepDateLabel.Location = new Point(6, 64);
-            editDepDateLabel.Name = "editDepDateLabel";
-            editDepDateLabel.Size = new Size(116, 15);
-            editDepDateLabel.TabIndex = 3;
-            editDepDateLabel.Text = "DATE OF DEPARTURE";
+            textBox17.Location = new Point(1286, 805);
+            textBox17.Name = "textBox17";
+            textBox17.Size = new Size(292, 23);
+            textBox17.TabIndex = 165;
             // 
-            // editNameTextBox
+            // textBox18
             // 
-            editNameTextBox.Location = new Point(55, 38);
-            editNameTextBox.Margin = new Padding(3, 2, 3, 2);
-            editNameTextBox.Name = "editNameTextBox";
-            editNameTextBox.Size = new Size(438, 23);
-            editNameTextBox.TabIndex = 2;
+            textBox18.Location = new Point(892, 768);
+            textBox18.Name = "textBox18";
+            textBox18.Size = new Size(292, 23);
+            textBox18.TabIndex = 164;
             // 
-            // editNameLabel
+            // textBox19
             // 
-            editNameLabel.AutoSize = true;
-            editNameLabel.Location = new Point(5, 38);
-            editNameLabel.Name = "editNameLabel";
-            editNameLabel.Size = new Size(41, 15);
-            editNameLabel.TabIndex = 1;
-            editNameLabel.Text = "NAME";
+            textBox19.Location = new Point(892, 739);
+            textBox19.Name = "textBox19";
+            textBox19.Size = new Size(292, 23);
+            textBox19.TabIndex = 163;
             // 
-            // returnFromEditTrip
+            // textBox20
             // 
-            returnFromEditTrip.Location = new Point(1, 1);
-            returnFromEditTrip.Margin = new Padding(3, 2, 3, 2);
-            returnFromEditTrip.Name = "returnFromEditTrip";
-            returnFromEditTrip.Size = new Size(48, 22);
-            returnFromEditTrip.TabIndex = 0;
-            returnFromEditTrip.Text = "◀️";
-            returnFromEditTrip.UseVisualStyleBackColor = true;
-            returnFromEditTrip.Click += returnFromEditTrip_Click;
+            textBox20.Location = new Point(497, 854);
+            textBox20.Name = "textBox20";
+            textBox20.Size = new Size(292, 23);
+            textBox20.TabIndex = 162;
             // 
-            // editTripFlowLayoutPanel
+            // textBox21
             // 
-            editTripFlowLayoutPanel.AutoScroll = true;
-            editTripFlowLayoutPanel.Dock = DockStyle.Bottom;
-            editTripFlowLayoutPanel.Location = new Point(0, 350);
-            editTripFlowLayoutPanel.Margin = new Padding(3, 2, 3, 2);
-            editTripFlowLayoutPanel.Name = "editTripFlowLayoutPanel";
-            editTripFlowLayoutPanel.Size = new Size(1601, 623);
-            editTripFlowLayoutPanel.TabIndex = 7;
-            editTripFlowLayoutPanel.WrapContents = false;
+            textBox21.Location = new Point(497, 825);
+            textBox21.Name = "textBox21";
+            textBox21.Size = new Size(292, 23);
+            textBox21.TabIndex = 161;
+            // 
+            // textBox22
+            // 
+            textBox22.Location = new Point(497, 796);
+            textBox22.Name = "textBox22";
+            textBox22.Size = new Size(292, 23);
+            textBox22.TabIndex = 160;
+            // 
+            // textBox23
+            // 
+            textBox23.Location = new Point(497, 768);
+            textBox23.Name = "textBox23";
+            textBox23.Size = new Size(292, 23);
+            textBox23.TabIndex = 159;
+            // 
+            // textBox24
+            // 
+            textBox24.Location = new Point(497, 739);
+            textBox24.Name = "textBox24";
+            textBox24.Size = new Size(292, 23);
+            textBox24.TabIndex = 158;
+            // 
+            // textBox25
+            // 
+            textBox25.Location = new Point(96, 856);
+            textBox25.Name = "textBox25";
+            textBox25.Size = new Size(292, 23);
+            textBox25.TabIndex = 157;
+            // 
+            // textBox26
+            // 
+            textBox26.Location = new Point(96, 827);
+            textBox26.Name = "textBox26";
+            textBox26.Size = new Size(292, 23);
+            textBox26.TabIndex = 156;
+            // 
+            // textBox27
+            // 
+            textBox27.Location = new Point(96, 798);
+            textBox27.Name = "textBox27";
+            textBox27.Size = new Size(292, 23);
+            textBox27.TabIndex = 155;
+            // 
+            // textBox28
+            // 
+            textBox28.Location = new Point(96, 769);
+            textBox28.Name = "textBox28";
+            textBox28.Size = new Size(292, 23);
+            textBox28.TabIndex = 154;
+            // 
+            // textBox29
+            // 
+            textBox29.Location = new Point(96, 739);
+            textBox29.Name = "textBox29";
+            textBox29.Size = new Size(292, 23);
+            textBox29.TabIndex = 153;
+            // 
+            // radioButton5
+            // 
+            radioButton5.AutoSize = true;
+            radioButton5.BackColor = Color.White;
+            radioButton5.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton5.Location = new Point(565, 909);
+            radioButton5.Name = "radioButton5";
+            radioButton5.Size = new Size(81, 20);
+            radioButton5.TabIndex = 152;
+            radioButton5.TabStop = true;
+            radioButton5.Text = "Camping";
+            radioButton5.UseVisualStyleBackColor = false;
+            // 
+            // radioButton7
+            // 
+            radioButton7.AutoSize = true;
+            radioButton7.BackColor = Color.White;
+            radioButton7.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton7.Location = new Point(642, 884);
+            radioButton7.Name = "radioButton7";
+            radioButton7.Size = new Size(90, 20);
+            radioButton7.TabIndex = 151;
+            radioButton7.TabStop = true;
+            radioButton7.Text = "Apartment";
+            radioButton7.UseVisualStyleBackColor = false;
+            // 
+            // radioButton8
+            // 
+            radioButton8.AutoSize = true;
+            radioButton8.BackColor = Color.White;
+            radioButton8.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton8.Location = new Point(497, 909);
+            radioButton8.Name = "radioButton8";
+            radioButton8.Size = new Size(62, 20);
+            radioButton8.TabIndex = 150;
+            radioButton8.TabStop = true;
+            radioButton8.Text = "Room";
+            radioButton8.UseVisualStyleBackColor = false;
+            // 
+            // radioButton9
+            // 
+            radioButton9.AutoSize = true;
+            radioButton9.BackColor = Color.White;
+            radioButton9.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton9.Location = new Point(565, 884);
+            radioButton9.Name = "radioButton9";
+            radioButton9.Size = new Size(64, 20);
+            radioButton9.TabIndex = 149;
+            radioButton9.TabStop = true;
+            radioButton9.Text = "Hostel";
+            radioButton9.UseVisualStyleBackColor = false;
+            // 
+            // radioButton10
+            // 
+            radioButton10.AutoSize = true;
+            radioButton10.BackColor = Color.White;
+            radioButton10.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            radioButton10.Location = new Point(497, 884);
+            radioButton10.Name = "radioButton10";
+            radioButton10.Size = new Size(57, 20);
+            radioButton10.TabIndex = 148;
+            radioButton10.TabStop = true;
+            radioButton10.Text = "Hotel";
+            radioButton10.UseVisualStyleBackColor = false;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.BackColor = SystemColors.ControlLightLight;
+            label35.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label35.Location = new Point(453, 884);
+            label35.Name = "label35";
+            label35.Size = new Size(38, 16);
+            label35.TabIndex = 147;
+            label35.Text = "Type";
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.BackColor = SystemColors.ControlLightLight;
+            label36.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label36.Location = new Point(410, 858);
+            label36.Name = "label36";
+            label36.Size = new Size(83, 16);
+            label36.TabIndex = 146;
+            label36.Text = "Contact info";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.BackColor = SystemColors.ControlLightLight;
+            label37.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label37.Location = new Point(434, 834);
+            label37.Name = "label37";
+            label37.Size = new Size(59, 16);
+            label37.TabIndex = 145;
+            label37.Text = "Address";
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.BackColor = SystemColors.ControlLightLight;
+            label38.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label38.Location = new Point(460, 805);
+            label38.Name = "label38";
+            label38.Size = new Size(31, 16);
+            label38.TabIndex = 144;
+            label38.Text = "City";
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.BackColor = SystemColors.ControlLightLight;
+            label39.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label39.Location = new Point(434, 776);
+            label39.Name = "label39";
+            label39.Size = new Size(57, 16);
+            label39.TabIndex = 143;
+            label39.Text = "Country";
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.BackColor = SystemColors.ControlLightLight;
+            label40.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label40.Location = new Point(448, 746);
+            label40.Name = "label40";
+            label40.Size = new Size(43, 16);
+            label40.TabIndex = 142;
+            label40.Text = "Name";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.BackColor = SystemColors.ControlLightLight;
+            label41.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label41.Location = new Point(1244, 839);
+            label41.Name = "label41";
+            label41.Size = new Size(36, 16);
+            label41.TabIndex = 141;
+            label41.Text = "Note";
+            // 
+            // label42
+            // 
+            label42.AutoSize = true;
+            label42.BackColor = SystemColors.ControlLightLight;
+            label42.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label42.Location = new Point(1229, 812);
+            label42.Name = "label42";
+            label42.Size = new Size(51, 16);
+            label42.TabIndex = 140;
+            label42.Text = "Song/s";
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.BackColor = SystemColors.ControlLightLight;
+            label43.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label43.Location = new Point(1225, 741);
+            label43.Name = "label43";
+            label43.Size = new Size(55, 16);
+            label43.TabIndex = 139;
+            label43.Text = "Photo/s";
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.BackColor = SystemColors.ControlLightLight;
+            label44.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label44.Location = new Point(844, 769);
+            label44.Name = "label44";
+            label44.Size = new Size(42, 16);
+            label44.TabIndex = 138;
+            label44.Text = "Value";
+            // 
+            // label45
+            // 
+            label45.AutoSize = true;
+            label45.BackColor = SystemColors.ControlLightLight;
+            label45.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label45.Location = new Point(843, 741);
+            label45.Name = "label45";
+            label45.Size = new Size(43, 16);
+            label45.TabIndex = 137;
+            label45.Text = "Name";
+            // 
+            // label46
+            // 
+            label46.AutoSize = true;
+            label46.BackColor = SystemColors.ControlLightLight;
+            label46.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label46.Location = new Point(12, 858);
+            label46.Name = "label46";
+            label46.Size = new Size(78, 16);
+            label46.TabIndex = 136;
+            label46.Text = "Description";
+            // 
+            // label47
+            // 
+            label47.AutoSize = true;
+            label47.BackColor = SystemColors.ControlLightLight;
+            label47.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label47.Location = new Point(31, 834);
+            label47.Name = "label47";
+            label47.Size = new Size(59, 16);
+            label47.TabIndex = 135;
+            label47.Text = "Address";
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.BackColor = SystemColors.ControlLightLight;
+            label48.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label48.Location = new Point(59, 805);
+            label48.Name = "label48";
+            label48.Size = new Size(31, 16);
+            label48.TabIndex = 134;
+            label48.Text = "City";
+            // 
+            // label49
+            // 
+            label49.AutoSize = true;
+            label49.BackColor = SystemColors.ControlLightLight;
+            label49.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label49.Location = new Point(33, 776);
+            label49.Name = "label49";
+            label49.Size = new Size(57, 16);
+            label49.TabIndex = 133;
+            label49.Text = "Country";
+            // 
+            // label50
+            // 
+            label50.AutoSize = true;
+            label50.BackColor = SystemColors.ControlLightLight;
+            label50.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label50.Location = new Point(47, 746);
+            label50.Name = "label50";
+            label50.Size = new Size(43, 16);
+            label50.TabIndex = 132;
+            label50.Text = "Name";
+            // 
+            // label51
+            // 
+            label51.AutoSize = true;
+            label51.BackColor = SystemColors.ControlLightLight;
+            label51.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label51.Location = new Point(825, 205);
+            label51.Name = "label51";
+            label51.Size = new Size(43, 16);
+            label51.TabIndex = 131;
+            label51.Text = "Name";
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(1, 183, 99);
+            button1.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.ForeColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(212, 937);
+            button1.Name = "button1";
+            button1.Size = new Size(90, 36);
+            button1.TabIndex = 130;
+            button1.Text = "Update";
+            button1.UseVisualStyleBackColor = false;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.FromArgb(1, 183, 99);
+            button2.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.ForeColor = SystemColors.ControlLightLight;
+            button2.Location = new Point(308, 937);
+            button2.Name = "button2";
+            button2.Size = new Size(90, 36);
+            button2.TabIndex = 129;
+            button2.Text = "Add";
+            button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
             button3.BackColor = Color.FromArgb(1, 183, 99);
             button3.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button3.ForeColor = SystemColors.ControlLightLight;
-            button3.Location = new Point(1500, 377);
+            button3.Location = new Point(116, 937);
             button3.Name = "button3";
             button3.Size = new Size(90, 36);
-            button3.TabIndex = 34;
-            button3.Text = "Add";
+            button3.TabIndex = 128;
+            button3.Text = "Remove";
             button3.UseVisualStyleBackColor = false;
             // 
             // button4
@@ -840,10 +2674,10 @@
             button4.BackColor = Color.FromArgb(1, 183, 99);
             button4.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button4.ForeColor = SystemColors.ControlLightLight;
-            button4.Location = new Point(1404, 377);
+            button4.Location = new Point(610, 935);
             button4.Name = "button4";
             button4.Size = new Size(90, 36);
-            button4.TabIndex = 35;
+            button4.TabIndex = 127;
             button4.Text = "Update";
             button4.UseVisualStyleBackColor = false;
             // 
@@ -852,11 +2686,11 @@
             button5.BackColor = Color.FromArgb(1, 183, 99);
             button5.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button5.ForeColor = SystemColors.ControlLightLight;
-            button5.Location = new Point(1412, 934);
+            button5.Location = new Point(706, 935);
             button5.Name = "button5";
             button5.Size = new Size(90, 36);
-            button5.TabIndex = 38;
-            button5.Text = "Update";
+            button5.TabIndex = 126;
+            button5.Text = "Add";
             button5.UseVisualStyleBackColor = false;
             // 
             // button6
@@ -864,11 +2698,11 @@
             button6.BackColor = Color.FromArgb(1, 183, 99);
             button6.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button6.ForeColor = SystemColors.ControlLightLight;
-            button6.Location = new Point(1508, 934);
+            button6.Location = new Point(514, 935);
             button6.Name = "button6";
             button6.Size = new Size(90, 36);
-            button6.TabIndex = 37;
-            button6.Text = "Add";
+            button6.TabIndex = 125;
+            button6.Text = "Remove";
             button6.UseVisualStyleBackColor = false;
             // 
             // button7
@@ -876,11 +2710,11 @@
             button7.BackColor = Color.FromArgb(1, 183, 99);
             button7.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button7.ForeColor = SystemColors.ControlLightLight;
-            button7.Location = new Point(1316, 934);
+            button7.Location = new Point(1008, 934);
             button7.Name = "button7";
             button7.Size = new Size(90, 36);
-            button7.TabIndex = 36;
-            button7.Text = "Remove";
+            button7.TabIndex = 124;
+            button7.Text = "Update";
             button7.UseVisualStyleBackColor = false;
             // 
             // button8
@@ -888,11 +2722,11 @@
             button8.BackColor = Color.FromArgb(1, 183, 99);
             button8.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button8.ForeColor = SystemColors.ControlLightLight;
-            button8.Location = new Point(1008, 934);
+            button8.Location = new Point(1104, 934);
             button8.Name = "button8";
             button8.Size = new Size(90, 36);
-            button8.TabIndex = 41;
-            button8.Text = "Update";
+            button8.TabIndex = 123;
+            button8.Text = "Add";
             button8.UseVisualStyleBackColor = false;
             // 
             // button9
@@ -900,11 +2734,11 @@
             button9.BackColor = Color.FromArgb(1, 183, 99);
             button9.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button9.ForeColor = SystemColors.ControlLightLight;
-            button9.Location = new Point(1104, 934);
+            button9.Location = new Point(912, 934);
             button9.Name = "button9";
             button9.Size = new Size(90, 36);
-            button9.TabIndex = 40;
-            button9.Text = "Add";
+            button9.TabIndex = 122;
+            button9.Text = "Remove";
             button9.UseVisualStyleBackColor = false;
             // 
             // button10
@@ -912,11 +2746,11 @@
             button10.BackColor = Color.FromArgb(1, 183, 99);
             button10.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button10.ForeColor = SystemColors.ControlLightLight;
-            button10.Location = new Point(912, 934);
+            button10.Location = new Point(1412, 934);
             button10.Name = "button10";
             button10.Size = new Size(90, 36);
-            button10.TabIndex = 39;
-            button10.Text = "Remove";
+            button10.TabIndex = 121;
+            button10.Text = "Update";
             button10.UseVisualStyleBackColor = false;
             // 
             // button11
@@ -924,11 +2758,11 @@
             button11.BackColor = Color.FromArgb(1, 183, 99);
             button11.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button11.ForeColor = SystemColors.ControlLightLight;
-            button11.Location = new Point(610, 935);
+            button11.Location = new Point(1508, 934);
             button11.Name = "button11";
             button11.Size = new Size(90, 36);
-            button11.TabIndex = 44;
-            button11.Text = "Update";
+            button11.TabIndex = 120;
+            button11.Text = "Add";
             button11.UseVisualStyleBackColor = false;
             // 
             // button12
@@ -936,11 +2770,11 @@
             button12.BackColor = Color.FromArgb(1, 183, 99);
             button12.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button12.ForeColor = SystemColors.ControlLightLight;
-            button12.Location = new Point(706, 935);
+            button12.Location = new Point(1316, 934);
             button12.Name = "button12";
             button12.Size = new Size(90, 36);
-            button12.TabIndex = 43;
-            button12.Text = "Add";
+            button12.TabIndex = 119;
+            button12.Text = "Remove";
             button12.UseVisualStyleBackColor = false;
             // 
             // button13
@@ -948,11 +2782,11 @@
             button13.BackColor = Color.FromArgb(1, 183, 99);
             button13.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button13.ForeColor = SystemColors.ControlLightLight;
-            button13.Location = new Point(514, 935);
+            button13.Location = new Point(1404, 377);
             button13.Name = "button13";
             button13.Size = new Size(90, 36);
-            button13.TabIndex = 42;
-            button13.Text = "Remove";
+            button13.TabIndex = 118;
+            button13.Text = "Update";
             button13.UseVisualStyleBackColor = false;
             // 
             // button14
@@ -960,11 +2794,11 @@
             button14.BackColor = Color.FromArgb(1, 183, 99);
             button14.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button14.ForeColor = SystemColors.ControlLightLight;
-            button14.Location = new Point(212, 937);
+            button14.Location = new Point(1500, 377);
             button14.Name = "button14";
             button14.Size = new Size(90, 36);
-            button14.TabIndex = 47;
-            button14.Text = "Update";
+            button14.TabIndex = 117;
+            button14.Text = "Add";
             button14.UseVisualStyleBackColor = false;
             // 
             // button15
@@ -972,35 +2806,323 @@
             button15.BackColor = Color.FromArgb(1, 183, 99);
             button15.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
             button15.ForeColor = SystemColors.ControlLightLight;
-            button15.Location = new Point(308, 937);
+            button15.Location = new Point(1308, 377);
             button15.Name = "button15";
             button15.Size = new Size(90, 36);
-            button15.TabIndex = 46;
-            button15.Text = "Add";
+            button15.TabIndex = 116;
+            button15.Text = "Remove";
             button15.UseVisualStyleBackColor = false;
             // 
-            // button16
+            // button18
             // 
-            button16.BackColor = Color.FromArgb(1, 183, 99);
-            button16.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button16.ForeColor = SystemColors.ControlLightLight;
-            button16.Location = new Point(116, 937);
-            button16.Name = "button16";
-            button16.Size = new Size(90, 36);
-            button16.TabIndex = 45;
-            button16.Text = "Remove";
-            button16.UseVisualStyleBackColor = false;
+            button18.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            button18.ForeColor = Color.FromArgb(1, 183, 99);
+            button18.Location = new Point(51, 1);
+            button18.Name = "button18";
+            button18.Size = new Size(48, 52);
+            button18.TabIndex = 115;
+            button18.Text = "💾";
+            button18.UseVisualStyleBackColor = true;
+            // 
+            // label52
+            // 
+            label52.AutoSize = true;
+            label52.BackColor = Color.FromArgb(1, 183, 99);
+            label52.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label52.ForeColor = SystemColors.ControlLightLight;
+            label52.Location = new Point(1204, 690);
+            label52.Name = "label52";
+            label52.Padding = new Padding(130, 10, 130, 10);
+            label52.Size = new Size(401, 39);
+            label52.TabIndex = 114;
+            label52.Text = "Add new memory";
+            // 
+            // label53
+            // 
+            label53.AutoSize = true;
+            label53.BackColor = Color.FromArgb(1, 183, 99);
+            label53.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label53.ForeColor = SystemColors.ControlLightLight;
+            label53.Location = new Point(805, 690);
+            label53.Name = "label53";
+            label53.Padding = new Padding(123, 10, 126, 10);
+            label53.Size = new Size(391, 39);
+            label53.TabIndex = 113;
+            label53.Text = "Add new expense";
+            // 
+            // label54
+            // 
+            label54.AutoSize = true;
+            label54.BackColor = Color.FromArgb(1, 183, 99);
+            label54.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label54.ForeColor = SystemColors.ControlLightLight;
+            label54.Location = new Point(407, 690);
+            label54.Name = "label54";
+            label54.Padding = new Padding(109, 10, 108, 10);
+            label54.Size = new Size(392, 39);
+            label54.TabIndex = 112;
+            label54.Text = "Add new resting point";
+            // 
+            // label55
+            // 
+            label55.AutoSize = true;
+            label55.BackColor = Color.FromArgb(1, 183, 99);
+            label55.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label55.ForeColor = SystemColors.ControlLightLight;
+            label55.Location = new Point(0, 690);
+            label55.Name = "label55";
+            label55.Padding = new Padding(126, 10, 126, 10);
+            label55.Size = new Size(401, 39);
+            label55.TabIndex = 111;
+            label55.Text = "Add new landmark";
+            // 
+            // label56
+            // 
+            label56.AutoSize = true;
+            label56.BackColor = Color.FromArgb(1, 183, 99);
+            label56.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label56.ForeColor = SystemColors.ControlLightLight;
+            label56.Location = new Point(805, 125);
+            label56.Margin = new Padding(10);
+            label56.Name = "label56";
+            label56.Padding = new Padding(362, 10, 362, 10);
+            label56.Size = new Size(868, 39);
+            label56.TabIndex = 110;
+            label56.Text = "Add new segment";
+            // 
+            // label57
+            // 
+            label57.AutoSize = true;
+            label57.BackColor = Color.FromArgb(127, 127, 127);
+            label57.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label57.ForeColor = SystemColors.ControlLightLight;
+            label57.Location = new Point(1204, 419);
+            label57.Name = "label57";
+            label57.Padding = new Padding(158, 10, 158, 10);
+            label57.Size = new Size(399, 39);
+            label57.TabIndex = 109;
+            label57.Text = "Memories";
+            // 
+            // label58
+            // 
+            label58.AutoSize = true;
+            label58.BackColor = Color.FromArgb(127, 127, 127);
+            label58.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label58.ForeColor = SystemColors.ControlLightLight;
+            label58.Location = new Point(805, 419);
+            label58.Name = "label58";
+            label58.Padding = new Padding(155, 10, 155, 10);
+            label58.Size = new Size(392, 39);
+            label58.TabIndex = 108;
+            label58.Text = "Expenses";
+            // 
+            // label59
+            // 
+            label59.AutoSize = true;
+            label59.BackColor = Color.FromArgb(127, 127, 127);
+            label59.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label59.ForeColor = SystemColors.ControlLightLight;
+            label59.Location = new Point(407, 419);
+            label59.Name = "label59";
+            label59.Padding = new Padding(136, 10, 137, 10);
+            label59.Size = new Size(392, 39);
+            label59.TabIndex = 107;
+            label59.Text = "Resting points";
+            // 
+            // label60
+            // 
+            label60.AutoSize = true;
+            label60.BackColor = Color.FromArgb(127, 127, 127);
+            label60.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label60.ForeColor = SystemColors.ControlLightLight;
+            label60.Location = new Point(-1, 419);
+            label60.Name = "label60";
+            label60.Padding = new Padding(155, 10, 155, 10);
+            label60.Size = new Size(402, 39);
+            label60.TabIndex = 106;
+            label60.Text = "Landmarks";
+            // 
+            // label61
+            // 
+            label61.AutoSize = true;
+            label61.BackColor = Color.FromArgb(127, 127, 127);
+            label61.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label61.ForeColor = SystemColors.ControlLightLight;
+            label61.Location = new Point(0, 125);
+            label61.Margin = new Padding(10);
+            label61.Name = "label61";
+            label61.Padding = new Padding(359, 10, 356, 10);
+            label61.Size = new Size(799, 39);
+            label61.TabIndex = 105;
+            label61.Text = "Segments";
+            // 
+            // listView11
+            // 
+            listView11.Location = new Point(1203, 732);
+            listView11.Name = "listView11";
+            listView11.Size = new Size(398, 241);
+            listView11.TabIndex = 104;
+            listView11.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView12
+            // 
+            listView12.Location = new Point(805, 732);
+            listView12.Name = "listView12";
+            listView12.Size = new Size(392, 241);
+            listView12.TabIndex = 103;
+            listView12.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView13
+            // 
+            listView13.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            listView13.Location = new Point(407, 733);
+            listView13.Name = "listView13";
+            listView13.Size = new Size(392, 241);
+            listView13.TabIndex = 102;
+            listView13.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView14
+            // 
+            listView14.Location = new Point(0, 732);
+            listView14.Name = "listView14";
+            listView14.Size = new Size(401, 242);
+            listView14.TabIndex = 101;
+            listView14.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView15
+            // 
+            listView15.Location = new Point(1203, 461);
+            listView15.Name = "listView15";
+            listView15.Size = new Size(398, 224);
+            listView15.TabIndex = 100;
+            listView15.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView16
+            // 
+            listView16.Location = new Point(805, 461);
+            listView16.Name = "listView16";
+            listView16.Size = new Size(393, 224);
+            listView16.TabIndex = 99;
+            listView16.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView17
+            // 
+            listView17.Location = new Point(407, 461);
+            listView17.Name = "listView17";
+            listView17.Size = new Size(392, 225);
+            listView17.TabIndex = 98;
+            listView17.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView18
+            // 
+            listView18.Location = new Point(0, 461);
+            listView18.Name = "listView18";
+            listView18.Size = new Size(401, 225);
+            listView18.TabIndex = 97;
+            listView18.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView19
+            // 
+            listView19.Location = new Point(805, 166);
+            listView19.Name = "listView19";
+            listView19.Size = new Size(796, 250);
+            listView19.TabIndex = 96;
+            listView19.UseCompatibleStateImageBehavior = false;
+            // 
+            // listView20
+            // 
+            listView20.Location = new Point(0, 166);
+            listView20.Name = "listView20";
+            listView20.Size = new Size(799, 250);
+            listView20.TabIndex = 95;
+            listView20.UseCompatibleStateImageBehavior = false;
+            // 
+            // label62
+            // 
+            label62.AutoSize = true;
+            label62.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label62.Location = new Point(1320, 82);
+            label62.Name = "label62";
+            label62.Size = new Size(13, 18);
+            label62.TabIndex = 94;
+            label62.Text = "-";
+            // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.Location = new Point(1339, 79);
+            dateTimePicker3.Margin = new Padding(3, 2, 3, 2);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.Size = new Size(219, 23);
+            dateTimePicker3.TabIndex = 93;
+            // 
+            // dateTimePicker4
+            // 
+            dateTimePicker4.Location = new Point(1095, 79);
+            dateTimePicker4.Margin = new Padding(3, 2, 3, 2);
+            dateTimePicker4.Name = "dateTimePicker4";
+            dateTimePicker4.Size = new Size(219, 23);
+            dateTimePicker4.TabIndex = 92;
+            // 
+            // label63
+            // 
+            label63.AutoSize = true;
+            label63.Font = new Font("Arial Black", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            label63.Location = new Point(619, 2);
+            label63.Name = "label63";
+            label63.Size = new Size(239, 68);
+            label63.TabIndex = 91;
+            label63.Text = "Edit trip";
+            // 
+            // label64
+            // 
+            label64.AutoSize = true;
+            label64.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label64.Location = new Point(986, 84);
+            label64.Name = "label64";
+            label64.Size = new Size(101, 16);
+            label64.TabIndex = 90;
+            label64.Text = "Date of the trip";
+            // 
+            // textBox30
+            // 
+            textBox30.Location = new Point(154, 79);
+            textBox30.Margin = new Padding(3, 2, 3, 2);
+            textBox30.Name = "textBox30";
+            textBox30.Size = new Size(438, 23);
+            textBox30.TabIndex = 89;
+            // 
+            // label65
+            // 
+            label65.AutoSize = true;
+            label65.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label65.Location = new Point(41, 84);
+            label65.Name = "label65";
+            label65.Size = new Size(107, 16);
+            label65.TabIndex = 88;
+            label65.Text = "Name of the trip";
+            // 
+            // returnFromEditTrip
+            // 
+            returnFromEditTrip.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            returnFromEditTrip.ForeColor = Color.FromArgb(1, 183, 99);
+            returnFromEditTrip.Location = new Point(1, 1);
+            returnFromEditTrip.Margin = new Padding(3, 2, 3, 2);
+            returnFromEditTrip.Name = "returnFromEditTrip";
+            returnFromEditTrip.Size = new Size(48, 52);
+            returnFromEditTrip.TabIndex = 87;
+            returnFromEditTrip.Text = "◀️";
+            returnFromEditTrip.UseVisualStyleBackColor = true;
             // 
             // GUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1601, 973);
-            Controls.Add(newTripPanel);
-            Controls.Add(inspectTripPanel);
             Controls.Add(editTripPanel);
             Controls.Add(browseTripPanel);
             Controls.Add(menuPanel);
+            Controls.Add(newTripPanel);
+            Controls.Add(inspectTripPanel);
             Margin = new Padding(3, 2, 3, 2);
             Name = "GUI";
             Text = "Travel Planner";
@@ -1011,12 +3133,15 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             newTripPanel.ResumeLayout(false);
             newTripPanel.PerformLayout();
-            browseTripPanel.ResumeLayout(false);
-            browseTripPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)memPictureBox).EndInit();
             inspectTripPanel.ResumeLayout(false);
             inspectTripPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            browseTripPanel.ResumeLayout(false);
+            browseTripPanel.PerformLayout();
             editTripPanel.ResumeLayout(false);
             editTripPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -1027,34 +3152,15 @@
         private Panel newTripPanel;
         private Button settingsButton;
         private Button browseTripsButton;
-        private Panel browseTripPanel;
         private Label titleLabel;
         private PictureBox pictureBox1;
         private MonthCalendar monthCalendar1;
         private Button returnFromAddButton;
-        private Button returnFromBrowseButton;
-        private Label browseLabel;
-        private TextBox searchTextBox;
-        private Panel tripListPanel;
         private Panel inspectTripPanel;
-        private Button returnFromInspectButton;
         private Label depDateLabel;
         private TextBox tripNameTextBox;
         private Label nameLabel;
         private Label newTripLabel;
-        private Label tripDetailsLabel;
-        private Panel editTripPanel;
-        private Label editTripLabel;
-        private FlowLayoutPanel editTripFlowLayoutPanel;
-        private TextBox editReturnDateTextBox;
-        private TextBox editDepDateTextBox;
-        private Label editReturnDateLabel;
-        private Label editDepDateLabel;
-        private TextBox editNameTextBox;
-        private Label editNameLabel;
-        private Button returnFromEditTrip;
-        private FlowLayoutPanel tripInfoPanel;
-        private Panel editButtonPanel;
         private DateTimePicker addTripReturnDatePicker;
         private DateTimePicker addTripDepartureDatePicker;
         private Label label1;
@@ -1081,21 +3187,215 @@
         private Label addExpenseLabel;
         private Label addRestingPointLabel;
         private Label addLandmarkLabel;
+        private Button saveTripButton;
+        private Button segRemoveButton;
+        private Button segUpdateButton;
+        private Button segAddButton;
+        private Button landUpdateButton;
+        private Button landAddButton;
+        private Button landRemoveButton;
+        private Button restUpdateButton;
+        private Button restAddButton;
+        private Button restRemoveButton;
+        private Button expUpdateButton;
+        private Button expAddButton;
+        private Button expRemoveButton;
+        private Button memUpdateButton;
+        private Button memAddButton;
+        private Button memRemoveButton;
+        private Label restTypeLabel;
+        private Label restContactLabel;
+        private Label restAddressLabel;
+        private Label restCityLabel;
+        private Label restCountryLabel;
+        private Label restNameLabel;
+        private Label memNoteLabel;
+        private Label memSongLabel;
+        private Label memPhotoLabel;
+        private Label expValueLabel;
+        private Label expNameLabel;
+        private Label landDescLabel;
+        private Label landAddressLabel;
+        private Label landCityLabel;
+        private Label landCountryLabel;
+        private Label landNameLabel;
+        private Label segNameLabel;
+        private RadioButton restCampingRadioButton;
+        private RadioButton restApartmRadioButton;
+        private RadioButton restRoomRadioButton;
+        private RadioButton restHostelRadioButton;
+        private RadioButton restHotelRadioButton;
+        private TextBox landNameInput;
+        private TextBox landDescInput;
+        private TextBox landAddressInput;
+        private TextBox landCityInput;
+        private TextBox landCountryInput;
+        private TextBox restContactInput;
+        private TextBox restAddressInput;
+        private TextBox restCityInput;
+        private TextBox restCountryInput;
+        private TextBox restNameInput;
+        private TextBox memSongInput;
+        private TextBox expValueInput;
+        private TextBox expNameInput;
+        private TextBox segNameInput;
+        private RichTextBox memNoteInput;
+        private PictureBox memPictureBox;
+        private RichTextBox richTextBox1;
+        private PictureBox pictureBox2;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private TextBox textBox3;
+        private TextBox textBox4;
+        private TextBox textBox5;
+        private TextBox textBox6;
+        private TextBox textBox7;
+        private TextBox textBox8;
+        private TextBox textBox9;
+        private TextBox textBox10;
+        private TextBox textBox11;
+        private TextBox textBox12;
+        private TextBox textBox13;
+        private TextBox textBox14;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private RadioButton radioButton3;
+        private RadioButton radioButton4;
+        private RadioButton radioButton6;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label label9;
+        private Label label10;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private Label label17;
+        private Label label18;
+        private Label label19;
+        private Label label20;
+        private Button button16;
+        private Label label21;
+        private Label label22;
+        private Label label23;
+        private Label label24;
+        private Label label25;
+        private Label label26;
+        private Label label27;
+        private Label label28;
+        private Label label29;
+        private Label label30;
+        private ListView listView1;
+        private ListView listView2;
+        private ListView listView3;
+        private ListView listView4;
+        private ListView listView5;
+        private ListView listView6;
+        private ListView listView7;
+        private ListView listView8;
+        private ListView listView9;
+        private ListView listView10;
+        private Label label31;
+        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker2;
+        private Label label32;
+        private Label label33;
+        private TextBox textBox15;
+        private Label label34;
+        private Button button17;
+        private Button returnFromBrowseButton;
+        private TextBox searchTextBox;
+        private Label browseLabel;
+        private Panel tripListPanel;
+        private Panel browseTripPanel;
+        private Panel editTripPanel;
+        private RichTextBox richTextBox2;
+        private PictureBox pictureBox3;
+        private TextBox textBox16;
+        private TextBox textBox17;
+        private TextBox textBox18;
+        private TextBox textBox19;
+        private TextBox textBox20;
+        private TextBox textBox21;
+        private TextBox textBox22;
+        private TextBox textBox23;
+        private TextBox textBox24;
+        private TextBox textBox25;
+        private TextBox textBox26;
+        private TextBox textBox27;
+        private TextBox textBox28;
+        private TextBox textBox29;
+        private RadioButton radioButton5;
+        private RadioButton radioButton7;
+        private RadioButton radioButton8;
+        private RadioButton radioButton9;
+        private RadioButton radioButton10;
+        private Label label35;
+        private Label label36;
+        private Label label37;
+        private Label label38;
+        private Label label39;
+        private Label label40;
+        private Label label41;
+        private Label label42;
+        private Label label43;
+        private Label label44;
+        private Label label45;
+        private Label label46;
+        private Label label47;
+        private Label label48;
+        private Label label49;
+        private Label label50;
+        private Label label51;
         private Button button1;
         private Button button2;
-        private Button button4;
         private Button button3;
-        private Button button14;
-        private Button button15;
-        private Button button16;
-        private Button button11;
-        private Button button12;
-        private Button button13;
-        private Button button8;
-        private Button button9;
-        private Button button10;
+        private Button button4;
         private Button button5;
         private Button button6;
         private Button button7;
+        private Button button8;
+        private Button button9;
+        private Button button10;
+        private Button button11;
+        private Button button12;
+        private Button button13;
+        private Button button14;
+        private Button button15;
+        private Button button18;
+        private Label label52;
+        private Label label53;
+        private Label label54;
+        private Label label55;
+        private Label label56;
+        private Label label57;
+        private Label label58;
+        private Label label59;
+        private Label label60;
+        private Label label61;
+        private ListView listView11;
+        private ListView listView12;
+        private ListView listView13;
+        private ListView listView14;
+        private ListView listView15;
+        private ListView listView16;
+        private ListView listView17;
+        private ListView listView18;
+        private ListView listView19;
+        private ListView listView20;
+        private Label label62;
+        private DateTimePicker dateTimePicker3;
+        private DateTimePicker dateTimePicker4;
+        private Label label63;
+        private Label label64;
+        private TextBox textBox30;
+        private Label label65;
+        private Button returnFromEditTrip;
+        private Button button20;
     }
 }
