@@ -20,15 +20,27 @@ namespace TravelPlaner.View.Forms
         private List<FlowLayoutPanel> destinationSegmentPanels = new List<FlowLayoutPanel>();
         private List<FlowLayoutPanel> expenseSegmentPanels = new List<FlowLayoutPanel>();
         private List<FlowLayoutPanel> memorySegmentPanels = new List<FlowLayoutPanel>();
+        private System.Windows.Forms.Timer timer;
 
         public GUI()
         {
+            
+
+            // Initialize the timer
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000;
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
             InitializeComponent();
+
         }
         private void GUI_Load(object sender, EventArgs e)
         {
+
             // Initialize with only Panel1 visible
-            ShowPanel(menuPanel);
+            ShowPanel(menuPanel);  
+            
         }
 
         // Method to show a specific panel and hide others
@@ -43,6 +55,64 @@ namespace TravelPlaner.View.Forms
             panelToShow.Visible = true;
             panelToShow.BringToFront();
         }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            List<Trip> trips = controller.GetAllTrips();
+            timerMethod(trips);
+        }
+
+        private void timerMethod(List<Trip> trips)
+        {
+            // Filter and sort trips to find the next one
+            //var currentTrips = trips.Where(t => t.StartDate <= DateTime.Now && t.EndDate >= DateTime.Now).ToList();
+
+
+            DateTime now = DateTime.Now;
+
+            // Find trips currently in progress
+            var currentTrips = trips.Where(t => t.StartDate <= now && t.EndDate >= now).ToList();
+
+            if (currentTrips.Count > 0)
+            {
+                // If there is a trip currently in progress
+                Trip ongoingTrip = currentTrips[0]; // Get the first trip in progress
+                timerNameLabel.Text = $"\"{ongoingTrip.Name}\":";
+                timerLabel.Text = "Have a safe trip!";
+            }
+            else
+            {
+                // If no trips are in progress, find the next upcoming trip
+                var sortedTrips = trips.Where(t => t.StartDate > now).OrderBy(t => t.StartDate).ToList();
+
+                if (sortedTrips.Count > 0)
+                {
+                    // If there is an upcoming trip
+                    Trip nearestTrip = sortedTrips[0];
+                    TimeSpan timeLeft = nearestTrip.StartDate - now;
+
+                    timerNameLabel.Text = $"\"{nearestTrip.Name}\" in:";
+                    timerLabel.Text = $"{timeLeft.Days}d {timeLeft.Hours}h {timeLeft.Minutes}m {timeLeft.Seconds}s";
+                }
+                else
+                {
+                    // If no trips are in progress or upcoming
+                    timerNameLabel.Text = "No upcoming trips.";
+                    timerLabel.Text = "";
+                }
+            }
+
+            // Refresh labels
+            timerNameLabel.Refresh();
+            timerLabel.Refresh();
+        }
+
+
+
+
+
+
+
 
         //--------------------Menu Panel--------------------
 
@@ -980,6 +1050,12 @@ namespace TravelPlaner.View.Forms
             }
         }
     }
+
+
+
+
+
+
 
 }
 
