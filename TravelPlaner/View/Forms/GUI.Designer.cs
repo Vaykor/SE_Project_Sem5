@@ -1,4 +1,6 @@
-﻿namespace TravelPlaner.View.Forms
+﻿using System.Windows.Forms;
+
+namespace TravelPlaner.View.Forms
 {
     partial class GUI
     {
@@ -29,11 +31,11 @@
         private void InitializeComponent()
         {
             menuPanel = new Panel();
+            monthCalendar = new MonthCalendar();
             panel1 = new Panel();
             timerNameLabel = new Label();
             timerLabel = new Label();
             slideShowPictureBox = new PictureBox();
-            monthCalendar = new MonthCalendar();
             browseTripsButton = new Button();
             newTripButton = new Button();
             titleLabel = new Label();
@@ -294,9 +296,9 @@
             // menuPanel
             // 
             menuPanel.BackColor = Color.FromArgb(246, 246, 246);
+            menuPanel.Controls.Add(monthCalendar);
             menuPanel.Controls.Add(panel1);
             menuPanel.Controls.Add(slideShowPictureBox);
-            menuPanel.Controls.Add(monthCalendar);
             menuPanel.Controls.Add(browseTripsButton);
             menuPanel.Controls.Add(newTripButton);
             menuPanel.Controls.Add(titleLabel);
@@ -306,6 +308,13 @@
             menuPanel.Name = "menuPanel";
             menuPanel.Size = new Size(1601, 973);
             menuPanel.TabIndex = 0;
+            // 
+            // monthCalendar
+            // 
+            monthCalendar.BackColor = SystemColors.ControlLightLight;
+            monthCalendar.Location = new Point(1087, 135);
+            monthCalendar.Name = "monthCalendar";
+            monthCalendar.TabIndex = 10;
             // 
             // panel1
             // 
@@ -325,7 +334,7 @@
             timerNameLabel.ForeColor = Color.FromArgb(1, 183, 99);
             timerNameLabel.Location = new Point(10, 16);
             timerNameLabel.Name = "timerNameLabel";
-            timerNameLabel.Size = new Size(31, 33);
+            timerNameLabel.Size = new Size(143, 33);
             timerNameLabel.TabIndex = 9;
             timerNameLabel.Text = "Loading...";
             // 
@@ -336,7 +345,7 @@
             timerLabel.ForeColor = Color.FromArgb(1, 183, 99);
             timerLabel.Location = new Point(10, 96);
             timerLabel.Name = "timerLabel";
-            timerLabel.Size = new Size(31, 33);
+            timerLabel.Size = new Size(143, 33);
             timerLabel.TabIndex = 8;
             timerLabel.Text = "Loading...";
             // 
@@ -349,17 +358,6 @@
             slideShowPictureBox.Size = new Size(1017, 656);
             slideShowPictureBox.TabIndex = 6;
             slideShowPictureBox.TabStop = false;
-            // 
-            // monthCalendar
-            // 
-            monthCalendar.BackColor = SystemColors.ControlLightLight;
-            monthCalendar.CalendarDimensions = new Size(2, 3);
-            monthCalendar.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            monthCalendar.ForeColor = SystemColors.InactiveBorder;
-            monthCalendar.Location = new Point(1084, 129);
-            monthCalendar.Margin = new Padding(8, 7, 8, 7);
-            monthCalendar.Name = "monthCalendar";
-            monthCalendar.TabIndex = 5;
             // 
             // browseTripsButton
             // 
@@ -3171,7 +3169,6 @@
         private Button browseTripsButton;
         private Label titleLabel;
         private PictureBox slideShowPictureBox;
-        private MonthCalendar monthCalendar;
         private Button returnFromAddButton;
         private Panel inspectTripPanel;
         private Label depDateLabel;
@@ -3416,5 +3413,6 @@
         private Button recomLandmarkAddButton;
         private Button recomLandmarkEditButton;
         private Label timerNameLabel;
+        private MonthCalendar monthCalendar;
     }
 }

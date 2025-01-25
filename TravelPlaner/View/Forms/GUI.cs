@@ -20,11 +20,15 @@ namespace TravelPlaner.View.Forms
         private List<FlowLayoutPanel> destinationSegmentPanels = new List<FlowLayoutPanel>();
         private List<FlowLayoutPanel> expenseSegmentPanels = new List<FlowLayoutPanel>();
         private List<FlowLayoutPanel> memorySegmentPanels = new List<FlowLayoutPanel>();
+
         private System.Windows.Forms.Timer timer;
+
 
         public GUI()
         {
-            
+            // Initialize the calendar
+            List<Trip> trips = controller.GetAllTrips();
+            calendarMarks(trips);
 
             // Initialize the timer
             timer = new System.Windows.Forms.Timer();
@@ -64,13 +68,9 @@ namespace TravelPlaner.View.Forms
 
         private void timerMethod(List<Trip> trips)
         {
-            // Filter and sort trips to find the next one
-            //var currentTrips = trips.Where(t => t.StartDate <= DateTime.Now && t.EndDate >= DateTime.Now).ToList();
-
 
             DateTime now = DateTime.Now;
 
-            // Find trips currently in progress
             var currentTrips = trips.Where(t => t.StartDate <= now && t.EndDate >= now).ToList();
 
             if (currentTrips.Count > 0)
@@ -107,7 +107,54 @@ namespace TravelPlaner.View.Forms
             timerLabel.Refresh();
         }
 
+        private void calendarMarks(List<Trip> trips)
+        {
+            List<DateTime> boldedDates = new List<DateTime>();
 
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
+            monthCalendar.BackColor = Color.FromArgb(246, 246, 246);
+            monthCalendar.CalendarDimensions = new Size(2, 3);
+            monthCalendar.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            monthCalendar.ForeColor = SystemColors.InactiveBorder;
+            monthCalendar.Location = new Point(1084, 129);
+            monthCalendar.Margin = new Padding(8, 7, 8, 7);
+            monthCalendar.Name = "monthCalendar";
+            monthCalendar.TabIndex = 5;
+
+            this.Controls.Add(this.monthCalendar);
+
+            if (this.monthCalendar == null)
+            {
+                MessageBox.Show("MonthCalendar control is not initialized.");
+                return;
+            }
+
+            foreach (var trip in trips)
+            {
+                DateTime startDateFromDB = trip.StartDate;
+                DateTime endDateFromDB = trip.EndDate;
+
+                int startYear = startDateFromDB.Year;
+                int startMonth = startDateFromDB.Month;
+                int startDay = startDateFromDB.Day;
+
+                int endYear = endDateFromDB.Year;
+                int endMonth = endDateFromDB.Month;
+                int endDay = endDateFromDB.Day;
+
+
+                for (DateTime date = startDateFromDB; date <= endDateFromDB; date = date.AddDays(1))
+                {
+                    boldedDates.Add(date);
+                }
+            }
+
+            // Set the bolded dates in the calendar
+            this.monthCalendar.BoldedDates = boldedDates.ToArray();
+
+            // Refresh the calendar to reflect the changes
+            this.monthCalendar.Update();
+        }
 
 
 
