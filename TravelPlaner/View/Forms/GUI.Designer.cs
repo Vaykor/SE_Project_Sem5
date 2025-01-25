@@ -30,7 +30,7 @@
         {
             menuPanel = new Panel();
             panel1 = new Panel();
-            label1 = new Label();
+            timerNameLabel = new Label();
             timerLabel = new Label();
             slideShowPictureBox = new PictureBox();
             monthCalendar = new MonthCalendar();
@@ -311,35 +311,34 @@
             // 
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(timerNameLabel);
             panel1.Controls.Add(timerLabel);
-            panel1.Location = new Point(1144, 606);
+            panel1.Location = new Point(1084, 591);
             panel1.Name = "panel1";
-            panel1.Size = new Size(331, 123);
+            panel1.Size = new Size(458, 165);
             panel1.TabIndex = 9;
             // 
-            // label1
+            // timerNameLabel
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Arial Black", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.FromArgb(1, 183, 99);
-            label1.Location = new Point(84, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(163, 33);
-            label1.TabIndex = 7;
-            label1.Text = "Next trip in";
+            timerNameLabel.AutoSize = true;
+            timerNameLabel.Font = new Font("Arial Black", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            timerNameLabel.ForeColor = Color.FromArgb(1, 183, 99);
+            timerNameLabel.Location = new Point(10, 16);
+            timerNameLabel.Name = "timerNameLabel";
+            timerNameLabel.Size = new Size(31, 33);
+            timerNameLabel.TabIndex = 9;
+            timerNameLabel.Text = "Loading...";
             // 
             // timerLabel
             // 
             timerLabel.AutoSize = true;
             timerLabel.Font = new Font("Arial Black", 18F, FontStyle.Bold, GraphicsUnit.Point);
             timerLabel.ForeColor = Color.FromArgb(1, 183, 99);
-            timerLabel.Location = new Point(60, 74);
+            timerLabel.Location = new Point(10, 96);
             timerLabel.Name = "timerLabel";
-            timerLabel.Size = new Size(219, 33);
+            timerLabel.Size = new Size(31, 33);
             timerLabel.TabIndex = 8;
-            timerLabel.Text = "[timer function]";
+            timerLabel.Text = "Loading...";
             // 
             // slideShowPictureBox
             // 
@@ -3137,11 +3136,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1601, 973);
-            Controls.Add(editTripPanel);
-            Controls.Add(browseTripPanel);
             Controls.Add(menuPanel);
             Controls.Add(newTripPanel);
             Controls.Add(inspectTripPanel);
+            Controls.Add(editTripPanel);
+            Controls.Add(browseTripPanel);
             Margin = new Padding(3, 2, 3, 2);
             Name = "GUI";
             Text = "Travel Planner";
@@ -3181,7 +3180,6 @@
         private Label newTripLabel;
         private DateTimePicker addTripReturnDatePicker;
         private DateTimePicker addTripDepartureDatePicker;
-        private Label label1;
         private Label timerLabel;
         private Panel panel1;
         private Label label3;
@@ -3417,5 +3415,6 @@
         private Button createSlideShowButton;
         private Button recomLandmarkAddButton;
         private Button recomLandmarkEditButton;
+        private Label timerNameLabel;
     }
 }
