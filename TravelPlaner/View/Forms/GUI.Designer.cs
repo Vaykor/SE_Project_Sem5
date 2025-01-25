@@ -31,10 +31,9 @@
             menuPanel = new Panel();
             panel1 = new Panel();
             label1 = new Label();
-            label2 = new Label();
-            pictureBox1 = new PictureBox();
-            monthCalendar1 = new MonthCalendar();
-            settingsButton = new Button();
+            timerLabel = new Label();
+            slideShowPictureBox = new PictureBox();
+            monthCalendar = new MonthCalendar();
             browseTripsButton = new Button();
             newTripButton = new Button();
             titleLabel = new Label();
@@ -160,7 +159,7 @@
             label18 = new Label();
             label19 = new Label();
             label20 = new Label();
-            button16 = new Button();
+            editButton = new Button();
             label21 = new Label();
             label22 = new Label();
             label23 = new Label();
@@ -187,7 +186,7 @@
             label33 = new Label();
             textBox15 = new TextBox();
             label34 = new Label();
-            button17 = new Button();
+            returnFromInspectButton = new Button();
             label32 = new Label();
             returnFromBrowseButton = new Button();
             searchTextBox = new TextBox();
@@ -195,7 +194,7 @@
             tripListPanel = new Panel();
             browseTripPanel = new Panel();
             editTripPanel = new Panel();
-            button20 = new Button();
+            createSlideShowButton = new Button();
             richTextBox2 = new RichTextBox();
             pictureBox3 = new PictureBox();
             textBox16 = new TextBox();
@@ -249,7 +248,7 @@
             button13 = new Button();
             button14 = new Button();
             button15 = new Button();
-            button18 = new Button();
+            saveEditTripButton = new Button();
             label52 = new Label();
             label53 = new Label();
             label54 = new Label();
@@ -277,10 +276,10 @@
             label64 = new Label();
             textBox30 = new TextBox();
             label65 = new Label();
-            returnFromEditTrip = new Button();
+            returnFromEditTripButton = new Button();
             menuPanel.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)slideShowPictureBox).BeginInit();
             newTripPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)memPictureBox).BeginInit();
             inspectTripPanel.SuspendLayout();
@@ -294,9 +293,8 @@
             // 
             menuPanel.BackColor = Color.FromArgb(246, 246, 246);
             menuPanel.Controls.Add(panel1);
-            menuPanel.Controls.Add(pictureBox1);
-            menuPanel.Controls.Add(monthCalendar1);
-            menuPanel.Controls.Add(settingsButton);
+            menuPanel.Controls.Add(slideShowPictureBox);
+            menuPanel.Controls.Add(monthCalendar);
             menuPanel.Controls.Add(browseTripsButton);
             menuPanel.Controls.Add(newTripButton);
             menuPanel.Controls.Add(titleLabel);
@@ -312,7 +310,7 @@
             panel1.BackColor = Color.White;
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(timerLabel);
             panel1.Location = new Point(1144, 606);
             panel1.Name = "panel1";
             panel1.Size = new Size(331, 123);
@@ -330,49 +328,37 @@
             label1.TabIndex = 7;
             label1.Text = "Next trip in";
             // 
-            // label2
+            // timerLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial Black", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.FromArgb(1, 183, 99);
-            label2.Location = new Point(60, 74);
-            label2.Name = "label2";
-            label2.Size = new Size(219, 33);
-            label2.TabIndex = 8;
-            label2.Text = "[timer function]";
+            timerLabel.AutoSize = true;
+            timerLabel.Font = new Font("Arial Black", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            timerLabel.ForeColor = Color.FromArgb(1, 183, 99);
+            timerLabel.Location = new Point(60, 74);
+            timerLabel.Name = "timerLabel";
+            timerLabel.Size = new Size(219, 33);
+            timerLabel.TabIndex = 8;
+            timerLabel.Text = "[timer function]";
             // 
-            // pictureBox1
+            // slideShowPictureBox
             // 
-            pictureBox1.BackColor = Color.White;
-            pictureBox1.Location = new Point(25, 135);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(1017, 656);
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            slideShowPictureBox.BackColor = Color.White;
+            slideShowPictureBox.Location = new Point(25, 135);
+            slideShowPictureBox.Margin = new Padding(3, 2, 3, 2);
+            slideShowPictureBox.Name = "slideShowPictureBox";
+            slideShowPictureBox.Size = new Size(1017, 656);
+            slideShowPictureBox.TabIndex = 6;
+            slideShowPictureBox.TabStop = false;
             // 
-            // monthCalendar1
+            // monthCalendar
             // 
-            monthCalendar1.BackColor = SystemColors.ControlLightLight;
-            monthCalendar1.CalendarDimensions = new Size(2, 3);
-            monthCalendar1.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            monthCalendar1.ForeColor = SystemColors.InactiveBorder;
-            monthCalendar1.Location = new Point(1084, 129);
-            monthCalendar1.Margin = new Padding(8, 7, 8, 7);
-            monthCalendar1.Name = "monthCalendar1";
-            monthCalendar1.TabIndex = 5;
-            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
-            // 
-            // settingsButton
-            // 
-            settingsButton.Location = new Point(849, 902);
-            settingsButton.Margin = new Padding(3, 2, 3, 2);
-            settingsButton.Name = "settingsButton";
-            settingsButton.Size = new Size(208, 22);
-            settingsButton.TabIndex = 3;
-            settingsButton.Text = "Test Adders (DO NOT SPAM)";
-            settingsButton.UseVisualStyleBackColor = true;
-            settingsButton.Click += settingsButton_Click;
+            monthCalendar.BackColor = SystemColors.ControlLightLight;
+            monthCalendar.CalendarDimensions = new Size(2, 3);
+            monthCalendar.Font = new Font("Arial Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            monthCalendar.ForeColor = SystemColors.InactiveBorder;
+            monthCalendar.Location = new Point(1084, 129);
+            monthCalendar.Margin = new Padding(8, 7, 8, 7);
+            monthCalendar.Name = "monthCalendar";
+            monthCalendar.TabIndex = 5;
             // 
             // browseTripsButton
             // 
@@ -1395,7 +1381,7 @@
             inspectTripPanel.Controls.Add(label18);
             inspectTripPanel.Controls.Add(label19);
             inspectTripPanel.Controls.Add(label20);
-            inspectTripPanel.Controls.Add(button16);
+            inspectTripPanel.Controls.Add(editButton);
             inspectTripPanel.Controls.Add(label21);
             inspectTripPanel.Controls.Add(label22);
             inspectTripPanel.Controls.Add(label23);
@@ -1422,7 +1408,7 @@
             inspectTripPanel.Controls.Add(label33);
             inspectTripPanel.Controls.Add(textBox15);
             inspectTripPanel.Controls.Add(label34);
-            inspectTripPanel.Controls.Add(button17);
+            inspectTripPanel.Controls.Add(returnFromInspectButton);
             inspectTripPanel.Controls.Add(label32);
             inspectTripPanel.Dock = DockStyle.Fill;
             inspectTripPanel.Location = new Point(0, 0);
@@ -1798,16 +1784,17 @@
             label20.TabIndex = 131;
             label20.Text = "Name";
             // 
-            // button16
+            // editButton
             // 
-            button16.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            button16.ForeColor = Color.FromArgb(1, 183, 99);
-            button16.Location = new Point(51, 0);
-            button16.Name = "button16";
-            button16.Size = new Size(48, 52);
-            button16.TabIndex = 115;
-            button16.Text = "🖍";
-            button16.UseVisualStyleBackColor = true;
+            editButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            editButton.ForeColor = Color.FromArgb(1, 183, 99);
+            editButton.Location = new Point(51, 0);
+            editButton.Name = "editButton";
+            editButton.Size = new Size(48, 52);
+            editButton.TabIndex = 115;
+            editButton.Text = "🖍";
+            editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
             // 
             // label21
             // 
@@ -2076,17 +2063,18 @@
             label34.TabIndex = 88;
             label34.Text = "Name of the trip";
             // 
-            // button17
+            // returnFromInspectButton
             // 
-            button17.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            button17.ForeColor = Color.FromArgb(1, 183, 99);
-            button17.Location = new Point(1, 0);
-            button17.Margin = new Padding(3, 2, 3, 2);
-            button17.Name = "button17";
-            button17.Size = new Size(48, 52);
-            button17.TabIndex = 87;
-            button17.Text = "◀️";
-            button17.UseVisualStyleBackColor = true;
+            returnFromInspectButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            returnFromInspectButton.ForeColor = Color.FromArgb(1, 183, 99);
+            returnFromInspectButton.Location = new Point(1, 0);
+            returnFromInspectButton.Margin = new Padding(3, 2, 3, 2);
+            returnFromInspectButton.Name = "returnFromInspectButton";
+            returnFromInspectButton.Size = new Size(48, 52);
+            returnFromInspectButton.TabIndex = 87;
+            returnFromInspectButton.Text = "◀️";
+            returnFromInspectButton.UseVisualStyleBackColor = true;
+            returnFromInspectButton.Click += returnFromInspectButton_Click;
             // 
             // label32
             // 
@@ -2164,7 +2152,7 @@
             // editTripPanel
             // 
             editTripPanel.BackColor = Color.FromArgb(246, 246, 246);
-            editTripPanel.Controls.Add(button20);
+            editTripPanel.Controls.Add(createSlideShowButton);
             editTripPanel.Controls.Add(richTextBox2);
             editTripPanel.Controls.Add(pictureBox3);
             editTripPanel.Controls.Add(textBox16);
@@ -2218,7 +2206,7 @@
             editTripPanel.Controls.Add(button13);
             editTripPanel.Controls.Add(button14);
             editTripPanel.Controls.Add(button15);
-            editTripPanel.Controls.Add(button18);
+            editTripPanel.Controls.Add(saveEditTripButton);
             editTripPanel.Controls.Add(label52);
             editTripPanel.Controls.Add(label53);
             editTripPanel.Controls.Add(label54);
@@ -2246,7 +2234,7 @@
             editTripPanel.Controls.Add(label64);
             editTripPanel.Controls.Add(textBox30);
             editTripPanel.Controls.Add(label65);
-            editTripPanel.Controls.Add(returnFromEditTrip);
+            editTripPanel.Controls.Add(returnFromEditTripButton);
             editTripPanel.Dock = DockStyle.Fill;
             editTripPanel.Location = new Point(0, 0);
             editTripPanel.Margin = new Padding(3, 2, 3, 2);
@@ -2255,17 +2243,17 @@
             editTripPanel.TabIndex = 9;
             editTripPanel.Visible = false;
             // 
-            // button20
+            // createSlideShowButton
             // 
-            button20.BackColor = Color.FromArgb(1, 183, 99);
-            button20.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button20.ForeColor = SystemColors.ControlLightLight;
-            button20.Location = new Point(105, 0);
-            button20.Name = "button20";
-            button20.Size = new Size(209, 52);
-            button20.TabIndex = 169;
-            button20.Text = "Create slide show";
-            button20.UseVisualStyleBackColor = false;
+            createSlideShowButton.BackColor = Color.FromArgb(1, 183, 99);
+            createSlideShowButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            createSlideShowButton.ForeColor = SystemColors.ControlLightLight;
+            createSlideShowButton.Location = new Point(105, 0);
+            createSlideShowButton.Name = "createSlideShowButton";
+            createSlideShowButton.Size = new Size(209, 52);
+            createSlideShowButton.TabIndex = 169;
+            createSlideShowButton.Text = "Create slide show";
+            createSlideShowButton.UseVisualStyleBackColor = false;
             // 
             // richTextBox2
             // 
@@ -2813,16 +2801,16 @@
             button15.Text = "Remove";
             button15.UseVisualStyleBackColor = false;
             // 
-            // button18
+            // saveEditTripButton
             // 
-            button18.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            button18.ForeColor = Color.FromArgb(1, 183, 99);
-            button18.Location = new Point(51, 1);
-            button18.Name = "button18";
-            button18.Size = new Size(48, 52);
-            button18.TabIndex = 115;
-            button18.Text = "💾";
-            button18.UseVisualStyleBackColor = true;
+            saveEditTripButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            saveEditTripButton.ForeColor = Color.FromArgb(1, 183, 99);
+            saveEditTripButton.Location = new Point(51, 1);
+            saveEditTripButton.Name = "saveEditTripButton";
+            saveEditTripButton.Size = new Size(48, 52);
+            saveEditTripButton.TabIndex = 115;
+            saveEditTripButton.Text = "💾";
+            saveEditTripButton.UseVisualStyleBackColor = true;
             // 
             // label52
             // 
@@ -3101,28 +3089,29 @@
             label65.TabIndex = 88;
             label65.Text = "Name of the trip";
             // 
-            // returnFromEditTrip
+            // returnFromEditTripButton
             // 
-            returnFromEditTrip.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            returnFromEditTrip.ForeColor = Color.FromArgb(1, 183, 99);
-            returnFromEditTrip.Location = new Point(1, 1);
-            returnFromEditTrip.Margin = new Padding(3, 2, 3, 2);
-            returnFromEditTrip.Name = "returnFromEditTrip";
-            returnFromEditTrip.Size = new Size(48, 52);
-            returnFromEditTrip.TabIndex = 87;
-            returnFromEditTrip.Text = "◀️";
-            returnFromEditTrip.UseVisualStyleBackColor = true;
+            returnFromEditTripButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            returnFromEditTripButton.ForeColor = Color.FromArgb(1, 183, 99);
+            returnFromEditTripButton.Location = new Point(1, 1);
+            returnFromEditTripButton.Margin = new Padding(3, 2, 3, 2);
+            returnFromEditTripButton.Name = "returnFromEditTripButton";
+            returnFromEditTripButton.Size = new Size(48, 52);
+            returnFromEditTripButton.TabIndex = 87;
+            returnFromEditTripButton.Text = "◀️";
+            returnFromEditTripButton.UseVisualStyleBackColor = true;
+            returnFromEditTripButton.Click += returnFromEditTrip_Click;
             // 
             // GUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1601, 973);
+            Controls.Add(newTripPanel);
+            Controls.Add(inspectTripPanel);
             Controls.Add(editTripPanel);
             Controls.Add(browseTripPanel);
             Controls.Add(menuPanel);
-            Controls.Add(newTripPanel);
-            Controls.Add(inspectTripPanel);
             Margin = new Padding(3, 2, 3, 2);
             Name = "GUI";
             Text = "Travel Planner";
@@ -3130,7 +3119,7 @@
             menuPanel.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)slideShowPictureBox).EndInit();
             newTripPanel.ResumeLayout(false);
             newTripPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)memPictureBox).EndInit();
@@ -3150,11 +3139,10 @@
         private Panel menuPanel;
         private Button newTripButton;
         private Panel newTripPanel;
-        private Button settingsButton;
         private Button browseTripsButton;
         private Label titleLabel;
-        private PictureBox pictureBox1;
-        private MonthCalendar monthCalendar1;
+        private PictureBox slideShowPictureBox;
+        private MonthCalendar monthCalendar;
         private Button returnFromAddButton;
         private Panel inspectTripPanel;
         private Label depDateLabel;
@@ -3164,7 +3152,7 @@
         private DateTimePicker addTripReturnDatePicker;
         private DateTimePicker addTripDepartureDatePicker;
         private Label label1;
-        private Label label2;
+        private Label timerLabel;
         private Panel panel1;
         private Label label3;
         private ListView newMemoryList;
@@ -3279,7 +3267,7 @@
         private Label label18;
         private Label label19;
         private Label label20;
-        private Button button16;
+        private Button editButton;
         private Label label21;
         private Label label22;
         private Label label23;
@@ -3307,7 +3295,7 @@
         private Label label33;
         private TextBox textBox15;
         private Label label34;
-        private Button button17;
+        private Button returnFromInspectButton;
         private Button returnFromBrowseButton;
         private TextBox searchTextBox;
         private Label browseLabel;
@@ -3367,7 +3355,7 @@
         private Button button13;
         private Button button14;
         private Button button15;
-        private Button button18;
+        private Button saveEditTripButton;
         private Label label52;
         private Label label53;
         private Label label54;
@@ -3395,7 +3383,7 @@
         private Label label64;
         private TextBox textBox30;
         private Label label65;
-        private Button returnFromEditTrip;
-        private Button button20;
+        private Button returnFromEditTripButton;
+        private Button createSlideShowButton;
     }
 }
