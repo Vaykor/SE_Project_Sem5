@@ -72,7 +72,7 @@ namespace TravelPlaner.View.Forms
 
                 //TODO (When destinations get fixed)
                 // Fetch destinations for the first segment (if needed)
-                string destinationName = tripSegments.FirstOrDefault() != null? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country: "Unknown";
+                string destinationName = tripSegments.FirstOrDefault() != null ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country : "Unknown";
 
                 // Create a new panel for the trip
                 Panel tripPanel = new Panel
@@ -156,8 +156,8 @@ namespace TravelPlaner.View.Forms
 
             Trip passedTrip = trip;
 
-            
- 
+
+
 
 
 
@@ -804,7 +804,7 @@ namespace TravelPlaner.View.Forms
                 lndName = landmark.Name;
                 lndAddress = landmark.Address;
             }
-            
+
 
             // Pole Name
             var lblName = new Label { Text = "Name:", AutoSize = true };
@@ -861,7 +861,7 @@ namespace TravelPlaner.View.Forms
 
             var photoTextBox = new TextBox { Width = 200 };
 
-            
+
         }
         /** TO (RE)CONSIDER, SINCE OUR DATABASE STRUCTURE IS SOMEWHAT DIFFERENT
                  */
@@ -950,6 +950,34 @@ namespace TravelPlaner.View.Forms
         {
             ShowPanel(inspectTripPanel);
             //editTripFlowLayoutPanel.Controls.Clear();
+        }
+
+        private void recomLandmarkAddButton_Click(object sender, EventArgs e)
+        {
+            if (!landCityAddInput.Text.Equals(""))
+            {
+                RecommendedLandmarks recommendation = new RecommendedLandmarks(landCityAddInput.Text);
+                recommendation.ShowDialog();
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(3);
+                popup.ShowDialog();
+            }
+        }
+
+        private void recomLandmarksEditButton_Click(object sender, EventArgs e)
+        {
+            if (!landCityEditInput.Text.Equals(""))
+            {
+                RecommendedLandmarks recommendation = new RecommendedLandmarks(landCityEditInput.Text);
+                recommendation.ShowDialog();
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(3);
+                popup.ShowDialog();
+            }
         }
     }
 

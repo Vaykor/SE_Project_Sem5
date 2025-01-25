@@ -38,27 +38,28 @@
             newTripButton = new Button();
             titleLabel = new Label();
             newTripPanel = new Panel();
-            memNoteInput = new RichTextBox();
-            memPictureBox = new PictureBox();
-            segNameInput = new TextBox();
-            memSongInput = new TextBox();
-            expValueInput = new TextBox();
-            expNameInput = new TextBox();
-            restContactInput = new TextBox();
-            restAddressInput = new TextBox();
-            restCityInput = new TextBox();
-            restCountryInput = new TextBox();
-            restNameInput = new TextBox();
-            landDescInput = new TextBox();
-            landAddressInput = new TextBox();
-            landCityInput = new TextBox();
-            landCountryInput = new TextBox();
-            landNameInput = new TextBox();
-            restCampingRadioButton = new RadioButton();
-            restApartmRadioButton = new RadioButton();
-            restRoomRadioButton = new RadioButton();
-            restHostelRadioButton = new RadioButton();
-            restHotelRadioButton = new RadioButton();
+            recomLandmarkAddButton = new Button();
+            memAddNoteInput = new RichTextBox();
+            memAddPictureBox = new PictureBox();
+            segNameAddInput = new TextBox();
+            memSongAddInput = new TextBox();
+            expValueAddInput = new TextBox();
+            expNameAddInput = new TextBox();
+            restContactAddInput = new TextBox();
+            restAddressAddInput = new TextBox();
+            restCityAddInput = new TextBox();
+            restCountryAddInput = new TextBox();
+            restNameAddInput = new TextBox();
+            landDescAddInput = new TextBox();
+            landAddressAddInput = new TextBox();
+            landCityAddInput = new TextBox();
+            landCountryAddInput = new TextBox();
+            landNameAddInput = new TextBox();
+            restCampingAddRadioButton = new RadioButton();
+            restApartmAddRadioButton = new RadioButton();
+            restRoomAddRadioButton = new RadioButton();
+            restHostelAddRadioButton = new RadioButton();
+            restHotelAddRadioButton = new RadioButton();
             restTypeLabel = new Label();
             restContactLabel = new Label();
             restAddressLabel = new Label();
@@ -76,22 +77,22 @@
             landCountryLabel = new Label();
             landNameLabel = new Label();
             segNameLabel = new Label();
-            landUpdateButton = new Button();
-            landAddButton = new Button();
-            landRemoveButton = new Button();
-            restUpdateButton = new Button();
-            restAddButton = new Button();
-            restRemoveButton = new Button();
-            expUpdateButton = new Button();
-            expAddButton = new Button();
-            expRemoveButton = new Button();
-            memUpdateButton = new Button();
-            memAddButton = new Button();
-            memRemoveButton = new Button();
-            segUpdateButton = new Button();
-            segAddButton = new Button();
-            segRemoveButton = new Button();
-            saveTripButton = new Button();
+            landUpdateAddButton = new Button();
+            landAddAddButton = new Button();
+            landRemoveAddButton = new Button();
+            restUpdateAddButton = new Button();
+            restAddAddButton = new Button();
+            restRemoveAddButton = new Button();
+            expUpdateAddButton = new Button();
+            expAddAddButton = new Button();
+            expRemoveAddButton = new Button();
+            memUpdateAddButton = new Button();
+            memAddAddButton = new Button();
+            memRemoveAddButton = new Button();
+            segUpdateAddButton = new Button();
+            segAddAddButton = new Button();
+            segRemoveAddButton = new Button();
+            saveAddTripButton = new Button();
             addMemoryLabel = new Label();
             addExpenseLabel = new Label();
             addRestingPointLabel = new Label();
@@ -117,31 +118,31 @@
             addTripDepartureDatePicker = new DateTimePicker();
             newTripLabel = new Label();
             depDateLabel = new Label();
-            tripNameTextBox = new TextBox();
+            tripNameAddInput = new TextBox();
             nameLabel = new Label();
             returnFromAddButton = new Button();
             inspectTripPanel = new Panel();
-            richTextBox1 = new RichTextBox();
-            pictureBox2 = new PictureBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
-            textBox7 = new TextBox();
-            textBox8 = new TextBox();
-            textBox9 = new TextBox();
-            textBox10 = new TextBox();
-            textBox11 = new TextBox();
-            textBox12 = new TextBox();
-            textBox13 = new TextBox();
-            textBox14 = new TextBox();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton4 = new RadioButton();
-            radioButton6 = new RadioButton();
+            memNoteTextBox = new RichTextBox();
+            memDetailsPhotoPictureBox = new PictureBox();
+            segNameTextBox = new TextBox();
+            memSongTextBos = new TextBox();
+            expValueTextBox = new TextBox();
+            expNameTextBox = new TextBox();
+            restContactTextBox = new TextBox();
+            restAddressTextBox = new TextBox();
+            restCityTextBox = new TextBox();
+            restCountryTextBox = new TextBox();
+            restNameTextBox = new TextBox();
+            landDescTextBox = new TextBox();
+            landAddressTextBox = new TextBox();
+            landCityTextBox = new TextBox();
+            landCountryTextBox = new TextBox();
+            landNameTextBox = new TextBox();
+            restCampingDetailsRadioButton = new RadioButton();
+            restApartmentDetailsRadioButton = new RadioButton();
+            restRoomDetailsRadioButton = new RadioButton();
+            restHostelDetailsRadioButton = new RadioButton();
+            restHotelDetailsRadioButton = new RadioButton();
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
@@ -181,10 +182,10 @@
             listView9 = new ListView();
             listView10 = new ListView();
             label31 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
+            tripReturnDatePicker = new DateTimePicker();
+            tripDepartureDatePicker = new DateTimePicker();
             label33 = new Label();
-            textBox15 = new TextBox();
+            tripNameTextBox = new TextBox();
             label34 = new Label();
             returnFromInspectButton = new Button();
             label32 = new Label();
@@ -194,28 +195,29 @@
             tripListPanel = new Panel();
             browseTripPanel = new Panel();
             editTripPanel = new Panel();
+            recomLandmarkEditButton = new Button();
             createSlideShowButton = new Button();
-            richTextBox2 = new RichTextBox();
-            pictureBox3 = new PictureBox();
-            textBox16 = new TextBox();
-            textBox17 = new TextBox();
-            textBox18 = new TextBox();
-            textBox19 = new TextBox();
+            memNoteEditInput = new RichTextBox();
+            memEditPhotoBox = new PictureBox();
+            segNameEditInput = new TextBox();
+            memSongEditInput = new TextBox();
+            expValueEditInput = new TextBox();
+            expNameEditInput = new TextBox();
             textBox20 = new TextBox();
-            textBox21 = new TextBox();
-            textBox22 = new TextBox();
-            textBox23 = new TextBox();
-            textBox24 = new TextBox();
-            textBox25 = new TextBox();
-            textBox26 = new TextBox();
-            textBox27 = new TextBox();
-            textBox28 = new TextBox();
-            textBox29 = new TextBox();
-            radioButton5 = new RadioButton();
-            radioButton7 = new RadioButton();
-            radioButton8 = new RadioButton();
-            radioButton9 = new RadioButton();
-            radioButton10 = new RadioButton();
+            restAddressEditInput = new TextBox();
+            restCityEditInput = new TextBox();
+            restCountryEditInput = new TextBox();
+            restNameEditInput = new TextBox();
+            landDescEditInput = new TextBox();
+            landAddressEditInput = new TextBox();
+            landCityEditInput = new TextBox();
+            landCountryEditInput = new TextBox();
+            landNameEditInput = new TextBox();
+            restCampingEditRadioButton = new RadioButton();
+            restApartmentEditRadioButton = new RadioButton();
+            restRoomEditRadioButton = new RadioButton();
+            restHostelEditRadioButton = new RadioButton();
+            restHotelEditRadioButton = new RadioButton();
             label35 = new Label();
             label36 = new Label();
             label37 = new Label();
@@ -233,21 +235,21 @@
             label49 = new Label();
             label50 = new Label();
             label51 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            button10 = new Button();
-            button11 = new Button();
-            button12 = new Button();
-            button13 = new Button();
-            button14 = new Button();
-            button15 = new Button();
+            landUpdateEditButton = new Button();
+            landAddEditButton = new Button();
+            landRemoveEditButton = new Button();
+            restUpdateEditButton = new Button();
+            restAddEditButton = new Button();
+            restRemoveEditButton = new Button();
+            expUpdateEditButton = new Button();
+            expAddEditButton = new Button();
+            expRemoveEditButton = new Button();
+            memUpdateEditButton = new Button();
+            memAddEditButton = new Button();
+            memRemoveEditButton = new Button();
+            segUpdateEditButton = new Button();
+            segAddEditButton = new Button();
+            segRemoveEditButton = new Button();
             saveEditTripButton = new Button();
             label52 = new Label();
             label53 = new Label();
@@ -261,7 +263,7 @@
             label61 = new Label();
             listView11 = new ListView();
             listView12 = new ListView();
-            listView13 = new ListView();
+            restContactEditInput = new ListView();
             listView14 = new ListView();
             listView15 = new ListView();
             listView16 = new ListView();
@@ -270,23 +272,23 @@
             listView19 = new ListView();
             listView20 = new ListView();
             label62 = new Label();
-            dateTimePicker3 = new DateTimePicker();
-            dateTimePicker4 = new DateTimePicker();
+            editTripReturnDatePicker = new DateTimePicker();
+            editTripDepartureDatePicker = new DateTimePicker();
             label63 = new Label();
             label64 = new Label();
-            textBox30 = new TextBox();
+            tripNameEditInput = new TextBox();
             label65 = new Label();
             returnFromEditTripButton = new Button();
             menuPanel.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)slideShowPictureBox).BeginInit();
             newTripPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)memPictureBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)memAddPictureBox).BeginInit();
             inspectTripPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)memDetailsPhotoPictureBox).BeginInit();
             browseTripPanel.SuspendLayout();
             editTripPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)memEditPhotoBox).BeginInit();
             SuspendLayout();
             // 
             // menuPanel
@@ -403,27 +405,28 @@
             // newTripPanel
             // 
             newTripPanel.BackColor = Color.FromArgb(246, 246, 246);
-            newTripPanel.Controls.Add(memNoteInput);
-            newTripPanel.Controls.Add(memPictureBox);
-            newTripPanel.Controls.Add(segNameInput);
-            newTripPanel.Controls.Add(memSongInput);
-            newTripPanel.Controls.Add(expValueInput);
-            newTripPanel.Controls.Add(expNameInput);
-            newTripPanel.Controls.Add(restContactInput);
-            newTripPanel.Controls.Add(restAddressInput);
-            newTripPanel.Controls.Add(restCityInput);
-            newTripPanel.Controls.Add(restCountryInput);
-            newTripPanel.Controls.Add(restNameInput);
-            newTripPanel.Controls.Add(landDescInput);
-            newTripPanel.Controls.Add(landAddressInput);
-            newTripPanel.Controls.Add(landCityInput);
-            newTripPanel.Controls.Add(landCountryInput);
-            newTripPanel.Controls.Add(landNameInput);
-            newTripPanel.Controls.Add(restCampingRadioButton);
-            newTripPanel.Controls.Add(restApartmRadioButton);
-            newTripPanel.Controls.Add(restRoomRadioButton);
-            newTripPanel.Controls.Add(restHostelRadioButton);
-            newTripPanel.Controls.Add(restHotelRadioButton);
+            newTripPanel.Controls.Add(recomLandmarkAddButton);
+            newTripPanel.Controls.Add(memAddNoteInput);
+            newTripPanel.Controls.Add(memAddPictureBox);
+            newTripPanel.Controls.Add(segNameAddInput);
+            newTripPanel.Controls.Add(memSongAddInput);
+            newTripPanel.Controls.Add(expValueAddInput);
+            newTripPanel.Controls.Add(expNameAddInput);
+            newTripPanel.Controls.Add(restContactAddInput);
+            newTripPanel.Controls.Add(restAddressAddInput);
+            newTripPanel.Controls.Add(restCityAddInput);
+            newTripPanel.Controls.Add(restCountryAddInput);
+            newTripPanel.Controls.Add(restNameAddInput);
+            newTripPanel.Controls.Add(landDescAddInput);
+            newTripPanel.Controls.Add(landAddressAddInput);
+            newTripPanel.Controls.Add(landCityAddInput);
+            newTripPanel.Controls.Add(landCountryAddInput);
+            newTripPanel.Controls.Add(landNameAddInput);
+            newTripPanel.Controls.Add(restCampingAddRadioButton);
+            newTripPanel.Controls.Add(restApartmAddRadioButton);
+            newTripPanel.Controls.Add(restRoomAddRadioButton);
+            newTripPanel.Controls.Add(restHostelAddRadioButton);
+            newTripPanel.Controls.Add(restHotelAddRadioButton);
             newTripPanel.Controls.Add(restTypeLabel);
             newTripPanel.Controls.Add(restContactLabel);
             newTripPanel.Controls.Add(restAddressLabel);
@@ -441,22 +444,22 @@
             newTripPanel.Controls.Add(landCountryLabel);
             newTripPanel.Controls.Add(landNameLabel);
             newTripPanel.Controls.Add(segNameLabel);
-            newTripPanel.Controls.Add(landUpdateButton);
-            newTripPanel.Controls.Add(landAddButton);
-            newTripPanel.Controls.Add(landRemoveButton);
-            newTripPanel.Controls.Add(restUpdateButton);
-            newTripPanel.Controls.Add(restAddButton);
-            newTripPanel.Controls.Add(restRemoveButton);
-            newTripPanel.Controls.Add(expUpdateButton);
-            newTripPanel.Controls.Add(expAddButton);
-            newTripPanel.Controls.Add(expRemoveButton);
-            newTripPanel.Controls.Add(memUpdateButton);
-            newTripPanel.Controls.Add(memAddButton);
-            newTripPanel.Controls.Add(memRemoveButton);
-            newTripPanel.Controls.Add(segUpdateButton);
-            newTripPanel.Controls.Add(segAddButton);
-            newTripPanel.Controls.Add(segRemoveButton);
-            newTripPanel.Controls.Add(saveTripButton);
+            newTripPanel.Controls.Add(landUpdateAddButton);
+            newTripPanel.Controls.Add(landAddAddButton);
+            newTripPanel.Controls.Add(landRemoveAddButton);
+            newTripPanel.Controls.Add(restUpdateAddButton);
+            newTripPanel.Controls.Add(restAddAddButton);
+            newTripPanel.Controls.Add(restRemoveAddButton);
+            newTripPanel.Controls.Add(expUpdateAddButton);
+            newTripPanel.Controls.Add(expAddAddButton);
+            newTripPanel.Controls.Add(expRemoveAddButton);
+            newTripPanel.Controls.Add(memUpdateAddButton);
+            newTripPanel.Controls.Add(memAddAddButton);
+            newTripPanel.Controls.Add(memRemoveAddButton);
+            newTripPanel.Controls.Add(segUpdateAddButton);
+            newTripPanel.Controls.Add(segAddAddButton);
+            newTripPanel.Controls.Add(segRemoveAddButton);
+            newTripPanel.Controls.Add(saveAddTripButton);
             newTripPanel.Controls.Add(addMemoryLabel);
             newTripPanel.Controls.Add(addExpenseLabel);
             newTripPanel.Controls.Add(addRestingPointLabel);
@@ -482,7 +485,7 @@
             newTripPanel.Controls.Add(addTripDepartureDatePicker);
             newTripPanel.Controls.Add(newTripLabel);
             newTripPanel.Controls.Add(depDateLabel);
-            newTripPanel.Controls.Add(tripNameTextBox);
+            newTripPanel.Controls.Add(tripNameAddInput);
             newTripPanel.Controls.Add(nameLabel);
             newTripPanel.Controls.Add(returnFromAddButton);
             newTripPanel.Dock = DockStyle.Fill;
@@ -493,184 +496,197 @@
             newTripPanel.TabIndex = 0;
             newTripPanel.Visible = false;
             // 
-            // memNoteInput
+            // recomLandmarkAddButton
             // 
-            memNoteInput.Location = new Point(1286, 837);
-            memNoteInput.Name = "memNoteInput";
-            memNoteInput.Size = new Size(292, 91);
-            memNoteInput.TabIndex = 86;
-            memNoteInput.Text = "";
+            recomLandmarkAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            recomLandmarkAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            recomLandmarkAddButton.ForeColor = SystemColors.ControlLightLight;
+            recomLandmarkAddButton.Location = new Point(116, 895);
+            recomLandmarkAddButton.Name = "recomLandmarkAddButton";
+            recomLandmarkAddButton.Size = new Size(282, 36);
+            recomLandmarkAddButton.TabIndex = 87;
+            recomLandmarkAddButton.Text = "Recommended landmarks";
+            recomLandmarkAddButton.UseVisualStyleBackColor = false;
+            recomLandmarkAddButton.Click += recomLandmarkAddButton_Click;
             // 
-            // memPictureBox
+            // memAddNoteInput
             // 
-            memPictureBox.Location = new Point(1286, 739);
-            memPictureBox.Name = "memPictureBox";
-            memPictureBox.Size = new Size(292, 50);
-            memPictureBox.TabIndex = 85;
-            memPictureBox.TabStop = false;
+            memAddNoteInput.Location = new Point(1286, 837);
+            memAddNoteInput.Name = "memAddNoteInput";
+            memAddNoteInput.Size = new Size(292, 91);
+            memAddNoteInput.TabIndex = 86;
+            memAddNoteInput.Text = "";
             // 
-            // segNameInput
+            // memAddPictureBox
             // 
-            segNameInput.Location = new Point(874, 203);
-            segNameInput.Name = "segNameInput";
-            segNameInput.Size = new Size(715, 23);
-            segNameInput.TabIndex = 84;
+            memAddPictureBox.Location = new Point(1286, 739);
+            memAddPictureBox.Name = "memAddPictureBox";
+            memAddPictureBox.Size = new Size(292, 50);
+            memAddPictureBox.TabIndex = 85;
+            memAddPictureBox.TabStop = false;
             // 
-            // memSongInput
+            // segNameAddInput
             // 
-            memSongInput.Location = new Point(1286, 805);
-            memSongInput.Name = "memSongInput";
-            memSongInput.Size = new Size(292, 23);
-            memSongInput.TabIndex = 82;
+            segNameAddInput.Location = new Point(874, 203);
+            segNameAddInput.Name = "segNameAddInput";
+            segNameAddInput.Size = new Size(715, 23);
+            segNameAddInput.TabIndex = 84;
             // 
-            // expValueInput
+            // memSongAddInput
             // 
-            expValueInput.Location = new Point(892, 768);
-            expValueInput.Name = "expValueInput";
-            expValueInput.Size = new Size(292, 23);
-            expValueInput.TabIndex = 81;
+            memSongAddInput.Location = new Point(1286, 805);
+            memSongAddInput.Name = "memSongAddInput";
+            memSongAddInput.Size = new Size(292, 23);
+            memSongAddInput.TabIndex = 82;
             // 
-            // expNameInput
+            // expValueAddInput
             // 
-            expNameInput.Location = new Point(892, 739);
-            expNameInput.Name = "expNameInput";
-            expNameInput.Size = new Size(292, 23);
-            expNameInput.TabIndex = 80;
+            expValueAddInput.Location = new Point(892, 768);
+            expValueAddInput.Name = "expValueAddInput";
+            expValueAddInput.Size = new Size(292, 23);
+            expValueAddInput.TabIndex = 81;
             // 
-            // restContactInput
+            // expNameAddInput
             // 
-            restContactInput.Location = new Point(497, 854);
-            restContactInput.Name = "restContactInput";
-            restContactInput.Size = new Size(292, 23);
-            restContactInput.TabIndex = 79;
+            expNameAddInput.Location = new Point(892, 739);
+            expNameAddInput.Name = "expNameAddInput";
+            expNameAddInput.Size = new Size(292, 23);
+            expNameAddInput.TabIndex = 80;
             // 
-            // restAddressInput
+            // restContactAddInput
             // 
-            restAddressInput.Location = new Point(497, 825);
-            restAddressInput.Name = "restAddressInput";
-            restAddressInput.Size = new Size(292, 23);
-            restAddressInput.TabIndex = 78;
+            restContactAddInput.Location = new Point(497, 854);
+            restContactAddInput.Name = "restContactAddInput";
+            restContactAddInput.Size = new Size(292, 23);
+            restContactAddInput.TabIndex = 79;
             // 
-            // restCityInput
+            // restAddressAddInput
             // 
-            restCityInput.Location = new Point(497, 796);
-            restCityInput.Name = "restCityInput";
-            restCityInput.Size = new Size(292, 23);
-            restCityInput.TabIndex = 77;
+            restAddressAddInput.Location = new Point(497, 825);
+            restAddressAddInput.Name = "restAddressAddInput";
+            restAddressAddInput.Size = new Size(292, 23);
+            restAddressAddInput.TabIndex = 78;
             // 
-            // restCountryInput
+            // restCityAddInput
             // 
-            restCountryInput.Location = new Point(497, 768);
-            restCountryInput.Name = "restCountryInput";
-            restCountryInput.Size = new Size(292, 23);
-            restCountryInput.TabIndex = 76;
+            restCityAddInput.Location = new Point(497, 796);
+            restCityAddInput.Name = "restCityAddInput";
+            restCityAddInput.Size = new Size(292, 23);
+            restCityAddInput.TabIndex = 77;
             // 
-            // restNameInput
+            // restCountryAddInput
             // 
-            restNameInput.Location = new Point(497, 739);
-            restNameInput.Name = "restNameInput";
-            restNameInput.Size = new Size(292, 23);
-            restNameInput.TabIndex = 75;
+            restCountryAddInput.Location = new Point(497, 768);
+            restCountryAddInput.Name = "restCountryAddInput";
+            restCountryAddInput.Size = new Size(292, 23);
+            restCountryAddInput.TabIndex = 76;
             // 
-            // landDescInput
+            // restNameAddInput
             // 
-            landDescInput.Location = new Point(96, 856);
-            landDescInput.Name = "landDescInput";
-            landDescInput.Size = new Size(292, 23);
-            landDescInput.TabIndex = 74;
+            restNameAddInput.Location = new Point(497, 739);
+            restNameAddInput.Name = "restNameAddInput";
+            restNameAddInput.Size = new Size(292, 23);
+            restNameAddInput.TabIndex = 75;
             // 
-            // landAddressInput
+            // landDescAddInput
             // 
-            landAddressInput.Location = new Point(96, 827);
-            landAddressInput.Name = "landAddressInput";
-            landAddressInput.Size = new Size(292, 23);
-            landAddressInput.TabIndex = 73;
+            landDescAddInput.Location = new Point(96, 856);
+            landDescAddInput.Name = "landDescAddInput";
+            landDescAddInput.Size = new Size(292, 23);
+            landDescAddInput.TabIndex = 74;
             // 
-            // landCityInput
+            // landAddressAddInput
             // 
-            landCityInput.Location = new Point(96, 798);
-            landCityInput.Name = "landCityInput";
-            landCityInput.Size = new Size(292, 23);
-            landCityInput.TabIndex = 72;
+            landAddressAddInput.Location = new Point(96, 827);
+            landAddressAddInput.Name = "landAddressAddInput";
+            landAddressAddInput.Size = new Size(292, 23);
+            landAddressAddInput.TabIndex = 73;
             // 
-            // landCountryInput
+            // landCityAddInput
             // 
-            landCountryInput.Location = new Point(96, 769);
-            landCountryInput.Name = "landCountryInput";
-            landCountryInput.Size = new Size(292, 23);
-            landCountryInput.TabIndex = 71;
+            landCityAddInput.Location = new Point(96, 798);
+            landCityAddInput.Name = "landCityAddInput";
+            landCityAddInput.Size = new Size(292, 23);
+            landCityAddInput.TabIndex = 72;
             // 
-            // landNameInput
+            // landCountryAddInput
             // 
-            landNameInput.Location = new Point(96, 739);
-            landNameInput.Name = "landNameInput";
-            landNameInput.Size = new Size(292, 23);
-            landNameInput.TabIndex = 70;
+            landCountryAddInput.Location = new Point(96, 769);
+            landCountryAddInput.Name = "landCountryAddInput";
+            landCountryAddInput.Size = new Size(292, 23);
+            landCountryAddInput.TabIndex = 71;
             // 
-            // restCampingRadioButton
+            // landNameAddInput
             // 
-            restCampingRadioButton.AutoSize = true;
-            restCampingRadioButton.BackColor = Color.White;
-            restCampingRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restCampingRadioButton.Location = new Point(565, 909);
-            restCampingRadioButton.Name = "restCampingRadioButton";
-            restCampingRadioButton.Size = new Size(81, 20);
-            restCampingRadioButton.TabIndex = 69;
-            restCampingRadioButton.TabStop = true;
-            restCampingRadioButton.Text = "Camping";
-            restCampingRadioButton.UseVisualStyleBackColor = false;
+            landNameAddInput.Location = new Point(96, 739);
+            landNameAddInput.Name = "landNameAddInput";
+            landNameAddInput.Size = new Size(292, 23);
+            landNameAddInput.TabIndex = 70;
             // 
-            // restApartmRadioButton
+            // restCampingAddRadioButton
             // 
-            restApartmRadioButton.AutoSize = true;
-            restApartmRadioButton.BackColor = Color.White;
-            restApartmRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restApartmRadioButton.Location = new Point(642, 884);
-            restApartmRadioButton.Name = "restApartmRadioButton";
-            restApartmRadioButton.Size = new Size(90, 20);
-            restApartmRadioButton.TabIndex = 68;
-            restApartmRadioButton.TabStop = true;
-            restApartmRadioButton.Text = "Apartment";
-            restApartmRadioButton.UseVisualStyleBackColor = false;
+            restCampingAddRadioButton.AutoSize = true;
+            restCampingAddRadioButton.BackColor = Color.White;
+            restCampingAddRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restCampingAddRadioButton.Location = new Point(565, 909);
+            restCampingAddRadioButton.Name = "restCampingAddRadioButton";
+            restCampingAddRadioButton.Size = new Size(81, 20);
+            restCampingAddRadioButton.TabIndex = 69;
+            restCampingAddRadioButton.TabStop = true;
+            restCampingAddRadioButton.Text = "Camping";
+            restCampingAddRadioButton.UseVisualStyleBackColor = false;
             // 
-            // restRoomRadioButton
+            // restApartmAddRadioButton
             // 
-            restRoomRadioButton.AutoSize = true;
-            restRoomRadioButton.BackColor = Color.White;
-            restRoomRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restRoomRadioButton.Location = new Point(497, 909);
-            restRoomRadioButton.Name = "restRoomRadioButton";
-            restRoomRadioButton.Size = new Size(62, 20);
-            restRoomRadioButton.TabIndex = 67;
-            restRoomRadioButton.TabStop = true;
-            restRoomRadioButton.Text = "Room";
-            restRoomRadioButton.UseVisualStyleBackColor = false;
+            restApartmAddRadioButton.AutoSize = true;
+            restApartmAddRadioButton.BackColor = Color.White;
+            restApartmAddRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restApartmAddRadioButton.Location = new Point(642, 884);
+            restApartmAddRadioButton.Name = "restApartmAddRadioButton";
+            restApartmAddRadioButton.Size = new Size(90, 20);
+            restApartmAddRadioButton.TabIndex = 68;
+            restApartmAddRadioButton.TabStop = true;
+            restApartmAddRadioButton.Text = "Apartment";
+            restApartmAddRadioButton.UseVisualStyleBackColor = false;
             // 
-            // restHostelRadioButton
+            // restRoomAddRadioButton
             // 
-            restHostelRadioButton.AutoSize = true;
-            restHostelRadioButton.BackColor = Color.White;
-            restHostelRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restHostelRadioButton.Location = new Point(565, 884);
-            restHostelRadioButton.Name = "restHostelRadioButton";
-            restHostelRadioButton.Size = new Size(64, 20);
-            restHostelRadioButton.TabIndex = 66;
-            restHostelRadioButton.TabStop = true;
-            restHostelRadioButton.Text = "Hostel";
-            restHostelRadioButton.UseVisualStyleBackColor = false;
+            restRoomAddRadioButton.AutoSize = true;
+            restRoomAddRadioButton.BackColor = Color.White;
+            restRoomAddRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restRoomAddRadioButton.Location = new Point(497, 909);
+            restRoomAddRadioButton.Name = "restRoomAddRadioButton";
+            restRoomAddRadioButton.Size = new Size(62, 20);
+            restRoomAddRadioButton.TabIndex = 67;
+            restRoomAddRadioButton.TabStop = true;
+            restRoomAddRadioButton.Text = "Room";
+            restRoomAddRadioButton.UseVisualStyleBackColor = false;
             // 
-            // restHotelRadioButton
+            // restHostelAddRadioButton
             // 
-            restHotelRadioButton.AutoSize = true;
-            restHotelRadioButton.BackColor = Color.White;
-            restHotelRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restHotelRadioButton.Location = new Point(497, 884);
-            restHotelRadioButton.Name = "restHotelRadioButton";
-            restHotelRadioButton.Size = new Size(57, 20);
-            restHotelRadioButton.TabIndex = 65;
-            restHotelRadioButton.TabStop = true;
-            restHotelRadioButton.Text = "Hotel";
-            restHotelRadioButton.UseVisualStyleBackColor = false;
+            restHostelAddRadioButton.AutoSize = true;
+            restHostelAddRadioButton.BackColor = Color.White;
+            restHostelAddRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restHostelAddRadioButton.Location = new Point(565, 884);
+            restHostelAddRadioButton.Name = "restHostelAddRadioButton";
+            restHostelAddRadioButton.Size = new Size(64, 20);
+            restHostelAddRadioButton.TabIndex = 66;
+            restHostelAddRadioButton.TabStop = true;
+            restHostelAddRadioButton.Text = "Hostel";
+            restHostelAddRadioButton.UseVisualStyleBackColor = false;
+            // 
+            // restHotelAddRadioButton
+            // 
+            restHotelAddRadioButton.AutoSize = true;
+            restHotelAddRadioButton.BackColor = Color.White;
+            restHotelAddRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restHotelAddRadioButton.Location = new Point(497, 884);
+            restHotelAddRadioButton.Name = "restHotelAddRadioButton";
+            restHotelAddRadioButton.Size = new Size(57, 20);
+            restHotelAddRadioButton.TabIndex = 65;
+            restHotelAddRadioButton.TabStop = true;
+            restHotelAddRadioButton.Text = "Hotel";
+            restHotelAddRadioButton.UseVisualStyleBackColor = false;
             // 
             // restTypeLabel
             // 
@@ -859,196 +875,196 @@
             segNameLabel.TabIndex = 48;
             segNameLabel.Text = "Name";
             // 
-            // landUpdateButton
+            // landUpdateAddButton
             // 
-            landUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
-            landUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            landUpdateButton.ForeColor = SystemColors.ControlLightLight;
-            landUpdateButton.Location = new Point(212, 937);
-            landUpdateButton.Name = "landUpdateButton";
-            landUpdateButton.Size = new Size(90, 36);
-            landUpdateButton.TabIndex = 47;
-            landUpdateButton.Text = "Update";
-            landUpdateButton.UseVisualStyleBackColor = false;
+            landUpdateAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            landUpdateAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landUpdateAddButton.ForeColor = SystemColors.ControlLightLight;
+            landUpdateAddButton.Location = new Point(212, 937);
+            landUpdateAddButton.Name = "landUpdateAddButton";
+            landUpdateAddButton.Size = new Size(90, 36);
+            landUpdateAddButton.TabIndex = 47;
+            landUpdateAddButton.Text = "Update";
+            landUpdateAddButton.UseVisualStyleBackColor = false;
             // 
-            // landAddButton
+            // landAddAddButton
             // 
-            landAddButton.BackColor = Color.FromArgb(1, 183, 99);
-            landAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            landAddButton.ForeColor = SystemColors.ControlLightLight;
-            landAddButton.Location = new Point(308, 937);
-            landAddButton.Name = "landAddButton";
-            landAddButton.Size = new Size(90, 36);
-            landAddButton.TabIndex = 46;
-            landAddButton.Text = "Add";
-            landAddButton.UseVisualStyleBackColor = false;
+            landAddAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            landAddAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landAddAddButton.ForeColor = SystemColors.ControlLightLight;
+            landAddAddButton.Location = new Point(308, 937);
+            landAddAddButton.Name = "landAddAddButton";
+            landAddAddButton.Size = new Size(90, 36);
+            landAddAddButton.TabIndex = 46;
+            landAddAddButton.Text = "Add";
+            landAddAddButton.UseVisualStyleBackColor = false;
             // 
-            // landRemoveButton
+            // landRemoveAddButton
             // 
-            landRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
-            landRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            landRemoveButton.ForeColor = SystemColors.ControlLightLight;
-            landRemoveButton.Location = new Point(116, 937);
-            landRemoveButton.Name = "landRemoveButton";
-            landRemoveButton.Size = new Size(90, 36);
-            landRemoveButton.TabIndex = 45;
-            landRemoveButton.Text = "Remove";
-            landRemoveButton.UseVisualStyleBackColor = false;
+            landRemoveAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            landRemoveAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landRemoveAddButton.ForeColor = SystemColors.ControlLightLight;
+            landRemoveAddButton.Location = new Point(116, 937);
+            landRemoveAddButton.Name = "landRemoveAddButton";
+            landRemoveAddButton.Size = new Size(90, 36);
+            landRemoveAddButton.TabIndex = 45;
+            landRemoveAddButton.Text = "Remove";
+            landRemoveAddButton.UseVisualStyleBackColor = false;
             // 
-            // restUpdateButton
+            // restUpdateAddButton
             // 
-            restUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
-            restUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restUpdateButton.ForeColor = SystemColors.ControlLightLight;
-            restUpdateButton.Location = new Point(610, 935);
-            restUpdateButton.Name = "restUpdateButton";
-            restUpdateButton.Size = new Size(90, 36);
-            restUpdateButton.TabIndex = 44;
-            restUpdateButton.Text = "Update";
-            restUpdateButton.UseVisualStyleBackColor = false;
+            restUpdateAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            restUpdateAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restUpdateAddButton.ForeColor = SystemColors.ControlLightLight;
+            restUpdateAddButton.Location = new Point(610, 935);
+            restUpdateAddButton.Name = "restUpdateAddButton";
+            restUpdateAddButton.Size = new Size(90, 36);
+            restUpdateAddButton.TabIndex = 44;
+            restUpdateAddButton.Text = "Update";
+            restUpdateAddButton.UseVisualStyleBackColor = false;
             // 
-            // restAddButton
+            // restAddAddButton
             // 
-            restAddButton.BackColor = Color.FromArgb(1, 183, 99);
-            restAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restAddButton.ForeColor = SystemColors.ControlLightLight;
-            restAddButton.Location = new Point(706, 935);
-            restAddButton.Name = "restAddButton";
-            restAddButton.Size = new Size(90, 36);
-            restAddButton.TabIndex = 43;
-            restAddButton.Text = "Add";
-            restAddButton.UseVisualStyleBackColor = false;
+            restAddAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            restAddAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restAddAddButton.ForeColor = SystemColors.ControlLightLight;
+            restAddAddButton.Location = new Point(706, 935);
+            restAddAddButton.Name = "restAddAddButton";
+            restAddAddButton.Size = new Size(90, 36);
+            restAddAddButton.TabIndex = 43;
+            restAddAddButton.Text = "Add";
+            restAddAddButton.UseVisualStyleBackColor = false;
             // 
-            // restRemoveButton
+            // restRemoveAddButton
             // 
-            restRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
-            restRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restRemoveButton.ForeColor = SystemColors.ControlLightLight;
-            restRemoveButton.Location = new Point(514, 935);
-            restRemoveButton.Name = "restRemoveButton";
-            restRemoveButton.Size = new Size(90, 36);
-            restRemoveButton.TabIndex = 42;
-            restRemoveButton.Text = "Remove";
-            restRemoveButton.UseVisualStyleBackColor = false;
+            restRemoveAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            restRemoveAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restRemoveAddButton.ForeColor = SystemColors.ControlLightLight;
+            restRemoveAddButton.Location = new Point(514, 935);
+            restRemoveAddButton.Name = "restRemoveAddButton";
+            restRemoveAddButton.Size = new Size(90, 36);
+            restRemoveAddButton.TabIndex = 42;
+            restRemoveAddButton.Text = "Remove";
+            restRemoveAddButton.UseVisualStyleBackColor = false;
             // 
-            // expUpdateButton
+            // expUpdateAddButton
             // 
-            expUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
-            expUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            expUpdateButton.ForeColor = SystemColors.ControlLightLight;
-            expUpdateButton.Location = new Point(1008, 934);
-            expUpdateButton.Name = "expUpdateButton";
-            expUpdateButton.Size = new Size(90, 36);
-            expUpdateButton.TabIndex = 41;
-            expUpdateButton.Text = "Update";
-            expUpdateButton.UseVisualStyleBackColor = false;
+            expUpdateAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            expUpdateAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expUpdateAddButton.ForeColor = SystemColors.ControlLightLight;
+            expUpdateAddButton.Location = new Point(1008, 934);
+            expUpdateAddButton.Name = "expUpdateAddButton";
+            expUpdateAddButton.Size = new Size(90, 36);
+            expUpdateAddButton.TabIndex = 41;
+            expUpdateAddButton.Text = "Update";
+            expUpdateAddButton.UseVisualStyleBackColor = false;
             // 
-            // expAddButton
+            // expAddAddButton
             // 
-            expAddButton.BackColor = Color.FromArgb(1, 183, 99);
-            expAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            expAddButton.ForeColor = SystemColors.ControlLightLight;
-            expAddButton.Location = new Point(1104, 934);
-            expAddButton.Name = "expAddButton";
-            expAddButton.Size = new Size(90, 36);
-            expAddButton.TabIndex = 40;
-            expAddButton.Text = "Add";
-            expAddButton.UseVisualStyleBackColor = false;
+            expAddAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            expAddAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expAddAddButton.ForeColor = SystemColors.ControlLightLight;
+            expAddAddButton.Location = new Point(1104, 934);
+            expAddAddButton.Name = "expAddAddButton";
+            expAddAddButton.Size = new Size(90, 36);
+            expAddAddButton.TabIndex = 40;
+            expAddAddButton.Text = "Add";
+            expAddAddButton.UseVisualStyleBackColor = false;
             // 
-            // expRemoveButton
+            // expRemoveAddButton
             // 
-            expRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
-            expRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            expRemoveButton.ForeColor = SystemColors.ControlLightLight;
-            expRemoveButton.Location = new Point(912, 934);
-            expRemoveButton.Name = "expRemoveButton";
-            expRemoveButton.Size = new Size(90, 36);
-            expRemoveButton.TabIndex = 39;
-            expRemoveButton.Text = "Remove";
-            expRemoveButton.UseVisualStyleBackColor = false;
+            expRemoveAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            expRemoveAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expRemoveAddButton.ForeColor = SystemColors.ControlLightLight;
+            expRemoveAddButton.Location = new Point(912, 934);
+            expRemoveAddButton.Name = "expRemoveAddButton";
+            expRemoveAddButton.Size = new Size(90, 36);
+            expRemoveAddButton.TabIndex = 39;
+            expRemoveAddButton.Text = "Remove";
+            expRemoveAddButton.UseVisualStyleBackColor = false;
             // 
-            // memUpdateButton
+            // memUpdateAddButton
             // 
-            memUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
-            memUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            memUpdateButton.ForeColor = SystemColors.ControlLightLight;
-            memUpdateButton.Location = new Point(1412, 934);
-            memUpdateButton.Name = "memUpdateButton";
-            memUpdateButton.Size = new Size(90, 36);
-            memUpdateButton.TabIndex = 38;
-            memUpdateButton.Text = "Update";
-            memUpdateButton.UseVisualStyleBackColor = false;
+            memUpdateAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            memUpdateAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memUpdateAddButton.ForeColor = SystemColors.ControlLightLight;
+            memUpdateAddButton.Location = new Point(1412, 934);
+            memUpdateAddButton.Name = "memUpdateAddButton";
+            memUpdateAddButton.Size = new Size(90, 36);
+            memUpdateAddButton.TabIndex = 38;
+            memUpdateAddButton.Text = "Update";
+            memUpdateAddButton.UseVisualStyleBackColor = false;
             // 
-            // memAddButton
+            // memAddAddButton
             // 
-            memAddButton.BackColor = Color.FromArgb(1, 183, 99);
-            memAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            memAddButton.ForeColor = SystemColors.ControlLightLight;
-            memAddButton.Location = new Point(1508, 934);
-            memAddButton.Name = "memAddButton";
-            memAddButton.Size = new Size(90, 36);
-            memAddButton.TabIndex = 37;
-            memAddButton.Text = "Add";
-            memAddButton.UseVisualStyleBackColor = false;
+            memAddAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            memAddAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memAddAddButton.ForeColor = SystemColors.ControlLightLight;
+            memAddAddButton.Location = new Point(1508, 934);
+            memAddAddButton.Name = "memAddAddButton";
+            memAddAddButton.Size = new Size(90, 36);
+            memAddAddButton.TabIndex = 37;
+            memAddAddButton.Text = "Add";
+            memAddAddButton.UseVisualStyleBackColor = false;
             // 
-            // memRemoveButton
+            // memRemoveAddButton
             // 
-            memRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
-            memRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            memRemoveButton.ForeColor = SystemColors.ControlLightLight;
-            memRemoveButton.Location = new Point(1316, 934);
-            memRemoveButton.Name = "memRemoveButton";
-            memRemoveButton.Size = new Size(90, 36);
-            memRemoveButton.TabIndex = 36;
-            memRemoveButton.Text = "Remove";
-            memRemoveButton.UseVisualStyleBackColor = false;
+            memRemoveAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            memRemoveAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memRemoveAddButton.ForeColor = SystemColors.ControlLightLight;
+            memRemoveAddButton.Location = new Point(1316, 934);
+            memRemoveAddButton.Name = "memRemoveAddButton";
+            memRemoveAddButton.Size = new Size(90, 36);
+            memRemoveAddButton.TabIndex = 36;
+            memRemoveAddButton.Text = "Remove";
+            memRemoveAddButton.UseVisualStyleBackColor = false;
             // 
-            // segUpdateButton
+            // segUpdateAddButton
             // 
-            segUpdateButton.BackColor = Color.FromArgb(1, 183, 99);
-            segUpdateButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            segUpdateButton.ForeColor = SystemColors.ControlLightLight;
-            segUpdateButton.Location = new Point(1404, 377);
-            segUpdateButton.Name = "segUpdateButton";
-            segUpdateButton.Size = new Size(90, 36);
-            segUpdateButton.TabIndex = 35;
-            segUpdateButton.Text = "Update";
-            segUpdateButton.UseVisualStyleBackColor = false;
+            segUpdateAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            segUpdateAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segUpdateAddButton.ForeColor = SystemColors.ControlLightLight;
+            segUpdateAddButton.Location = new Point(1404, 377);
+            segUpdateAddButton.Name = "segUpdateAddButton";
+            segUpdateAddButton.Size = new Size(90, 36);
+            segUpdateAddButton.TabIndex = 35;
+            segUpdateAddButton.Text = "Update";
+            segUpdateAddButton.UseVisualStyleBackColor = false;
             // 
-            // segAddButton
+            // segAddAddButton
             // 
-            segAddButton.BackColor = Color.FromArgb(1, 183, 99);
-            segAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            segAddButton.ForeColor = SystemColors.ControlLightLight;
-            segAddButton.Location = new Point(1500, 377);
-            segAddButton.Name = "segAddButton";
-            segAddButton.Size = new Size(90, 36);
-            segAddButton.TabIndex = 34;
-            segAddButton.Text = "Add";
-            segAddButton.UseVisualStyleBackColor = false;
+            segAddAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            segAddAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segAddAddButton.ForeColor = SystemColors.ControlLightLight;
+            segAddAddButton.Location = new Point(1500, 377);
+            segAddAddButton.Name = "segAddAddButton";
+            segAddAddButton.Size = new Size(90, 36);
+            segAddAddButton.TabIndex = 34;
+            segAddAddButton.Text = "Add";
+            segAddAddButton.UseVisualStyleBackColor = false;
             // 
-            // segRemoveButton
+            // segRemoveAddButton
             // 
-            segRemoveButton.BackColor = Color.FromArgb(1, 183, 99);
-            segRemoveButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            segRemoveButton.ForeColor = SystemColors.ControlLightLight;
-            segRemoveButton.Location = new Point(1308, 377);
-            segRemoveButton.Name = "segRemoveButton";
-            segRemoveButton.Size = new Size(90, 36);
-            segRemoveButton.TabIndex = 33;
-            segRemoveButton.Text = "Remove";
-            segRemoveButton.UseVisualStyleBackColor = false;
+            segRemoveAddButton.BackColor = Color.FromArgb(1, 183, 99);
+            segRemoveAddButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segRemoveAddButton.ForeColor = SystemColors.ControlLightLight;
+            segRemoveAddButton.Location = new Point(1308, 377);
+            segRemoveAddButton.Name = "segRemoveAddButton";
+            segRemoveAddButton.Size = new Size(90, 36);
+            segRemoveAddButton.TabIndex = 33;
+            segRemoveAddButton.Text = "Remove";
+            segRemoveAddButton.UseVisualStyleBackColor = false;
             // 
-            // saveTripButton
+            // saveAddTripButton
             // 
-            saveTripButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
-            saveTripButton.ForeColor = Color.FromArgb(1, 183, 99);
-            saveTripButton.Location = new Point(51, 1);
-            saveTripButton.Name = "saveTripButton";
-            saveTripButton.Size = new Size(48, 52);
-            saveTripButton.TabIndex = 32;
-            saveTripButton.Text = "💾";
-            saveTripButton.UseVisualStyleBackColor = true;
+            saveAddTripButton.Font = new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point);
+            saveAddTripButton.ForeColor = Color.FromArgb(1, 183, 99);
+            saveAddTripButton.Location = new Point(51, 1);
+            saveAddTripButton.Name = "saveAddTripButton";
+            saveAddTripButton.Size = new Size(48, 52);
+            saveAddTripButton.TabIndex = 32;
+            saveAddTripButton.Text = "💾";
+            saveAddTripButton.UseVisualStyleBackColor = true;
             // 
             // addMemoryLabel
             // 
@@ -1309,13 +1325,13 @@
             depDateLabel.TabIndex = 3;
             depDateLabel.Text = "Date of the trip";
             // 
-            // tripNameTextBox
+            // tripNameAddInput
             // 
-            tripNameTextBox.Location = new Point(154, 79);
-            tripNameTextBox.Margin = new Padding(3, 2, 3, 2);
-            tripNameTextBox.Name = "tripNameTextBox";
-            tripNameTextBox.Size = new Size(438, 23);
-            tripNameTextBox.TabIndex = 2;
+            tripNameAddInput.Location = new Point(154, 79);
+            tripNameAddInput.Margin = new Padding(3, 2, 3, 2);
+            tripNameAddInput.Name = "tripNameAddInput";
+            tripNameAddInput.Size = new Size(438, 23);
+            tripNameAddInput.TabIndex = 2;
             // 
             // nameLabel
             // 
@@ -1343,27 +1359,27 @@
             // inspectTripPanel
             // 
             inspectTripPanel.BackColor = Color.FromArgb(246, 246, 246);
-            inspectTripPanel.Controls.Add(richTextBox1);
-            inspectTripPanel.Controls.Add(pictureBox2);
-            inspectTripPanel.Controls.Add(textBox1);
-            inspectTripPanel.Controls.Add(textBox2);
-            inspectTripPanel.Controls.Add(textBox3);
-            inspectTripPanel.Controls.Add(textBox4);
-            inspectTripPanel.Controls.Add(textBox5);
-            inspectTripPanel.Controls.Add(textBox6);
-            inspectTripPanel.Controls.Add(textBox7);
-            inspectTripPanel.Controls.Add(textBox8);
-            inspectTripPanel.Controls.Add(textBox9);
-            inspectTripPanel.Controls.Add(textBox10);
-            inspectTripPanel.Controls.Add(textBox11);
-            inspectTripPanel.Controls.Add(textBox12);
-            inspectTripPanel.Controls.Add(textBox13);
-            inspectTripPanel.Controls.Add(textBox14);
-            inspectTripPanel.Controls.Add(radioButton1);
-            inspectTripPanel.Controls.Add(radioButton2);
-            inspectTripPanel.Controls.Add(radioButton3);
-            inspectTripPanel.Controls.Add(radioButton4);
-            inspectTripPanel.Controls.Add(radioButton6);
+            inspectTripPanel.Controls.Add(memNoteTextBox);
+            inspectTripPanel.Controls.Add(memDetailsPhotoPictureBox);
+            inspectTripPanel.Controls.Add(segNameTextBox);
+            inspectTripPanel.Controls.Add(memSongTextBos);
+            inspectTripPanel.Controls.Add(expValueTextBox);
+            inspectTripPanel.Controls.Add(expNameTextBox);
+            inspectTripPanel.Controls.Add(restContactTextBox);
+            inspectTripPanel.Controls.Add(restAddressTextBox);
+            inspectTripPanel.Controls.Add(restCityTextBox);
+            inspectTripPanel.Controls.Add(restCountryTextBox);
+            inspectTripPanel.Controls.Add(restNameTextBox);
+            inspectTripPanel.Controls.Add(landDescTextBox);
+            inspectTripPanel.Controls.Add(landAddressTextBox);
+            inspectTripPanel.Controls.Add(landCityTextBox);
+            inspectTripPanel.Controls.Add(landCountryTextBox);
+            inspectTripPanel.Controls.Add(landNameTextBox);
+            inspectTripPanel.Controls.Add(restCampingDetailsRadioButton);
+            inspectTripPanel.Controls.Add(restApartmentDetailsRadioButton);
+            inspectTripPanel.Controls.Add(restRoomDetailsRadioButton);
+            inspectTripPanel.Controls.Add(restHostelDetailsRadioButton);
+            inspectTripPanel.Controls.Add(restHotelDetailsRadioButton);
             inspectTripPanel.Controls.Add(label4);
             inspectTripPanel.Controls.Add(label5);
             inspectTripPanel.Controls.Add(label6);
@@ -1403,10 +1419,10 @@
             inspectTripPanel.Controls.Add(listView9);
             inspectTripPanel.Controls.Add(listView10);
             inspectTripPanel.Controls.Add(label31);
-            inspectTripPanel.Controls.Add(dateTimePicker1);
-            inspectTripPanel.Controls.Add(dateTimePicker2);
+            inspectTripPanel.Controls.Add(tripReturnDatePicker);
+            inspectTripPanel.Controls.Add(tripDepartureDatePicker);
             inspectTripPanel.Controls.Add(label33);
-            inspectTripPanel.Controls.Add(textBox15);
+            inspectTripPanel.Controls.Add(tripNameTextBox);
             inspectTripPanel.Controls.Add(label34);
             inspectTripPanel.Controls.Add(returnFromInspectButton);
             inspectTripPanel.Controls.Add(label32);
@@ -1418,184 +1434,184 @@
             inspectTripPanel.TabIndex = 2;
             inspectTripPanel.Visible = false;
             // 
-            // richTextBox1
+            // memNoteTextBox
             // 
-            richTextBox1.Location = new Point(1286, 836);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(292, 91);
-            richTextBox1.TabIndex = 168;
-            richTextBox1.Text = "";
+            memNoteTextBox.Location = new Point(1286, 836);
+            memNoteTextBox.Name = "memNoteTextBox";
+            memNoteTextBox.Size = new Size(292, 91);
+            memNoteTextBox.TabIndex = 168;
+            memNoteTextBox.Text = "";
             // 
-            // pictureBox2
+            // memDetailsPhotoPictureBox
             // 
-            pictureBox2.Location = new Point(1286, 738);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(292, 50);
-            pictureBox2.TabIndex = 167;
-            pictureBox2.TabStop = false;
+            memDetailsPhotoPictureBox.Location = new Point(1286, 738);
+            memDetailsPhotoPictureBox.Name = "memDetailsPhotoPictureBox";
+            memDetailsPhotoPictureBox.Size = new Size(292, 50);
+            memDetailsPhotoPictureBox.TabIndex = 167;
+            memDetailsPhotoPictureBox.TabStop = false;
             // 
-            // textBox1
+            // segNameTextBox
             // 
-            textBox1.Location = new Point(874, 202);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(715, 23);
-            textBox1.TabIndex = 166;
+            segNameTextBox.Location = new Point(874, 202);
+            segNameTextBox.Name = "segNameTextBox";
+            segNameTextBox.Size = new Size(715, 23);
+            segNameTextBox.TabIndex = 166;
             // 
-            // textBox2
+            // memSongTextBos
             // 
-            textBox2.Location = new Point(1286, 804);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(292, 23);
-            textBox2.TabIndex = 165;
+            memSongTextBos.Location = new Point(1286, 804);
+            memSongTextBos.Name = "memSongTextBos";
+            memSongTextBos.Size = new Size(292, 23);
+            memSongTextBos.TabIndex = 165;
             // 
-            // textBox3
+            // expValueTextBox
             // 
-            textBox3.Location = new Point(892, 767);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(292, 23);
-            textBox3.TabIndex = 164;
+            expValueTextBox.Location = new Point(892, 767);
+            expValueTextBox.Name = "expValueTextBox";
+            expValueTextBox.Size = new Size(292, 23);
+            expValueTextBox.TabIndex = 164;
             // 
-            // textBox4
+            // expNameTextBox
             // 
-            textBox4.Location = new Point(892, 738);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(292, 23);
-            textBox4.TabIndex = 163;
+            expNameTextBox.Location = new Point(892, 738);
+            expNameTextBox.Name = "expNameTextBox";
+            expNameTextBox.Size = new Size(292, 23);
+            expNameTextBox.TabIndex = 163;
             // 
-            // textBox5
+            // restContactTextBox
             // 
-            textBox5.Location = new Point(497, 853);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(292, 23);
-            textBox5.TabIndex = 162;
+            restContactTextBox.Location = new Point(497, 853);
+            restContactTextBox.Name = "restContactTextBox";
+            restContactTextBox.Size = new Size(292, 23);
+            restContactTextBox.TabIndex = 162;
             // 
-            // textBox6
+            // restAddressTextBox
             // 
-            textBox6.Location = new Point(497, 824);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(292, 23);
-            textBox6.TabIndex = 161;
+            restAddressTextBox.Location = new Point(497, 824);
+            restAddressTextBox.Name = "restAddressTextBox";
+            restAddressTextBox.Size = new Size(292, 23);
+            restAddressTextBox.TabIndex = 161;
             // 
-            // textBox7
+            // restCityTextBox
             // 
-            textBox7.Location = new Point(497, 795);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(292, 23);
-            textBox7.TabIndex = 160;
+            restCityTextBox.Location = new Point(497, 795);
+            restCityTextBox.Name = "restCityTextBox";
+            restCityTextBox.Size = new Size(292, 23);
+            restCityTextBox.TabIndex = 160;
             // 
-            // textBox8
+            // restCountryTextBox
             // 
-            textBox8.Location = new Point(497, 767);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(292, 23);
-            textBox8.TabIndex = 159;
+            restCountryTextBox.Location = new Point(497, 767);
+            restCountryTextBox.Name = "restCountryTextBox";
+            restCountryTextBox.Size = new Size(292, 23);
+            restCountryTextBox.TabIndex = 159;
             // 
-            // textBox9
+            // restNameTextBox
             // 
-            textBox9.Location = new Point(497, 738);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(292, 23);
-            textBox9.TabIndex = 158;
+            restNameTextBox.Location = new Point(497, 738);
+            restNameTextBox.Name = "restNameTextBox";
+            restNameTextBox.Size = new Size(292, 23);
+            restNameTextBox.TabIndex = 158;
             // 
-            // textBox10
+            // landDescTextBox
             // 
-            textBox10.Location = new Point(96, 855);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(292, 23);
-            textBox10.TabIndex = 157;
+            landDescTextBox.Location = new Point(96, 855);
+            landDescTextBox.Name = "landDescTextBox";
+            landDescTextBox.Size = new Size(292, 23);
+            landDescTextBox.TabIndex = 157;
             // 
-            // textBox11
+            // landAddressTextBox
             // 
-            textBox11.Location = new Point(96, 826);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new Size(292, 23);
-            textBox11.TabIndex = 156;
+            landAddressTextBox.Location = new Point(96, 826);
+            landAddressTextBox.Name = "landAddressTextBox";
+            landAddressTextBox.Size = new Size(292, 23);
+            landAddressTextBox.TabIndex = 156;
             // 
-            // textBox12
+            // landCityTextBox
             // 
-            textBox12.Location = new Point(96, 797);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(292, 23);
-            textBox12.TabIndex = 155;
+            landCityTextBox.Location = new Point(96, 797);
+            landCityTextBox.Name = "landCityTextBox";
+            landCityTextBox.Size = new Size(292, 23);
+            landCityTextBox.TabIndex = 155;
             // 
-            // textBox13
+            // landCountryTextBox
             // 
-            textBox13.Location = new Point(96, 768);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(292, 23);
-            textBox13.TabIndex = 154;
+            landCountryTextBox.Location = new Point(96, 768);
+            landCountryTextBox.Name = "landCountryTextBox";
+            landCountryTextBox.Size = new Size(292, 23);
+            landCountryTextBox.TabIndex = 154;
             // 
-            // textBox14
+            // landNameTextBox
             // 
-            textBox14.Location = new Point(96, 738);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(292, 23);
-            textBox14.TabIndex = 153;
+            landNameTextBox.Location = new Point(96, 738);
+            landNameTextBox.Name = "landNameTextBox";
+            landNameTextBox.Size = new Size(292, 23);
+            landNameTextBox.TabIndex = 153;
             // 
-            // radioButton1
+            // restCampingDetailsRadioButton
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.BackColor = Color.White;
-            radioButton1.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton1.Location = new Point(565, 908);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(81, 20);
-            radioButton1.TabIndex = 152;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Camping";
-            radioButton1.UseVisualStyleBackColor = false;
+            restCampingDetailsRadioButton.AutoSize = true;
+            restCampingDetailsRadioButton.BackColor = Color.White;
+            restCampingDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restCampingDetailsRadioButton.Location = new Point(565, 908);
+            restCampingDetailsRadioButton.Name = "restCampingDetailsRadioButton";
+            restCampingDetailsRadioButton.Size = new Size(81, 20);
+            restCampingDetailsRadioButton.TabIndex = 152;
+            restCampingDetailsRadioButton.TabStop = true;
+            restCampingDetailsRadioButton.Text = "Camping";
+            restCampingDetailsRadioButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton2
+            // restApartmentDetailsRadioButton
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.BackColor = Color.White;
-            radioButton2.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton2.Location = new Point(642, 883);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(90, 20);
-            radioButton2.TabIndex = 151;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Apartment";
-            radioButton2.UseVisualStyleBackColor = false;
+            restApartmentDetailsRadioButton.AutoSize = true;
+            restApartmentDetailsRadioButton.BackColor = Color.White;
+            restApartmentDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restApartmentDetailsRadioButton.Location = new Point(642, 883);
+            restApartmentDetailsRadioButton.Name = "restApartmentDetailsRadioButton";
+            restApartmentDetailsRadioButton.Size = new Size(90, 20);
+            restApartmentDetailsRadioButton.TabIndex = 151;
+            restApartmentDetailsRadioButton.TabStop = true;
+            restApartmentDetailsRadioButton.Text = "Apartment";
+            restApartmentDetailsRadioButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton3
+            // restRoomDetailsRadioButton
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.BackColor = Color.White;
-            radioButton3.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton3.Location = new Point(497, 908);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(62, 20);
-            radioButton3.TabIndex = 150;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Room";
-            radioButton3.UseVisualStyleBackColor = false;
+            restRoomDetailsRadioButton.AutoSize = true;
+            restRoomDetailsRadioButton.BackColor = Color.White;
+            restRoomDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restRoomDetailsRadioButton.Location = new Point(497, 908);
+            restRoomDetailsRadioButton.Name = "restRoomDetailsRadioButton";
+            restRoomDetailsRadioButton.Size = new Size(62, 20);
+            restRoomDetailsRadioButton.TabIndex = 150;
+            restRoomDetailsRadioButton.TabStop = true;
+            restRoomDetailsRadioButton.Text = "Room";
+            restRoomDetailsRadioButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton4
+            // restHostelDetailsRadioButton
             // 
-            radioButton4.AutoSize = true;
-            radioButton4.BackColor = Color.White;
-            radioButton4.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton4.Location = new Point(565, 883);
-            radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(64, 20);
-            radioButton4.TabIndex = 149;
-            radioButton4.TabStop = true;
-            radioButton4.Text = "Hostel";
-            radioButton4.UseVisualStyleBackColor = false;
+            restHostelDetailsRadioButton.AutoSize = true;
+            restHostelDetailsRadioButton.BackColor = Color.White;
+            restHostelDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restHostelDetailsRadioButton.Location = new Point(565, 883);
+            restHostelDetailsRadioButton.Name = "restHostelDetailsRadioButton";
+            restHostelDetailsRadioButton.Size = new Size(64, 20);
+            restHostelDetailsRadioButton.TabIndex = 149;
+            restHostelDetailsRadioButton.TabStop = true;
+            restHostelDetailsRadioButton.Text = "Hostel";
+            restHostelDetailsRadioButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton6
+            // restHotelDetailsRadioButton
             // 
-            radioButton6.AutoSize = true;
-            radioButton6.BackColor = Color.White;
-            radioButton6.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton6.Location = new Point(497, 883);
-            radioButton6.Name = "radioButton6";
-            radioButton6.Size = new Size(57, 20);
-            radioButton6.TabIndex = 148;
-            radioButton6.TabStop = true;
-            radioButton6.Text = "Hotel";
-            radioButton6.UseVisualStyleBackColor = false;
+            restHotelDetailsRadioButton.AutoSize = true;
+            restHotelDetailsRadioButton.BackColor = Color.White;
+            restHotelDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restHotelDetailsRadioButton.Location = new Point(497, 883);
+            restHotelDetailsRadioButton.Name = "restHotelDetailsRadioButton";
+            restHotelDetailsRadioButton.Size = new Size(57, 20);
+            restHotelDetailsRadioButton.TabIndex = 148;
+            restHotelDetailsRadioButton.TabStop = true;
+            restHotelDetailsRadioButton.Text = "Hotel";
+            restHotelDetailsRadioButton.UseVisualStyleBackColor = false;
             // 
             // label4
             // 
@@ -2019,21 +2035,21 @@
             label31.TabIndex = 94;
             label31.Text = "-";
             // 
-            // dateTimePicker1
+            // tripReturnDatePicker
             // 
-            dateTimePicker1.Location = new Point(1339, 78);
-            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(219, 23);
-            dateTimePicker1.TabIndex = 93;
+            tripReturnDatePicker.Location = new Point(1339, 78);
+            tripReturnDatePicker.Margin = new Padding(3, 2, 3, 2);
+            tripReturnDatePicker.Name = "tripReturnDatePicker";
+            tripReturnDatePicker.Size = new Size(219, 23);
+            tripReturnDatePicker.TabIndex = 93;
             // 
-            // dateTimePicker2
+            // tripDepartureDatePicker
             // 
-            dateTimePicker2.Location = new Point(1095, 78);
-            dateTimePicker2.Margin = new Padding(3, 2, 3, 2);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(219, 23);
-            dateTimePicker2.TabIndex = 92;
+            tripDepartureDatePicker.Location = new Point(1095, 78);
+            tripDepartureDatePicker.Margin = new Padding(3, 2, 3, 2);
+            tripDepartureDatePicker.Name = "tripDepartureDatePicker";
+            tripDepartureDatePicker.Size = new Size(219, 23);
+            tripDepartureDatePicker.TabIndex = 92;
             // 
             // label33
             // 
@@ -2045,13 +2061,13 @@
             label33.TabIndex = 90;
             label33.Text = "Date of the trip";
             // 
-            // textBox15
+            // tripNameTextBox
             // 
-            textBox15.Location = new Point(154, 78);
-            textBox15.Margin = new Padding(3, 2, 3, 2);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(438, 23);
-            textBox15.TabIndex = 89;
+            tripNameTextBox.Location = new Point(154, 78);
+            tripNameTextBox.Margin = new Padding(3, 2, 3, 2);
+            tripNameTextBox.Name = "tripNameTextBox";
+            tripNameTextBox.Size = new Size(438, 23);
+            tripNameTextBox.TabIndex = 89;
             // 
             // label34
             // 
@@ -2152,28 +2168,29 @@
             // editTripPanel
             // 
             editTripPanel.BackColor = Color.FromArgb(246, 246, 246);
+            editTripPanel.Controls.Add(recomLandmarkEditButton);
             editTripPanel.Controls.Add(createSlideShowButton);
-            editTripPanel.Controls.Add(richTextBox2);
-            editTripPanel.Controls.Add(pictureBox3);
-            editTripPanel.Controls.Add(textBox16);
-            editTripPanel.Controls.Add(textBox17);
-            editTripPanel.Controls.Add(textBox18);
-            editTripPanel.Controls.Add(textBox19);
+            editTripPanel.Controls.Add(memNoteEditInput);
+            editTripPanel.Controls.Add(memEditPhotoBox);
+            editTripPanel.Controls.Add(segNameEditInput);
+            editTripPanel.Controls.Add(memSongEditInput);
+            editTripPanel.Controls.Add(expValueEditInput);
+            editTripPanel.Controls.Add(expNameEditInput);
             editTripPanel.Controls.Add(textBox20);
-            editTripPanel.Controls.Add(textBox21);
-            editTripPanel.Controls.Add(textBox22);
-            editTripPanel.Controls.Add(textBox23);
-            editTripPanel.Controls.Add(textBox24);
-            editTripPanel.Controls.Add(textBox25);
-            editTripPanel.Controls.Add(textBox26);
-            editTripPanel.Controls.Add(textBox27);
-            editTripPanel.Controls.Add(textBox28);
-            editTripPanel.Controls.Add(textBox29);
-            editTripPanel.Controls.Add(radioButton5);
-            editTripPanel.Controls.Add(radioButton7);
-            editTripPanel.Controls.Add(radioButton8);
-            editTripPanel.Controls.Add(radioButton9);
-            editTripPanel.Controls.Add(radioButton10);
+            editTripPanel.Controls.Add(restAddressEditInput);
+            editTripPanel.Controls.Add(restCityEditInput);
+            editTripPanel.Controls.Add(restCountryEditInput);
+            editTripPanel.Controls.Add(restNameEditInput);
+            editTripPanel.Controls.Add(landDescEditInput);
+            editTripPanel.Controls.Add(landAddressEditInput);
+            editTripPanel.Controls.Add(landCityEditInput);
+            editTripPanel.Controls.Add(landCountryEditInput);
+            editTripPanel.Controls.Add(landNameEditInput);
+            editTripPanel.Controls.Add(restCampingEditRadioButton);
+            editTripPanel.Controls.Add(restApartmentEditRadioButton);
+            editTripPanel.Controls.Add(restRoomEditRadioButton);
+            editTripPanel.Controls.Add(restHostelEditRadioButton);
+            editTripPanel.Controls.Add(restHotelEditRadioButton);
             editTripPanel.Controls.Add(label35);
             editTripPanel.Controls.Add(label36);
             editTripPanel.Controls.Add(label37);
@@ -2191,21 +2208,21 @@
             editTripPanel.Controls.Add(label49);
             editTripPanel.Controls.Add(label50);
             editTripPanel.Controls.Add(label51);
-            editTripPanel.Controls.Add(button1);
-            editTripPanel.Controls.Add(button2);
-            editTripPanel.Controls.Add(button3);
-            editTripPanel.Controls.Add(button4);
-            editTripPanel.Controls.Add(button5);
-            editTripPanel.Controls.Add(button6);
-            editTripPanel.Controls.Add(button7);
-            editTripPanel.Controls.Add(button8);
-            editTripPanel.Controls.Add(button9);
-            editTripPanel.Controls.Add(button10);
-            editTripPanel.Controls.Add(button11);
-            editTripPanel.Controls.Add(button12);
-            editTripPanel.Controls.Add(button13);
-            editTripPanel.Controls.Add(button14);
-            editTripPanel.Controls.Add(button15);
+            editTripPanel.Controls.Add(landUpdateEditButton);
+            editTripPanel.Controls.Add(landAddEditButton);
+            editTripPanel.Controls.Add(landRemoveEditButton);
+            editTripPanel.Controls.Add(restUpdateEditButton);
+            editTripPanel.Controls.Add(restAddEditButton);
+            editTripPanel.Controls.Add(restRemoveEditButton);
+            editTripPanel.Controls.Add(expUpdateEditButton);
+            editTripPanel.Controls.Add(expAddEditButton);
+            editTripPanel.Controls.Add(expRemoveEditButton);
+            editTripPanel.Controls.Add(memUpdateEditButton);
+            editTripPanel.Controls.Add(memAddEditButton);
+            editTripPanel.Controls.Add(memRemoveEditButton);
+            editTripPanel.Controls.Add(segUpdateEditButton);
+            editTripPanel.Controls.Add(segAddEditButton);
+            editTripPanel.Controls.Add(segRemoveEditButton);
             editTripPanel.Controls.Add(saveEditTripButton);
             editTripPanel.Controls.Add(label52);
             editTripPanel.Controls.Add(label53);
@@ -2219,7 +2236,7 @@
             editTripPanel.Controls.Add(label61);
             editTripPanel.Controls.Add(listView11);
             editTripPanel.Controls.Add(listView12);
-            editTripPanel.Controls.Add(listView13);
+            editTripPanel.Controls.Add(restContactEditInput);
             editTripPanel.Controls.Add(listView14);
             editTripPanel.Controls.Add(listView15);
             editTripPanel.Controls.Add(listView16);
@@ -2228,11 +2245,11 @@
             editTripPanel.Controls.Add(listView19);
             editTripPanel.Controls.Add(listView20);
             editTripPanel.Controls.Add(label62);
-            editTripPanel.Controls.Add(dateTimePicker3);
-            editTripPanel.Controls.Add(dateTimePicker4);
+            editTripPanel.Controls.Add(editTripReturnDatePicker);
+            editTripPanel.Controls.Add(editTripDepartureDatePicker);
             editTripPanel.Controls.Add(label63);
             editTripPanel.Controls.Add(label64);
-            editTripPanel.Controls.Add(textBox30);
+            editTripPanel.Controls.Add(tripNameEditInput);
             editTripPanel.Controls.Add(label65);
             editTripPanel.Controls.Add(returnFromEditTripButton);
             editTripPanel.Dock = DockStyle.Fill;
@@ -2242,6 +2259,19 @@
             editTripPanel.Size = new Size(1601, 973);
             editTripPanel.TabIndex = 9;
             editTripPanel.Visible = false;
+            // 
+            // recomLandmarkEditButton
+            // 
+            recomLandmarkEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            recomLandmarkEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            recomLandmarkEditButton.ForeColor = SystemColors.ControlLightLight;
+            recomLandmarkEditButton.Location = new Point(116, 891);
+            recomLandmarkEditButton.Name = "recomLandmarkEditButton";
+            recomLandmarkEditButton.Size = new Size(282, 36);
+            recomLandmarkEditButton.TabIndex = 170;
+            recomLandmarkEditButton.Text = "Recommended landmarks";
+            recomLandmarkEditButton.UseVisualStyleBackColor = false;
+            recomLandmarkEditButton.Click += recomLandmarksEditButton_Click;
             // 
             // createSlideShowButton
             // 
@@ -2255,49 +2285,49 @@
             createSlideShowButton.Text = "Create slide show";
             createSlideShowButton.UseVisualStyleBackColor = false;
             // 
-            // richTextBox2
+            // memNoteEditInput
             // 
-            richTextBox2.Location = new Point(1286, 837);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(292, 91);
-            richTextBox2.TabIndex = 168;
-            richTextBox2.Text = "";
+            memNoteEditInput.Location = new Point(1286, 837);
+            memNoteEditInput.Name = "memNoteEditInput";
+            memNoteEditInput.Size = new Size(292, 91);
+            memNoteEditInput.TabIndex = 168;
+            memNoteEditInput.Text = "";
             // 
-            // pictureBox3
+            // memEditPhotoBox
             // 
-            pictureBox3.Location = new Point(1286, 739);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(292, 50);
-            pictureBox3.TabIndex = 167;
-            pictureBox3.TabStop = false;
+            memEditPhotoBox.Location = new Point(1286, 739);
+            memEditPhotoBox.Name = "memEditPhotoBox";
+            memEditPhotoBox.Size = new Size(292, 50);
+            memEditPhotoBox.TabIndex = 167;
+            memEditPhotoBox.TabStop = false;
             // 
-            // textBox16
+            // segNameEditInput
             // 
-            textBox16.Location = new Point(874, 203);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(715, 23);
-            textBox16.TabIndex = 166;
+            segNameEditInput.Location = new Point(874, 203);
+            segNameEditInput.Name = "segNameEditInput";
+            segNameEditInput.Size = new Size(715, 23);
+            segNameEditInput.TabIndex = 166;
             // 
-            // textBox17
+            // memSongEditInput
             // 
-            textBox17.Location = new Point(1286, 805);
-            textBox17.Name = "textBox17";
-            textBox17.Size = new Size(292, 23);
-            textBox17.TabIndex = 165;
+            memSongEditInput.Location = new Point(1286, 805);
+            memSongEditInput.Name = "memSongEditInput";
+            memSongEditInput.Size = new Size(292, 23);
+            memSongEditInput.TabIndex = 165;
             // 
-            // textBox18
+            // expValueEditInput
             // 
-            textBox18.Location = new Point(892, 768);
-            textBox18.Name = "textBox18";
-            textBox18.Size = new Size(292, 23);
-            textBox18.TabIndex = 164;
+            expValueEditInput.Location = new Point(892, 768);
+            expValueEditInput.Name = "expValueEditInput";
+            expValueEditInput.Size = new Size(292, 23);
+            expValueEditInput.TabIndex = 164;
             // 
-            // textBox19
+            // expNameEditInput
             // 
-            textBox19.Location = new Point(892, 739);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new Size(292, 23);
-            textBox19.TabIndex = 163;
+            expNameEditInput.Location = new Point(892, 739);
+            expNameEditInput.Name = "expNameEditInput";
+            expNameEditInput.Size = new Size(292, 23);
+            expNameEditInput.TabIndex = 163;
             // 
             // textBox20
             // 
@@ -2306,133 +2336,133 @@
             textBox20.Size = new Size(292, 23);
             textBox20.TabIndex = 162;
             // 
-            // textBox21
+            // restAddressEditInput
             // 
-            textBox21.Location = new Point(497, 825);
-            textBox21.Name = "textBox21";
-            textBox21.Size = new Size(292, 23);
-            textBox21.TabIndex = 161;
+            restAddressEditInput.Location = new Point(497, 825);
+            restAddressEditInput.Name = "restAddressEditInput";
+            restAddressEditInput.Size = new Size(292, 23);
+            restAddressEditInput.TabIndex = 161;
             // 
-            // textBox22
+            // restCityEditInput
             // 
-            textBox22.Location = new Point(497, 796);
-            textBox22.Name = "textBox22";
-            textBox22.Size = new Size(292, 23);
-            textBox22.TabIndex = 160;
+            restCityEditInput.Location = new Point(497, 796);
+            restCityEditInput.Name = "restCityEditInput";
+            restCityEditInput.Size = new Size(292, 23);
+            restCityEditInput.TabIndex = 160;
             // 
-            // textBox23
+            // restCountryEditInput
             // 
-            textBox23.Location = new Point(497, 768);
-            textBox23.Name = "textBox23";
-            textBox23.Size = new Size(292, 23);
-            textBox23.TabIndex = 159;
+            restCountryEditInput.Location = new Point(497, 768);
+            restCountryEditInput.Name = "restCountryEditInput";
+            restCountryEditInput.Size = new Size(292, 23);
+            restCountryEditInput.TabIndex = 159;
             // 
-            // textBox24
+            // restNameEditInput
             // 
-            textBox24.Location = new Point(497, 739);
-            textBox24.Name = "textBox24";
-            textBox24.Size = new Size(292, 23);
-            textBox24.TabIndex = 158;
+            restNameEditInput.Location = new Point(497, 739);
+            restNameEditInput.Name = "restNameEditInput";
+            restNameEditInput.Size = new Size(292, 23);
+            restNameEditInput.TabIndex = 158;
             // 
-            // textBox25
+            // landDescEditInput
             // 
-            textBox25.Location = new Point(96, 856);
-            textBox25.Name = "textBox25";
-            textBox25.Size = new Size(292, 23);
-            textBox25.TabIndex = 157;
+            landDescEditInput.Location = new Point(96, 856);
+            landDescEditInput.Name = "landDescEditInput";
+            landDescEditInput.Size = new Size(292, 23);
+            landDescEditInput.TabIndex = 157;
             // 
-            // textBox26
+            // landAddressEditInput
             // 
-            textBox26.Location = new Point(96, 827);
-            textBox26.Name = "textBox26";
-            textBox26.Size = new Size(292, 23);
-            textBox26.TabIndex = 156;
+            landAddressEditInput.Location = new Point(96, 827);
+            landAddressEditInput.Name = "landAddressEditInput";
+            landAddressEditInput.Size = new Size(292, 23);
+            landAddressEditInput.TabIndex = 156;
             // 
-            // textBox27
+            // landCityEditInput
             // 
-            textBox27.Location = new Point(96, 798);
-            textBox27.Name = "textBox27";
-            textBox27.Size = new Size(292, 23);
-            textBox27.TabIndex = 155;
+            landCityEditInput.Location = new Point(96, 798);
+            landCityEditInput.Name = "landCityEditInput";
+            landCityEditInput.Size = new Size(292, 23);
+            landCityEditInput.TabIndex = 155;
             // 
-            // textBox28
+            // landCountryEditInput
             // 
-            textBox28.Location = new Point(96, 769);
-            textBox28.Name = "textBox28";
-            textBox28.Size = new Size(292, 23);
-            textBox28.TabIndex = 154;
+            landCountryEditInput.Location = new Point(96, 769);
+            landCountryEditInput.Name = "landCountryEditInput";
+            landCountryEditInput.Size = new Size(292, 23);
+            landCountryEditInput.TabIndex = 154;
             // 
-            // textBox29
+            // landNameEditInput
             // 
-            textBox29.Location = new Point(96, 739);
-            textBox29.Name = "textBox29";
-            textBox29.Size = new Size(292, 23);
-            textBox29.TabIndex = 153;
+            landNameEditInput.Location = new Point(96, 739);
+            landNameEditInput.Name = "landNameEditInput";
+            landNameEditInput.Size = new Size(292, 23);
+            landNameEditInput.TabIndex = 153;
             // 
-            // radioButton5
+            // restCampingEditRadioButton
             // 
-            radioButton5.AutoSize = true;
-            radioButton5.BackColor = Color.White;
-            radioButton5.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton5.Location = new Point(565, 909);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(81, 20);
-            radioButton5.TabIndex = 152;
-            radioButton5.TabStop = true;
-            radioButton5.Text = "Camping";
-            radioButton5.UseVisualStyleBackColor = false;
+            restCampingEditRadioButton.AutoSize = true;
+            restCampingEditRadioButton.BackColor = Color.White;
+            restCampingEditRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restCampingEditRadioButton.Location = new Point(565, 909);
+            restCampingEditRadioButton.Name = "restCampingEditRadioButton";
+            restCampingEditRadioButton.Size = new Size(81, 20);
+            restCampingEditRadioButton.TabIndex = 152;
+            restCampingEditRadioButton.TabStop = true;
+            restCampingEditRadioButton.Text = "Camping";
+            restCampingEditRadioButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton7
+            // restApartmentEditRadioButton
             // 
-            radioButton7.AutoSize = true;
-            radioButton7.BackColor = Color.White;
-            radioButton7.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton7.Location = new Point(642, 884);
-            radioButton7.Name = "radioButton7";
-            radioButton7.Size = new Size(90, 20);
-            radioButton7.TabIndex = 151;
-            radioButton7.TabStop = true;
-            radioButton7.Text = "Apartment";
-            radioButton7.UseVisualStyleBackColor = false;
+            restApartmentEditRadioButton.AutoSize = true;
+            restApartmentEditRadioButton.BackColor = Color.White;
+            restApartmentEditRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restApartmentEditRadioButton.Location = new Point(642, 884);
+            restApartmentEditRadioButton.Name = "restApartmentEditRadioButton";
+            restApartmentEditRadioButton.Size = new Size(90, 20);
+            restApartmentEditRadioButton.TabIndex = 151;
+            restApartmentEditRadioButton.TabStop = true;
+            restApartmentEditRadioButton.Text = "Apartment";
+            restApartmentEditRadioButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton8
+            // restRoomEditRadioButton
             // 
-            radioButton8.AutoSize = true;
-            radioButton8.BackColor = Color.White;
-            radioButton8.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton8.Location = new Point(497, 909);
-            radioButton8.Name = "radioButton8";
-            radioButton8.Size = new Size(62, 20);
-            radioButton8.TabIndex = 150;
-            radioButton8.TabStop = true;
-            radioButton8.Text = "Room";
-            radioButton8.UseVisualStyleBackColor = false;
+            restRoomEditRadioButton.AutoSize = true;
+            restRoomEditRadioButton.BackColor = Color.White;
+            restRoomEditRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restRoomEditRadioButton.Location = new Point(497, 909);
+            restRoomEditRadioButton.Name = "restRoomEditRadioButton";
+            restRoomEditRadioButton.Size = new Size(62, 20);
+            restRoomEditRadioButton.TabIndex = 150;
+            restRoomEditRadioButton.TabStop = true;
+            restRoomEditRadioButton.Text = "Room";
+            restRoomEditRadioButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton9
+            // restHostelEditRadioButton
             // 
-            radioButton9.AutoSize = true;
-            radioButton9.BackColor = Color.White;
-            radioButton9.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton9.Location = new Point(565, 884);
-            radioButton9.Name = "radioButton9";
-            radioButton9.Size = new Size(64, 20);
-            radioButton9.TabIndex = 149;
-            radioButton9.TabStop = true;
-            radioButton9.Text = "Hostel";
-            radioButton9.UseVisualStyleBackColor = false;
+            restHostelEditRadioButton.AutoSize = true;
+            restHostelEditRadioButton.BackColor = Color.White;
+            restHostelEditRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restHostelEditRadioButton.Location = new Point(565, 884);
+            restHostelEditRadioButton.Name = "restHostelEditRadioButton";
+            restHostelEditRadioButton.Size = new Size(64, 20);
+            restHostelEditRadioButton.TabIndex = 149;
+            restHostelEditRadioButton.TabStop = true;
+            restHostelEditRadioButton.Text = "Hostel";
+            restHostelEditRadioButton.UseVisualStyleBackColor = false;
             // 
-            // radioButton10
+            // restHotelEditRadioButton
             // 
-            radioButton10.AutoSize = true;
-            radioButton10.BackColor = Color.White;
-            radioButton10.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton10.Location = new Point(497, 884);
-            radioButton10.Name = "radioButton10";
-            radioButton10.Size = new Size(57, 20);
-            radioButton10.TabIndex = 148;
-            radioButton10.TabStop = true;
-            radioButton10.Text = "Hotel";
-            radioButton10.UseVisualStyleBackColor = false;
+            restHotelEditRadioButton.AutoSize = true;
+            restHotelEditRadioButton.BackColor = Color.White;
+            restHotelEditRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restHotelEditRadioButton.Location = new Point(497, 884);
+            restHotelEditRadioButton.Name = "restHotelEditRadioButton";
+            restHotelEditRadioButton.Size = new Size(57, 20);
+            restHotelEditRadioButton.TabIndex = 148;
+            restHotelEditRadioButton.TabStop = true;
+            restHotelEditRadioButton.Text = "Hotel";
+            restHotelEditRadioButton.UseVisualStyleBackColor = false;
             // 
             // label35
             // 
@@ -2621,185 +2651,185 @@
             label51.TabIndex = 131;
             label51.Text = "Name";
             // 
-            // button1
+            // landUpdateEditButton
             // 
-            button1.BackColor = Color.FromArgb(1, 183, 99);
-            button1.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(212, 937);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 36);
-            button1.TabIndex = 130;
-            button1.Text = "Update";
-            button1.UseVisualStyleBackColor = false;
+            landUpdateEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            landUpdateEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landUpdateEditButton.ForeColor = SystemColors.ControlLightLight;
+            landUpdateEditButton.Location = new Point(212, 937);
+            landUpdateEditButton.Name = "landUpdateEditButton";
+            landUpdateEditButton.Size = new Size(90, 36);
+            landUpdateEditButton.TabIndex = 130;
+            landUpdateEditButton.Text = "Update";
+            landUpdateEditButton.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // landAddEditButton
             // 
-            button2.BackColor = Color.FromArgb(1, 183, 99);
-            button2.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(308, 937);
-            button2.Name = "button2";
-            button2.Size = new Size(90, 36);
-            button2.TabIndex = 129;
-            button2.Text = "Add";
-            button2.UseVisualStyleBackColor = false;
+            landAddEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            landAddEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landAddEditButton.ForeColor = SystemColors.ControlLightLight;
+            landAddEditButton.Location = new Point(308, 937);
+            landAddEditButton.Name = "landAddEditButton";
+            landAddEditButton.Size = new Size(90, 36);
+            landAddEditButton.TabIndex = 129;
+            landAddEditButton.Text = "Add";
+            landAddEditButton.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // landRemoveEditButton
             // 
-            button3.BackColor = Color.FromArgb(1, 183, 99);
-            button3.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.ForeColor = SystemColors.ControlLightLight;
-            button3.Location = new Point(116, 937);
-            button3.Name = "button3";
-            button3.Size = new Size(90, 36);
-            button3.TabIndex = 128;
-            button3.Text = "Remove";
-            button3.UseVisualStyleBackColor = false;
+            landRemoveEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            landRemoveEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            landRemoveEditButton.ForeColor = SystemColors.ControlLightLight;
+            landRemoveEditButton.Location = new Point(116, 937);
+            landRemoveEditButton.Name = "landRemoveEditButton";
+            landRemoveEditButton.Size = new Size(90, 36);
+            landRemoveEditButton.TabIndex = 128;
+            landRemoveEditButton.Text = "Remove";
+            landRemoveEditButton.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // restUpdateEditButton
             // 
-            button4.BackColor = Color.FromArgb(1, 183, 99);
-            button4.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button4.ForeColor = SystemColors.ControlLightLight;
-            button4.Location = new Point(610, 935);
-            button4.Name = "button4";
-            button4.Size = new Size(90, 36);
-            button4.TabIndex = 127;
-            button4.Text = "Update";
-            button4.UseVisualStyleBackColor = false;
+            restUpdateEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            restUpdateEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restUpdateEditButton.ForeColor = SystemColors.ControlLightLight;
+            restUpdateEditButton.Location = new Point(610, 935);
+            restUpdateEditButton.Name = "restUpdateEditButton";
+            restUpdateEditButton.Size = new Size(90, 36);
+            restUpdateEditButton.TabIndex = 127;
+            restUpdateEditButton.Text = "Update";
+            restUpdateEditButton.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // restAddEditButton
             // 
-            button5.BackColor = Color.FromArgb(1, 183, 99);
-            button5.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button5.ForeColor = SystemColors.ControlLightLight;
-            button5.Location = new Point(706, 935);
-            button5.Name = "button5";
-            button5.Size = new Size(90, 36);
-            button5.TabIndex = 126;
-            button5.Text = "Add";
-            button5.UseVisualStyleBackColor = false;
+            restAddEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            restAddEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restAddEditButton.ForeColor = SystemColors.ControlLightLight;
+            restAddEditButton.Location = new Point(706, 935);
+            restAddEditButton.Name = "restAddEditButton";
+            restAddEditButton.Size = new Size(90, 36);
+            restAddEditButton.TabIndex = 126;
+            restAddEditButton.Text = "Add";
+            restAddEditButton.UseVisualStyleBackColor = false;
             // 
-            // button6
+            // restRemoveEditButton
             // 
-            button6.BackColor = Color.FromArgb(1, 183, 99);
-            button6.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button6.ForeColor = SystemColors.ControlLightLight;
-            button6.Location = new Point(514, 935);
-            button6.Name = "button6";
-            button6.Size = new Size(90, 36);
-            button6.TabIndex = 125;
-            button6.Text = "Remove";
-            button6.UseVisualStyleBackColor = false;
+            restRemoveEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            restRemoveEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restRemoveEditButton.ForeColor = SystemColors.ControlLightLight;
+            restRemoveEditButton.Location = new Point(514, 935);
+            restRemoveEditButton.Name = "restRemoveEditButton";
+            restRemoveEditButton.Size = new Size(90, 36);
+            restRemoveEditButton.TabIndex = 125;
+            restRemoveEditButton.Text = "Remove";
+            restRemoveEditButton.UseVisualStyleBackColor = false;
             // 
-            // button7
+            // expUpdateEditButton
             // 
-            button7.BackColor = Color.FromArgb(1, 183, 99);
-            button7.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button7.ForeColor = SystemColors.ControlLightLight;
-            button7.Location = new Point(1008, 934);
-            button7.Name = "button7";
-            button7.Size = new Size(90, 36);
-            button7.TabIndex = 124;
-            button7.Text = "Update";
-            button7.UseVisualStyleBackColor = false;
+            expUpdateEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            expUpdateEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expUpdateEditButton.ForeColor = SystemColors.ControlLightLight;
+            expUpdateEditButton.Location = new Point(1008, 934);
+            expUpdateEditButton.Name = "expUpdateEditButton";
+            expUpdateEditButton.Size = new Size(90, 36);
+            expUpdateEditButton.TabIndex = 124;
+            expUpdateEditButton.Text = "Update";
+            expUpdateEditButton.UseVisualStyleBackColor = false;
             // 
-            // button8
+            // expAddEditButton
             // 
-            button8.BackColor = Color.FromArgb(1, 183, 99);
-            button8.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button8.ForeColor = SystemColors.ControlLightLight;
-            button8.Location = new Point(1104, 934);
-            button8.Name = "button8";
-            button8.Size = new Size(90, 36);
-            button8.TabIndex = 123;
-            button8.Text = "Add";
-            button8.UseVisualStyleBackColor = false;
+            expAddEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            expAddEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expAddEditButton.ForeColor = SystemColors.ControlLightLight;
+            expAddEditButton.Location = new Point(1104, 934);
+            expAddEditButton.Name = "expAddEditButton";
+            expAddEditButton.Size = new Size(90, 36);
+            expAddEditButton.TabIndex = 123;
+            expAddEditButton.Text = "Add";
+            expAddEditButton.UseVisualStyleBackColor = false;
             // 
-            // button9
+            // expRemoveEditButton
             // 
-            button9.BackColor = Color.FromArgb(1, 183, 99);
-            button9.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button9.ForeColor = SystemColors.ControlLightLight;
-            button9.Location = new Point(912, 934);
-            button9.Name = "button9";
-            button9.Size = new Size(90, 36);
-            button9.TabIndex = 122;
-            button9.Text = "Remove";
-            button9.UseVisualStyleBackColor = false;
+            expRemoveEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            expRemoveEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            expRemoveEditButton.ForeColor = SystemColors.ControlLightLight;
+            expRemoveEditButton.Location = new Point(912, 934);
+            expRemoveEditButton.Name = "expRemoveEditButton";
+            expRemoveEditButton.Size = new Size(90, 36);
+            expRemoveEditButton.TabIndex = 122;
+            expRemoveEditButton.Text = "Remove";
+            expRemoveEditButton.UseVisualStyleBackColor = false;
             // 
-            // button10
+            // memUpdateEditButton
             // 
-            button10.BackColor = Color.FromArgb(1, 183, 99);
-            button10.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button10.ForeColor = SystemColors.ControlLightLight;
-            button10.Location = new Point(1412, 934);
-            button10.Name = "button10";
-            button10.Size = new Size(90, 36);
-            button10.TabIndex = 121;
-            button10.Text = "Update";
-            button10.UseVisualStyleBackColor = false;
+            memUpdateEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            memUpdateEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memUpdateEditButton.ForeColor = SystemColors.ControlLightLight;
+            memUpdateEditButton.Location = new Point(1412, 934);
+            memUpdateEditButton.Name = "memUpdateEditButton";
+            memUpdateEditButton.Size = new Size(90, 36);
+            memUpdateEditButton.TabIndex = 121;
+            memUpdateEditButton.Text = "Update";
+            memUpdateEditButton.UseVisualStyleBackColor = false;
             // 
-            // button11
+            // memAddEditButton
             // 
-            button11.BackColor = Color.FromArgb(1, 183, 99);
-            button11.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button11.ForeColor = SystemColors.ControlLightLight;
-            button11.Location = new Point(1508, 934);
-            button11.Name = "button11";
-            button11.Size = new Size(90, 36);
-            button11.TabIndex = 120;
-            button11.Text = "Add";
-            button11.UseVisualStyleBackColor = false;
+            memAddEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            memAddEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memAddEditButton.ForeColor = SystemColors.ControlLightLight;
+            memAddEditButton.Location = new Point(1508, 934);
+            memAddEditButton.Name = "memAddEditButton";
+            memAddEditButton.Size = new Size(90, 36);
+            memAddEditButton.TabIndex = 120;
+            memAddEditButton.Text = "Add";
+            memAddEditButton.UseVisualStyleBackColor = false;
             // 
-            // button12
+            // memRemoveEditButton
             // 
-            button12.BackColor = Color.FromArgb(1, 183, 99);
-            button12.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button12.ForeColor = SystemColors.ControlLightLight;
-            button12.Location = new Point(1316, 934);
-            button12.Name = "button12";
-            button12.Size = new Size(90, 36);
-            button12.TabIndex = 119;
-            button12.Text = "Remove";
-            button12.UseVisualStyleBackColor = false;
+            memRemoveEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            memRemoveEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            memRemoveEditButton.ForeColor = SystemColors.ControlLightLight;
+            memRemoveEditButton.Location = new Point(1316, 934);
+            memRemoveEditButton.Name = "memRemoveEditButton";
+            memRemoveEditButton.Size = new Size(90, 36);
+            memRemoveEditButton.TabIndex = 119;
+            memRemoveEditButton.Text = "Remove";
+            memRemoveEditButton.UseVisualStyleBackColor = false;
             // 
-            // button13
+            // segUpdateEditButton
             // 
-            button13.BackColor = Color.FromArgb(1, 183, 99);
-            button13.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button13.ForeColor = SystemColors.ControlLightLight;
-            button13.Location = new Point(1404, 377);
-            button13.Name = "button13";
-            button13.Size = new Size(90, 36);
-            button13.TabIndex = 118;
-            button13.Text = "Update";
-            button13.UseVisualStyleBackColor = false;
+            segUpdateEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            segUpdateEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segUpdateEditButton.ForeColor = SystemColors.ControlLightLight;
+            segUpdateEditButton.Location = new Point(1404, 377);
+            segUpdateEditButton.Name = "segUpdateEditButton";
+            segUpdateEditButton.Size = new Size(90, 36);
+            segUpdateEditButton.TabIndex = 118;
+            segUpdateEditButton.Text = "Update";
+            segUpdateEditButton.UseVisualStyleBackColor = false;
             // 
-            // button14
+            // segAddEditButton
             // 
-            button14.BackColor = Color.FromArgb(1, 183, 99);
-            button14.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button14.ForeColor = SystemColors.ControlLightLight;
-            button14.Location = new Point(1500, 377);
-            button14.Name = "button14";
-            button14.Size = new Size(90, 36);
-            button14.TabIndex = 117;
-            button14.Text = "Add";
-            button14.UseVisualStyleBackColor = false;
+            segAddEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            segAddEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segAddEditButton.ForeColor = SystemColors.ControlLightLight;
+            segAddEditButton.Location = new Point(1500, 377);
+            segAddEditButton.Name = "segAddEditButton";
+            segAddEditButton.Size = new Size(90, 36);
+            segAddEditButton.TabIndex = 117;
+            segAddEditButton.Text = "Add";
+            segAddEditButton.UseVisualStyleBackColor = false;
             // 
-            // button15
+            // segRemoveEditButton
             // 
-            button15.BackColor = Color.FromArgb(1, 183, 99);
-            button15.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            button15.ForeColor = SystemColors.ControlLightLight;
-            button15.Location = new Point(1308, 377);
-            button15.Name = "button15";
-            button15.Size = new Size(90, 36);
-            button15.TabIndex = 116;
-            button15.Text = "Remove";
-            button15.UseVisualStyleBackColor = false;
+            segRemoveEditButton.BackColor = Color.FromArgb(1, 183, 99);
+            segRemoveEditButton.Font = new Font("Arial Black", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            segRemoveEditButton.ForeColor = SystemColors.ControlLightLight;
+            segRemoveEditButton.Location = new Point(1308, 377);
+            segRemoveEditButton.Name = "segRemoveEditButton";
+            segRemoveEditButton.Size = new Size(90, 36);
+            segRemoveEditButton.TabIndex = 116;
+            segRemoveEditButton.Text = "Remove";
+            segRemoveEditButton.UseVisualStyleBackColor = false;
             // 
             // saveEditTripButton
             // 
@@ -2960,14 +2990,14 @@
             listView12.TabIndex = 103;
             listView12.UseCompatibleStateImageBehavior = false;
             // 
-            // listView13
+            // restContactEditInput
             // 
-            listView13.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            listView13.Location = new Point(407, 733);
-            listView13.Name = "listView13";
-            listView13.Size = new Size(392, 241);
-            listView13.TabIndex = 102;
-            listView13.UseCompatibleStateImageBehavior = false;
+            restContactEditInput.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restContactEditInput.Location = new Point(407, 733);
+            restContactEditInput.Name = "restContactEditInput";
+            restContactEditInput.Size = new Size(392, 241);
+            restContactEditInput.TabIndex = 102;
+            restContactEditInput.UseCompatibleStateImageBehavior = false;
             // 
             // listView14
             // 
@@ -3035,21 +3065,21 @@
             label62.TabIndex = 94;
             label62.Text = "-";
             // 
-            // dateTimePicker3
+            // editTripReturnDatePicker
             // 
-            dateTimePicker3.Location = new Point(1339, 79);
-            dateTimePicker3.Margin = new Padding(3, 2, 3, 2);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(219, 23);
-            dateTimePicker3.TabIndex = 93;
+            editTripReturnDatePicker.Location = new Point(1339, 79);
+            editTripReturnDatePicker.Margin = new Padding(3, 2, 3, 2);
+            editTripReturnDatePicker.Name = "editTripReturnDatePicker";
+            editTripReturnDatePicker.Size = new Size(219, 23);
+            editTripReturnDatePicker.TabIndex = 93;
             // 
-            // dateTimePicker4
+            // editTripDepartureDatePicker
             // 
-            dateTimePicker4.Location = new Point(1095, 79);
-            dateTimePicker4.Margin = new Padding(3, 2, 3, 2);
-            dateTimePicker4.Name = "dateTimePicker4";
-            dateTimePicker4.Size = new Size(219, 23);
-            dateTimePicker4.TabIndex = 92;
+            editTripDepartureDatePicker.Location = new Point(1095, 79);
+            editTripDepartureDatePicker.Margin = new Padding(3, 2, 3, 2);
+            editTripDepartureDatePicker.Name = "editTripDepartureDatePicker";
+            editTripDepartureDatePicker.Size = new Size(219, 23);
+            editTripDepartureDatePicker.TabIndex = 92;
             // 
             // label63
             // 
@@ -3071,13 +3101,13 @@
             label64.TabIndex = 90;
             label64.Text = "Date of the trip";
             // 
-            // textBox30
+            // tripNameEditInput
             // 
-            textBox30.Location = new Point(154, 79);
-            textBox30.Margin = new Padding(3, 2, 3, 2);
-            textBox30.Name = "textBox30";
-            textBox30.Size = new Size(438, 23);
-            textBox30.TabIndex = 89;
+            tripNameEditInput.Location = new Point(154, 79);
+            tripNameEditInput.Margin = new Padding(3, 2, 3, 2);
+            tripNameEditInput.Name = "tripNameEditInput";
+            tripNameEditInput.Size = new Size(438, 23);
+            tripNameEditInput.TabIndex = 89;
             // 
             // label65
             // 
@@ -3107,11 +3137,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1601, 973);
-            Controls.Add(newTripPanel);
-            Controls.Add(inspectTripPanel);
             Controls.Add(editTripPanel);
             Controls.Add(browseTripPanel);
             Controls.Add(menuPanel);
+            Controls.Add(newTripPanel);
+            Controls.Add(inspectTripPanel);
             Margin = new Padding(3, 2, 3, 2);
             Name = "GUI";
             Text = "Travel Planner";
@@ -3122,15 +3152,15 @@
             ((System.ComponentModel.ISupportInitialize)slideShowPictureBox).EndInit();
             newTripPanel.ResumeLayout(false);
             newTripPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)memPictureBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)memAddPictureBox).EndInit();
             inspectTripPanel.ResumeLayout(false);
             inspectTripPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)memDetailsPhotoPictureBox).EndInit();
             browseTripPanel.ResumeLayout(false);
             browseTripPanel.PerformLayout();
             editTripPanel.ResumeLayout(false);
             editTripPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)memEditPhotoBox).EndInit();
             ResumeLayout(false);
         }
 
@@ -3146,7 +3176,7 @@
         private Button returnFromAddButton;
         private Panel inspectTripPanel;
         private Label depDateLabel;
-        private TextBox tripNameTextBox;
+        private TextBox tripNameAddInput;
         private Label nameLabel;
         private Label newTripLabel;
         private DateTimePicker addTripReturnDatePicker;
@@ -3175,22 +3205,22 @@
         private Label addExpenseLabel;
         private Label addRestingPointLabel;
         private Label addLandmarkLabel;
-        private Button saveTripButton;
-        private Button segRemoveButton;
-        private Button segUpdateButton;
-        private Button segAddButton;
-        private Button landUpdateButton;
-        private Button landAddButton;
-        private Button landRemoveButton;
-        private Button restUpdateButton;
-        private Button restAddButton;
-        private Button restRemoveButton;
-        private Button expUpdateButton;
-        private Button expAddButton;
-        private Button expRemoveButton;
-        private Button memUpdateButton;
-        private Button memAddButton;
-        private Button memRemoveButton;
+        private Button saveAddTripButton;
+        private Button segRemoveAddButton;
+        private Button segUpdateAddButton;
+        private Button segAddAddButton;
+        private Button landUpdateAddButton;
+        private Button landAddAddButton;
+        private Button landRemoveAddButton;
+        private Button restUpdateAddButton;
+        private Button restAddAddButton;
+        private Button restRemoveAddButton;
+        private Button expUpdateAddButton;
+        private Button expAddAddButton;
+        private Button expRemoveAddButton;
+        private Button memUpdateAddButton;
+        private Button memAddAddButton;
+        private Button memRemoveAddButton;
         private Label restTypeLabel;
         private Label restContactLabel;
         private Label restAddressLabel;
@@ -3208,48 +3238,48 @@
         private Label landCountryLabel;
         private Label landNameLabel;
         private Label segNameLabel;
-        private RadioButton restCampingRadioButton;
-        private RadioButton restApartmRadioButton;
-        private RadioButton restRoomRadioButton;
-        private RadioButton restHostelRadioButton;
-        private RadioButton restHotelRadioButton;
-        private TextBox landNameInput;
-        private TextBox landDescInput;
-        private TextBox landAddressInput;
-        private TextBox landCityInput;
-        private TextBox landCountryInput;
-        private TextBox restContactInput;
-        private TextBox restAddressInput;
-        private TextBox restCityInput;
-        private TextBox restCountryInput;
-        private TextBox restNameInput;
-        private TextBox memSongInput;
-        private TextBox expValueInput;
-        private TextBox expNameInput;
-        private TextBox segNameInput;
-        private RichTextBox memNoteInput;
-        private PictureBox memPictureBox;
-        private RichTextBox richTextBox1;
-        private PictureBox pictureBox2;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private TextBox textBox5;
-        private TextBox textBox6;
-        private TextBox textBox7;
-        private TextBox textBox8;
-        private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox11;
-        private TextBox textBox12;
-        private TextBox textBox13;
-        private TextBox textBox14;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
-        private RadioButton radioButton6;
+        private RadioButton restCampingAddRadioButton;
+        private RadioButton restApartmAddRadioButton;
+        private RadioButton restRoomAddRadioButton;
+        private RadioButton restHostelAddRadioButton;
+        private RadioButton restHotelAddRadioButton;
+        private TextBox landNameAddInput;
+        private TextBox landDescAddInput;
+        private TextBox landAddressAddInput;
+        private TextBox landCityAddInput;
+        private TextBox landCountryAddInput;
+        private TextBox restContactAddInput;
+        private TextBox restAddressAddInput;
+        private TextBox restCityAddInput;
+        private TextBox restCountryAddInput;
+        private TextBox restNameAddInput;
+        private TextBox memSongAddInput;
+        private TextBox expValueAddInput;
+        private TextBox expNameAddInput;
+        private TextBox segNameAddInput;
+        private RichTextBox memAddNoteInput;
+        private PictureBox memAddPictureBox;
+        private RichTextBox memNoteTextBox;
+        private PictureBox memDetailsPhotoPictureBox;
+        private TextBox segNameTextBox;
+        private TextBox memSongTextBos;
+        private TextBox expValueTextBox;
+        private TextBox expNameTextBox;
+        private TextBox restContactTextBox;
+        private TextBox restAddressTextBox;
+        private TextBox restCityTextBox;
+        private TextBox restCountryTextBox;
+        private TextBox restNameTextBox;
+        private TextBox landDescTextBox;
+        private TextBox landAddressTextBox;
+        private TextBox landCityTextBox;
+        private TextBox landCountryTextBox;
+        private TextBox landNameTextBox;
+        private RadioButton restCampingDetailsRadioButton;
+        private RadioButton restApartmentDetailsRadioButton;
+        private RadioButton restRoomDetailsRadioButton;
+        private RadioButton restHostelDetailsRadioButton;
+        private RadioButton restHotelDetailsRadioButton;
         private Label label4;
         private Label label5;
         private Label label6;
@@ -3289,11 +3319,11 @@
         private ListView listView9;
         private ListView listView10;
         private Label label31;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker tripReturnDatePicker;
+        private DateTimePicker tripDepartureDatePicker;
         private Label label32;
         private Label label33;
-        private TextBox textBox15;
+        private TextBox tripNameTextBox;
         private Label label34;
         private Button returnFromInspectButton;
         private Button returnFromBrowseButton;
@@ -3302,27 +3332,27 @@
         private Panel tripListPanel;
         private Panel browseTripPanel;
         private Panel editTripPanel;
-        private RichTextBox richTextBox2;
-        private PictureBox pictureBox3;
-        private TextBox textBox16;
-        private TextBox textBox17;
-        private TextBox textBox18;
-        private TextBox textBox19;
+        private RichTextBox memNoteEditInput;
+        private PictureBox memEditPhotoBox;
+        private TextBox segNameEditInput;
+        private TextBox memSongEditInput;
+        private TextBox expValueEditInput;
+        private TextBox expNameEditInput;
         private TextBox textBox20;
-        private TextBox textBox21;
-        private TextBox textBox22;
-        private TextBox textBox23;
-        private TextBox textBox24;
-        private TextBox textBox25;
-        private TextBox textBox26;
-        private TextBox textBox27;
-        private TextBox textBox28;
-        private TextBox textBox29;
-        private RadioButton radioButton5;
-        private RadioButton radioButton7;
-        private RadioButton radioButton8;
-        private RadioButton radioButton9;
-        private RadioButton radioButton10;
+        private TextBox restAddressEditInput;
+        private TextBox restCityEditInput;
+        private TextBox restCountryEditInput;
+        private TextBox restNameEditInput;
+        private TextBox landDescEditInput;
+        private TextBox landAddressEditInput;
+        private TextBox landCityEditInput;
+        private TextBox landCountryEditInput;
+        private TextBox landNameEditInput;
+        private RadioButton restCampingEditRadioButton;
+        private RadioButton restApartmentEditRadioButton;
+        private RadioButton restRoomEditRadioButton;
+        private RadioButton restHostelEditRadioButton;
+        private RadioButton restHotelEditRadioButton;
         private Label label35;
         private Label label36;
         private Label label37;
@@ -3340,21 +3370,21 @@
         private Label label49;
         private Label label50;
         private Label label51;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Button button11;
-        private Button button12;
-        private Button button13;
-        private Button button14;
-        private Button button15;
+        private Button landUpdateEditButton;
+        private Button landAddEditButton;
+        private Button landRemoveEditButton;
+        private Button restUpdateEditButton;
+        private Button restAddEditButton;
+        private Button restRemoveEditButton;
+        private Button expUpdateEditButton;
+        private Button expAddEditButton;
+        private Button expRemoveEditButton;
+        private Button memUpdateEditButton;
+        private Button memAddEditButton;
+        private Button memRemoveEditButton;
+        private Button segUpdateEditButton;
+        private Button segAddEditButton;
+        private Button segRemoveEditButton;
         private Button saveEditTripButton;
         private Label label52;
         private Label label53;
@@ -3368,7 +3398,7 @@
         private Label label61;
         private ListView listView11;
         private ListView listView12;
-        private ListView listView13;
+        private ListView restContactEditInput;
         private ListView listView14;
         private ListView listView15;
         private ListView listView16;
@@ -3377,13 +3407,15 @@
         private ListView listView19;
         private ListView listView20;
         private Label label62;
-        private DateTimePicker dateTimePicker3;
-        private DateTimePicker dateTimePicker4;
+        private DateTimePicker editTripReturnDatePicker;
+        private DateTimePicker editTripDepartureDatePicker;
         private Label label63;
         private Label label64;
-        private TextBox textBox30;
+        private TextBox tripNameEditInput;
         private Label label65;
         private Button returnFromEditTripButton;
         private Button createSlideShowButton;
+        private Button recomLandmarkAddButton;
+        private Button recomLandmarkEditButton;
     }
 }
