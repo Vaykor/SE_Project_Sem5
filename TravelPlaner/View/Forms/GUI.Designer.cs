@@ -277,12 +277,22 @@ namespace TravelPlaner.View.Forms
             listView12 = new ListView();
             restContactEditInput = new ListView();
             listView14 = new ListView();
-            listView15 = new ListView();
-            listView16 = new ListView();
-            listView17 = new ListView();
-            listView18 = new ListView();
+            memoriesEditListView = new ListView();
+            idEditMemory = new ColumnHeader();
+            nameEditMemory = new ColumnHeader();
+            expensesEditListView = new ListView();
+            idEditExpense = new ColumnHeader();
+            nameEditExpense = new ColumnHeader();
+            restingEditPointListView = new ListView();
+            idEditRestingPoint = new ColumnHeader();
+            nameEditRestingPoint = new ColumnHeader();
+            landmarkEditListView = new ListView();
+            idEditLand = new ColumnHeader();
+            nameLandEdit = new ColumnHeader();
             listView19 = new ListView();
-            listView20 = new ListView();
+            segmentsEditListView = new ListView();
+            idEditSegment = new ColumnHeader();
+            nameEditSegment = new ColumnHeader();
             label62 = new Label();
             editTripReturnDatePicker = new DateTimePicker();
             editTripDepartureDatePicker = new DateTimePicker();
@@ -1818,7 +1828,6 @@ namespace TravelPlaner.View.Forms
             editButton.TabIndex = 115;
             editButton.Text = "🖍";
             editButton.UseVisualStyleBackColor = true;
-            editButton.Click += editButton_Click;
             // 
             // label21
             // 
@@ -2314,12 +2323,12 @@ namespace TravelPlaner.View.Forms
             editTripPanel.Controls.Add(listView12);
             editTripPanel.Controls.Add(restContactEditInput);
             editTripPanel.Controls.Add(listView14);
-            editTripPanel.Controls.Add(listView15);
-            editTripPanel.Controls.Add(listView16);
-            editTripPanel.Controls.Add(listView17);
-            editTripPanel.Controls.Add(listView18);
+            editTripPanel.Controls.Add(memoriesEditListView);
+            editTripPanel.Controls.Add(expensesEditListView);
+            editTripPanel.Controls.Add(restingEditPointListView);
+            editTripPanel.Controls.Add(landmarkEditListView);
             editTripPanel.Controls.Add(listView19);
-            editTripPanel.Controls.Add(listView20);
+            editTripPanel.Controls.Add(segmentsEditListView);
             editTripPanel.Controls.Add(label62);
             editTripPanel.Controls.Add(editTripReturnDatePicker);
             editTripPanel.Controls.Add(editTripDepartureDatePicker);
@@ -2374,6 +2383,7 @@ namespace TravelPlaner.View.Forms
             memEditPhotoBox.Location = new Point(1286, 739);
             memEditPhotoBox.Name = "memEditPhotoBox";
             memEditPhotoBox.Size = new Size(292, 50);
+            memEditPhotoBox.SizeMode = PictureBoxSizeMode.StretchImage;
             memEditPhotoBox.TabIndex = 167;
             memEditPhotoBox.TabStop = false;
             // 
@@ -3083,37 +3093,90 @@ namespace TravelPlaner.View.Forms
             listView14.TabIndex = 101;
             listView14.UseCompatibleStateImageBehavior = false;
             // 
-            // listView15
+            // memoriesEditListView
             // 
-            listView15.Location = new Point(1203, 461);
-            listView15.Name = "listView15";
-            listView15.Size = new Size(398, 224);
-            listView15.TabIndex = 100;
-            listView15.UseCompatibleStateImageBehavior = false;
+            memoriesEditListView.Activation = ItemActivation.OneClick;
+            memoriesEditListView.Columns.AddRange(new ColumnHeader[] { idEditMemory, nameEditMemory });
+            memoriesEditListView.FullRowSelect = true;
+            memoriesEditListView.Location = new Point(1203, 461);
+            memoriesEditListView.Name = "memoriesEditListView";
+            memoriesEditListView.Size = new Size(398, 224);
+            memoriesEditListView.TabIndex = 100;
+            memoriesEditListView.UseCompatibleStateImageBehavior = false;
+            memoriesEditListView.View = System.Windows.Forms.View.Details;
             // 
-            // listView16
+            // idEditMemory
             // 
-            listView16.Location = new Point(805, 461);
-            listView16.Name = "listView16";
-            listView16.Size = new Size(393, 224);
-            listView16.TabIndex = 99;
-            listView16.UseCompatibleStateImageBehavior = false;
+            idEditMemory.Width = 0;
             // 
-            // listView17
+            // nameEditMemory
             // 
-            listView17.Location = new Point(407, 461);
-            listView17.Name = "listView17";
-            listView17.Size = new Size(392, 225);
-            listView17.TabIndex = 98;
-            listView17.UseCompatibleStateImageBehavior = false;
+            nameEditMemory.Text = "Photo";
+            nameEditMemory.Width = 394;
             // 
-            // listView18
+            // expensesEditListView
             // 
-            listView18.Location = new Point(0, 461);
-            listView18.Name = "listView18";
-            listView18.Size = new Size(401, 225);
-            listView18.TabIndex = 97;
-            listView18.UseCompatibleStateImageBehavior = false;
+            expensesEditListView.Activation = ItemActivation.OneClick;
+            expensesEditListView.Columns.AddRange(new ColumnHeader[] { idEditExpense, nameEditExpense });
+            expensesEditListView.FullRowSelect = true;
+            expensesEditListView.Location = new Point(805, 461);
+            expensesEditListView.Name = "expensesEditListView";
+            expensesEditListView.Size = new Size(393, 224);
+            expensesEditListView.TabIndex = 99;
+            expensesEditListView.UseCompatibleStateImageBehavior = false;
+            expensesEditListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idEditExpense
+            // 
+            idEditExpense.Width = 0;
+            // 
+            // nameEditExpense
+            // 
+            nameEditExpense.Text = "Name";
+            nameEditExpense.Width = 389;
+            // 
+            // restingEditPointListView
+            // 
+            restingEditPointListView.Activation = ItemActivation.OneClick;
+            restingEditPointListView.Columns.AddRange(new ColumnHeader[] { idEditRestingPoint, nameEditRestingPoint });
+            restingEditPointListView.FullRowSelect = true;
+            restingEditPointListView.Location = new Point(407, 461);
+            restingEditPointListView.Name = "restingEditPointListView";
+            restingEditPointListView.Size = new Size(392, 225);
+            restingEditPointListView.TabIndex = 98;
+            restingEditPointListView.UseCompatibleStateImageBehavior = false;
+            restingEditPointListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idEditRestingPoint
+            // 
+            idEditRestingPoint.Text = "";
+            idEditRestingPoint.Width = 0;
+            // 
+            // nameEditRestingPoint
+            // 
+            nameEditRestingPoint.Text = "Name";
+            nameEditRestingPoint.Width = 388;
+            // 
+            // landmarkEditListView
+            // 
+            landmarkEditListView.Activation = ItemActivation.OneClick;
+            landmarkEditListView.Columns.AddRange(new ColumnHeader[] { idEditLand, nameLandEdit });
+            landmarkEditListView.FullRowSelect = true;
+            landmarkEditListView.Location = new Point(0, 461);
+            landmarkEditListView.Name = "landmarkEditListView";
+            landmarkEditListView.Size = new Size(401, 225);
+            landmarkEditListView.TabIndex = 97;
+            landmarkEditListView.UseCompatibleStateImageBehavior = false;
+            landmarkEditListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idEditLand
+            // 
+            idEditLand.Width = 0;
+            // 
+            // nameLandEdit
+            // 
+            nameLandEdit.Text = "Name";
+            nameLandEdit.Width = 397;
             // 
             // listView19
             // 
@@ -3123,13 +3186,27 @@ namespace TravelPlaner.View.Forms
             listView19.TabIndex = 96;
             listView19.UseCompatibleStateImageBehavior = false;
             // 
-            // listView20
+            // segmentsEditListView
             // 
-            listView20.Location = new Point(0, 166);
-            listView20.Name = "listView20";
-            listView20.Size = new Size(799, 250);
-            listView20.TabIndex = 95;
-            listView20.UseCompatibleStateImageBehavior = false;
+            segmentsEditListView.Activation = ItemActivation.OneClick;
+            segmentsEditListView.Columns.AddRange(new ColumnHeader[] { idEditSegment, nameEditSegment });
+            segmentsEditListView.FullRowSelect = true;
+            segmentsEditListView.Location = new Point(0, 166);
+            segmentsEditListView.Name = "segmentsEditListView";
+            segmentsEditListView.Size = new Size(799, 250);
+            segmentsEditListView.TabIndex = 95;
+            segmentsEditListView.UseCompatibleStateImageBehavior = false;
+            segmentsEditListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idEditSegment
+            // 
+            idEditSegment.Text = "";
+            idEditSegment.Width = 0;
+            // 
+            // nameEditSegment
+            // 
+            nameEditSegment.Text = "Name";
+            nameEditSegment.Width = 795;
             // 
             // label62
             // 
@@ -3474,12 +3551,12 @@ namespace TravelPlaner.View.Forms
         private ListView listView12;
         private ListView restContactEditInput;
         private ListView listView14;
-        private ListView listView15;
-        private ListView listView16;
-        private ListView listView17;
-        private ListView listView18;
+        private ListView memoriesEditListView;
+        private ListView expensesEditListView;
+        private ListView restingEditPointListView;
+        private ListView landmarkEditListView;
         private ListView listView19;
-        private ListView listView20;
+        private ListView segmentsEditListView;
         private Label label62;
         private DateTimePicker editTripReturnDatePicker;
         private DateTimePicker editTripDepartureDatePicker;
@@ -3503,5 +3580,15 @@ namespace TravelPlaner.View.Forms
         private ColumnHeader nameExpenses;
         private ColumnHeader idRestingPoint;
         private ColumnHeader nameRestingPoint;
+        private ColumnHeader idEditLand;
+        private ColumnHeader nameLandEdit;
+        private ColumnHeader idEditSegment;
+        private ColumnHeader nameEditSegment;
+        private ColumnHeader idEditMemory;
+        private ColumnHeader nameEditMemory;
+        private ColumnHeader idEditExpense;
+        private ColumnHeader nameEditExpense;
+        private ColumnHeader idEditRestingPoint;
+        private ColumnHeader nameEditRestingPoint;
     }
 }
