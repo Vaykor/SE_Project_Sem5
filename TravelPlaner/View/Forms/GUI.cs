@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Security;
@@ -28,7 +29,7 @@ namespace TravelPlaner.View.Forms
         {
             // Initialize the calendar
             List<Trip> trips = controller.GetAllTrips();
-            calendarMarks(trips);
+           // calendarMarks(trips);
 
             // Initialize the timer
             timer = new System.Windows.Forms.Timer();
@@ -175,7 +176,7 @@ namespace TravelPlaner.View.Forms
         private void browseTripsButton_Click(object sender, EventArgs e)
         {
             ShowPanel(browseTripPanel);
-
+            
             // Fetch trips from database
             List<Trip> trips = controller.GetAllTrips();
 
@@ -187,9 +188,13 @@ namespace TravelPlaner.View.Forms
 
                 int segmentCount = tripSegments.Count;
 
-                //TODO (When destinations get fixed)
-                // Fetch destinations for the first segment (if needed)
-                string destinationName = tripSegments.FirstOrDefault() != null ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country : "Unknown";
+                
+
+                
+
+                    //TODO (When destinations get fixed)
+                    // Fetch destinations for the first segment (if needed)
+                    string destinationName = tripSegments.FirstOrDefault() != null ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country : "Unknown";
 
                 // Create a new panel for the trip
                 Panel tripPanel = new Panel
@@ -270,18 +275,178 @@ namespace TravelPlaner.View.Forms
         private void ShowTripDetails(Trip trip, List<TripSegment> tripSegments)
         {
             ShowPanel(inspectTripPanel);
-
+            
             Trip passedTrip = trip;
+            memDetailsPhotoPictureBox.Image = null;
+            memNoteTextBox.Text = "";
+            landmarkListView.Items.Clear();
+            restingPointListView.Items.Clear();
+            expensesListView.Items.Clear();
+            memoriesListView.Items.Clear();
+            segmentsListView.Items.Clear();
+            foreach (Control control in inspectTripPanel.Controls) // Replace 'myPanel' with your container
+            {
+                if (control is TextBox textBox)
+                {
+                    textBox.Clear();
+                }
+            }
+            foreach (Control control in inspectTripPanel.Controls) // Replace 'myPanel' with your container
+            {
+                if (control is RadioButton radioButton)
+                {
+                    radioButton.Checked = false;
+                }
+            }
+            tripNameTextBox.Text = trip.Name;
+            foreach (TripSegment segment in tripSegments)
+            {
+                ListViewItem item = new ListViewItem(trip.Id.ToString());
+                item.SubItems.Add(segment.Name.ToString());
+                segmentsListView.Items.Add(item);
+                item.Tag = segment;
+            }
+            segmentsListView.ItemActivate += segmentsListView_ItemActivate;
+
+            void segmentsListView_ItemActivate(object sender, EventArgs e)
+            {
+                memDetailsPhotoPictureBox.Image = null;
+                memNoteTextBox.Text = "";
+                foreach (Control control in inspectTripPanel.Controls) // Replace 'myPanel' with your container
+                {
+                    if (control is TextBox textBox)
+                    {
+                        textBox.Clear();
+                    }
+                }
+                foreach (Control control in inspectTripPanel.Controls) // Replace 'myPanel' with your container
+                {
+                    if (control is RadioButton radioButton)
+                    {
+                        radioButton.Checked = false;
+                    }
+                }
+                tripNameTextBox.Text = trip.Name;
+                ListViewItem selectedItem = segmentsListView.SelectedItems[0];
+                if (selectedItem.Tag is TripSegment segment)
+                {
+                    landmarkListView.Items.Clear();
+                    restingPointListView.Items.Clear();
+                    expensesListView.Items.Clear();
+                    memoriesListView.Items.Clear();
+                    List<Expense> expenses = controller.GetAllExpensesByTripSegmentId(segment.Id);
+                    segNameTextBox.Text = segment.Name;
+
+                    foreach (Expense expense in expenses)
+                    {
+                        ListViewItem item = new ListViewItem(expense.Id.ToString()); // First column (Id)
+                        item.SubItems.Add(expense.Name);                            // Second column (Name)// Third column (StartDate)
+                                                                                    // Add row to ListView
+                        expensesListView.Items.Add(item);
+                        item.Tag = expense;
+                    }
+                    expensesListView.ItemActivate += expenseListView_ItemActivate;
+                    void expenseListView_ItemActivate(object sender, EventArgs e)
+                    {
+                        ListViewItem selectedExpenseItem = expensesListView.SelectedItems[0];
+                        if (selectedExpenseItem.Tag is Expense expense)
+                        {
+                            expNameTextBox.Text = expense.Name;
+                            expValueTextBox.Text = expense.Value.ToString();    
+                        }
+                    }
 
 
+                    List<Landmark> landmarks = controller.GetAllLandmarksByTripSegmentId(segment.Id);
+                    foreach (Landmark landmark in landmarks)
+                    {
 
+                        ListViewItem item = new ListViewItem(landmark.Id.ToString()); // First column (Id)
+                        item.SubItems.Add(landmark.Name);                            // Second column (Name)
+                                                                                     // Third column (StartDate)
+                                                                                     // Add row to ListView
+                        landmarkListView.Items.Add(item);
+                        item.Tag = landmark;
+                    }
+                    landmarkListView.ItemActivate += landmarkListView_ItemActivate;
+                    void landmarkListView_ItemActivate(object sender, EventArgs e)
+                    {
+                        ListViewItem selectedLandmarkItem = landmarkListView.SelectedItems[0];
+                        if (selectedLandmarkItem.Tag is Landmark landmark)
+                        {
+                            landNameTextBox.Text = landmark.Name;
+                            landCountryTextBox.Text = landmark.Country;
+                            landCityTextBox.Text = landmark.City;
+                            landAddressTextBox.Text = landmark.Address;
+                            landDescTextBox.Text = landmark.Description;
+                        }
+                    }
 
+                    List<RestingPoint> restingPoints = controller.GetAllRestingPointsByTripSegmentId(segment.Id);
+                    foreach (RestingPoint restingPoint in restingPoints)
+                    {
 
+                        ListViewItem item = new ListViewItem(restingPoint.Id.ToString()); // First column (Id)
+                        item.SubItems.Add(restingPoint.Name);                            // Second column (Name)
+                        ;// Third column (StartDate)
+                         // Add row to ListView
+                        restingPointListView.Items.Add(item);
+                        item.Tag = restingPoint;
+                    }
+                    restingPointListView.ItemActivate += restingPointListView_ItemActivate;
+                    void restingPointListView_ItemActivate(object sender, EventArgs e)
+                    {
+                        ListViewItem selectedRestingPointItem = restingPointListView.SelectedItems[0];
+                        if (selectedRestingPointItem.Tag is RestingPoint restingPoint)
+                        {
+                            restNameTextBox.Text = restingPoint.Name;
+                            restCountryTextBox.Text = restingPoint.Country;
+                            restCityTextBox.Text = restingPoint.City;
+                            restAddressTextBox.Text = restingPoint.Address;
+                            restContactTextBox.Text = restingPoint.ContactInfo;
+                            switch ((int)restingPoint.Type)
+                            {
+                                case 1:
+                                    restHotelDetailsRadioButton.Checked = true;
+                                    break;
+                                case 2:
+                                    restHostelDetailsRadioButton.Checked = true;
+                                    break;
+                                case 3:
+                                    restRoomDetailsRadioButton.Checked = true;
+                                    break;
+                                case 4:
+                                    restApartmentDetailsRadioButton.Checked = true;
+                                    break;
+                                case 5:
+                                    restCampingDetailsRadioButton.Checked = true;
+                                    break;
+                            }
+                        }
+                    }
 
-
+                    List<TripMemory> memories = controller.GetAllTripMemoriesByTripSegmentId(segment.Id);
+                    foreach (TripMemory memory in memories)
+                    {
+                        ListViewItem item = new ListViewItem(memory.Id.ToString());
+                        item.SubItems.Add(memory.Name);
+                        memoriesListView.Items.Add(item);
+                        item.Tag = memory;
+                    }
+                    memoriesListView.ItemActivate += memoryListView_ItemActivate;
+                    void memoryListView_ItemActivate(object sender, EventArgs e)
+                    {
+                        ListViewItem selectedMemoryItem = memoriesListView.SelectedItems[0];
+                        if (selectedMemoryItem.Tag is TripMemory memory)
+                        {
+                            memDetailsPhotoPictureBox.ImageLocation = memory.Photo;
+                            memSongTextBos.Text = memory.SongURL;
+                            memNoteTextBox.Text = memory.Note;
+                        }
+                    }
+                }   
+            }
         }
-
-
 
 
 
