@@ -177,12 +177,22 @@ namespace TravelPlaner.View.Forms
             listView2 = new ListView();
             listView3 = new ListView();
             listView4 = new ListView();
-            listView5 = new ListView();
-            listView6 = new ListView();
-            listView7 = new ListView();
-            listView8 = new ListView();
+            memoriesListView = new ListView();
+            idMemory = new ColumnHeader();
+            photoMemory = new ColumnHeader();
+            expensesListView = new ListView();
+            idExpenses = new ColumnHeader();
+            nameExpenses = new ColumnHeader();
+            restingPointListView = new ListView();
+            idRestingPoint = new ColumnHeader();
+            nameRestingPoint = new ColumnHeader();
+            landmarkListView = new ListView();
+            idLandmark = new ColumnHeader();
+            nameLandmark = new ColumnHeader();
             listView9 = new ListView();
-            listView10 = new ListView();
+            segmentsListView = new ListView();
+            idSegment = new ColumnHeader();
+            nameSegment = new ColumnHeader();
             label31 = new Label();
             tripReturnDatePicker = new DateTimePicker();
             tripDepartureDatePicker = new DateTimePicker();
@@ -306,7 +316,7 @@ namespace TravelPlaner.View.Forms
             menuPanel.Location = new Point(0, 0);
             menuPanel.Margin = new Padding(3, 2, 3, 2);
             menuPanel.Name = "menuPanel";
-            menuPanel.Size = new Size(1601, 973);
+            menuPanel.Size = new Size(1602, 973);
             menuPanel.TabIndex = 0;
             // 
             // monthCalendar
@@ -489,7 +499,7 @@ namespace TravelPlaner.View.Forms
             newTripPanel.Location = new Point(0, 0);
             newTripPanel.Margin = new Padding(3, 2, 3, 2);
             newTripPanel.Name = "newTripPanel";
-            newTripPanel.Size = new Size(1601, 973);
+            newTripPanel.Size = new Size(1602, 973);
             newTripPanel.TabIndex = 0;
             newTripPanel.Visible = false;
             // 
@@ -1409,12 +1419,12 @@ namespace TravelPlaner.View.Forms
             inspectTripPanel.Controls.Add(listView2);
             inspectTripPanel.Controls.Add(listView3);
             inspectTripPanel.Controls.Add(listView4);
-            inspectTripPanel.Controls.Add(listView5);
-            inspectTripPanel.Controls.Add(listView6);
-            inspectTripPanel.Controls.Add(listView7);
-            inspectTripPanel.Controls.Add(listView8);
+            inspectTripPanel.Controls.Add(memoriesListView);
+            inspectTripPanel.Controls.Add(expensesListView);
+            inspectTripPanel.Controls.Add(restingPointListView);
+            inspectTripPanel.Controls.Add(landmarkListView);
             inspectTripPanel.Controls.Add(listView9);
-            inspectTripPanel.Controls.Add(listView10);
+            inspectTripPanel.Controls.Add(segmentsListView);
             inspectTripPanel.Controls.Add(label31);
             inspectTripPanel.Controls.Add(tripReturnDatePicker);
             inspectTripPanel.Controls.Add(tripDepartureDatePicker);
@@ -1427,13 +1437,13 @@ namespace TravelPlaner.View.Forms
             inspectTripPanel.Location = new Point(0, 0);
             inspectTripPanel.Margin = new Padding(3, 2, 3, 2);
             inspectTripPanel.Name = "inspectTripPanel";
-            inspectTripPanel.Size = new Size(1601, 973);
+            inspectTripPanel.Size = new Size(1602, 973);
             inspectTripPanel.TabIndex = 2;
             inspectTripPanel.Visible = false;
             // 
             // memNoteTextBox
             // 
-            memNoteTextBox.Location = new Point(1286, 836);
+            memNoteTextBox.Location = new Point(1286, 870);
             memNoteTextBox.Name = "memNoteTextBox";
             memNoteTextBox.Size = new Size(292, 91);
             memNoteTextBox.TabIndex = 168;
@@ -1443,7 +1453,8 @@ namespace TravelPlaner.View.Forms
             // 
             memDetailsPhotoPictureBox.Location = new Point(1286, 738);
             memDetailsPhotoPictureBox.Name = "memDetailsPhotoPictureBox";
-            memDetailsPhotoPictureBox.Size = new Size(292, 50);
+            memDetailsPhotoPictureBox.Size = new Size(292, 93);
+            memDetailsPhotoPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             memDetailsPhotoPictureBox.TabIndex = 167;
             memDetailsPhotoPictureBox.TabStop = false;
             // 
@@ -1456,7 +1467,7 @@ namespace TravelPlaner.View.Forms
             // 
             // memSongTextBos
             // 
-            memSongTextBos.Location = new Point(1286, 804);
+            memSongTextBos.Location = new Point(1286, 839);
             memSongTextBos.Name = "memSongTextBos";
             memSongTextBos.Size = new Size(292, 23);
             memSongTextBos.TabIndex = 165;
@@ -1681,7 +1692,7 @@ namespace TravelPlaner.View.Forms
             label10.AutoSize = true;
             label10.BackColor = SystemColors.ControlLightLight;
             label10.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(1244, 838);
+            label10.Location = new Point(1244, 870);
             label10.Name = "label10";
             label10.Size = new Size(36, 16);
             label10.TabIndex = 141;
@@ -1692,7 +1703,7 @@ namespace TravelPlaner.View.Forms
             label11.AutoSize = true;
             label11.BackColor = SystemColors.ControlLightLight;
             label11.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(1229, 811);
+            label11.Location = new Point(1229, 841);
             label11.Name = "label11";
             label11.Size = new Size(51, 16);
             label11.TabIndex = 140;
@@ -1974,37 +1985,89 @@ namespace TravelPlaner.View.Forms
             listView4.TabIndex = 101;
             listView4.UseCompatibleStateImageBehavior = false;
             // 
-            // listView5
+            // memoriesListView
             // 
-            listView5.Location = new Point(1203, 460);
-            listView5.Name = "listView5";
-            listView5.Size = new Size(398, 224);
-            listView5.TabIndex = 100;
-            listView5.UseCompatibleStateImageBehavior = false;
+            memoriesListView.Activation = ItemActivation.OneClick;
+            memoriesListView.Columns.AddRange(new ColumnHeader[] { idMemory, photoMemory });
+            memoriesListView.FullRowSelect = true;
+            memoriesListView.Location = new Point(1203, 460);
+            memoriesListView.Name = "memoriesListView";
+            memoriesListView.Size = new Size(398, 224);
+            memoriesListView.TabIndex = 100;
+            memoriesListView.UseCompatibleStateImageBehavior = false;
+            memoriesListView.View = System.Windows.Forms.View.Details;
             // 
-            // listView6
+            // idMemory
             // 
-            listView6.Location = new Point(805, 460);
-            listView6.Name = "listView6";
-            listView6.Size = new Size(393, 224);
-            listView6.TabIndex = 99;
-            listView6.UseCompatibleStateImageBehavior = false;
+            idMemory.Width = 0;
             // 
-            // listView7
+            // photoMemory
             // 
-            listView7.Location = new Point(407, 460);
-            listView7.Name = "listView7";
-            listView7.Size = new Size(392, 225);
-            listView7.TabIndex = 98;
-            listView7.UseCompatibleStateImageBehavior = false;
+            photoMemory.Text = "Photo";
+            photoMemory.Width = 398;
             // 
-            // listView8
+            // expensesListView
             // 
-            listView8.Location = new Point(0, 460);
-            listView8.Name = "listView8";
-            listView8.Size = new Size(401, 225);
-            listView8.TabIndex = 97;
-            listView8.UseCompatibleStateImageBehavior = false;
+            expensesListView.Activation = ItemActivation.OneClick;
+            expensesListView.Columns.AddRange(new ColumnHeader[] { idExpenses, nameExpenses });
+            expensesListView.FullRowSelect = true;
+            expensesListView.Location = new Point(805, 460);
+            expensesListView.Name = "expensesListView";
+            expensesListView.Size = new Size(393, 224);
+            expensesListView.TabIndex = 99;
+            expensesListView.UseCompatibleStateImageBehavior = false;
+            expensesListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idExpenses
+            // 
+            idExpenses.Width = 0;
+            // 
+            // nameExpenses
+            // 
+            nameExpenses.Text = "Name";
+            nameExpenses.Width = 393;
+            // 
+            // restingPointListView
+            // 
+            restingPointListView.Activation = ItemActivation.OneClick;
+            restingPointListView.Columns.AddRange(new ColumnHeader[] { idRestingPoint, nameRestingPoint });
+            restingPointListView.FullRowSelect = true;
+            restingPointListView.Location = new Point(407, 460);
+            restingPointListView.Name = "restingPointListView";
+            restingPointListView.Size = new Size(392, 225);
+            restingPointListView.TabIndex = 98;
+            restingPointListView.UseCompatibleStateImageBehavior = false;
+            restingPointListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idRestingPoint
+            // 
+            idRestingPoint.Width = 0;
+            // 
+            // nameRestingPoint
+            // 
+            nameRestingPoint.Text = "Name";
+            nameRestingPoint.Width = 392;
+            // 
+            // landmarkListView
+            // 
+            landmarkListView.Activation = ItemActivation.OneClick;
+            landmarkListView.Columns.AddRange(new ColumnHeader[] { idLandmark, nameLandmark });
+            landmarkListView.FullRowSelect = true;
+            landmarkListView.Location = new Point(0, 460);
+            landmarkListView.Name = "landmarkListView";
+            landmarkListView.Size = new Size(401, 225);
+            landmarkListView.TabIndex = 97;
+            landmarkListView.UseCompatibleStateImageBehavior = false;
+            landmarkListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idLandmark
+            // 
+            idLandmark.Width = 0;
+            // 
+            // nameLandmark
+            // 
+            nameLandmark.Text = "Name";
+            nameLandmark.Width = 401;
             // 
             // listView9
             // 
@@ -2014,13 +2077,29 @@ namespace TravelPlaner.View.Forms
             listView9.TabIndex = 96;
             listView9.UseCompatibleStateImageBehavior = false;
             // 
-            // listView10
+            // segmentsListView
             // 
-            listView10.Location = new Point(0, 165);
-            listView10.Name = "listView10";
-            listView10.Size = new Size(799, 250);
-            listView10.TabIndex = 95;
-            listView10.UseCompatibleStateImageBehavior = false;
+            segmentsListView.Activation = ItemActivation.OneClick;
+            segmentsListView.Alignment = ListViewAlignment.Default;
+            segmentsListView.Columns.AddRange(new ColumnHeader[] { idSegment, nameSegment });
+            segmentsListView.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point);
+            segmentsListView.FullRowSelect = true;
+            segmentsListView.Location = new Point(0, 165);
+            segmentsListView.Name = "segmentsListView";
+            segmentsListView.Size = new Size(799, 250);
+            segmentsListView.TabIndex = 95;
+            segmentsListView.UseCompatibleStateImageBehavior = false;
+            segmentsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // idSegment
+            // 
+            idSegment.Text = "<B>Name</B>";
+            idSegment.Width = 0;
+            // 
+            // nameSegment
+            // 
+            nameSegment.Text = "Name";
+            nameSegment.Width = 800;
             // 
             // label31
             // 
@@ -2144,7 +2223,7 @@ namespace TravelPlaner.View.Forms
             tripListPanel.Location = new Point(0, 176);
             tripListPanel.Margin = new Padding(3, 2, 3, 2);
             tripListPanel.Name = "tripListPanel";
-            tripListPanel.Size = new Size(1601, 797);
+            tripListPanel.Size = new Size(1602, 797);
             tripListPanel.TabIndex = 4;
             // 
             // browseTripPanel
@@ -2158,7 +2237,7 @@ namespace TravelPlaner.View.Forms
             browseTripPanel.Location = new Point(0, 0);
             browseTripPanel.Margin = new Padding(3, 2, 3, 2);
             browseTripPanel.Name = "browseTripPanel";
-            browseTripPanel.Size = new Size(1601, 973);
+            browseTripPanel.Size = new Size(1602, 973);
             browseTripPanel.TabIndex = 1;
             browseTripPanel.Visible = false;
             // 
@@ -2253,7 +2332,7 @@ namespace TravelPlaner.View.Forms
             editTripPanel.Location = new Point(0, 0);
             editTripPanel.Margin = new Padding(3, 2, 3, 2);
             editTripPanel.Name = "editTripPanel";
-            editTripPanel.Size = new Size(1601, 973);
+            editTripPanel.Size = new Size(1602, 973);
             editTripPanel.TabIndex = 9;
             editTripPanel.Visible = false;
             // 
@@ -3133,12 +3212,12 @@ namespace TravelPlaner.View.Forms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1601, 973);
-            Controls.Add(menuPanel);
-            Controls.Add(newTripPanel);
+            ClientSize = new Size(1602, 973);
             Controls.Add(inspectTripPanel);
             Controls.Add(editTripPanel);
             Controls.Add(browseTripPanel);
+            Controls.Add(menuPanel);
+            Controls.Add(newTripPanel);
             Margin = new Padding(3, 2, 3, 2);
             Name = "GUI";
             Text = "Travel Planner";
@@ -3307,12 +3386,12 @@ namespace TravelPlaner.View.Forms
         private ListView listView2;
         private ListView listView3;
         private ListView listView4;
-        private ListView listView5;
-        private ListView listView6;
-        private ListView listView7;
-        private ListView listView8;
+        private ListView memoriesListView;
+        private ListView expensesListView;
+        private ListView restingPointListView;
+        private ListView landmarkListView;
         private ListView listView9;
-        private ListView listView10;
+        private ListView segmentsListView;
         private Label label31;
         private DateTimePicker tripReturnDatePicker;
         private DateTimePicker tripDepartureDatePicker;
@@ -3414,5 +3493,15 @@ namespace TravelPlaner.View.Forms
         private Button recomLandmarkEditButton;
         private Label timerNameLabel;
         private MonthCalendar monthCalendar;
+        private ColumnHeader idSegment;
+        private ColumnHeader nameSegment;
+        private ColumnHeader idLandmark;
+        private ColumnHeader nameLandmark;
+        private ColumnHeader idMemory;
+        private ColumnHeader photoMemory;
+        private ColumnHeader idExpenses;
+        private ColumnHeader nameExpenses;
+        private ColumnHeader idRestingPoint;
+        private ColumnHeader nameRestingPoint;
     }
 }
