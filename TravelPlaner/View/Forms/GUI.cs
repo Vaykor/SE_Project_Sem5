@@ -29,7 +29,7 @@ namespace TravelPlaner.View.Forms
         {
             // Initialize the calendar
             List<Trip> trips = controller.GetAllTrips();
-           // calendarMarks(trips);
+            // calendarMarks(trips);
 
             // Initialize the timer
             timer = new System.Windows.Forms.Timer();
@@ -44,8 +44,8 @@ namespace TravelPlaner.View.Forms
         {
 
             // Initialize with only Panel1 visible
-            ShowPanel(menuPanel);  
-            
+            ShowPanel(menuPanel);
+
         }
 
         // Method to show a specific panel and hide others
@@ -167,8 +167,68 @@ namespace TravelPlaner.View.Forms
         private void newTripButton_Click(object sender, EventArgs e)
         {
             ShowPanel(newTripPanel);
+            landNameLabel.Enabled = false;
+            landCountryLabel.Enabled = false;
+            landCityLabel.Enabled = false;
+            landAddressLabel.Enabled = false;
+            landDescLabel.Enabled = false;
+
+            landNameAddInput.Enabled = false;
+            landCountryAddInput.Enabled = false;
+            landCityAddInput.Enabled = false;
+            landAddressAddInput.Enabled = false;
+            landDescAddInput.Enabled = false;
+            recomLandmarkAddButton.Enabled = false;
+            landRemoveAddButton.Enabled = false;
+            landUpdateAddButton.Enabled = false;
+            landAddAddButton.Enabled = false;
+
+            restNameLabel.Enabled = false;
+            restCountryLabel.Enabled = false;
+            restCityLabel.Enabled = false;
+            restContactLabel.Enabled = false;
+            restAddressLabel.Enabled = false;
+
+            restNameAddInput.Enabled = false;
+            restCountryAddInput.Enabled = false;
+            restCityAddInput.Enabled = false;
+            restContactAddInput.Enabled = false;
+            restAddressAddInput.Enabled = false;
+
+            restTypeLabel.Enabled = false;
+            restHotelAddRadioButton.Enabled = false;
+            restHostelAddRadioButton.Enabled = false;
+            restApartmAddRadioButton.Enabled = false;
+            restRoomAddRadioButton.Enabled = false;
+            restCampingAddRadioButton.Enabled = false;
+            restRemoveAddButton.Enabled = false;
+            restUpdateAddButton.Enabled = false;
+            restAddAddButton.Enabled = false;
+
+            expNameLabel.Enabled = false;
+            expValueLabel.Enabled = false;
+            expNameAddInput.Enabled = false;
+            expValueAddInput.Enabled = false;
+            expRemoveAddButton.Enabled = false;
+            expUpdateAddButton.Enabled = false;
+            expAddAddButton.Enabled = false;
+
+            memPhotoLabel.Enabled = false;
+            memAddPictureBox.Enabled = false;
+            memSongLabel.Enabled = false;
+            memSongAddInput.Enabled = false;
+            memAddNoteInput.Enabled = false;
+            memNoteLabel.Enabled = false;
+            memRemoveAddButton.Enabled = false;
+            memUpdateAddButton.Enabled = false;
+            memAddAddButton.Enabled = false;
 
 
+            segNameLabel.Enabled = false;
+            segNameAddInput.Enabled = false;
+            segRemoveAddButton.Enabled = false;
+            segAddAddButton.Enabled = false;
+            segUpdateAddButton.Enabled = false;
         }
 
 
@@ -176,7 +236,7 @@ namespace TravelPlaner.View.Forms
         private void browseTripsButton_Click(object sender, EventArgs e)
         {
             ShowPanel(browseTripPanel);
-            
+
             // Fetch trips from database
             List<Trip> trips = controller.GetAllTrips();
 
@@ -188,13 +248,13 @@ namespace TravelPlaner.View.Forms
 
                 int segmentCount = tripSegments.Count;
 
-                
 
-                
 
-                    //TODO (When destinations get fixed)
-                    // Fetch destinations for the first segment (if needed)
-                    string destinationName = tripSegments.FirstOrDefault() != null ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country : "Unknown";
+
+
+                //TODO (When destinations get fixed)
+                // Fetch destinations for the first segment (if needed)
+                string destinationName = tripSegments.FirstOrDefault() != null ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country : "Unknown";
 
                 // Create a new panel for the trip
                 Panel tripPanel = new Panel
@@ -275,7 +335,7 @@ namespace TravelPlaner.View.Forms
         private void ShowTripDetails(Trip trip, List<TripSegment> tripSegments)
         {
             ShowPanel(inspectTripPanel);
-            
+
             Trip passedTrip = trip;
             memDetailsPhotoPictureBox.Image = null;
             memNoteTextBox.Text = "";
@@ -354,7 +414,7 @@ namespace TravelPlaner.View.Forms
                         if (selectedExpenseItem.Tag is Expense expense)
                         {
                             expNameTextBox.Text = expense.Name;
-                            expValueTextBox.Text = expense.Value.ToString();    
+                            expValueTextBox.Text = expense.Value.ToString();
                         }
                     }
 
@@ -447,7 +507,7 @@ namespace TravelPlaner.View.Forms
                         }
                     }
                 }
-               
+
             }
             editButton.Click += (sender, e) => ShowEditTrip(trip, tripSegments);
         }
@@ -1408,7 +1468,7 @@ namespace TravelPlaner.View.Forms
             //editButtonPanel.Controls.Clear();
         }
 
-        
+
 
 
         //------------------------returning from edit trips panel----------------------
@@ -1445,13 +1505,84 @@ namespace TravelPlaner.View.Forms
                 popup.ShowDialog();
             }
         }
+
+        private void saveAddTripButton_Click(object sender, EventArgs e)
+        {
+           
+
+                landNameLabel.Enabled = true;
+                landCountryLabel.Enabled = true;
+                landCityLabel.Enabled = true;
+                landAddressLabel.Enabled = true;
+                landDescLabel.Enabled = true;
+
+                landNameAddInput.Enabled = true;
+                landCountryAddInput.Enabled = true;
+                landCityAddInput.Enabled = true;
+                landAddressAddInput.Enabled = true;
+                landDescAddInput.Enabled = true;
+                recomLandmarkAddButton.Enabled = true;
+                landRemoveAddButton.Enabled = true;
+                landUpdateAddButton.Enabled = true;
+                landAddAddButton.Enabled = true;
+
+
+                restNameLabel.Enabled = true;
+                restCountryLabel.Enabled = true;
+                restCityLabel.Enabled = true;
+                restContactLabel.Enabled = true;
+                restAddressLabel.Enabled = true;
+
+                restNameAddInput.Enabled = true;
+                restCountryAddInput.Enabled = true;
+                restCityAddInput.Enabled = true;
+                restContactAddInput.Enabled = true;
+                restAddressAddInput.Enabled = true;
+
+                restTypeLabel.Enabled = true;
+                restHotelAddRadioButton.Enabled = true;
+                restHostelAddRadioButton.Enabled = true;
+                restApartmAddRadioButton.Enabled = true;
+                restRoomAddRadioButton.Enabled = true;
+                restCampingAddRadioButton.Enabled = true;
+                restRemoveAddButton.Enabled = true;
+                restUpdateAddButton.Enabled = true;
+                restAddAddButton.Enabled = true;
+
+                expNameLabel.Enabled = true;
+                expValueLabel.Enabled = true;
+                expNameAddInput.Enabled = true;
+                expValueAddInput.Enabled = true;
+                expRemoveAddButton.Enabled = true;
+                expUpdateAddButton.Enabled = true;
+                expAddAddButton.Enabled = true;
+
+                memPhotoLabel.Enabled = true;
+                memAddPictureBox.Enabled = true;
+                memSongLabel.Enabled = true;
+                memSongAddInput.Enabled = true;
+                memAddNoteInput.Enabled = true;
+                memNoteLabel.Enabled = true;
+                memRemoveAddButton.Enabled = true;
+                memUpdateAddButton.Enabled = true;
+                memAddAddButton.Enabled = true;
+
+
+                segNameLabel.Enabled = true;
+                segNameAddInput.Enabled = true;
+                segRemoveAddButton.Enabled = true;
+                segAddAddButton.Enabled = true;
+                segUpdateAddButton.Enabled = true;
+            
+        }
     }
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
 
