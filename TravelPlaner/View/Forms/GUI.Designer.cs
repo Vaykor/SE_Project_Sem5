@@ -332,6 +332,7 @@ namespace TravelPlaner.View.Forms
             // monthCalendar
             // 
             monthCalendar.BackColor = SystemColors.ControlLightLight;
+            monthCalendar.CalendarDimensions = new Size(2, 3);
             monthCalendar.Location = new Point(1087, 135);
             monthCalendar.Name = "monthCalendar";
             monthCalendar.TabIndex = 10;
@@ -342,7 +343,7 @@ namespace TravelPlaner.View.Forms
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(timerNameLabel);
             panel1.Controls.Add(timerLabel);
-            panel1.Location = new Point(1084, 591);
+            panel1.Location = new Point(1087, 591);
             panel1.Name = "panel1";
             panel1.Size = new Size(458, 165);
             panel1.TabIndex = 9;
