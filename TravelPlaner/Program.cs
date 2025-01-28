@@ -11,16 +11,15 @@ namespace TravelPlaner
         /// </summary>
         [STAThread]
         static void Main()
-        {
-            
+        { 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            ProgramController controller = new ProgramController();
+
+
             Application.Run(new GUI());
             //Application.Run(new TouristLandmarkTestForm());
-            //Application.Run(new PresentationForm("trip to Rome"));
-
-            ProgramController controller = new ProgramController();
             
         }
     }

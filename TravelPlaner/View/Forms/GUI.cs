@@ -1508,72 +1508,78 @@ namespace TravelPlaner.View.Forms
 
         private void saveAddTripButton_Click(object sender, EventArgs e)
         {
-           
-
-                landNameLabel.Enabled = true;
-                landCountryLabel.Enabled = true;
-                landCityLabel.Enabled = true;
-                landAddressLabel.Enabled = true;
-                landDescLabel.Enabled = true;
-
-                landNameAddInput.Enabled = true;
-                landCountryAddInput.Enabled = true;
-                landCityAddInput.Enabled = true;
-                landAddressAddInput.Enabled = true;
-                landDescAddInput.Enabled = true;
-                recomLandmarkAddButton.Enabled = true;
-                landRemoveAddButton.Enabled = true;
-                landUpdateAddButton.Enabled = true;
-                landAddAddButton.Enabled = true;
 
 
-                restNameLabel.Enabled = true;
-                restCountryLabel.Enabled = true;
-                restCityLabel.Enabled = true;
-                restContactLabel.Enabled = true;
-                restAddressLabel.Enabled = true;
+            landNameLabel.Enabled = true;
+            landCountryLabel.Enabled = true;
+            landCityLabel.Enabled = true;
+            landAddressLabel.Enabled = true;
+            landDescLabel.Enabled = true;
 
-                restNameAddInput.Enabled = true;
-                restCountryAddInput.Enabled = true;
-                restCityAddInput.Enabled = true;
-                restContactAddInput.Enabled = true;
-                restAddressAddInput.Enabled = true;
-
-                restTypeLabel.Enabled = true;
-                restHotelAddRadioButton.Enabled = true;
-                restHostelAddRadioButton.Enabled = true;
-                restApartmAddRadioButton.Enabled = true;
-                restRoomAddRadioButton.Enabled = true;
-                restCampingAddRadioButton.Enabled = true;
-                restRemoveAddButton.Enabled = true;
-                restUpdateAddButton.Enabled = true;
-                restAddAddButton.Enabled = true;
-
-                expNameLabel.Enabled = true;
-                expValueLabel.Enabled = true;
-                expNameAddInput.Enabled = true;
-                expValueAddInput.Enabled = true;
-                expRemoveAddButton.Enabled = true;
-                expUpdateAddButton.Enabled = true;
-                expAddAddButton.Enabled = true;
-
-                memPhotoLabel.Enabled = true;
-                memAddPictureBox.Enabled = true;
-                memSongLabel.Enabled = true;
-                memSongAddInput.Enabled = true;
-                memAddNoteInput.Enabled = true;
-                memNoteLabel.Enabled = true;
-                memRemoveAddButton.Enabled = true;
-                memUpdateAddButton.Enabled = true;
-                memAddAddButton.Enabled = true;
+            landNameAddInput.Enabled = true;
+            landCountryAddInput.Enabled = true;
+            landCityAddInput.Enabled = true;
+            landAddressAddInput.Enabled = true;
+            landDescAddInput.Enabled = true;
+            recomLandmarkAddButton.Enabled = true;
+            landRemoveAddButton.Enabled = true;
+            landUpdateAddButton.Enabled = true;
+            landAddAddButton.Enabled = true;
 
 
-                segNameLabel.Enabled = true;
-                segNameAddInput.Enabled = true;
-                segRemoveAddButton.Enabled = true;
-                segAddAddButton.Enabled = true;
-                segUpdateAddButton.Enabled = true;
-            
+            restNameLabel.Enabled = true;
+            restCountryLabel.Enabled = true;
+            restCityLabel.Enabled = true;
+            restContactLabel.Enabled = true;
+            restAddressLabel.Enabled = true;
+
+            restNameAddInput.Enabled = true;
+            restCountryAddInput.Enabled = true;
+            restCityAddInput.Enabled = true;
+            restContactAddInput.Enabled = true;
+            restAddressAddInput.Enabled = true;
+
+            restTypeLabel.Enabled = true;
+            restHotelAddRadioButton.Enabled = true;
+            restHostelAddRadioButton.Enabled = true;
+            restApartmAddRadioButton.Enabled = true;
+            restRoomAddRadioButton.Enabled = true;
+            restCampingAddRadioButton.Enabled = true;
+            restRemoveAddButton.Enabled = true;
+            restUpdateAddButton.Enabled = true;
+            restAddAddButton.Enabled = true;
+
+            expNameLabel.Enabled = true;
+            expValueLabel.Enabled = true;
+            expNameAddInput.Enabled = true;
+            expValueAddInput.Enabled = true;
+            expRemoveAddButton.Enabled = true;
+            expUpdateAddButton.Enabled = true;
+            expAddAddButton.Enabled = true;
+
+            memPhotoLabel.Enabled = true;
+            memAddPictureBox.Enabled = true;
+            memSongLabel.Enabled = true;
+            memSongAddInput.Enabled = true;
+            memAddNoteInput.Enabled = true;
+            memNoteLabel.Enabled = true;
+            memRemoveAddButton.Enabled = true;
+            memUpdateAddButton.Enabled = true;
+            memAddAddButton.Enabled = true;
+
+
+            segNameLabel.Enabled = true;
+            segNameAddInput.Enabled = true;
+            segRemoveAddButton.Enabled = true;
+            segAddAddButton.Enabled = true;
+            segUpdateAddButton.Enabled = true;
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Trip trip = controller.GetFirstTrip();
+            new PresentationForm(trip).Show();
         }
     }
 }
