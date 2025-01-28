@@ -1082,6 +1082,7 @@ namespace TravelPlaner.View.Forms
             saveAddTripButton.TabIndex = 32;
             saveAddTripButton.Text = "💾";
             saveAddTripButton.UseVisualStyleBackColor = true;
+            saveAddTripButton.Click += saveAddTripButton_Click;
             // 
             // addMemoryLabel
             // 
@@ -1453,6 +1454,7 @@ namespace TravelPlaner.View.Forms
             // 
             // memNoteTextBox
             // 
+            memNoteTextBox.Enabled = false;
             memNoteTextBox.Location = new Point(1286, 870);
             memNoteTextBox.Name = "memNoteTextBox";
             memNoteTextBox.Size = new Size(292, 91);
@@ -1470,6 +1472,7 @@ namespace TravelPlaner.View.Forms
             // 
             // segNameTextBox
             // 
+            segNameTextBox.Enabled = false;
             segNameTextBox.Location = new Point(874, 202);
             segNameTextBox.Name = "segNameTextBox";
             segNameTextBox.Size = new Size(715, 23);
@@ -1477,6 +1480,7 @@ namespace TravelPlaner.View.Forms
             // 
             // memSongTextBos
             // 
+            memSongTextBos.Enabled = false;
             memSongTextBos.Location = new Point(1286, 839);
             memSongTextBos.Name = "memSongTextBos";
             memSongTextBos.Size = new Size(292, 23);
@@ -1484,6 +1488,7 @@ namespace TravelPlaner.View.Forms
             // 
             // expValueTextBox
             // 
+            expValueTextBox.Enabled = false;
             expValueTextBox.Location = new Point(892, 767);
             expValueTextBox.Name = "expValueTextBox";
             expValueTextBox.Size = new Size(292, 23);
@@ -1491,6 +1496,7 @@ namespace TravelPlaner.View.Forms
             // 
             // expNameTextBox
             // 
+            expNameTextBox.Enabled = false;
             expNameTextBox.Location = new Point(892, 738);
             expNameTextBox.Name = "expNameTextBox";
             expNameTextBox.Size = new Size(292, 23);
@@ -1498,6 +1504,7 @@ namespace TravelPlaner.View.Forms
             // 
             // restContactTextBox
             // 
+            restContactTextBox.Enabled = false;
             restContactTextBox.Location = new Point(497, 853);
             restContactTextBox.Name = "restContactTextBox";
             restContactTextBox.Size = new Size(292, 23);
@@ -1505,6 +1512,7 @@ namespace TravelPlaner.View.Forms
             // 
             // restAddressTextBox
             // 
+            restAddressTextBox.Enabled = false;
             restAddressTextBox.Location = new Point(497, 824);
             restAddressTextBox.Name = "restAddressTextBox";
             restAddressTextBox.Size = new Size(292, 23);
@@ -1512,6 +1520,7 @@ namespace TravelPlaner.View.Forms
             // 
             // restCityTextBox
             // 
+            restCityTextBox.Enabled = false;
             restCityTextBox.Location = new Point(497, 795);
             restCityTextBox.Name = "restCityTextBox";
             restCityTextBox.Size = new Size(292, 23);
@@ -1519,6 +1528,7 @@ namespace TravelPlaner.View.Forms
             // 
             // restCountryTextBox
             // 
+            restCountryTextBox.Enabled = false;
             restCountryTextBox.Location = new Point(497, 767);
             restCountryTextBox.Name = "restCountryTextBox";
             restCountryTextBox.Size = new Size(292, 23);
@@ -1526,6 +1536,7 @@ namespace TravelPlaner.View.Forms
             // 
             // restNameTextBox
             // 
+            restNameTextBox.Enabled = false;
             restNameTextBox.Location = new Point(497, 738);
             restNameTextBox.Name = "restNameTextBox";
             restNameTextBox.Size = new Size(292, 23);
@@ -1533,6 +1544,7 @@ namespace TravelPlaner.View.Forms
             // 
             // landDescTextBox
             // 
+            landDescTextBox.Enabled = false;
             landDescTextBox.Location = new Point(96, 855);
             landDescTextBox.Name = "landDescTextBox";
             landDescTextBox.Size = new Size(292, 23);
@@ -1540,6 +1552,7 @@ namespace TravelPlaner.View.Forms
             // 
             // landAddressTextBox
             // 
+            landAddressTextBox.Enabled = false;
             landAddressTextBox.Location = new Point(96, 826);
             landAddressTextBox.Name = "landAddressTextBox";
             landAddressTextBox.Size = new Size(292, 23);
@@ -1547,6 +1560,7 @@ namespace TravelPlaner.View.Forms
             // 
             // landCityTextBox
             // 
+            landCityTextBox.Enabled = false;
             landCityTextBox.Location = new Point(96, 797);
             landCityTextBox.Name = "landCityTextBox";
             landCityTextBox.Size = new Size(292, 23);
@@ -1554,6 +1568,7 @@ namespace TravelPlaner.View.Forms
             // 
             // landCountryTextBox
             // 
+            landCountryTextBox.Enabled = false;
             landCountryTextBox.Location = new Point(96, 768);
             landCountryTextBox.Name = "landCountryTextBox";
             landCountryTextBox.Size = new Size(292, 23);
@@ -1561,6 +1576,7 @@ namespace TravelPlaner.View.Forms
             // 
             // landNameTextBox
             // 
+            landNameTextBox.Enabled = false;
             landNameTextBox.Location = new Point(96, 738);
             landNameTextBox.Name = "landNameTextBox";
             landNameTextBox.Size = new Size(292, 23);
@@ -1570,6 +1586,7 @@ namespace TravelPlaner.View.Forms
             // 
             restCampingDetailsRadioButton.AutoSize = true;
             restCampingDetailsRadioButton.BackColor = Color.White;
+            restCampingDetailsRadioButton.Enabled = false;
             restCampingDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             restCampingDetailsRadioButton.Location = new Point(565, 908);
             restCampingDetailsRadioButton.Name = "restCampingDetailsRadioButton";
@@ -1583,6 +1600,7 @@ namespace TravelPlaner.View.Forms
             // 
             restApartmentDetailsRadioButton.AutoSize = true;
             restApartmentDetailsRadioButton.BackColor = Color.White;
+            restApartmentDetailsRadioButton.Enabled = false;
             restApartmentDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             restApartmentDetailsRadioButton.Location = new Point(642, 883);
             restApartmentDetailsRadioButton.Name = "restApartmentDetailsRadioButton";
@@ -1596,6 +1614,7 @@ namespace TravelPlaner.View.Forms
             // 
             restRoomDetailsRadioButton.AutoSize = true;
             restRoomDetailsRadioButton.BackColor = Color.White;
+            restRoomDetailsRadioButton.Enabled = false;
             restRoomDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             restRoomDetailsRadioButton.Location = new Point(497, 908);
             restRoomDetailsRadioButton.Name = "restRoomDetailsRadioButton";
@@ -1609,6 +1628,7 @@ namespace TravelPlaner.View.Forms
             // 
             restHostelDetailsRadioButton.AutoSize = true;
             restHostelDetailsRadioButton.BackColor = Color.White;
+            restHostelDetailsRadioButton.Enabled = false;
             restHostelDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             restHostelDetailsRadioButton.Location = new Point(565, 883);
             restHostelDetailsRadioButton.Name = "restHostelDetailsRadioButton";
@@ -1622,6 +1642,7 @@ namespace TravelPlaner.View.Forms
             // 
             restHotelDetailsRadioButton.AutoSize = true;
             restHotelDetailsRadioButton.BackColor = Color.White;
+            restHotelDetailsRadioButton.Enabled = false;
             restHotelDetailsRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             restHotelDetailsRadioButton.Location = new Point(497, 883);
             restHotelDetailsRadioButton.Name = "restHotelDetailsRadioButton";
@@ -2122,6 +2143,7 @@ namespace TravelPlaner.View.Forms
             // 
             // tripReturnDatePicker
             // 
+            tripReturnDatePicker.Enabled = false;
             tripReturnDatePicker.Location = new Point(1339, 78);
             tripReturnDatePicker.Margin = new Padding(3, 2, 3, 2);
             tripReturnDatePicker.Name = "tripReturnDatePicker";
@@ -2130,6 +2152,7 @@ namespace TravelPlaner.View.Forms
             // 
             // tripDepartureDatePicker
             // 
+            tripDepartureDatePicker.Enabled = false;
             tripDepartureDatePicker.Location = new Point(1095, 78);
             tripDepartureDatePicker.Margin = new Padding(3, 2, 3, 2);
             tripDepartureDatePicker.Name = "tripDepartureDatePicker";
@@ -2148,6 +2171,7 @@ namespace TravelPlaner.View.Forms
             // 
             // tripNameTextBox
             // 
+            tripNameTextBox.Enabled = false;
             tripNameTextBox.Location = new Point(154, 78);
             tripNameTextBox.Margin = new Padding(3, 2, 3, 2);
             tripNameTextBox.Name = "tripNameTextBox";
