@@ -16,9 +16,9 @@ namespace TravelPlaner
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            //Application.Run(new GUI());
+            Application.Run(new GUI());
             //Application.Run(new TouristLandmarkTestForm());
-            Application.Run(new PresentationForm("trip to Rome"));
+            //Application.Run(new PresentationForm("trip to Rome"));
 
             ProgramController controller = new ProgramController();
             
