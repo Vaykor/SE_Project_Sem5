@@ -22,9 +22,8 @@ namespace TravelPlaner.Model.Classes.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=TravelPlannerDB;Trusted_Connection=True;TrustServerCertificate=True;");
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TravelPlannerDB;Trusted_Connection=True;");
-
+            optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=TravelPlannerDB;Trusted_Connection=True;TrustServerCertificate=True;");
+            //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=TravelPlannerDB;Trusted_Connection=True;");
         }
 
 
