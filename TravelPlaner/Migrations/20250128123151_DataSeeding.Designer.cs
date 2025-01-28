@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelPlaner.Model.Classes.Context;
 
@@ -11,9 +12,11 @@ using TravelPlaner.Model.Classes.Context;
 namespace TravelPlaner.Migrations
 {
     [DbContext(typeof(TravelPlannerContext))]
-    partial class TravelPlannerContextModelSnapshot : ModelSnapshot
+    [Migration("20250128123151_DataSeeding")]
+    partial class DataSeeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelPlaner.Model.Classes.Context;
 
@@ -11,9 +12,11 @@ using TravelPlaner.Model.Classes.Context;
 namespace TravelPlaner.Migrations
 {
     [DbContext(typeof(TravelPlannerContext))]
-    partial class TravelPlannerContextModelSnapshot : ModelSnapshot
+    [Migration("20250128120451_InitializeDB")]
+    partial class InitializeDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,22 +80,6 @@ namespace TravelPlaner.Migrations
                     b.HasIndex("TripSegmentId");
 
                     b.ToTable("Expenses");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Flight to Paris",
-                            TripSegmentId = 1,
-                            Value = 500.0
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Hotel Stay in Berlin",
-                            TripSegmentId = 2,
-                            Value = 300.0
-                        });
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.Trip", b =>
@@ -116,22 +103,6 @@ namespace TravelPlaner.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Trips");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            EndDate = new DateTime(2024, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "European Adventure",
-                            StartDate = new DateTime(2024, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            EndDate = new DateTime(2025, 3, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Road Trip USA",
-                            StartDate = new DateTime(2025, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.TripMemory", b =>
@@ -163,26 +134,6 @@ namespace TravelPlaner.Migrations
                     b.HasIndex("TripSegmentId");
 
                     b.ToTable("TripMemory");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Eiffel Tower Selfie",
-                            Note = "Amazing view!",
-                            Photo = "photo_base64_string_here",
-                            SongURL = "https://example.com/song.mp3",
-                            TripSegmentId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Brandenburg Gate Visit",
-                            Note = "Historical moment",
-                            Photo = "photo_base64_string_here",
-                            SongURL = "https://example.com/song.mp3",
-                            TripSegmentId = 2
-                        });
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.TripSegment", b =>
@@ -205,26 +156,6 @@ namespace TravelPlaner.Migrations
                     b.HasIndex("TripId");
 
                     b.ToTable("TripSegment");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Paris Stay",
-                            TripId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Berlin Visit",
-                            TripId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "New York Experience",
-                            TripId = 2
-                        });
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.Landmark", b =>
@@ -242,24 +173,6 @@ namespace TravelPlaner.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("Landmark");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            TripSegmentId = 1,
-                            Address = "Champ de Mars, Paris",
-                            Description = "Iconic iron structure",
-                            Name = "Eiffel Tower"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            TripSegmentId = 2,
-                            Address = "Berlin, Germany",
-                            Description = "Historical landmark",
-                            Name = "Brandenburg Gate"
-                        });
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.RestingPoint", b =>
@@ -292,28 +205,6 @@ namespace TravelPlaner.Migrations
                         });
 
                     b.HasDiscriminator().HasValue("RestingPoint");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 3,
-                            TripSegmentId = 1,
-                            Address = "123 Champs-Élysées",
-                            ContactInfo = "hotelparis@example.com",
-                            Name = "Hotel Paris",
-                            NightsSpentThere = 3,
-                            Type = 0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            TripSegmentId = 2,
-                            Address = "42 Alexanderplatz",
-                            ContactInfo = "berlinhostel@example.com",
-                            Name = "Berlin Hostel",
-                            NightsSpentThere = 2,
-                            Type = 1
-                        });
                 });
 
             modelBuilder.Entity("TravelPlaner.Model.Classes.Database.Destination", b =>

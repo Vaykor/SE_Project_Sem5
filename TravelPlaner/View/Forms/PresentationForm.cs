@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TravelPlaner.Controller;
+using TravelPlaner.Model.Classes.Database;
 using Timer = System.Windows.Forms.Timer;
 
 namespace TravelPlaner.View.Forms
@@ -14,17 +16,14 @@ namespace TravelPlaner.View.Forms
     public partial class PresentationForm : Form
     {
         private Timer timer;
-        private string[] images;
+        private List<string> images;
         private int currentImageIndex = 0;
-        private string baseDirectory = AppContext.BaseDirectory;
-        private const string IMAGE_FOLDER_NAME = "Images";
-
-        public PresentationForm(string tripName)
+        public PresentationForm(Trip trip)
         {
-            /*InitializeComponent();
-            Text = tripName + " photo memories";
+            InitializeComponent();
+            Text = trip.Name + " photo memories";
 
-            LoadImages();
+            images = LoadImages(trip);
 
             timer = new Timer
             {
@@ -32,7 +31,7 @@ namespace TravelPlaner.View.Forms
             };
             timer.Tick += TimerTick;
 
-            if (images.Length > 0)
+            if (images.Count > 0)
             {
                 photoPresenter.Image = Image.FromFile(images[0]);
                 timer.Start();
@@ -40,31 +39,92 @@ namespace TravelPlaner.View.Forms
             else
             {
                 MessageBox.Show("Nie znaleziono zdjęć dla wyjazdu.");
-            }*/
+            }
         }
 
         private void TimerTick(object sender, EventArgs e)
         {
-            /*if (currentImageIndex == (images.Length - 1))
+            if (currentImageIndex == (images.Count - 1))
             {
                 timer.Stop();
-                MessageBox.Show("Koniec pokazu","Koniec", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Koniec pokazu", "Koniec", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                currentImageIndex = (currentImageIndex + 1) % images.Length;
-                photoPresenter.Image = Image.FromFile(images[currentImageIndex]);
-            }*/
+                currentImageIndex = (currentImageIndex + 1) % images.Count;
+                try
+                {
+                    photoPresenter.Image = Image.FromFile(images[currentImageIndex]);
+                }
+                catch
+                {
+
+                }
+            }
 
         }
 
-        private void LoadImages()
+        //Lodaing all photos from a single trip
+        private List<string> LoadImages(Trip trip)
         {
-            // For now loading images from folder. In future should be replaced with loading images from data strings saved to database.
+            ProgramController controller = new();
 
-            //string imageFolderPath = Path.Combine(baseDirectory, IMAGE_FOLDER_NAME);
-            //images = System.IO.Directory.GetFiles(imageFolderPath, "*.png");
+            //Getting all tripsegments of a trip
+            IEnumerable<int> tripSegmentsOfTrip = controller.GetAllTripSegmentsByTripId(trip.Id).Select(ts => ts.Id);
+            List<TripMemory> tripMemories = new List<TripMemory>();
+
+
+            foreach (int tripSegmentId in tripSegmentsOfTrip)
+            {
+                tripMemories.AddRange(controller.GetAllTripMemoriesByTripSegmentId(tripSegmentId));
+            }
+
+
+            List<string> tripImages = new List<string>();
+
+            //Get all photos of a trip
+            foreach (TripMemory tripMemory in tripMemories)
+            {
+                if (!string.IsNullOrEmpty(tripMemory.Photo))
+                {
+                    tripImages.Add(tripMemory.Photo);
+                }
+            }
+
+            return tripImages;
         }
 
+        private void PresentationForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (images.Count > 0)
+            {
+                // Reset the index to the first image (0)
+                currentImageIndex = 0;
+
+                // Display the first image again
+                try
+                {
+                    photoPresenter.Image = Image.FromFile(images[currentImageIndex]);
+                }
+                catch
+                {
+                }
+
+                // Restart the timer
+                if (!timer.Enabled)
+                {
+                    timer.Start();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nie znaleziono zdjęć dla wyjazdu.");
+            }
+        }
     }
 }

@@ -301,6 +301,7 @@ namespace TravelPlaner.View.Forms
             tripNameEditInput = new TextBox();
             label65 = new Label();
             returnFromEditTripButton = new Button();
+            button1 = new Button();
             menuPanel.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)slideShowPictureBox).BeginInit();
@@ -1377,6 +1378,7 @@ namespace TravelPlaner.View.Forms
             // inspectTripPanel
             // 
             inspectTripPanel.BackColor = Color.FromArgb(246, 246, 246);
+            inspectTripPanel.Controls.Add(button1);
             inspectTripPanel.Controls.Add(memNoteTextBox);
             inspectTripPanel.Controls.Add(memDetailsPhotoPictureBox);
             inspectTripPanel.Controls.Add(segNameTextBox);
@@ -3309,6 +3311,16 @@ namespace TravelPlaner.View.Forms
             returnFromEditTripButton.UseVisualStyleBackColor = true;
             returnFromEditTripButton.Click += returnFromEditTrip_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(125, 11);
+            button1.Name = "button1";
+            button1.Size = new Size(189, 41);
+            button1.TabIndex = 169;
+            button1.Text = "Test";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // GUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -3614,5 +3626,6 @@ namespace TravelPlaner.View.Forms
         private ColumnHeader nameEditExpense;
         private ColumnHeader idEditRestingPoint;
         private ColumnHeader nameEditRestingPoint;
+        private Button button1;
     }
 }
