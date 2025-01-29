@@ -18,8 +18,7 @@ namespace TravelPlaner.Controller
             }
         }
         
-        
-        // Not yet working
+     
         public void AddDestination(string Country, string City, int tripSegmentId)
         {  
             using (var context = new TravelPlannerContext())
@@ -35,6 +34,15 @@ namespace TravelPlaner.Controller
             {
 
                 context.Destination.Add(landmark);
+                context.SaveChanges();
+            }
+        }
+        public void AddDestination(RestingPoint restingPoint)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+
+                context.Destination.Add(restingPoint);
                 context.SaveChanges();
             }
         }
@@ -253,13 +261,56 @@ namespace TravelPlaner.Controller
         {
             using (var context = new TravelPlannerContext())
             {
-                var existingDestination = context.Destination.FirstOrDefault(e => e.Id == updatedDestination.Id);
+                var existingDestination = context.Landmark.FirstOrDefault(e => e.Id == updatedDestination.Id);
 
                 if (existingDestination != null)
                 {
                     existingDestination.Country = updatedDestination.Country;
                     existingDestination.City = updatedDestination.City;
                     existingDestination.TripSegmentId = updatedDestination.TripSegmentId;
+                    //existingDestination.Address =
+                   // existingDestination.Description
+
+                    context.SaveChanges();
+                }
+            }
+
+        }
+
+        public void UpdateDestination(Landmark updatedLandmark)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                var existingDestination = context.Landmark.FirstOrDefault(e => e.Id == updatedLandmark.Id);
+
+                if (existingDestination != null)
+                {
+                    existingDestination.Country = updatedLandmark.Country;
+                    existingDestination.City = updatedLandmark.City;
+                    existingDestination.TripSegmentId = updatedLandmark.TripSegmentId;
+                    existingDestination.Address = updatedLandmark.Address;
+                    existingDestination.Description = updatedLandmark.Description;
+
+                    context.SaveChanges();
+                }
+            }
+
+        }
+        public void UpdateDestination(RestingPoint updatedRestingPoint)
+        {
+            using (var context = new TravelPlannerContext())
+            {
+                var existingDestination = context.RestingPoint.FirstOrDefault(e => e.Id == updatedRestingPoint.Id);
+
+                if (existingDestination != null)
+                {
+                    existingDestination.Country = updatedRestingPoint.Country;
+                    existingDestination.City = updatedRestingPoint.City;
+                    existingDestination.TripSegmentId = updatedRestingPoint.TripSegmentId;
+                    existingDestination.Address = updatedRestingPoint.Address;
+                    existingDestination.ContactInfo = updatedRestingPoint.ContactInfo;
+                    existingDestination.NightsSpentThere = updatedRestingPoint.NightsSpentThere;
+                    existingDestination.Type = updatedRestingPoint.Type;
 
                     context.SaveChanges();
                 }

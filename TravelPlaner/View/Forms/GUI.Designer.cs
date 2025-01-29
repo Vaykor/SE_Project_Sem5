@@ -208,15 +208,18 @@ namespace TravelPlaner.View.Forms
             tripListPanel = new Panel();
             browseTripPanel = new Panel();
             editTripPanel = new Panel();
+            memPhotoButtonSelect = new Button();
+            memPhotoEditInput = new TextBox();
+            memNameEditInput = new TextBox();
+            label1 = new Label();
+            expValueEditInput = new NumericUpDown();
             recomLandmarkEditButton = new Button();
             createSlideShowButton = new Button();
             memNoteEditInput = new RichTextBox();
-            memEditPhotoBox = new PictureBox();
             segNameEditInput = new TextBox();
             memSongEditInput = new TextBox();
-            expValueEditInput = new TextBox();
             expNameEditInput = new TextBox();
-            textBox20 = new TextBox();
+            restContactEditInput = new TextBox();
             restAddressEditInput = new TextBox();
             restCityEditInput = new TextBox();
             restCountryEditInput = new TextBox();
@@ -276,7 +279,7 @@ namespace TravelPlaner.View.Forms
             label61 = new Label();
             listView11 = new ListView();
             listView12 = new ListView();
-            restContactEditInput = new ListView();
+            restEditPanel = new ListView();
             listView14 = new ListView();
             memoriesEditListView = new ListView();
             idEditMemory = new ColumnHeader();
@@ -311,7 +314,7 @@ namespace TravelPlaner.View.Forms
             ((System.ComponentModel.ISupportInitialize)memDetailsPhotoPictureBox).BeginInit();
             browseTripPanel.SuspendLayout();
             editTripPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)memEditPhotoBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)expValueEditInput).BeginInit();
             SuspendLayout();
             // 
             // menuPanel
@@ -327,7 +330,7 @@ namespace TravelPlaner.View.Forms
             menuPanel.Location = new Point(0, 0);
             menuPanel.Margin = new Padding(3, 2, 3, 2);
             menuPanel.Name = "menuPanel";
-            menuPanel.Size = new Size(1602, 973);
+            menuPanel.Size = new Size(1605, 981);
             menuPanel.TabIndex = 0;
             // 
             // monthCalendar
@@ -510,7 +513,7 @@ namespace TravelPlaner.View.Forms
             newTripPanel.Location = new Point(0, 0);
             newTripPanel.Margin = new Padding(3, 2, 3, 2);
             newTripPanel.Name = "newTripPanel";
-            newTripPanel.Size = new Size(1602, 973);
+            newTripPanel.Size = new Size(1605, 981);
             newTripPanel.TabIndex = 0;
             newTripPanel.Visible = false;
             // 
@@ -1450,7 +1453,7 @@ namespace TravelPlaner.View.Forms
             inspectTripPanel.Location = new Point(0, 0);
             inspectTripPanel.Margin = new Padding(3, 2, 3, 2);
             inspectTripPanel.Name = "inspectTripPanel";
-            inspectTripPanel.Size = new Size(1602, 973);
+            inspectTripPanel.Size = new Size(1605, 981);
             inspectTripPanel.TabIndex = 2;
             inspectTripPanel.Visible = false;
             // 
@@ -1861,6 +1864,7 @@ namespace TravelPlaner.View.Forms
             editButton.TabIndex = 115;
             editButton.Text = "🖍";
             editButton.UseVisualStyleBackColor = true;
+            editButton.Click += editButton_Click;
             // 
             // label21
             // 
@@ -2265,10 +2269,10 @@ namespace TravelPlaner.View.Forms
             // 
             tripListPanel.AutoScroll = true;
             tripListPanel.Dock = DockStyle.Bottom;
-            tripListPanel.Location = new Point(0, 176);
+            tripListPanel.Location = new Point(0, 184);
             tripListPanel.Margin = new Padding(3, 2, 3, 2);
             tripListPanel.Name = "tripListPanel";
-            tripListPanel.Size = new Size(1602, 797);
+            tripListPanel.Size = new Size(1605, 797);
             tripListPanel.TabIndex = 4;
             // 
             // browseTripPanel
@@ -2282,22 +2286,25 @@ namespace TravelPlaner.View.Forms
             browseTripPanel.Location = new Point(0, 0);
             browseTripPanel.Margin = new Padding(3, 2, 3, 2);
             browseTripPanel.Name = "browseTripPanel";
-            browseTripPanel.Size = new Size(1602, 973);
+            browseTripPanel.Size = new Size(1605, 981);
             browseTripPanel.TabIndex = 1;
             browseTripPanel.Visible = false;
             // 
             // editTripPanel
             // 
             editTripPanel.BackColor = Color.FromArgb(246, 246, 246);
+            editTripPanel.Controls.Add(memPhotoButtonSelect);
+            editTripPanel.Controls.Add(memPhotoEditInput);
+            editTripPanel.Controls.Add(memNameEditInput);
+            editTripPanel.Controls.Add(label1);
+            editTripPanel.Controls.Add(expValueEditInput);
             editTripPanel.Controls.Add(recomLandmarkEditButton);
             editTripPanel.Controls.Add(createSlideShowButton);
             editTripPanel.Controls.Add(memNoteEditInput);
-            editTripPanel.Controls.Add(memEditPhotoBox);
             editTripPanel.Controls.Add(segNameEditInput);
             editTripPanel.Controls.Add(memSongEditInput);
-            editTripPanel.Controls.Add(expValueEditInput);
             editTripPanel.Controls.Add(expNameEditInput);
-            editTripPanel.Controls.Add(textBox20);
+            editTripPanel.Controls.Add(restContactEditInput);
             editTripPanel.Controls.Add(restAddressEditInput);
             editTripPanel.Controls.Add(restCityEditInput);
             editTripPanel.Controls.Add(restCountryEditInput);
@@ -2357,7 +2364,7 @@ namespace TravelPlaner.View.Forms
             editTripPanel.Controls.Add(label61);
             editTripPanel.Controls.Add(listView11);
             editTripPanel.Controls.Add(listView12);
-            editTripPanel.Controls.Add(restContactEditInput);
+            editTripPanel.Controls.Add(restEditPanel);
             editTripPanel.Controls.Add(listView14);
             editTripPanel.Controls.Add(memoriesEditListView);
             editTripPanel.Controls.Add(expensesEditListView);
@@ -2377,9 +2384,52 @@ namespace TravelPlaner.View.Forms
             editTripPanel.Location = new Point(0, 0);
             editTripPanel.Margin = new Padding(3, 2, 3, 2);
             editTripPanel.Name = "editTripPanel";
-            editTripPanel.Size = new Size(1602, 973);
+            editTripPanel.Size = new Size(1605, 981);
             editTripPanel.TabIndex = 9;
             editTripPanel.Visible = false;
+            // 
+            // memPhotoButtonSelect
+            // 
+            memPhotoButtonSelect.Location = new Point(1520, 777);
+            memPhotoButtonSelect.Name = "memPhotoButtonSelect";
+            memPhotoButtonSelect.Size = new Size(58, 23);
+            memPhotoButtonSelect.TabIndex = 175;
+            memPhotoButtonSelect.Text = "Select...";
+            memPhotoButtonSelect.UseVisualStyleBackColor = true;
+            memPhotoButtonSelect.Click += memPhotoButtonSelect_Click;
+            // 
+            // memPhotoEditInput
+            // 
+            memPhotoEditInput.Location = new Point(1286, 777);
+            memPhotoEditInput.Name = "memPhotoEditInput";
+            memPhotoEditInput.Size = new Size(292, 23);
+            memPhotoEditInput.TabIndex = 174;
+            // 
+            // memNameEditInput
+            // 
+            memNameEditInput.Location = new Point(1286, 745);
+            memNameEditInput.Name = "memNameEditInput";
+            memNameEditInput.Size = new Size(292, 23);
+            memNameEditInput.TabIndex = 173;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.ControlLightLight;
+            label1.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(1237, 746);
+            label1.Name = "label1";
+            label1.Size = new Size(43, 16);
+            label1.TabIndex = 172;
+            label1.Text = "Name";
+            // 
+            // expValueEditInput
+            // 
+            expValueEditInput.Location = new Point(892, 770);
+            expValueEditInput.Maximum = new decimal(new int[] { -727379968, 232, 0, 0 });
+            expValueEditInput.Name = "expValueEditInput";
+            expValueEditInput.Size = new Size(292, 23);
+            expValueEditInput.TabIndex = 171;
             // 
             // recomLandmarkEditButton
             // 
@@ -2408,20 +2458,11 @@ namespace TravelPlaner.View.Forms
             // 
             // memNoteEditInput
             // 
-            memNoteEditInput.Location = new Point(1286, 837);
+            memNoteEditInput.Location = new Point(1286, 858);
             memNoteEditInput.Name = "memNoteEditInput";
-            memNoteEditInput.Size = new Size(292, 91);
+            memNoteEditInput.Size = new Size(292, 70);
             memNoteEditInput.TabIndex = 168;
             memNoteEditInput.Text = "";
-            // 
-            // memEditPhotoBox
-            // 
-            memEditPhotoBox.Location = new Point(1286, 739);
-            memEditPhotoBox.Name = "memEditPhotoBox";
-            memEditPhotoBox.Size = new Size(292, 50);
-            memEditPhotoBox.SizeMode = PictureBoxSizeMode.StretchImage;
-            memEditPhotoBox.TabIndex = 167;
-            memEditPhotoBox.TabStop = false;
             // 
             // segNameEditInput
             // 
@@ -2432,17 +2473,10 @@ namespace TravelPlaner.View.Forms
             // 
             // memSongEditInput
             // 
-            memSongEditInput.Location = new Point(1286, 805);
+            memSongEditInput.Location = new Point(1286, 829);
             memSongEditInput.Name = "memSongEditInput";
             memSongEditInput.Size = new Size(292, 23);
             memSongEditInput.TabIndex = 165;
-            // 
-            // expValueEditInput
-            // 
-            expValueEditInput.Location = new Point(892, 768);
-            expValueEditInput.Name = "expValueEditInput";
-            expValueEditInput.Size = new Size(292, 23);
-            expValueEditInput.TabIndex = 164;
             // 
             // expNameEditInput
             // 
@@ -2451,12 +2485,12 @@ namespace TravelPlaner.View.Forms
             expNameEditInput.Size = new Size(292, 23);
             expNameEditInput.TabIndex = 163;
             // 
-            // textBox20
+            // restContactEditInput
             // 
-            textBox20.Location = new Point(497, 854);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new Size(292, 23);
-            textBox20.TabIndex = 162;
+            restContactEditInput.Location = new Point(497, 854);
+            restContactEditInput.Name = "restContactEditInput";
+            restContactEditInput.Size = new Size(292, 23);
+            restContactEditInput.TabIndex = 162;
             // 
             // restAddressEditInput
             // 
@@ -2526,7 +2560,7 @@ namespace TravelPlaner.View.Forms
             restCampingEditRadioButton.AutoSize = true;
             restCampingEditRadioButton.BackColor = Color.White;
             restCampingEditRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restCampingEditRadioButton.Location = new Point(565, 909);
+            restCampingEditRadioButton.Location = new Point(572, 910);
             restCampingEditRadioButton.Name = "restCampingEditRadioButton";
             restCampingEditRadioButton.Size = new Size(81, 20);
             restCampingEditRadioButton.TabIndex = 152;
@@ -2539,7 +2573,7 @@ namespace TravelPlaner.View.Forms
             restApartmentEditRadioButton.AutoSize = true;
             restApartmentEditRadioButton.BackColor = Color.White;
             restApartmentEditRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restApartmentEditRadioButton.Location = new Point(642, 884);
+            restApartmentEditRadioButton.Location = new Point(664, 884);
             restApartmentEditRadioButton.Name = "restApartmentEditRadioButton";
             restApartmentEditRadioButton.Size = new Size(90, 20);
             restApartmentEditRadioButton.TabIndex = 151;
@@ -2565,7 +2599,7 @@ namespace TravelPlaner.View.Forms
             restHostelEditRadioButton.AutoSize = true;
             restHostelEditRadioButton.BackColor = Color.White;
             restHostelEditRadioButton.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restHostelEditRadioButton.Location = new Point(565, 884);
+            restHostelEditRadioButton.Location = new Point(572, 884);
             restHostelEditRadioButton.Name = "restHostelEditRadioButton";
             restHostelEditRadioButton.Size = new Size(64, 20);
             restHostelEditRadioButton.TabIndex = 149;
@@ -2657,7 +2691,7 @@ namespace TravelPlaner.View.Forms
             label41.AutoSize = true;
             label41.BackColor = SystemColors.ControlLightLight;
             label41.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label41.Location = new Point(1244, 839);
+            label41.Location = new Point(1244, 863);
             label41.Name = "label41";
             label41.Size = new Size(36, 16);
             label41.TabIndex = 141;
@@ -2668,7 +2702,7 @@ namespace TravelPlaner.View.Forms
             label42.AutoSize = true;
             label42.BackColor = SystemColors.ControlLightLight;
             label42.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label42.Location = new Point(1229, 812);
+            label42.Location = new Point(1229, 837);
             label42.Name = "label42";
             label42.Size = new Size(51, 16);
             label42.TabIndex = 140;
@@ -2679,11 +2713,11 @@ namespace TravelPlaner.View.Forms
             label43.AutoSize = true;
             label43.BackColor = SystemColors.ControlLightLight;
             label43.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label43.Location = new Point(1225, 741);
+            label43.Location = new Point(1236, 777);
             label43.Name = "label43";
-            label43.Size = new Size(55, 16);
+            label43.Size = new Size(44, 16);
             label43.TabIndex = 139;
-            label43.Text = "Photo/s";
+            label43.Text = "Photo";
             // 
             // label44
             // 
@@ -2784,6 +2818,7 @@ namespace TravelPlaner.View.Forms
             landUpdateEditButton.TabIndex = 130;
             landUpdateEditButton.Text = "Update";
             landUpdateEditButton.UseVisualStyleBackColor = false;
+            landUpdateEditButton.Click += landUpdateEditButton_Click;
             // 
             // landAddEditButton
             // 
@@ -2796,6 +2831,7 @@ namespace TravelPlaner.View.Forms
             landAddEditButton.TabIndex = 129;
             landAddEditButton.Text = "Add";
             landAddEditButton.UseVisualStyleBackColor = false;
+            landAddEditButton.Click += landAddEditButton_Click;
             // 
             // landRemoveEditButton
             // 
@@ -2808,6 +2844,7 @@ namespace TravelPlaner.View.Forms
             landRemoveEditButton.TabIndex = 128;
             landRemoveEditButton.Text = "Remove";
             landRemoveEditButton.UseVisualStyleBackColor = false;
+            landRemoveEditButton.Click += landRemoveEditButton_Click;
             // 
             // restUpdateEditButton
             // 
@@ -2820,6 +2857,7 @@ namespace TravelPlaner.View.Forms
             restUpdateEditButton.TabIndex = 127;
             restUpdateEditButton.Text = "Update";
             restUpdateEditButton.UseVisualStyleBackColor = false;
+            restUpdateEditButton.Click += restUpdateEditButton_Click;
             // 
             // restAddEditButton
             // 
@@ -2832,6 +2870,7 @@ namespace TravelPlaner.View.Forms
             restAddEditButton.TabIndex = 126;
             restAddEditButton.Text = "Add";
             restAddEditButton.UseVisualStyleBackColor = false;
+            restAddEditButton.Click += restAddEditButton_Click;
             // 
             // restRemoveEditButton
             // 
@@ -2844,6 +2883,7 @@ namespace TravelPlaner.View.Forms
             restRemoveEditButton.TabIndex = 125;
             restRemoveEditButton.Text = "Remove";
             restRemoveEditButton.UseVisualStyleBackColor = false;
+            restRemoveEditButton.Click += restRemoveEditButton_Click;
             // 
             // expUpdateEditButton
             // 
@@ -2856,6 +2896,7 @@ namespace TravelPlaner.View.Forms
             expUpdateEditButton.TabIndex = 124;
             expUpdateEditButton.Text = "Update";
             expUpdateEditButton.UseVisualStyleBackColor = false;
+            expUpdateEditButton.Click += expUpdateEditButton_Click;
             // 
             // expAddEditButton
             // 
@@ -2868,6 +2909,7 @@ namespace TravelPlaner.View.Forms
             expAddEditButton.TabIndex = 123;
             expAddEditButton.Text = "Add";
             expAddEditButton.UseVisualStyleBackColor = false;
+            expAddEditButton.Click += expAddEditButton_Click;
             // 
             // expRemoveEditButton
             // 
@@ -2880,6 +2922,7 @@ namespace TravelPlaner.View.Forms
             expRemoveEditButton.TabIndex = 122;
             expRemoveEditButton.Text = "Remove";
             expRemoveEditButton.UseVisualStyleBackColor = false;
+            expRemoveEditButton.Click += expRemoveEditButton_Click;
             // 
             // memUpdateEditButton
             // 
@@ -2892,6 +2935,7 @@ namespace TravelPlaner.View.Forms
             memUpdateEditButton.TabIndex = 121;
             memUpdateEditButton.Text = "Update";
             memUpdateEditButton.UseVisualStyleBackColor = false;
+            memUpdateEditButton.Click += memUpdateEditButton_Click;
             // 
             // memAddEditButton
             // 
@@ -2904,6 +2948,7 @@ namespace TravelPlaner.View.Forms
             memAddEditButton.TabIndex = 120;
             memAddEditButton.Text = "Add";
             memAddEditButton.UseVisualStyleBackColor = false;
+            memAddEditButton.Click += memAddEditButton_Click;
             // 
             // memRemoveEditButton
             // 
@@ -2916,6 +2961,7 @@ namespace TravelPlaner.View.Forms
             memRemoveEditButton.TabIndex = 119;
             memRemoveEditButton.Text = "Remove";
             memRemoveEditButton.UseVisualStyleBackColor = false;
+            memRemoveEditButton.Click += memRemoveEditButton_Click;
             // 
             // segUpdateEditButton
             // 
@@ -3116,14 +3162,14 @@ namespace TravelPlaner.View.Forms
             listView12.TabIndex = 103;
             listView12.UseCompatibleStateImageBehavior = false;
             // 
-            // restContactEditInput
+            // restEditPanel
             // 
-            restContactEditInput.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            restContactEditInput.Location = new Point(407, 733);
-            restContactEditInput.Name = "restContactEditInput";
-            restContactEditInput.Size = new Size(392, 241);
-            restContactEditInput.TabIndex = 102;
-            restContactEditInput.UseCompatibleStateImageBehavior = false;
+            restEditPanel.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            restEditPanel.Location = new Point(407, 733);
+            restEditPanel.Name = "restEditPanel";
+            restEditPanel.Size = new Size(392, 241);
+            restEditPanel.TabIndex = 102;
+            restEditPanel.UseCompatibleStateImageBehavior = false;
             // 
             // listView14
             // 
@@ -3329,7 +3375,7 @@ namespace TravelPlaner.View.Forms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1602, 973);
+            ClientSize = new Size(1605, 981);
             Controls.Add(editTripPanel);
             Controls.Add(browseTripPanel);
             Controls.Add(menuPanel);
@@ -3353,7 +3399,7 @@ namespace TravelPlaner.View.Forms
             browseTripPanel.PerformLayout();
             editTripPanel.ResumeLayout(false);
             editTripPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)memEditPhotoBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)expValueEditInput).EndInit();
             ResumeLayout(false);
         }
 
@@ -3524,12 +3570,10 @@ namespace TravelPlaner.View.Forms
         private Panel browseTripPanel;
         private Panel editTripPanel;
         private RichTextBox memNoteEditInput;
-        private PictureBox memEditPhotoBox;
         private TextBox segNameEditInput;
         private TextBox memSongEditInput;
-        private TextBox expValueEditInput;
         private TextBox expNameEditInput;
-        private TextBox textBox20;
+        private TextBox restContactEditInput;
         private TextBox restAddressEditInput;
         private TextBox restCityEditInput;
         private TextBox restCountryEditInput;
@@ -3589,7 +3633,7 @@ namespace TravelPlaner.View.Forms
         private Label label61;
         private ListView listView11;
         private ListView listView12;
-        private ListView restContactEditInput;
+        private ListView restEditPanel;
         private ListView listView14;
         private ListView memoriesEditListView;
         private ListView expensesEditListView;
@@ -3631,5 +3675,10 @@ namespace TravelPlaner.View.Forms
         private ColumnHeader idEditRestingPoint;
         private ColumnHeader nameEditRestingPoint;
         private Button button1;
+        private NumericUpDown expValueEditInput;
+        private Label label1;
+        private TextBox memNameEditInput;
+        private Button memPhotoButtonSelect;
+        private TextBox memPhotoEditInput;
     }
 }
