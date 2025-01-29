@@ -2943,6 +2943,7 @@ namespace TravelPlaner.View.Forms
             segUpdateEditButton.TabIndex = 118;
             segUpdateEditButton.Text = "Update";
             segUpdateEditButton.UseVisualStyleBackColor = false;
+            segUpdateEditButton.Click += segUpdateEditButton_Click;
             // 
             // segAddEditButton
             // 
@@ -2955,6 +2956,7 @@ namespace TravelPlaner.View.Forms
             segAddEditButton.TabIndex = 117;
             segAddEditButton.Text = "Add";
             segAddEditButton.UseVisualStyleBackColor = false;
+            segAddEditButton.Click += segAddEditButton_Click;
             // 
             // segRemoveEditButton
             // 
@@ -2967,6 +2969,7 @@ namespace TravelPlaner.View.Forms
             segRemoveEditButton.TabIndex = 116;
             segRemoveEditButton.Text = "Remove";
             segRemoveEditButton.UseVisualStyleBackColor = false;
+            segRemoveEditButton.Click += segRemoveEditButton_Click;
             // 
             // saveEditTripButton
             // 
@@ -2978,6 +2981,7 @@ namespace TravelPlaner.View.Forms
             saveEditTripButton.TabIndex = 115;
             saveEditTripButton.Text = "💾";
             saveEditTripButton.UseVisualStyleBackColor = true;
+            saveEditTripButton.Click += saveEditTripButton_Click;
             // 
             // label52
             // 
@@ -3334,7 +3338,7 @@ namespace TravelPlaner.View.Forms
             returnFromEditTripButton.TabIndex = 87;
             returnFromEditTripButton.Text = "◀️";
             returnFromEditTripButton.UseVisualStyleBackColor = true;
-            returnFromEditTripButton.Click += returnFromEditTrip_Click;
+            returnFromEditTripButton.Click += returnFromEditTripButton_Click;
             // 
             // GUI
             // 

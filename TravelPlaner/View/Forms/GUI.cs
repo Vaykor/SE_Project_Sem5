@@ -23,9 +23,10 @@ namespace TravelPlaner.View.Forms
     public partial class GUI : Form
     {
         ProgramController controller = new ProgramController();
-        private List<FlowLayoutPanel> destinationSegmentPanels = new List<FlowLayoutPanel>();
-        private List<FlowLayoutPanel> expenseSegmentPanels = new List<FlowLayoutPanel>();
-        private List<FlowLayoutPanel> memorySegmentPanels = new List<FlowLayoutPanel>();
+
+        Trip editedTrip = new Trip();
+        List<TripSegment> editedSegmentList = new List<TripSegment>();
+        TripSegment editedSegment = new TripSegment();
 
         private System.Windows.Forms.Timer timer;
 
@@ -33,6 +34,8 @@ namespace TravelPlaner.View.Forms
         private MediaFoundationReader mediaReader;
 
         private bool isFirstClick = true;
+
+
 
         public GUI()
         {
@@ -246,9 +249,10 @@ namespace TravelPlaner.View.Forms
         //-------------------Browse Panel---------------------
         private void browseTripsButton_Click(object sender, EventArgs e)
         {
-
-            
-
+            browseTrips();
+        }
+        private void browseTrips()
+        {
             ShowPanel(browseTripPanel);
 
             // Fetch trips from database
@@ -343,8 +347,8 @@ namespace TravelPlaner.View.Forms
         //----------------Trip details panel-------------------
         private void ShowTripDetails(Trip trip, List<TripSegment> tripSegments)
         {
+            tripListPanel.Controls.Clear();
             ShowPanel(inspectTripPanel);
-
             Trip passedTrip = trip;
             memDetailsPhotoPictureBox.Image = null;
             memNoteTextBox.Text = "";
@@ -381,6 +385,7 @@ namespace TravelPlaner.View.Forms
 
             void segmentsListView_ItemActivate(object sender, EventArgs e)
             {
+
                 memDetailsPhotoPictureBox.Image = null;
                 memNoteTextBox.Text = "";
                 foreach (Control control in inspectTripPanel.Controls) // Replace 'myPanel' with your container
@@ -401,6 +406,7 @@ namespace TravelPlaner.View.Forms
                 ListViewItem selectedItem = segmentsListView.SelectedItems[0];
                 if (selectedItem.Tag is TripSegment segment)
                 {
+
                     landmarkListView.Items.Clear();
                     restingPointListView.Items.Clear();
                     expensesListView.Items.Clear();
@@ -519,17 +525,13 @@ namespace TravelPlaner.View.Forms
 
             }
             editButton.Click += (sender, e) => ShowEditTrip(trip, tripSegments);
+            //LEAVE INSPECTING
         }
 
-
-
-        private void ShowEditTrip(Trip trip, List<TripSegment> tripSegments)
+        private void UpdateEditPanels(Trip trip, List<TripSegment> segments)
         {
-            ShowPanel(editTripPanel);
-            //ProgramController controller = new ProgramController(); 
-
-            Trip passedTrip = trip;
-            //TripSegment tripSegment = controller.GetAllTripSegmentsByTripId(trip.Id);
+            segUpdateEditButton.Enabled = false;
+            segRemoveEditButton.Enabled = false;
             memEditPhotoBox.Image = null;
             memNoteEditInput.Text = "";
             landmarkEditListView.Items.Clear();
@@ -554,17 +556,21 @@ namespace TravelPlaner.View.Forms
             tripNameEditInput.Text = trip.Name;
             editTripDepartureDatePicker.Value = trip.StartDate;
             editTripReturnDatePicker.Value = trip.EndDate;
-            foreach (TripSegment segment in tripSegments)
+            segmentsEditListView.ItemActivate -= segmentsEditListView_ItemActivate;
+            foreach (TripSegment segment in segments)
             {
                 ListViewItem item = new ListViewItem(trip.Id.ToString());
                 item.SubItems.Add(segment.Name.ToString());
                 segmentsEditListView.Items.Add(item);
                 item.Tag = segment;
             }
+
             segmentsEditListView.ItemActivate += segmentsEditListView_ItemActivate;
 
             void segmentsEditListView_ItemActivate(object sender, EventArgs e)
             {
+                segUpdateEditButton.Enabled = true;
+                segRemoveEditButton.Enabled = true;
                 memEditPhotoBox.Image = null;
                 memNoteEditInput.Text = "";
                 foreach (Control control in editTripPanel.Controls)
@@ -585,15 +591,16 @@ namespace TravelPlaner.View.Forms
                 ListViewItem selectedEditItem = segmentsEditListView.SelectedItems[0];
                 if (selectedEditItem.Tag is TripSegment segment)
                 {
+                    editedSegment = segment;
                     landmarkEditListView.Items.Clear();
                     restingEditPointListView.Items.Clear();
                     expensesEditListView.Items.Clear();
                     memoriesEditListView.Items.Clear();
-                    List<Expense> expenses = controller.GetAllExpensesByTripSegmentId(segment.Id);
-                    segNameEditInput.Text = segment.Name;
-                    
+                    List<Expense> expenses = controller.GetAllExpensesByTripSegmentId(editedSegment.Id);
+                    segNameEditInput.Text = editedSegment.Name;
 
-                        foreach (Expense expense in expenses)
+
+                    foreach (Expense expense in expenses)
                     {
                         ListViewItem item = new ListViewItem(expense.Id.ToString()); // First column (Id)
                         item.SubItems.Add(expense.Name);                            // Second column (Name)// Third column (StartDate)
@@ -702,54 +709,86 @@ namespace TravelPlaner.View.Forms
                     }
                 }
             }
-            //FUNCTIONS FOR ADD, UPDATE AND REMOVE BUTTONS
-
-            //SAVE TRIP
-            saveEditTripButton.Click += (s, e) =>
-            {
-                Trip toUpdate = new Trip();
-                toUpdate.Id = passedTrip.Id;
-                if (tripNameEditInput.Text.IsNullOrEmpty())
-                {
-                    toUpdate.Name = passedTrip.Name;
-                } else
-                {
-                    toUpdate.Name = tripNameEditInput.Text;
-                }
-                toUpdate.StartDate = editTripDepartureDatePicker.Value;
-                toUpdate.EndDate = editTripReturnDatePicker.Value;
-                controller.UpdateTrip(toUpdate);
-            };
-
-            //ADD TRIP SEGMENT
-            segAddEditButton.Click += (s, e) =>
-            {
-                if (!segNameEditInput.Text.IsNullOrEmpty())
-                {
-                    controller.AddTripSegment(segNameEditInput.Text, new List<TripMemory>(), new List<Expense>(), new List<Destination>(), passedTrip.Id);
-                }
-                else
-                {
-                    PopupForm popup = new PopupForm(4);
-                    popup.ShowDialog();
-                }
-            };
-            segUpdateEditButton.Click += (s, e) =>
-            {
-                ListViewItem selectedEditItem = segmentsEditListView.SelectedItems[0];
-                if (selectedEditItem.Tag is TripSegment segment && !segNameEditInput.Text.IsNullOrEmpty())
-                {
-                    TripSegment updateSegment = new TripSegment() { Id = segment.Id, Name=segNameEditInput.Text, TripId=passedTrip.Id };
-                    controller.UpdateTripSegment(updateSegment);
-                }
-                else
-                {
-                    PopupForm popup = new PopupForm(4);
-                    popup.ShowDialog();
-                }
-            };
         }
 
+        private void ShowEditTrip(Trip trip, List<TripSegment> tripSegments)
+        {
+            ShowPanel(editTripPanel);
+            //ProgramController controller = new ProgramController(); 
+
+            Trip passedTrip = trip;
+            //TripSegment tripSegment = controller.GetAllTripSegmentsByTripId(trip.Id);
+            editedTrip = passedTrip;
+            List<TripSegment> segments = tripSegments;
+
+            UpdateEditPanels(passedTrip, segments);
+        }
+        //ADD SEGMENT IN EDIT
+        private void segAddEditButton_Click(object sender, EventArgs e)
+        {
+            if (!segNameEditInput.Text.IsNullOrEmpty())
+            {
+                controller.AddTripSegment(segNameEditInput.Text, new List<TripMemory>(), new List<Expense>(), new List<Destination>(), editedTrip.Id);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+        //UPDATE SEGMENT IN EDIT
+        private void segUpdateEditButton_Click(object sender, EventArgs e)
+        {
+            if (/*selectedEditItem.Tag is TripSegment segment &&*/ !segNameEditInput.Text.IsNullOrEmpty())
+            {
+
+                TripSegment updateSegment = new TripSegment() { Id = editedSegment.Id, Name = segNameEditInput.Text, TripId = editedTrip.Id };
+                controller.UpdateTripSegment(updateSegment);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
+
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+        //SAVE CHANGES TO TRIP ITSELF IN EDIT
+        private void saveEditTripButton_Click(object sender, EventArgs e)
+        {
+            Trip toUpdate = new Trip();
+            toUpdate.Id = editedTrip.Id;
+            if (tripNameEditInput.Text.IsNullOrEmpty())
+            {
+                toUpdate.Name = editedTrip.Name;
+            }
+            else
+            {
+                toUpdate.Name = tripNameEditInput.Text;
+            }
+            toUpdate.StartDate = editTripDepartureDatePicker.Value;
+            toUpdate.EndDate = editTripReturnDatePicker.Value;
+            controller.UpdateTrip(toUpdate);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateEditPanels(toUpdate, editedSegmentList);
+            editedTrip = toUpdate;
+        }
+        //REMOVE SEGMENT IN EDIT
+        private void segRemoveEditButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteTripSegment(editedSegment);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateEditPanels(editedTrip, editedSegmentList);
+        }
+
+        //RETURN FROM EDITING TRIP
+        private void returnFromEditTripButton_Click(object sender, EventArgs e)
+        {
+            ShowTripDetails(editedTrip, editedSegmentList);
+        }
         //---------------------returning from add new trips panel--------------------
         private void returnFromAddButton_Click(object sender, EventArgs e)
         {
@@ -761,19 +800,8 @@ namespace TravelPlaner.View.Forms
         private void returnFromInspectButton_Click(object sender, EventArgs e)
         {
             ShowPanel(browseTripPanel);
-            //tripInfoPanel.Controls.Clear();
-            //editButtonPanel.Controls.Clear();
         }
 
-
-
-
-        //------------------------returning from edit trips panel----------------------
-        private void returnFromEditTrip_Click(object sender, EventArgs e)
-        {
-            ShowPanel(inspectTripPanel);
-            //editTripFlowLayoutPanel.Controls.Clear();
-        }
 
         private void recomLandmarkAddButton_Click(object sender, EventArgs e)
         {
