@@ -1,4 +1,6 @@
-﻿namespace TravelPlaner.View.Forms
+﻿
+
+namespace TravelPlaner.View.Forms
 {
     partial class PresentationForm
     {
@@ -6,6 +8,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+       
 
         /// <summary>
         /// Clean up any resources being used.
@@ -21,6 +24,8 @@
         }
 
         #region Windows Form Designer generated code
+
+        
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -65,7 +70,10 @@
             Load += PresentationForm_Load;
             ((System.ComponentModel.ISupportInitialize)photoPresenter).EndInit();
             ResumeLayout(false);
+            
         }
+        
+        
 
         #endregion
 
