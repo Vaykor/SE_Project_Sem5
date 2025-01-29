@@ -261,10 +261,6 @@ namespace TravelPlaner.View.Forms
 
                 int segmentCount = tripSegments.Count;
 
-
-
-
-
                 // Fetch destinations for the first segment (if needed)
                 string destinationName = tripSegments.FirstOrDefault() != null ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country : "Unknown";
 
@@ -881,6 +877,120 @@ namespace TravelPlaner.View.Forms
             Trip trip = controller.GetFirstTrip();
             new PresentationForm(trip).Show();
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            // Get the text to search for
+            string lettersToSearch = searchTextBox.Text;
+
+            // Fetch trips from the database
+            List<Trip> trips = controller.GetAllTrips();
+
+            // Filter trips based on the search text
+            List<Trip> foundTrips = trips.Where(trip => trip.Name.Contains(lettersToSearch, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            // Clear previous results
+            tripListPanel.Controls.Clear();
+
+            int panelY = 10; // Vertical position for each trip panel
+            foreach (var trip in foundTrips)
+            {
+                // Fetch trip segments and count them
+                List<TripSegment> tripSegments = controller.GetAllTripSegmentsByTripId(trip.Id);
+                int segmentCount = tripSegments.Count;
+
+                // Fetch destinations for the first segment (if needed)
+                string destinationName = tripSegments.FirstOrDefault() != null
+                    ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country
+                    : "Unknown";
+
+                // Create a new panel for the trip
+                Panel tripPanel = new Panel
+                {
+                    BorderStyle = BorderStyle.FixedSingle,
+                    Size = new Size(tripListPanel.Width - 200, 100),
+                    Location = new Point(50, panelY),
+                    BackColor = Color.White,
+                    Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right
+                };
+
+                // Add a label for the trip name and destination
+                Label nameLabel = new Label
+                {
+                    Text = $"{trip.Name},    Destination: {destinationName}",
+                    Font = new Font("Arial", 14, FontStyle.Bold),
+                    Location = new Point(10, 10),
+                    ForeColor = Color.Black,
+                    AutoSize = true
+                };
+                tripPanel.Controls.Add(nameLabel);
+
+                // Add a label for the start and end dates
+                Label dateLabel = new Label
+                {
+                    Text = $"Date of the trip: {trip.StartDate.ToShortDateString()} - {trip.EndDate.ToShortDateString()}",
+                    Font = new Font("Arial", 12, FontStyle.Regular),
+                    ForeColor = Color.Black,
+                    Location = new Point(10, 40),
+                    AutoSize = true
+                };
+                tripPanel.Controls.Add(dateLabel);
+
+                // Add a label for the number of segments
+                Label segmentLabel = new Label
+                {
+                    Text = $"Number of Segments: {segmentCount}",
+                    Font = new Font("Arial", 12, FontStyle.Regular),
+                    ForeColor = Color.Black,
+                    Location = new Point(10, 70),
+                    AutoSize = true
+                };
+                tripPanel.Controls.Add(segmentLabel);
+
+                // Add a view button
+                Button viewButton = new Button
+                {
+                    Text = "🔍",
+                    Font = new Font("Arial", 30, FontStyle.Regular),
+                    Size = new Size(40, 40),
+                    Location = new Point(tripPanel.Width - 100, 20),
+                    AutoSize = true,
+                    ForeColor = Color.FromArgb(1, 183, 99),
+                    FlatStyle = FlatStyle.Flat
+                };
+
+                // Remove the button border
+                viewButton.FlatAppearance.BorderSize = 0;
+                viewButton.BackColor = Color.White;
+
+                // Add a click event for the button
+                viewButton.Click += (sender, e) => ShowTripDetails(trip, tripSegments);
+
+                tripPanel.Controls.Add(viewButton);
+
+                // Add the trip panel to the parent panel
+                tripListPanel.Controls.Add(tripPanel);
+
+                // Increment the Y position for the next panel
+                panelY += 110;
+            }
+
+            // Display a message if no trips are found
+            if (foundTrips.Count == 0)
+            {
+                Label noResultsLabel = new Label
+                {
+                    Text = "No trips found.",
+                    Font = new Font("Arial", 12, FontStyle.Italic),
+                    Location = new Point(50, panelY),
+                    AutoSize = true,
+                    ForeColor = Color.Red
+                };
+                tripListPanel.Controls.Add(noResultsLabel);
+            }
+        }
+
+
 
 
     }

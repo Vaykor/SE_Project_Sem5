@@ -204,6 +204,7 @@ namespace TravelPlaner.View.Forms
             tripNameTextBox = new TextBox();
             returnFromBrowseButton = new Button();
             searchTextBox = new TextBox();
+            searchButton = new Button();
             browseLabel = new Label();
             tripListPanel = new Panel();
             browseTripPanel = new Panel();
@@ -2250,6 +2251,18 @@ namespace TravelPlaner.View.Forms
             searchTextBox.TabIndex = 2;
             searchTextBox.Text = "search";
             searchTextBox.TextAlign = HorizontalAlignment.Center;
+            //
+            // searchButton
+            //
+            searchButton.Font = new Font("Arial", 30, FontStyle.Regular);
+            searchButton.Size = new Size(60, 60);
+            searchButton.Location = new Point(1000, 107);
+            searchButton.ForeColor = Color.FromArgb(1, 183, 99);
+            searchButton.FlatStyle = FlatStyle.Flat;
+            searchButton.Text = "🔍";
+            searchButton.FlatAppearance.BorderSize = 0;
+            searchButton.BackColor = Color.White;
+            searchButton.Click += searchButton_Click;
             // 
             // browseLabel
             // 
@@ -2277,6 +2290,7 @@ namespace TravelPlaner.View.Forms
             browseTripPanel.Controls.Add(tripListPanel);
             browseTripPanel.Controls.Add(browseLabel);
             browseTripPanel.Controls.Add(searchTextBox);
+            browseTripPanel.Controls.Add(searchButton);
             browseTripPanel.Controls.Add(returnFromBrowseButton);
             browseTripPanel.Dock = DockStyle.Fill;
             browseTripPanel.Location = new Point(0, 0);
@@ -3515,6 +3529,7 @@ namespace TravelPlaner.View.Forms
         private Button returnFromInspectButton;
         private Button returnFromBrowseButton;
         private TextBox searchTextBox;
+        private Button searchButton;
         private Label browseLabel;
         private Panel tripListPanel;
         private Panel browseTripPanel;
