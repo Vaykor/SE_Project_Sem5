@@ -239,38 +239,13 @@ namespace TravelPlaner.View.Forms
             segUpdateAddButton.Enabled = false;
         }
 
-        private async Task PlayYouTubeAudioAsync(string videoUrl)
-        {
-            try
-            {
-                var youtube = new YoutubeClient();
-
-                // Get the stream manifest
-                var streamManifest = await youtube.Videos.Streams.GetManifestAsync(videoUrl);
-                var audioStreamInfo = streamManifest.GetAudioOnlyStreams().GetWithHighestBitrate();
-
-                // Download audio to a temp file
-                var tempFile = Path.Combine(Path.GetTempPath(), "audio.mp3");
-                await youtube.Videos.Streams.DownloadAsync(audioStreamInfo, tempFile);
-
-                // Play audio
-                mediaReader = new MediaFoundationReader(tempFile);
-                waveOut = new WaveOutEvent();
-                waveOut.Init(mediaReader);
-                waveOut.Play();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}");
-            }
-        }
+        
 
         //-------------------Browse Panel---------------------
-        private async void browseTripsButton_Click(object sender, EventArgs e)
+        private void browseTripsButton_Click(object sender, EventArgs e)
         {
 
-            string youtubeUrl = "https://www.youtube.com/watch?v=ekr2nIex040"; // Replace with your URL
-            await PlayYouTubeAudioAsync(youtubeUrl);
+            
 
             ShowPanel(browseTripPanel);
 
