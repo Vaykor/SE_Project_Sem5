@@ -124,6 +124,7 @@ namespace TravelPlaner.View.Forms
             nameLabel = new Label();
             returnFromAddButton = new Button();
             inspectTripPanel = new Panel();
+            button1 = new Button();
             memNoteTextBox = new RichTextBox();
             memDetailsPhotoPictureBox = new PictureBox();
             segNameTextBox = new TextBox();
@@ -197,10 +198,10 @@ namespace TravelPlaner.View.Forms
             tripReturnDatePicker = new DateTimePicker();
             tripDepartureDatePicker = new DateTimePicker();
             label33 = new Label();
-            tripNameTextBox = new TextBox();
             label34 = new Label();
             returnFromInspectButton = new Button();
             label32 = new Label();
+            tripNameTextBox = new TextBox();
             returnFromBrowseButton = new Button();
             searchTextBox = new TextBox();
             browseLabel = new Label();
@@ -301,7 +302,6 @@ namespace TravelPlaner.View.Forms
             tripNameEditInput = new TextBox();
             label65 = new Label();
             returnFromEditTripButton = new Button();
-            button1 = new Button();
             menuPanel.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)slideShowPictureBox).BeginInit();
@@ -1442,10 +1442,10 @@ namespace TravelPlaner.View.Forms
             inspectTripPanel.Controls.Add(tripReturnDatePicker);
             inspectTripPanel.Controls.Add(tripDepartureDatePicker);
             inspectTripPanel.Controls.Add(label33);
-            inspectTripPanel.Controls.Add(tripNameTextBox);
             inspectTripPanel.Controls.Add(label34);
             inspectTripPanel.Controls.Add(returnFromInspectButton);
             inspectTripPanel.Controls.Add(label32);
+            inspectTripPanel.Controls.Add(tripNameTextBox);
             inspectTripPanel.Dock = DockStyle.Fill;
             inspectTripPanel.Location = new Point(0, 0);
             inspectTripPanel.Margin = new Padding(3, 2, 3, 2);
@@ -1453,6 +1453,16 @@ namespace TravelPlaner.View.Forms
             inspectTripPanel.Size = new Size(1602, 973);
             inspectTripPanel.TabIndex = 2;
             inspectTripPanel.Visible = false;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(125, 11);
+            button1.Name = "button1";
+            button1.Size = new Size(189, 41);
+            button1.TabIndex = 169;
+            button1.Text = "Test";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // memNoteTextBox
             // 
@@ -2171,15 +2181,6 @@ namespace TravelPlaner.View.Forms
             label33.TabIndex = 90;
             label33.Text = "Date of the trip";
             // 
-            // tripNameTextBox
-            // 
-            tripNameTextBox.Enabled = false;
-            tripNameTextBox.Location = new Point(154, 78);
-            tripNameTextBox.Margin = new Padding(3, 2, 3, 2);
-            tripNameTextBox.Name = "tripNameTextBox";
-            tripNameTextBox.Size = new Size(438, 23);
-            tripNameTextBox.TabIndex = 89;
-            // 
             // label34
             // 
             label34.AutoSize = true;
@@ -2212,6 +2213,15 @@ namespace TravelPlaner.View.Forms
             label32.Size = new Size(489, 68);
             label32.TabIndex = 91;
             label32.Text = "Details of the trip";
+            // 
+            // tripNameTextBox
+            // 
+            tripNameTextBox.Enabled = false;
+            tripNameTextBox.Location = new Point(154, 78);
+            tripNameTextBox.Margin = new Padding(3, 2, 3, 2);
+            tripNameTextBox.Name = "tripNameTextBox";
+            tripNameTextBox.Size = new Size(438, 23);
+            tripNameTextBox.TabIndex = 89;
             // 
             // returnFromBrowseButton
             // 
@@ -3311,26 +3321,16 @@ namespace TravelPlaner.View.Forms
             returnFromEditTripButton.UseVisualStyleBackColor = true;
             returnFromEditTripButton.Click += returnFromEditTrip_Click;
             // 
-            // button1
-            // 
-            button1.Location = new Point(125, 11);
-            button1.Name = "button1";
-            button1.Size = new Size(189, 41);
-            button1.TabIndex = 169;
-            button1.Text = "Test";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // GUI
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1602, 973);
-            Controls.Add(inspectTripPanel);
             Controls.Add(editTripPanel);
             Controls.Add(browseTripPanel);
             Controls.Add(menuPanel);
             Controls.Add(newTripPanel);
+            Controls.Add(inspectTripPanel);
             Margin = new Padding(3, 2, 3, 2);
             Name = "GUI";
             Text = "Travel Planner";

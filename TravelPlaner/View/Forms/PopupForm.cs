@@ -30,7 +30,11 @@ namespace TravelPlaner.View.Forms
                 case 3:
                     label1.Text = "Please insert a City into the text field, before searching for recommended landmarks.";
                     break;
-                }
+                case 4:
+                    label1.Text = "One of the required textfields is empty or invalid. Please correct it before attempting to add to, or update the database.";
+                    break;
+            }
+                
         }
 
         private void button1_Click(object sender, EventArgs e)
