@@ -23,6 +23,7 @@ namespace TravelPlaner.View.Forms
             InitializeComponent();
             Text = trip.Name + " photo memories";
 
+
             images = LoadImages(trip);
 
             timer = new Timer
