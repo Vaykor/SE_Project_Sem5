@@ -32,7 +32,7 @@ namespace TravelPlaner.View.Forms
         private WaveOutEvent waveOut;
         private MediaFoundationReader mediaReader;
 
-        
+        private bool isFirstClick = true;
 
         public GUI()
         {
@@ -47,6 +47,7 @@ namespace TravelPlaner.View.Forms
             timer.Start();
 
             InitializeComponent();
+
 
         }
         private void GUI_Load(object sender, EventArgs e)
@@ -990,7 +991,14 @@ namespace TravelPlaner.View.Forms
             }
         }
 
-
+        private void searchTextBox_Click(object sender, EventArgs e)
+        {
+            if (isFirstClick)
+            {
+                searchTextBox.Text = ""; // Clear the text
+                isFirstClick = false;    // Prevent further clearing
+            }
+        }
 
 
     }

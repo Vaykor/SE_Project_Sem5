@@ -33,6 +33,7 @@ namespace TravelPlaner.View.Forms
             this.FormClosing += PresentationForm_FormClosing;
             Text = trip.Name + " photo memories";
 
+
             images = LoadImages(trip);
 
             timer = new Timer
