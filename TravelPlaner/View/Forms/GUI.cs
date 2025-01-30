@@ -1392,9 +1392,7 @@ namespace TravelPlaner.View.Forms
                 landAddressAddInput.Enabled = true;
                 landDescAddInput.Enabled = true;
                 recomLandmarkAddButton.Enabled = true;
-                landRemoveAddButton.Enabled = true;
-                landUpdateAddButton.Enabled = true;
-                landAddAddButton.Enabled = true;
+                
 
 
                 restNameLabel.Enabled = true;
@@ -1415,17 +1413,11 @@ namespace TravelPlaner.View.Forms
                 restApartmentAddRadioButton.Enabled = true;
                 restRoomAddRadioButton.Enabled = true;
                 restCampingAddRadioButton.Enabled = true;
-                restRemoveAddButton.Enabled = true;
-                restUpdateAddButton.Enabled = true;
-                restAddAddButton.Enabled = true;
 
                 expNameLabel.Enabled = true;
                 expValueLabel.Enabled = true;
                 expNameAddInput.Enabled = true;
                 expValueAddInput.Enabled = true;
-                expRemoveAddButton.Enabled = true;
-                expUpdateAddButton.Enabled = true;
-                expAddAddButton.Enabled = true;
 
                 memNameAddInput.Enabled = true;
                 memNameLabel.Enabled = true;
@@ -1437,16 +1429,11 @@ namespace TravelPlaner.View.Forms
                 memSongAddInput.Enabled = true;
                 memNoteAddInput.Enabled = true;
                 memNoteLabel.Enabled = true;
-                memRemoveAddButton.Enabled = true;
-                memUpdateAddButton.Enabled = true;
-                memAddAddButton.Enabled = true;
 
 
                 segNameLabel.Enabled = true;
                 segNameAddInput.Enabled = true;
-                segRemoveAddButton.Enabled = true;
                 segAddAddButton.Enabled = true;
-                segUpdateAddButton.Enabled = true;
             }
         }
 
@@ -1647,7 +1634,7 @@ namespace TravelPlaner.View.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Trip trip = controller.GetFirstTrip();
+            Trip trip = editedTrip;
             new PresentationForm(trip).Show();
         }
 
@@ -1663,8 +1650,8 @@ namespace TravelPlaner.View.Forms
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "Image files (*.jpg)|*.png";
-                openFileDialog.FilterIndex = 3;
+                openFileDialog.Filter = "Image files (*.jpg, *.png)|*.jpg;*.png";
+                openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
@@ -1697,8 +1684,8 @@ namespace TravelPlaner.View.Forms
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "c:\\";
-                openFileDialog.Filter = "Image files (*.jpg)|*.png";
-                openFileDialog.FilterIndex = 3;
+                openFileDialog.Filter = "Image files (*.jpg, *.png)|*.jpg;*.png";
+                openFileDialog.FilterIndex = 2;
                 openFileDialog.RestoreDirectory = true;
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)

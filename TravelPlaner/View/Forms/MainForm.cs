@@ -55,6 +55,7 @@ namespace TravelPlaner.View.Forms
             passedCity = city;
             PopulateListViewAsync();
         }
+     
         private void button1_Click(object sender, EventArgs e)
         {
             /*List<Trip> tripsFromDB = new List<Trip>();
