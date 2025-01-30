@@ -12,6 +12,6 @@ namespace TravelPlaner.Model.Enums
         Hostel,
         Room,
         Apartment,
-        Camping,
+        Camping
     }
 }
