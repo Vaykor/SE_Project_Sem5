@@ -287,6 +287,7 @@ namespace TravelPlaner.Controller
                 {
                     existingDestination.Country = updatedLandmark.Country;
                     existingDestination.City = updatedLandmark.City;
+                    existingDestination.Name = updatedLandmark.Name;
                     existingDestination.TripSegmentId = updatedLandmark.TripSegmentId;
                     existingDestination.Address = updatedLandmark.Address;
                     existingDestination.Description = updatedLandmark.Description;
@@ -306,6 +307,7 @@ namespace TravelPlaner.Controller
                 {
                     existingDestination.Country = updatedRestingPoint.Country;
                     existingDestination.City = updatedRestingPoint.City;
+                    existingDestination.Name = updatedRestingPoint.Name;
                     existingDestination.TripSegmentId = updatedRestingPoint.TripSegmentId;
                     existingDestination.Address = updatedRestingPoint.Address;
                     existingDestination.ContactInfo = updatedRestingPoint.ContactInfo;
