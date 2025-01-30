@@ -321,7 +321,11 @@ namespace TravelPlaner.View.Forms
             expUpdateAddButton.Enabled = false;
             expAddAddButton.Enabled = false;
 
+            memNameAddInput.Enabled = false;
+            memNameLabel.Enabled = false;
+            memPhotoAddButtonSelect.Enabled = false;
             memPhotoLabel.Enabled = false;
+            memPhotoAddInput.Enabled = false;
             memSongLabel.Enabled = false;
             memSongAddInput.Enabled = false;
             memNoteAddInput.Enabled = false;
@@ -629,6 +633,18 @@ namespace TravelPlaner.View.Forms
         {
             segUpdateEditButton.Enabled = false;
             segRemoveEditButton.Enabled = false;
+            landAddEditButton.Enabled = false;
+            landUpdateEditButton.Enabled = false;
+            landRemoveEditButton.Enabled = false;
+            restAddEditButton.Enabled = false;
+            restUpdateEditButton.Enabled = false;
+            restRemoveEditButton.Enabled = false;
+            expAddEditButton.Enabled = false;
+            expUpdateEditButton.Enabled = false;
+            expRemoveEditButton.Enabled = false;
+            memAddEditButton.Enabled = false;
+            memUpdateEditButton.Enabled = false;
+            memRemoveEditButton.Enabled = false;
             memPhotoEditInput.Text = null;
             memNoteEditInput.Text = "";
             landmarkEditListView.Items.Clear();
@@ -669,6 +685,10 @@ namespace TravelPlaner.View.Forms
             {
                 segUpdateEditButton.Enabled = true;
                 segRemoveEditButton.Enabled = true;
+                landAddEditButton.Enabled = true;
+                restAddEditButton.Enabled = true;
+                expAddEditButton.Enabled = true;
+                memAddEditButton.Enabled = true;
                 memPhotoEditInput.Text = null;
                 memNoteEditInput.Text = "";
                 foreach (Control control in editTripPanel.Controls)
@@ -709,6 +729,8 @@ namespace TravelPlaner.View.Forms
                     expensesEditListView.ItemActivate += expenseEditListView_ItemActivate;
                     void expenseEditListView_ItemActivate(object sender, EventArgs e)
                     {
+                        expUpdateEditButton.Enabled = true;
+                        expRemoveEditButton.Enabled = true;
                         ListViewItem selectedEditExpenseItem = expensesEditListView.SelectedItems[0];
                         if (selectedEditExpenseItem.Tag is Expense expense)
                         {
@@ -733,6 +755,9 @@ namespace TravelPlaner.View.Forms
                     landmarkEditListView.ItemActivate += landmarkEditListView_ItemActivate;
                     async void landmarkEditListView_ItemActivate(object sender, EventArgs e)
                     {
+                        landUpdateEditButton.Enabled = true;
+                        landRemoveEditButton.Enabled = true;
+
                         ListViewItem selectedEditLandmarkItem = landmarkEditListView.SelectedItems[0];
                         if (selectedEditLandmarkItem.Tag is Landmark landmark)
                         {
@@ -771,6 +796,9 @@ namespace TravelPlaner.View.Forms
                     restingEditPointListView.ItemActivate += restingEditPointListView_ItemActivate;
                     async void restingEditPointListView_ItemActivate(object sender, EventArgs e)
                     {
+                        restUpdateEditButton.Enabled = true;
+                        restRemoveEditButton.Enabled = true;
+
                         ListViewItem selectedEditRestingPointItem = restingEditPointListView.SelectedItems[0];
                         if (selectedEditRestingPointItem.Tag is RestingPoint restingPoint)
                         {
@@ -827,6 +855,9 @@ namespace TravelPlaner.View.Forms
                     memoriesEditListView.ItemActivate += memoryEditListView_ItemActivate;
                     void memoryEditListView_ItemActivate(object sender, EventArgs e)
                     {
+
+                        memUpdateEditButton.Enabled = true;
+                        memRemoveEditButton.Enabled = true;
                         ListViewItem selectedEditMemoryItem = memoriesEditListView.SelectedItems[0];
                         if (selectedEditMemoryItem.Tag is TripMemory memory)
                         {
@@ -843,8 +874,21 @@ namespace TravelPlaner.View.Forms
 
         private void UpdateAddPanels(Trip trip, List<TripSegment> segments)
         {
+
             segUpdateAddButton.Enabled = false;
             segRemoveAddButton.Enabled = false;
+            landAddAddButton.Enabled = false;
+            landUpdateAddButton.Enabled = false;
+            landRemoveAddButton.Enabled = false;
+            restAddAddButton.Enabled = false;
+            restUpdateAddButton.Enabled = false;
+            restRemoveAddButton.Enabled = false;
+            expAddAddButton.Enabled = false;
+            expUpdateAddButton.Enabled = false;
+            expRemoveAddButton.Enabled = false;
+            memAddAddButton.Enabled = false;
+            memUpdateAddButton.Enabled = false;
+            memRemoveAddButton.Enabled = false;
             memPhotoAddInput.Text = null;
             memNoteAddInput.Text = "";
             landmarksList.Items.Clear();
@@ -885,6 +929,10 @@ namespace TravelPlaner.View.Forms
             {
                 segUpdateAddButton.Enabled = true;
                 segRemoveAddButton.Enabled = true;
+                landAddAddButton.Enabled = true;
+                restAddAddButton.Enabled = true;
+                expAddAddButton.Enabled = true;
+                memAddAddButton.Enabled = true;
                 memPhotoAddInput.Text = null;
                 memNoteAddInput.Text = "";
                 foreach (Control control in editTripPanel.Controls)
@@ -926,6 +974,8 @@ namespace TravelPlaner.View.Forms
                     expensesList.ItemActivate += expensesList_ItemActivate;
                     void expensesList_ItemActivate(object sender, EventArgs e)
                     {
+                        expUpdateAddButton.Enabled = true;
+                        expRemoveAddButton.Enabled = true;
                         ListViewItem selectedAddExpenseItem = expensesList.SelectedItems[0];
                         if (selectedAddExpenseItem.Tag is Expense expense)
                         {
@@ -950,6 +1000,9 @@ namespace TravelPlaner.View.Forms
                     landmarksList.ItemActivate += landmarksList_ItemActivate;
                     void landmarksList_ItemActivate(object sender, EventArgs e)
                     {
+                        landUpdateAddButton.Enabled = true;
+                        landRemoveAddButton.Enabled = true;
+                        
                         ListViewItem selectedAddLandmarkItem = landmarksList.SelectedItems[0];
                         if (selectedAddLandmarkItem.Tag is Landmark landmark)
                         {
@@ -976,6 +1029,8 @@ namespace TravelPlaner.View.Forms
                     restingPointsList.ItemActivate += restingPointsList_ItemActivate;
                     void restingPointsList_ItemActivate(object sender, EventArgs e)
                     {
+                        restUpdateAddButton.Enabled = true;
+                        restRemoveAddButton.Enabled = true;
                         ListViewItem selectedAddRestingPointItem = restingPointsList.SelectedItems[0];
                         if (selectedAddRestingPointItem.Tag is RestingPoint restingPoint)
                         {
@@ -1017,6 +1072,8 @@ namespace TravelPlaner.View.Forms
                     memoriesList.ItemActivate += memoriesList_ItemActivate;
                     void memoriesList_ItemActivate(object sender, EventArgs e)
                     {
+                        memUpdateAddButton.Enabled = true;
+                        memRemoveAddButton.Enabled = true;
                         ListViewItem selectedAddMemoryItem = memoriesList.SelectedItems[0];
                         if (selectedAddMemoryItem.Tag is TripMemory memory)
                         {
@@ -1064,6 +1121,8 @@ namespace TravelPlaner.View.Forms
             editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
             UpdateEditPanels(toUpdate, editedSegmentList);
             editedTrip = toUpdate;
+            PopupForm popup = new PopupForm(2);
+            popup.ShowDialog();
         }
 
         //ADD SEGMENT IN EDIT
@@ -1327,6 +1386,9 @@ namespace TravelPlaner.View.Forms
                 editedTrip = controller.GetLastTrip();
                 editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
 
+                PopupForm popup = new PopupForm(1);
+                popup.ShowDialog();
+
                 landNameLabel.Enabled = true;
                 landCountryLabel.Enabled = true;
                 landCityLabel.Enabled = true;
@@ -1374,6 +1436,11 @@ namespace TravelPlaner.View.Forms
                 expUpdateAddButton.Enabled = true;
                 expAddAddButton.Enabled = true;
 
+                memNameAddInput.Enabled = true;
+                memNameLabel.Enabled = true;
+                memPhotoAddButtonSelect.Enabled = true;
+                memPhotoLabel.Enabled = true;
+                memPhotoAddInput.Enabled = true;
                 memPhotoLabel.Enabled = true;
                 memSongLabel.Enabled = true;
                 memSongAddInput.Enabled = true;
@@ -1553,7 +1620,7 @@ namespace TravelPlaner.View.Forms
         {
             controller.DeleteExpense(editedExpense);
             editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
-            UpdateEditPanels(editedTrip, editedSegmentList);
+            UpdateAddPanels(editedTrip, editedSegmentList);
         }
 
 
@@ -1716,7 +1783,7 @@ namespace TravelPlaner.View.Forms
 
         private void memPhotoAddButtonSelect_Click(object sender, EventArgs e)
         {
-            
+
         }
         private void memPhotoButtonSelect_Click(object sender, EventArgs e)
         {
@@ -1749,6 +1816,11 @@ namespace TravelPlaner.View.Forms
 
         private void memPhotoAddButtonSelect_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void memPhotoAddButtonSelect_Click_2(object sender, EventArgs e)
+        {
             var fileContent = string.Empty;
             var filePath = string.Empty;
 
@@ -1774,6 +1846,14 @@ namespace TravelPlaner.View.Forms
                 }
             }
             memPhotoAddInput.Text = filePath;
+        }
+
+        private void deleteEditTripButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteTrip(editedTrip);
+            PopupForm popup = new PopupForm(5);
+            popup.ShowDialog();
+            browseTrips();
         }
     }
 }

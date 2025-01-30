@@ -22,16 +22,19 @@ namespace TravelPlaner.View.Forms
             switch (message)
             {
                 case 1:
-                    label1.Text = "Success! Your trip should now appear in the database.";
+                    label1.Text = "Success! Your trip has been added to the database.";
                     break;
                 case 2:
-                    label1.Text = "The values which you have inserted are empty. Please correct them before submitting changes.";
+                    label1.Text = "Success! Your trip has been updated in the database.";
                     break;
                 case 3:
                     label1.Text = "Please insert a City into the text field, before searching for recommended landmarks.";
                     break;
                 case 4:
                     label1.Text = "One of the required textfields is empty or invalid. Please correct it before attempting to add to, or update the database.";
+                    break;
+                case 5:
+                    label1.Text = "Success! Your trip has been removed from the database.";
                     break;
             }
                 
