@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,17 +17,25 @@ using System.IO;
 using NAudio.Wave;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
+using TravelPlaner.Controller.Helpers.APIs;
 
 namespace TravelPlaner.View.Forms
 {
     public partial class GUI : Form
     {
         ProgramController controller = new ProgramController();
-        private List<FlowLayoutPanel> destinationSegmentPanels = new List<FlowLayoutPanel>();
-        private List<FlowLayoutPanel> expenseSegmentPanels = new List<FlowLayoutPanel>();
-        private List<FlowLayoutPanel> memorySegmentPanels = new List<FlowLayoutPanel>();
 
+        Trip editedTrip = new Trip();
+        List<TripSegment> editedSegmentList = new List<TripSegment>();
+        TripSegment editedSegment = new TripSegment();
+        Landmark editedLandmark = new Landmark();
+        RestingPoint editedRestingPoint = new RestingPoint();
+        Expense editedExpense = new Expense();
+        TripMemory editedMemory = new TripMemory();
         private System.Windows.Forms.Timer timer;
+        private readonly CncApiHelper apiHelperCNC;
+
+
 
         private WaveOutEvent waveOut;
         private MediaFoundationReader mediaReader;
@@ -47,6 +56,9 @@ namespace TravelPlaner.View.Forms
 
             InitializeComponent();
 
+            apiHelperCNC = new CncApiHelper();
+            InitializeComboBoxes();
+
         }
         private void GUI_Load(object sender, EventArgs e)
         {
@@ -54,6 +66,94 @@ namespace TravelPlaner.View.Forms
             // Initialize with only Panel1 visible
             ShowPanel(menuPanel);
 
+        }
+
+        private async void InitializeComboBoxes()
+        {
+            landCountryEditInput.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            landCountryEditInput.AutoCompleteSource = AutoCompleteSource.ListItems;
+            landCityEditInput.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            landCityEditInput.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            restCountryEditInput.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            restCountryEditInput.AutoCompleteSource = AutoCompleteSource.ListItems;
+            restCityEditInput.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            restCityEditInput.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            try
+            {
+                var countries = await apiHelperCNC.GetCountriesAsync();
+
+                landCountryEditInput.DataSource = new BindingList<string>(countries);
+                restCountryEditInput.DataSource = new BindingList<string>(countries);
+                landCountryAddInput.DataSource = new BindingList<string>(countries);
+                restCountryAddInput.DataSource = new BindingList<string>(countries);
+
+                // Handle country selection change
+                landCountryEditInput.SelectedIndexChanged += async (sender, e) =>
+                {
+                    if (landCountryEditInput.SelectedItem is string selectedCountry)
+                    {
+                        var currentCity = landCityEditInput.Text;
+                        var cities = await apiHelperCNC.GetCitiesForCountryAsync(selectedCountry);
+                        landCityEditInput.DataSource = new BindingList<string>(cities);
+
+                        if (cities.Contains(currentCity))
+                        {
+                            landCityEditInput.Text = currentCity;
+                        }
+                    }
+                };
+
+                restCountryEditInput.SelectedIndexChanged += async (sender, e) =>
+                {
+                    if (restCountryEditInput.SelectedItem is string selectedCountry)
+                    {
+                        var currentCity = restCityEditInput.Text;
+                        var cities = await apiHelperCNC.GetCitiesForCountryAsync(selectedCountry);
+                        restCityEditInput.DataSource = new BindingList<string>(cities);
+
+                        if (cities.Contains(currentCity))
+                        {
+                            restCityEditInput.Text = currentCity;
+                        }
+                    }
+                };
+
+                restCountryAddInput.SelectedIndexChanged += async (sender, e) =>
+                {
+                    if (restCountryAddInput.SelectedItem is string selectedCountry)
+                    {
+                        var currentCity = restCityAddInput.Text;
+                        var cities = await apiHelperCNC.GetCitiesForCountryAsync(selectedCountry);
+                        restCityAddInput.DataSource = new BindingList<string>(cities);
+
+                        if (cities.Contains(currentCity))
+                        {
+                            restCityAddInput.Text = currentCity;
+                        }
+                    }
+                };
+
+                landCountryAddInput.SelectedIndexChanged += async (sender, e) =>
+                {
+                    if (landCountryAddInput.SelectedItem is string selectedCountry)
+                    {
+                        var currentCity = landCityAddInput.Text;
+                        var cities = await apiHelperCNC.GetCitiesForCountryAsync(selectedCountry);
+                        landCityAddInput.DataSource = new BindingList<string>(cities);
+
+                        if (cities.Contains(currentCity))
+                        {
+                            landCityAddInput.Text = currentCity;
+                        }
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error initializing comboboxes: {ex.Message}");
+            }
         }
 
         // Method to show a specific panel and hide others
@@ -206,7 +306,7 @@ namespace TravelPlaner.View.Forms
             restTypeLabel.Enabled = false;
             restHotelAddRadioButton.Enabled = false;
             restHostelAddRadioButton.Enabled = false;
-            restApartmAddRadioButton.Enabled = false;
+            restApartmentAddRadioButton.Enabled = false;
             restRoomAddRadioButton.Enabled = false;
             restCampingAddRadioButton.Enabled = false;
             restRemoveAddButton.Enabled = false;
@@ -221,11 +321,14 @@ namespace TravelPlaner.View.Forms
             expUpdateAddButton.Enabled = false;
             expAddAddButton.Enabled = false;
 
+            memNameAddInput.Enabled = false;
+            memNameLabel.Enabled = false;
+            memPhotoAddButtonSelect.Enabled = false;
             memPhotoLabel.Enabled = false;
-            memAddPictureBox.Enabled = false;
+            memPhotoAddInput.Enabled = false;
             memSongLabel.Enabled = false;
             memSongAddInput.Enabled = false;
-            memAddNoteInput.Enabled = false;
+            memNoteAddInput.Enabled = false;
             memNoteLabel.Enabled = false;
             memRemoveAddButton.Enabled = false;
             memUpdateAddButton.Enabled = false;
@@ -245,8 +348,10 @@ namespace TravelPlaner.View.Forms
         private void browseTripsButton_Click(object sender, EventArgs e)
         {
 
-            
-
+            browseTrips();
+        }
+        private void browseTrips()
+        {
             ShowPanel(browseTripPanel);
 
             // Fetch trips from database
@@ -264,7 +369,6 @@ namespace TravelPlaner.View.Forms
 
 
 
-                //TODO (When destinations get fixed)
                 // Fetch destinations for the first segment (if needed)
                 string destinationName = tripSegments.FirstOrDefault() != null ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country : "Unknown";
 
@@ -281,7 +385,7 @@ namespace TravelPlaner.View.Forms
                 // Add a label for the trip name and destination
                 Label nameLabel = new Label
                 {
-                    Text = $"{trip.Name},    Destination: {destinationName}",  //",
+                    Text = $"{trip.Name},    Destination: {destinationName}",
                     Font = new Font("Arial", 14, FontStyle.Bold),
                     Location = new Point(10, 10),
                     ForeColor = Color.Black,
@@ -346,9 +450,10 @@ namespace TravelPlaner.View.Forms
         //----------------Trip details panel-------------------
         private void ShowTripDetails(Trip trip, List<TripSegment> tripSegments)
         {
+            tripListPanel.Controls.Clear();
             ShowPanel(inspectTripPanel);
-
-            Trip passedTrip = trip;
+            editedTrip = trip;
+            editedSegmentList = tripSegments;
             memDetailsPhotoPictureBox.Image = null;
             memNoteTextBox.Text = "";
             landmarkListView.Items.Clear();
@@ -370,12 +475,12 @@ namespace TravelPlaner.View.Forms
                     radioButton.Checked = false;
                 }
             }
-            tripDepartureDatePicker.Text = trip.StartDate.ToString();
-            tripReturnDatePicker.Text = trip.EndDate.ToString();
-            tripNameTextBox.Text = trip.Name;
-            foreach (TripSegment segment in tripSegments)
+            tripDepartureDatePicker.Text = editedTrip.StartDate.ToString();
+            tripReturnDatePicker.Text = editedTrip.EndDate.ToString();
+            tripNameTextBox.Text = editedTrip.Name;
+            foreach (TripSegment segment in editedSegmentList)
             {
-                ListViewItem item = new ListViewItem(trip.Id.ToString());
+                ListViewItem item = new ListViewItem(editedTrip.Id.ToString());
                 item.SubItems.Add(segment.Name.ToString());
                 segmentsListView.Items.Add(item);
                 item.Tag = segment;
@@ -384,6 +489,7 @@ namespace TravelPlaner.View.Forms
 
             void segmentsListView_ItemActivate(object sender, EventArgs e)
             {
+
                 memDetailsPhotoPictureBox.Image = null;
                 memNoteTextBox.Text = "";
                 foreach (Control control in inspectTripPanel.Controls) // Replace 'myPanel' with your container
@@ -400,10 +506,11 @@ namespace TravelPlaner.View.Forms
                         radioButton.Checked = false;
                     }
                 }
-                tripNameTextBox.Text = trip.Name;
+                tripNameTextBox.Text = editedTrip.Name;
                 ListViewItem selectedItem = segmentsListView.SelectedItems[0];
                 if (selectedItem.Tag is TripSegment segment)
                 {
+
                     landmarkListView.Items.Clear();
                     restingPointListView.Items.Clear();
                     expensesListView.Items.Clear();
@@ -480,19 +587,19 @@ namespace TravelPlaner.View.Forms
                             restContactTextBox.Text = restingPoint.ContactInfo;
                             switch ((int)restingPoint.Type)
                             {
-                                case 1:
+                                case 0:
                                     restHotelDetailsRadioButton.Checked = true;
                                     break;
-                                case 2:
+                                case 1:
                                     restHostelDetailsRadioButton.Checked = true;
                                     break;
-                                case 3:
+                                case 2:
                                     restRoomDetailsRadioButton.Checked = true;
                                     break;
-                                case 4:
+                                case 3:
                                     restApartmentDetailsRadioButton.Checked = true;
                                     break;
-                                case 5:
+                                case 4:
                                     restCampingDetailsRadioButton.Checked = true;
                                     break;
                             }
@@ -521,63 +628,78 @@ namespace TravelPlaner.View.Forms
                 }
 
             }
-            editButton.Click += (sender, e) => ShowEditTrip(trip, tripSegments);
         }
 
-
-
-        private void ShowEditTrip(Trip trip, List<TripSegment> tripSegments)
+        private void UpdateEditPanels(Trip trip, List<TripSegment> segments)
         {
-            ShowPanel(editTripPanel);
-            //ProgramController controller = new ProgramController(); 
-
-            Trip passedTrip = trip;
-            //TripSegment tripSegment = controller.GetAllTripSegmentsByTripId(trip.Id);
-            memEditPhotoBox.Image = null;
+            segUpdateEditButton.Enabled = false;
+            segRemoveEditButton.Enabled = false;
+            landAddEditButton.Enabled = false;
+            landUpdateEditButton.Enabled = false;
+            landRemoveEditButton.Enabled = false;
+            restAddEditButton.Enabled = false;
+            restUpdateEditButton.Enabled = false;
+            restRemoveEditButton.Enabled = false;
+            expAddEditButton.Enabled = false;
+            expUpdateEditButton.Enabled = false;
+            expRemoveEditButton.Enabled = false;
+            memAddEditButton.Enabled = false;
+            memUpdateEditButton.Enabled = false;
+            memRemoveEditButton.Enabled = false;
+            memPhotoEditInput.Text = null;
             memNoteEditInput.Text = "";
             landmarkEditListView.Items.Clear();
             restingEditPointListView.Items.Clear();
             expensesEditListView.Items.Clear();
             memoriesEditListView.Items.Clear();
             segmentsEditListView.Items.Clear();
-            foreach (Control control in editTripPanel.Controls) // Replace 'myPanel' with your container
+            foreach (Control control in editTripPanel.Controls)
             {
                 if (control is TextBox textBox)
                 {
                     textBox.Clear();
                 }
-            }
-            foreach (Control control in editTripPanel.Controls) // Replace 'myPanel' with your container
-            {
                 if (control is RadioButton radioButton)
                 {
                     radioButton.Checked = false;
                 }
+                if (control is NumericUpDown numericUpDown)
+                {
+                    numericUpDown.Value = 0;
+                }
             }
             tripNameEditInput.Text = trip.Name;
-            editTripDepartureDatePicker.Text = trip.StartDate.ToString();
-            editTripReturnDatePicker.Text = trip.EndDate.ToString();
-            foreach (TripSegment segment in tripSegments)
+            editTripDepartureDatePicker.Value = trip.StartDate;
+            editTripReturnDatePicker.Value = trip.EndDate;
+            segmentsEditListView.ItemActivate -= segmentsEditListView_ItemActivate;
+            foreach (TripSegment segment in segments)
             {
                 ListViewItem item = new ListViewItem(trip.Id.ToString());
                 item.SubItems.Add(segment.Name.ToString());
                 segmentsEditListView.Items.Add(item);
                 item.Tag = segment;
             }
+
             segmentsEditListView.ItemActivate += segmentsEditListView_ItemActivate;
 
             void segmentsEditListView_ItemActivate(object sender, EventArgs e)
             {
-                memEditPhotoBox.Image = null;
+                segUpdateEditButton.Enabled = true;
+                segRemoveEditButton.Enabled = true;
+                landAddEditButton.Enabled = true;
+                restAddEditButton.Enabled = true;
+                expAddEditButton.Enabled = true;
+                memAddEditButton.Enabled = true;
+                memPhotoEditInput.Text = null;
                 memNoteEditInput.Text = "";
-                foreach (Control control in editTripPanel.Controls) // Replace 'myPanel' with your container
+                foreach (Control control in editTripPanel.Controls)
                 {
                     if (control is TextBox textBox)
                     {
                         textBox.Clear();
                     }
                 }
-                foreach (Control control in editTripPanel.Controls) // Replace 'myPanel' with your container
+                foreach (Control control in editTripPanel.Controls)
                 {
                     if (control is RadioButton radioButton)
                     {
@@ -588,12 +710,14 @@ namespace TravelPlaner.View.Forms
                 ListViewItem selectedEditItem = segmentsEditListView.SelectedItems[0];
                 if (selectedEditItem.Tag is TripSegment segment)
                 {
+                    editedSegment = segment;
                     landmarkEditListView.Items.Clear();
                     restingEditPointListView.Items.Clear();
                     expensesEditListView.Items.Clear();
                     memoriesEditListView.Items.Clear();
-                    List<Expense> expenses = controller.GetAllExpensesByTripSegmentId(segment.Id);
-                    segNameEditInput.Text = segment.Name;
+                    List<Expense> expenses = controller.GetAllExpensesByTripSegmentId(editedSegment.Id);
+                    segNameEditInput.Text = editedSegment.Name;
+
 
                     foreach (Expense expense in expenses)
                     {
@@ -606,9 +730,12 @@ namespace TravelPlaner.View.Forms
                     expensesEditListView.ItemActivate += expenseEditListView_ItemActivate;
                     void expenseEditListView_ItemActivate(object sender, EventArgs e)
                     {
+                        expUpdateEditButton.Enabled = true;
+                        expRemoveEditButton.Enabled = true;
                         ListViewItem selectedEditExpenseItem = expensesEditListView.SelectedItems[0];
                         if (selectedEditExpenseItem.Tag is Expense expense)
                         {
+                            editedExpense = expense;
                             expNameEditInput.Text = expense.Name;
                             expValueEditInput.Text = expense.Value.ToString();
                         }
@@ -627,16 +754,32 @@ namespace TravelPlaner.View.Forms
                         item.Tag = landmark;
                     }
                     landmarkEditListView.ItemActivate += landmarkEditListView_ItemActivate;
-                    void landmarkEditListView_ItemActivate(object sender, EventArgs e)
+                    async void landmarkEditListView_ItemActivate(object sender, EventArgs e)
                     {
+                        landUpdateEditButton.Enabled = true;
+                        landRemoveEditButton.Enabled = true;
+
                         ListViewItem selectedEditLandmarkItem = landmarkEditListView.SelectedItems[0];
                         if (selectedEditLandmarkItem.Tag is Landmark landmark)
                         {
-                            landNameEditInput.Text = landmark.Name;
-                            landCountryEditInput.Text = landmark.Country;
+                            editedLandmark = landmark;
+                            string countryValue = landmark.Country;
+
+                            // Only update the SelectedItem, not the DataSource
+                            if (landCountryEditInput.Items.Contains(countryValue))
+                            {
+                                landCountryEditInput.SelectedItem = countryValue;
+                            }
+                            else
+                            {
+                                landCountryEditInput.Text = countryValue;
+                            }
+
+                            // The city will be updated by the SelectedIndexChanged event
                             landCityEditInput.Text = landmark.City;
                             landAddressEditInput.Text = landmark.Address;
                             landDescEditInput.Text = landmark.Description;
+                            landNameEditInput.Text = landmark.Name;
                         }
                     }
 
@@ -652,31 +795,50 @@ namespace TravelPlaner.View.Forms
                         item.Tag = restingPoint;
                     }
                     restingEditPointListView.ItemActivate += restingEditPointListView_ItemActivate;
-                    void restingEditPointListView_ItemActivate(object sender, EventArgs e)
+                    async void restingEditPointListView_ItemActivate(object sender, EventArgs e)
                     {
+                        restUpdateEditButton.Enabled = true;
+                        restRemoveEditButton.Enabled = true;
+
                         ListViewItem selectedEditRestingPointItem = restingEditPointListView.SelectedItems[0];
                         if (selectedEditRestingPointItem.Tag is RestingPoint restingPoint)
                         {
+                            editedRestingPoint = restingPoint;
                             restNameEditInput.Text = restingPoint.Name;
-                            restCountryEditInput.Text = restingPoint.Country;
+
+                            // Store the country value before updating combobox
+                            string countryValue = restingPoint.Country;
+
+                            // Update country selection while preserving the DataSource
+                            if (restCountryEditInput.Items.Contains(countryValue))
+                            {
+                                restCountryEditInput.SelectedItem = countryValue;
+                            }
+                            else
+                            {
+                                restCountryEditInput.Text = countryValue;
+                            }
+
+                            // The city will be updated by the SelectedIndexChanged event of the country combobox
                             restCityEditInput.Text = restingPoint.City;
+
                             restAddressEditInput.Text = restingPoint.Address;
-                            textBox20.Text = restingPoint.ContactInfo;
+                            restContactEditInput.Text = restingPoint.ContactInfo;
                             switch ((int)restingPoint.Type)
                             {
-                                case 1:
+                                case 0:
                                     restHotelEditRadioButton.Checked = true;
                                     break;
-                                case 2:
+                                case 1:
                                     restHostelEditRadioButton.Checked = true;
                                     break;
-                                case 3:
+                                case 2:
                                     restRoomEditRadioButton.Checked = true;
                                     break;
-                                case 4:
+                                case 3:
                                     restApartmentEditRadioButton.Checked = true;
                                     break;
-                                case 5:
+                                case 4:
                                     restCampingEditRadioButton.Checked = true;
                                     break;
                             }
@@ -694,10 +856,15 @@ namespace TravelPlaner.View.Forms
                     memoriesEditListView.ItemActivate += memoryEditListView_ItemActivate;
                     void memoryEditListView_ItemActivate(object sender, EventArgs e)
                     {
+
+                        memUpdateEditButton.Enabled = true;
+                        memRemoveEditButton.Enabled = true;
                         ListViewItem selectedEditMemoryItem = memoriesEditListView.SelectedItems[0];
                         if (selectedEditMemoryItem.Tag is TripMemory memory)
                         {
-                            memEditPhotoBox.ImageLocation = memory.Photo;
+                            editedMemory = memory;
+                            memNameEditInput.Text = memory.Name;
+                            memPhotoEditInput.Text = memory.Photo;
                             memSongEditInput.Text = memory.SongURL;
                             memNoteEditInput.Text = memory.Note;
                         }
@@ -706,765 +873,465 @@ namespace TravelPlaner.View.Forms
             }
         }
 
-
-
-
-        /** USED WHEN SHOWCASING DETAILS OF THE TRIP. IT EXPANDS THE HIDDEN DETAILS OF A CERTAIN TRIP SEGMENT WHEN + IS PRESSED
-         * 
-         * TODO: TRY REMOVING THE LOCATIONS FROM EVERYTHING AND SEE IF IT SCREWS UP MAJORLY;
-         */
-        private void expandTripSegment(FlowLayoutPanel flowLayoutPanel, TripSegment tripsegment)
+        private void UpdateAddPanels(Trip trip, List<TripSegment> segments)
         {
-            List<TripMemory> memories = controller.GetAllTripMemoriesByTripSegmentId(tripsegment.Id);
-            List<Expense> expenses = controller.GetAllExpensesByTripSegmentId(tripsegment.Id);
-            List<Destination> destinations = controller.GetAllDestinationsByTripSegmentId(tripsegment.Id);
-            List<Landmark> landmarks = controller.GetAllLandmarksByTripSegmentId(tripsegment.Id);
-            List<RestingPoint> restingPoints = controller.GetAllRestingPointsByTripSegmentId(tripsegment.Id);
 
-            /*bool isDestinationExpanded = false;
-            bool isExpenseExpanded = false;
-            bool isMemoryExpanded = false;
-            String country, city;
-            if (destinations.Count() == 0) { country = "Unknown"; } else { country = destinations[0].Country; }
-            if (destinations.Count() == 0) { city = "Unknown"; } else { city = destinations[0].City; }
-            Label labelCountry = new Label
+            segUpdateAddButton.Enabled = false;
+            segRemoveAddButton.Enabled = false;
+            landAddAddButton.Enabled = false;
+            landUpdateAddButton.Enabled = false;
+            landRemoveAddButton.Enabled = false;
+            restAddAddButton.Enabled = false;
+            restUpdateAddButton.Enabled = false;
+            restRemoveAddButton.Enabled = false;
+            expAddAddButton.Enabled = false;
+            expUpdateAddButton.Enabled = false;
+            expRemoveAddButton.Enabled = false;
+            memAddAddButton.Enabled = false;
+            memUpdateAddButton.Enabled = false;
+            memRemoveAddButton.Enabled = false;
+            memPhotoAddInput.Text = null;
+            memNoteAddInput.Text = "";
+            landmarksList.Items.Clear();
+            restingPointsList.Items.Clear();
+            expensesList.Items.Clear();
+            memoriesList.Items.Clear();
+            segmentsList.Items.Clear();
+            foreach (Control control in newTripPanel.Controls)
             {
-                Text = $"{"Country: " + country}",
-                Font = new Font("Arial", 10, FontStyle.Bold),
-                AutoSize = true
-            };
-            Label labelCity = new Label
-            {
-                Text = $"{"City: " + city}",
-                Font = new Font("Arial", 10, FontStyle.Bold),
-                AutoSize = true
-            };
-            var landmarkPanel = new FlowLayoutPanel
-            {
-                AutoSize = true,
-                FlowDirection = FlowDirection.LeftToRight,
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            Label landmarkLabel = new Label
-            {
-                Text = $"{"Destinations"}",
-                Font = new Font("Arial", 10, FontStyle.Bold),
-                AutoSize = true
-            };
-            var btnExpandLandmarks = new Button
-            {
-                Text = "+",
-                AutoSize = true
-            };
-            flowLayoutPanel.Controls.Add(labelCountry);
-            flowLayoutPanel.Controls.Add(labelCity);
-            flowLayoutPanel.Controls.Add(landmarkPanel);
-            landmarkPanel.Controls.Add(landmarkLabel);
-            landmarkPanel.Controls.Add(btnExpandLandmarks);
-            btnExpandLandmarks.Click += (s, e) =>
-            {
-
-                if (!isDestinationExpanded)
+                if (control is TextBox textBox)
                 {
-                    isDestinationExpanded = true;
-                    btnExpandLandmarks.Text = "-";
-                    foreach (Destination destination in destinations)
-                    {
-                        var segmentPanel = new FlowLayoutPanel
-                        {
-                            AutoSize = true,
-                            FlowDirection = FlowDirection.TopDown,
-                            BorderStyle = BorderStyle.FixedSingle
-                        };
-                        foreach (Landmark landmark in landmarks)
-                        {
-                            if (landmark.Id == destination.Id)
-                            {
-                                Label labelLandmarkName = new Label
-                                {
-                                    Text = $"{"Name: " + landmark.Name}",
-                                    Font = new Font("Arial", 10, FontStyle.Bold),
-                                    AutoSize = true
-                                };
-                                Label labelLandmarkAddress = new Label
-                                {
-                                    Text = $"{"Address: " + landmark.Address}",
-                                    Font = new Font("Arial", 10, FontStyle.Bold),
-                                    AutoSize = true
-                                };
-                                Label labelLandmarkDescription = new Label
-                                {
-                                    Text = $"{"Description: " + landmark.Description}",
-                                    Font = new Font("Arial", 10, FontStyle.Bold),
-                                    AutoSize = true
-                                };
+                    textBox.Clear();
+                }
+                if (control is RadioButton radioButton)
+                {
+                    radioButton.Checked = false;
+                }
+                if (control is NumericUpDown numericUpDown)
+                {
+                    numericUpDown.Value = 0;
+                }
+            }
+            tripNameAddInput.Text = trip.Name;
+            addTripDepartureDatePicker.Value = trip.StartDate;
+            addTripReturnDatePicker.Value = trip.EndDate;
+            segmentsList.ItemActivate -= segmentsList_ItemActivate;
+            foreach (TripSegment segment in segments)
+            {
+                ListViewItem item = new ListViewItem(trip.Id.ToString());
+                item.SubItems.Add(segment.Name.ToString());
+                segmentsList.Items.Add(item);
+                item.Tag = segment;
+            }
 
-                                segmentPanel.Controls.Add(labelLandmarkName);
-                                segmentPanel.Controls.Add(labelLandmarkAddress);
-                                segmentPanel.Controls.Add(labelLandmarkDescription);
-                            }
-                        }
-                        foreach (RestingPoint restingPoint in restingPoints)
-                        {
-                            if (restingPoint.Id == destination.Id)
-                            {
-                                Label labelRestingName = new Label
-                                {
-                                    Text = $"{"Name: " + restingPoint.Name}",
-                                    Font = new Font("Arial", 10, FontStyle.Bold),
-                                    AutoSize = true
-                                };
-                                Label labelRestingAddress = new Label
-                                {
-                                    Text = $"{"Address: " + restingPoint.Address}",
-                                    Font = new Font("Arial", 10, FontStyle.Bold),
-                                    AutoSize = true
-                                };
-                                Label labelRestingContact = new Label
-                                {
-                                    Text = $"{"Contact: " + restingPoint.ContactInfo}",
-                                    Font = new Font("Arial", 10, FontStyle.Bold),
-                                    AutoSize = true
-                                };
-                                Label labelRestingType = new Label
-                                {
-                                    Text = $"{"Type of resting point: " + restingPoint.Type}",
-                                    Font = new Font("Arial", 10, FontStyle.Bold),
-                                    AutoSize = true
-                                }; Label labelRestingLength = new Label
-                                {
-                                    Text = $"{"No. of Nights Spent There: " + restingPoint.NightsSpentThere}",
-                                    Font = new Font("Arial", 10, FontStyle.Bold),
-                                    AutoSize = true
-                                };
-                                segmentPanel.Controls.Add(labelRestingName);
-                                segmentPanel.Controls.Add(labelRestingAddress);
-                                segmentPanel.Controls.Add(labelRestingContact);
-                                segmentPanel.Controls.Add(labelRestingType);
-                                segmentPanel.Controls.Add(labelRestingLength);
-                            }
-                        }
-                        flowLayoutPanel.Controls.Add(segmentPanel);
-                        destinationSegmentPanels.Add(segmentPanel);
+            segmentsList.ItemActivate += segmentsList_ItemActivate;
+
+            void segmentsList_ItemActivate(object sender, EventArgs e)
+            {
+                segUpdateAddButton.Enabled = true;
+                segRemoveAddButton.Enabled = true;
+                landAddAddButton.Enabled = true;
+                restAddAddButton.Enabled = true;
+                expAddAddButton.Enabled = true;
+                memAddAddButton.Enabled = true;
+                memPhotoAddInput.Text = null;
+                memNoteAddInput.Text = "";
+                foreach (Control control in editTripPanel.Controls)
+                {
+                    if (control is TextBox textBox)
+                    {
+                        textBox.Clear();
+                    }
+                    if (control is RadioButton radioButton)
+                    {
+                        radioButton.Checked = false;
+                    }
+                    if (control is NumericUpDown numericUpDown)
+                    {
+                        numericUpDown.Value = 0;
                     }
                 }
-                else
+                tripNameAddInput.Text = trip.Name;
+                ListViewItem selectedAddItem = segmentsList.SelectedItems[0];
+                if (selectedAddItem.Tag is TripSegment segment)
                 {
-                    isDestinationExpanded = false;
-                    btnExpandLandmarks.Text = "+";
-                    foreach (var panel in destinationSegmentPanels)
-                    {
-                        flowLayoutPanel.Controls.Remove(panel);
-                    }
-                    destinationSegmentPanels.Clear();
-                }
-            };
+                    editedSegment = segment;
+                    landmarksList.Items.Clear();
+                    restingPointsList.Items.Clear();
+                    expensesList.Items.Clear();
+                    memoriesList.Items.Clear();
+                    List<Expense> expenses = controller.GetAllExpensesByTripSegmentId(editedSegment.Id);
+                    segNameAddInput.Text = editedSegment.Name;
 
-            //EXPENSES
-            var expensePanel = new FlowLayoutPanel
-            {
-                AutoSize = true,
-                FlowDirection = FlowDirection.LeftToRight,
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            Label expensesLabel = new Label
-            {
-                Text = $"{"Expenses"}",
-                Font = new Font("Arial", 10, FontStyle.Bold),
-                AutoSize = true
-            };
-            var btnExpandExpenses = new Button
-            {
-                Text = "+",
-                AutoSize = true
-            };
-            flowLayoutPanel.Controls.Add(expensePanel);
-            expensePanel.Controls.Add(expensesLabel);
-            expensePanel.Controls.Add(btnExpandExpenses);
-            btnExpandExpenses.Click += (s, e) =>
-            {
 
-                if (!isExpenseExpanded)
-                {
-                    isExpenseExpanded = true;
-                    btnExpandExpenses.Text = "-";
                     foreach (Expense expense in expenses)
                     {
-                        var segmentPanel = new FlowLayoutPanel
-                        {
-                            AutoSize = true,
-                            FlowDirection = FlowDirection.TopDown,
-                            BorderStyle = BorderStyle.FixedSingle
-                        };
-                        Label labelExpenseName = new Label
-                        {
-                            Text = $"{"Name: " + expense.Name}",
-                            Font = new Font("Arial", 10, FontStyle.Bold),
-                            AutoSize = true
-                        };
-                        Label labelExpenseValue = new Label
-                        {
-                            Text = $"{"Value: " + expense.Value + "€"}",
-                            Font = new Font("Arial", 10, FontStyle.Bold),
-                            AutoSize = true
-                        };
-                        segmentPanel.Controls.Add(labelExpenseName);
-                        segmentPanel.Controls.Add(labelExpenseValue);
-                        flowLayoutPanel.Controls.Add(segmentPanel);
-                        expenseSegmentPanels.Add(segmentPanel);
+                        ListViewItem item = new ListViewItem(expense.Id.ToString()); // First column (Id)
+                        item.SubItems.Add(expense.Name);                            // Second column (Name)// Third column (StartDate)
+                                                                                    // Add row to ListView
+                        expensesList.Items.Add(item);
+                        item.Tag = expense;
                     }
-                }
-                else
-                {
-                    isExpenseExpanded = false;
-                    btnExpandExpenses.Text = "+";
-                    foreach (var panel in expenseSegmentPanels)
+                    expensesList.ItemActivate += expensesList_ItemActivate;
+                    void expensesList_ItemActivate(object sender, EventArgs e)
                     {
-                        flowLayoutPanel.Controls.Remove(panel);
+                        expUpdateAddButton.Enabled = true;
+                        expRemoveAddButton.Enabled = true;
+                        ListViewItem selectedAddExpenseItem = expensesList.SelectedItems[0];
+                        if (selectedAddExpenseItem.Tag is Expense expense)
+                        {
+                            editedExpense = expense;
+                            expNameAddInput.Text = expense.Name;
+                            expValueAddInput.Text = expense.Value.ToString();
+                        }
                     }
-                    expenseSegmentPanels.Clear();
 
-                }
-            };
 
-            //MEMORIES
-            var memoryPanel = new FlowLayoutPanel
-            {
-                AutoSize = true,
-                FlowDirection = FlowDirection.LeftToRight,
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            Label memoryLabel = new Label
-            {
-                Text = $"{"Memories"}",
-                Font = new Font("Arial", 10, FontStyle.Bold),
-                AutoSize = true
-            };
-            var btnExpandMemories = new Button
-            {
-                Text = "+",
-                AutoSize = true
-            };
-            flowLayoutPanel.Controls.Add(memoryPanel);
-            memoryPanel.Controls.Add(memoryLabel);
-            memoryPanel.Controls.Add(btnExpandMemories);
-            btnExpandMemories.Click += (s, e) =>
-            {
-
-                if (!isMemoryExpanded)
-                {
-                    isMemoryExpanded = true;
-                    btnExpandMemories.Text = "-";
-                    foreach (TripMemory memo in memories)
+                    List<Landmark> landmarks = controller.GetAllLandmarksByTripSegmentId(segment.Id);
+                    foreach (Landmark landmark in landmarks)
                     {
-                        var singleMemoryPanel = new FlowLayoutPanel
-                        {
-                            AutoSize = true,
-                            FlowDirection = FlowDirection.TopDown,
-                            //BorderStyle = BorderStyle.FixedSingle
-                        };
-                        Label memoryNameLabel = new Label
-                        {
-                            Text = $"{memo.Name}",
-                            Font = new Font("Arial", 10, FontStyle.Bold),
-                            AutoSize = true
-                        };
-                        var memoryPicture = new PictureBox()
-                        {
-                            ImageLocation = memo.Photo,
 
-                            SizeMode = PictureBoxSizeMode.StretchImage,
-                            MaximumSize = new Size(800, 800),
-                            MinimumSize = new Size(250, 250)
-                        };
-                        Label memoryNoteLabel = new Label
-                        {
-                            Text = $"{memo.Note}",
-                            Font = new Font("Arial", 10, FontStyle.Bold),
-                            AutoSize = true
-                        };
-                        TextBox memorySongLabel = new TextBox
-                        {
-                            Text = $"{memo.SongURL}",
-                            Font = new Font("Arial", 10, FontStyle.Bold),
-                            AutoSize = true
-                        };
-
-                        singleMemoryPanel.Controls.Add(memoryNameLabel);
-                        singleMemoryPanel.Controls.Add(memoryPicture);
-                        singleMemoryPanel.Controls.Add(memoryNoteLabel);
-                        singleMemoryPanel.Controls.Add(memorySongLabel);
-                        flowLayoutPanel.Controls.Add(singleMemoryPanel);
-                        memorySegmentPanels.Add(singleMemoryPanel);
+                        ListViewItem item = new ListViewItem(landmark.Id.ToString()); // First column (Id)
+                        item.SubItems.Add(landmark.Name);                            // Second column (Name)
+                                                                                     // Third column (StartDate)
+                                                                                     // Add row to ListView
+                        landmarksList.Items.Add(item);
+                        item.Tag = landmark;
                     }
-                }
-                else
-                {
-                    isMemoryExpanded = false;
-                    btnExpandMemories.Text = "+";
-                    foreach (var panel in memorySegmentPanels)
+                    landmarksList.ItemActivate += landmarksList_ItemActivate;
+                    void landmarksList_ItemActivate(object sender, EventArgs e)
                     {
-                        flowLayoutPanel.Controls.Remove(panel);
+                        landUpdateAddButton.Enabled = true;
+                        landRemoveAddButton.Enabled = true;
+                        
+                        ListViewItem selectedAddLandmarkItem = landmarksList.SelectedItems[0];
+                        if (selectedAddLandmarkItem.Tag is Landmark landmark)
+                        {
+                            editedLandmark = landmark;
+                            landNameAddInput.Text = landmark.Name;
+                            landCountryAddInput.Text = landmark.Country;
+                            landCityAddInput.Text = landmark.City;
+                            landAddressAddInput.Text = landmark.Address;
+                            landDescAddInput.Text = landmark.Description;
+                        }
                     }
-                    memorySegmentPanels.Clear();
+
+                    List<RestingPoint> restingPoints = controller.GetAllRestingPointsByTripSegmentId(segment.Id);
+                    foreach (RestingPoint restingPoint in restingPoints)
+                    {
+
+                        ListViewItem item = new ListViewItem(restingPoint.Id.ToString()); // First column (Id)
+                        item.SubItems.Add(restingPoint.Name);                            // Second column (Name)
+                        ;// Third column (StartDate)
+                         // Add row to ListView
+                        restingPointsList.Items.Add(item);
+                        item.Tag = restingPoint;
+                    }
+                    restingPointsList.ItemActivate += restingPointsList_ItemActivate;
+                    void restingPointsList_ItemActivate(object sender, EventArgs e)
+                    {
+                        restUpdateAddButton.Enabled = true;
+                        restRemoveAddButton.Enabled = true;
+                        ListViewItem selectedAddRestingPointItem = restingPointsList.SelectedItems[0];
+                        if (selectedAddRestingPointItem.Tag is RestingPoint restingPoint)
+                        {
+                            editedRestingPoint = restingPoint;
+                            restNameAddInput.Text = restingPoint.Name;
+                            restCountryAddInput.Text = restingPoint.Country;
+                            restCityAddInput.Text = restingPoint.City;
+                            restAddressAddInput.Text = restingPoint.Address;
+                            restContactAddInput.Text = restingPoint.ContactInfo;
+                            switch ((int)restingPoint.Type)
+                            {
+                                case 0:
+                                    restHotelAddRadioButton.Checked = true;
+                                    break;
+                                case 1:
+                                    restHostelAddRadioButton.Checked = true;
+                                    break;
+                                case 2:
+                                    restRoomAddRadioButton.Checked = true;
+                                    break;
+                                case 3:
+                                    restApartmentAddRadioButton.Checked = true;
+                                    break;
+                                case 4:
+                                    restCampingAddRadioButton.Checked = true;
+                                    break;
+                            }
+                        }
+                    }
+
+                    List<TripMemory> memories = controller.GetAllTripMemoriesByTripSegmentId(segment.Id);
+                    foreach (TripMemory memory in memories)
+                    {
+                        ListViewItem item = new ListViewItem(memory.Id.ToString());
+                        item.SubItems.Add(memory.Name);
+                        memoriesList.Items.Add(item);
+                        item.Tag = memory;
+                    }
+                    memoriesList.ItemActivate += memoriesList_ItemActivate;
+                    void memoriesList_ItemActivate(object sender, EventArgs e)
+                    {
+                        memUpdateAddButton.Enabled = true;
+                        memRemoveAddButton.Enabled = true;
+                        ListViewItem selectedAddMemoryItem = memoriesList.SelectedItems[0];
+                        if (selectedAddMemoryItem.Tag is TripMemory memory)
+                        {
+                            editedMemory = memory;
+                            memNameAddInput.Text = memory.Name;
+                            memPhotoAddInput.Text = memory.Photo;
+                            memSongAddInput.Text = memory.SongURL;
+                            memNoteAddInput.Text = memory.Note;
+                        }
+                    }
                 }
+            }
+        }
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            ShowEditTrip(editedTrip, editedSegmentList);
+        }
+        private void ShowEditTrip(Trip trip, List<TripSegment> tripSegments)
+        {
+            ShowPanel(editTripPanel);
 
+            Trip passedTrip = trip;
+            editedTrip = passedTrip;
+            List<TripSegment> segments = tripSegments;
 
-            };
-            flowLayoutPanel.Visible = true;*/
+            UpdateEditPanels(passedTrip, segments);
         }
 
-        private void collapseTripSegment(FlowLayoutPanel flowLayoutPanel)
+        //SAVE CHANGES TO TRIP ITSELF IN EDIT
+        private void saveEditTripButton_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel.Controls.Clear();
-        }
-        /*        private void AddTripSegment(FlowLayoutPanel sectionPanel)
-                {
-
-                    // Panel pojedynczego segmentu
-                    var segmentPanel = new FlowLayoutPanel
-                    {
-                        AutoSize = true,
-                        FlowDirection = FlowDirection.TopDown,
-                        BorderStyle = BorderStyle.FixedSingle,
-                        Padding = new Padding(5)
-                    };
-
-                    // Pole Country
-                    var lblCountry = new Label { Text = "Country:", AutoSize = true };
-                    var txtCountry = new TextBox { Width = 200 };
-                    segmentPanel.Controls.Add(lblCountry);
-                    segmentPanel.Controls.Add(txtCountry);
-
-                    // Pole City
-                    var lblCity = new Label { Text = "City:", AutoSize = true };
-                    var txtCity = new TextBox { Width = 200 };
-                    segmentPanel.Controls.Add(lblCity);
-                    segmentPanel.Controls.Add(txtCity);
-
-
-                    var landmarkPanel = new FlowLayoutPanel
-                    {
-                        AutoSize = true,
-                        FlowDirection = FlowDirection.LeftToRight,
-                        Padding = new Padding(5)
-                    };
-
-                    var landmarkLabel = new Label { Text = "Add landmark:", AutoSize = true };
-
-                    // Przycisk do dodawania segmentów
-                    var btnAddLandmark = new Button
-                    {
-                        Text = "+",
-                        AutoSize = true
-                    };
-
-                    btnAddLandmark.Click += (s, e) => AddLandmark(landmarkPanel);
-                    segmentPanel.Controls.Add(landmarkLabel);
-                    segmentPanel.Controls.Add(btnAddLandmark);
-                    segmentPanel.Controls.Add(landmarkPanel);
-                    var expensePanel = new FlowLayoutPanel
-                    {
-                        AutoSize = true,
-                        FlowDirection = FlowDirection.LeftToRight,
-                        Padding = new Padding(5)
-                    };
-
-                    var expenseLabel = new Label { Text = "Add expense:", AutoSize = true };
-
-                    // Przycisk do dodawania segmentów
-                    var btnAddExpense = new Button
-                    {
-                        Text = "+",
-                        AutoSize = true
-                    };
-                    btnAddExpense.Click += (s, e) => AddExpense(expensePanel, null);
-                    segmentPanel.Controls.Add(expenseLabel);
-                    segmentPanel.Controls.Add(btnAddExpense);
-                    segmentPanel.Controls.Add(expensePanel);
-
-
-                    var memoryPanel = new FlowLayoutPanel
-                    {
-                        AutoSize = true,
-                        FlowDirection = FlowDirection.LeftToRight,
-                        Padding = new Padding(5)
-                    };
-                    var memoryLabel = new Label { Text = "Add memory:", AutoSize = true };
-                    // Przycisk do dodawania segmentów
-                    var btnAddMemory = new Button
-                    {
-                        Text = "+",
-                        AutoSize = true
-                    };
-                    btnAddMemory.Click += (s, e) => AddMemory(memoryPanel, null);
-                    segmentPanel.Controls.Add(memoryLabel);
-                    segmentPanel.Controls.Add(btnAddMemory);
-                    segmentPanel.Controls.Add(memoryPanel);
-
-                    // Przycisk usuwania
-                    var btnRemove = new Button
-                    {
-                        Text = "-",
-                        AutoSize = true
-                    };
-                    btnRemove.Click += (s, e) => sectionPanel.Controls.Remove(segmentPanel);
-                    segmentPanel.Controls.Add(btnRemove);
-
-
-
-
-
-
-                    sectionPanel.Controls.Add(segmentPanel);
-
-                    var btnSave = new Button
-                    {
-                        Text = "Save",
-                        AutoSize = true
-                    };
-                }*/
-        /** ADDING THE ACTUAL TRIP SEGMENTS (NOT JUST THE PANELS LIKE AddTripSegmentSection() BUT THE ACTUAL INSIDES)
-         * IF YOU WANT TO CREATE A NEW BLANK TRIPSEGMENT INSERTING FIELD, PASS NULL IN THE SECOND ARGUMENT (like AddTripSegment(examplePanel, null)
-         * IF YOU WANT TO CREATE FIELDS FOR AN EXISTING TRIPSEGMENT (like in editTrip) THEN PASS THE TRIP YOU WANT TO USE
-         */
-        private void AddTripSegment(FlowLayoutPanel sectionPanel, Trip trip)
-        {
-            /*int amount;
-            string country = "";
-            string city = "";
-            bool checkDestination = true;
-            List<Expense> expenses;
-            List<Landmark> landmarks;
-            List<TripMemory> memories;
-            List<TripSegment> tripsegments = new List<TripSegment>();
-            List<Destination> destinations = new List<Destination>();
-            if (trip != null)
+            Trip toUpdate = new Trip();
+            toUpdate.Id = editedTrip.Id;
+            if (tripNameEditInput.Text.IsNullOrEmpty())
             {
-                tripsegments = controller.GetAllTripSegmentsByTripId(trip.Id);
-                amount = tripsegments.Count();
-                if (amount == 0)
-                {
-                    checkDestination = false;
-                    amount = 1;
-                }
-
-                //string country = trip==null ? "" : trip.;
+                toUpdate.Name = editedTrip.Name;
             }
             else
             {
-                checkDestination = false;
-                amount = 1;
+                toUpdate.Name = tripNameEditInput.Text;
             }
-            for (int i = 0; i < amount; i++)
-            {
-                if (checkDestination)
-                {
-                    destinations = controller.GetAllDestinationsByTripSegmentId(tripsegments[i].Id);
-                    country = destinations.Count() > 0 ? destinations[0].Country : "";
-                    city = destinations.Count() > 0 ? destinations[0].City : "";
-                }
-                // Panel pojedynczego segmentu
-                var segmentPanel = new FlowLayoutPanel
-                {
-                    AutoSize = true,
-                    FlowDirection = FlowDirection.TopDown,
-                    BorderStyle = BorderStyle.FixedSingle,
-                    Padding = new Padding(15),
-                    //Name = "TripSegmentPanel" + tripSegmentPanels.Count()
-                };
-                //tripSegmentPanels.Add(tripSegmentPanels.Count(), segmentPanel);
-                //Country panel
-                var countryPanel = new FlowLayoutPanel
-                {
-                    AutoSize = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-                };
-                // Pole Country
-                var lblCountry = new Label { Text = "Country:", AutoSize = true };
-                var txtCountry = new TextBox { Width = 200, Text = country };
-
-                countryPanel.Controls.Add(lblCountry);
-                countryPanel.Controls.Add(txtCountry);
-
-                segmentPanel.Controls.Add(countryPanel);
-
-
-                //City panel
-                var cityPanel = new FlowLayoutPanel
-                {
-                    AutoSize = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-                };
-                // Pole City
-                var lblCity = new Label { Text = "City:", AutoSize = true };
-                var txtCity = new TextBox { Width = 200, Text = city };
-                var suggestBtn = new Button { Text = "Suggest landmarks nearby", AutoSize = true };
-                cityPanel.Controls.Add(lblCity);
-                cityPanel.Controls.Add(txtCity);
-                cityPanel.Controls.Add(suggestBtn);
-                segmentPanel.Controls.Add(cityPanel);
-                suggestBtn.Click += (s, e) =>
-                {
-                    if (!txtCity.Text.Equals(""))
-                    {
-                        RecommendedLandmarks recommendation = new RecommendedLandmarks(txtCity.Text);
-                        recommendation.ShowDialog();
-                    }
-                    else
-                    {
-                        PopupForm popup = new PopupForm(3);
-                        popup.ShowDialog();
-                    }
-                };
-
-                var landmarkPanel = new FlowLayoutPanel
-                {
-                    AutoSize = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-                    Padding = new Padding(5)
-                };
-                var newLandmarkPanel = new FlowLayoutPanel
-                {
-                    AutoSize = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-                };
-                var landmarkLabel = new Label { Text = "Add landmark:", AutoSize = true };
-
-                // Przycisk do dodawania segmentów
-                var btnAddLandmark = new Button
-                {
-                    Text = "+",
-                    AutoSize = true
-                };
-
-                btnAddLandmark.Click += (s, e) => AddLandmark(newLandmarkPanel, null);
-                landmarkPanel.Controls.Add(landmarkLabel);
-                landmarkPanel.Controls.Add(btnAddLandmark);
-                segmentPanel.Controls.Add(landmarkPanel);
-                segmentPanel.Controls.Add(newLandmarkPanel);
-                if (trip != null && checkDestination)
-                {
-                    landmarks = controller.GetAllLandmarksByTripSegmentId(tripsegments[i].Id);
-                    foreach (var item in landmarks)
-                    {
-                        AddLandmark(newLandmarkPanel, item);
-                    }
-                }
-                //EXPENSES
-                var expensePanel = new FlowLayoutPanel
-                {
-                    AutoSize = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-                    Padding = new Padding(5)
-                };
-                var newExpensePanel = new FlowLayoutPanel
-                {
-                    AutoSize = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-                };
-                var expenseLabel = new Label { Text = "Add expense:", AutoSize = true };
-
-                // Przycisk do dodawania segmentów
-                var btnAddExpense = new Button
-                {
-                    Text = "+",
-                    AutoSize = true
-                };
-                btnAddExpense.Click += (s, e) => AddExpense(newExpensePanel, null);
-                expensePanel.Controls.Add(expenseLabel);
-                expensePanel.Controls.Add(btnAddExpense);
-                segmentPanel.Controls.Add(expensePanel);
-                segmentPanel.Controls.Add(newExpensePanel);
-                if (trip != null && checkDestination)
-                {
-                    expenses = controller.GetAllExpensesByTripSegmentId(tripsegments[i].Id);
-                    foreach (var item in expenses)
-                    {
-                        AddExpense(newExpensePanel, item);
-                    }
-                }
-                var memoryPanel = new FlowLayoutPanel
-                {
-                    AutoSize = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-                    Padding = new Padding(5)
-                };
-                var newMemoryPanel = new FlowLayoutPanel
-                {
-                    AutoSize = true,
-                    FlowDirection = FlowDirection.LeftToRight,
-
-                };
-                var memoryLabel = new Label { Text = "Add memory:", AutoSize = true };
-                // Przycisk do dodawania segmentów
-
-                // MEMORIES
-
-                var btnAddMemory = new Button
-                {
-                    Text = "+",
-                    AutoSize = true
-                };
-                btnAddMemory.Click += (s, e) => AddMemory(newMemoryPanel, null);
-                memoryPanel.Controls.Add(memoryLabel);
-                memoryPanel.Controls.Add(btnAddMemory);
-                segmentPanel.Controls.Add(memoryPanel);
-                segmentPanel.Controls.Add(newMemoryPanel);
-                if (trip != null && checkDestination)
-                {
-                    memories = controller.GetAllTripMemoriesByTripSegmentId(tripsegments[i].Id);
-                    foreach (var item in memories)
-                    {
-                        AddMemory(newMemoryPanel, item);
-                    }
-                }
-                // Przycisk usuwania
-                var btnRemove = new Button
-                {
-                    Text = "-",
-                    AutoSize = true
-                };
-                btnRemove.Click += (s, e) => { sectionPanel.Controls.Remove(segmentPanel); };
-                segmentPanel.Controls.Add(btnRemove);
-                sectionPanel.Controls.Add(segmentPanel);
-            }*/
+            toUpdate.StartDate = editTripDepartureDatePicker.Value;
+            toUpdate.EndDate = editTripReturnDatePicker.Value;
+            controller.UpdateTrip(toUpdate);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateEditPanels(toUpdate, editedSegmentList);
+            editedTrip = toUpdate;
+            PopupForm popup = new PopupForm(2);
+            popup.ShowDialog();
         }
 
-
-
-        /** WIP TODO when Landmarks get fixed in the database
-         */
-        private void AddLandmark(FlowLayoutPanel sectionPanel, Landmark landmark)
+        //ADD SEGMENT IN EDIT
+        private void segAddEditButton_Click(object sender, EventArgs e)
         {
-            String lndName = "";
-            String lndAddress = "";
-            if (landmark != null)
+            if (!segNameEditInput.Text.IsNullOrEmpty())
             {
-                lndName = landmark.Name;
-                lndAddress = landmark.Address;
+                controller.AddTripSegment(segNameEditInput.Text, new List<TripMemory>(), new List<Expense>(), new List<Destination>(), editedTrip.Id);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
             }
-
-
-            // Pole Name
-            var lblName = new Label { Text = "Name:", AutoSize = true };
-            var txtName = new TextBox { Width = 200, Text = lndName };
-
-
-            // Pole Address
-            var lblAddress = new Label { Text = "Address:", AutoSize = true };
-            var txtAddress = new TextBox { Width = 200, Text = lndAddress };
-
-
-        }
-        /** FUNCTION FOR ADDING EXPENSES-RELATED TEXTFIELDS AND LABELS
-         * IF YOU PASS NULL IN THE PLACE OF EXPENSE (like AddExpense(examplePanel, null), IT WILL CREATE FIELDS FOR INSERTING NEW DATA
-         * OTHERWISE, IF YOU PASS AN EXISTING EXPENSE, IT WILL PRINT OUT THE CONNECTED TEXT, AND CAN BE USED IN STUFF LIKE editTrip
-         */
-        private void AddExpense(FlowLayoutPanel sectionPanel, Expense expense)
-        {
-            String expName = "";
-            String expValue = "";
-            if (expense != null)
+            else
             {
-                expName = expense.Name;
-                expValue = expense.Value.ToString();
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
             }
-
-            // Pole Name
-            var lblName = new Label { Text = "Name:", AutoSize = true };
-            var txtName = new TextBox { Width = 200, Text = expName };
-
-
-            // Pole Value
-            var lblValue = new Label { Text = "Value (€):", AutoSize = true };
-            var txtValue = new NumericUpDown { Width = 200, DecimalPlaces = 2, Maximum = decimal.MaxValue, Minimum = 0, Text = expValue };
-
         }
-        /** FUNCTION FOR ADDING MEMORY-RELATED TEXTFIELDS AND LABELS
-                 * IF YOU PASS NULL IN THE PLACE OF MEMORY (like AddMemory(examplePanel, null), IT WILL CREATE FIELDS FOR INSERTING NEW DATA
-                 * OTHERWISE, IF YOU PASS AN EXISTING MEMORY, IT WILL PRINT OUT THE CONNECTED TEXT, AND CAN BE USED IN STUFF LIKE editTrip
-                 */
-        private void AddMemory(FlowLayoutPanel sectionPanel, TripMemory memory)
+        //UPDATE SEGMENT IN EDIT
+        private void segUpdateEditButton_Click(object sender, EventArgs e)
         {
-            String memName = "";
-            if (memory != null)
+            if (!segNameEditInput.Text.IsNullOrEmpty())
             {
-                memName = memory.Name;
+
+                TripSegment updateSegment = new TripSegment() { Id = editedSegment.Id, Name = segNameEditInput.Text, TripId = editedTrip.Id };
+                controller.UpdateTripSegment(updateSegment);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
+
             }
-
-            var lblName = new Label { Text = "Name:", AutoSize = true };
-            var txtName = new TextBox { Width = 200, Text = memName };
-
-
-            var photoLabel = new Label { Text = "Add photos:", AutoSize = true };
-
-            var photoTextBox = new TextBox { Width = 200 };
-
-
-        }
-        /** TO (RE)CONSIDER, SINCE OUR DATABASE STRUCTURE IS SOMEWHAT DIFFERENT
-                 */
-        private void AddPhoto(TextBox textbox)
-        {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            else
             {
-                Multiselect = true
-            };
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    // Combine all selected file paths into a single string separated by newlines
-                    textbox.Text = string.Join(Environment.NewLine, openFileDialog1.FileNames);  //change this NewLine
-                }
-                catch (SecurityException ex)
-                {
-                    MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +
-                                    $"Details:\n\n{ex.StackTrace}");
-                }
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
             }
         }
 
-        /** FUNCTION FOR ADDING SONG-RELATED TEXTFIELDS AND LABELS
-                 * IF YOU PASS NULL IN THE PLACE OF SONG (like AddSong(examplePanel, null), IT WILL CREATE FIELDS FOR INSERTING NEW DATA
-                 * OTHERWISE, IF YOU PASS AN EXISTING MEMORY, IT WILL PRINT OUT THE CONNECTED TEXT, AND CAN BE USED IN STUFF LIKE editTrip
-                 * 
-                 * TODO: MAKE THE LINK CLICKABLE? OR FIND A WAY TO PLAY IT FROM THE PROGRAM??
-                 */
-        private void AddSong(FlowLayoutPanel sectionPanel, TripMemory memory)
+        //REMOVE SEGMENT IN EDIT
+        private void segRemoveEditButton_Click(object sender, EventArgs e)
         {
-            String URL = "";
-            if (memory != null)
+            controller.DeleteTripSegment(editedSegment);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateEditPanels(editedTrip, editedSegmentList);
+        }
+
+        //ADD LANDMARK IN EDIT
+        private void landAddEditButton_Click(object sender, EventArgs e)
+        {
+            if (!landNameEditInput.Text.IsNullOrEmpty() && !landCountryEditInput.Text.IsNullOrEmpty() && !landCityEditInput.Text.IsNullOrEmpty())
             {
-                URL = memory.SongURL;
+                Landmark addLandmarkFromEdit = new Landmark() { Name = landNameEditInput.Text, Country = landCountryEditInput.Text, City = landCityEditInput.Text, TripSegmentId = editedSegment.Id, Address = landAddressEditInput.Text, Description = landDescEditInput.Text };
+                controller.AddDestination(addLandmarkFromEdit);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
             }
-
-
-            // Pole Name
-            var lblURL = new Label { Text = "URL:", AutoSize = true };
-            var txtURL = new TextBox { Width = 200, Text = URL };
-
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
         }
 
-        /** FUNCTION FOR ADDING NOTE-RELATED TEXTFIELDS AND LABELS
-                 * IF YOU PASS NULL IN THE PLACE OF NOTE (like AddNote(examplePanel, null), IT WILL CREATE FIELDS FOR INSERTING NEW DATA
-                 * OTHERWISE, IF YOU PASS AN EXISTING MEMORY, IT WILL PRINT OUT THE CONNECTED TEXT, AND CAN BE USED IN STUFF LIKE editTrip
-                 */
-        private void AddNote(FlowLayoutPanel sectionPanel, TripMemory memory)
+        //UPDATE LANDMARK IN EDIT
+        private void landUpdateEditButton_Click(object sender, EventArgs e)
         {
-            String note = "";
-            if (memory != null)
-            { note = memory.Note; }
+            if (!landNameEditInput.Text.IsNullOrEmpty() && !landCountryEditInput.Text.IsNullOrEmpty() && !landCityEditInput.Text.IsNullOrEmpty())
+            {
 
+                Landmark updateLandmarkFromEdit = new Landmark() { Id = editedLandmark.Id, Name = landNameEditInput.Text, Country = landCountryEditInput.Text, City = landCityEditInput.Text, Address = landAddressEditInput.Text, Description = landDescEditInput.Text, TripSegmentId = editedSegment.Id, };
+                controller.UpdateDestination(updateLandmarkFromEdit);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
 
-            // Pole Name
-            var lblNote = new Label { Text = "Note:", AutoSize = true };
-            var txtNote = new TextBox { Width = 200, Text = note };
-
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
         }
 
+        //REMOVE LANDMARK IN EDIT
+        private void landRemoveEditButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteLandmark(editedLandmark);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateEditPanels(editedTrip, editedSegmentList);
+        }
+        //ADD RESTING POINT IN EDIT
+        private void restAddEditButton_Click(object sender, EventArgs e)
+        {
+            if (!restNameEditInput.Text.IsNullOrEmpty() && !restCountryEditInput.Text.IsNullOrEmpty() && !restCityEditInput.Text.IsNullOrEmpty() && (restHostelEditRadioButton.Checked || restHotelEditRadioButton.Checked || restCampingEditRadioButton.Checked || restApartmentEditRadioButton.Checked || restRoomEditRadioButton.Checked))
+            {
+
+                RestingPoint addRestingPointFromEdit = new RestingPoint() { Name = restNameEditInput.Text, Country = restCountryEditInput.Text, City = restCityEditInput.Text, TripSegmentId = editedSegment.Id, Address = restAddressEditInput.Text, ContactInfo = restContactEditInput.Text };
+                if (restHostelEditRadioButton.Checked) { addRestingPointFromEdit.Type = Model.Enums.RestingPointType.Hostel; } else if (restHotelEditRadioButton.Checked) { addRestingPointFromEdit.Type = Model.Enums.RestingPointType.Hotel; } else if (restRoomEditRadioButton.Checked) { addRestingPointFromEdit.Type = Model.Enums.RestingPointType.Room; } else if (restApartmentEditRadioButton.Checked) { addRestingPointFromEdit.Type = Model.Enums.RestingPointType.Apartment; } else if (restCampingEditRadioButton.Checked) { addRestingPointFromEdit.Type = Model.Enums.RestingPointType.Camping; }
+                controller.AddDestination(addRestingPointFromEdit);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+
+        //UPDATE RESTING POINT IN EDIT
+        private void restUpdateEditButton_Click(object sender, EventArgs e)
+        {
+            if (!restNameEditInput.Text.IsNullOrEmpty() && !restCountryEditInput.Text.IsNullOrEmpty() && !restCityEditInput.Text.IsNullOrEmpty() && (restHostelEditRadioButton.Checked || restHotelEditRadioButton.Checked || restCampingEditRadioButton.Checked || restApartmentEditRadioButton.Checked || restRoomEditRadioButton.Checked))
+            {
+
+                RestingPoint updateRestingPointFromEdit = new RestingPoint() { Id = editedRestingPoint.Id, Name = restNameEditInput.Text, Country = restCountryEditInput.Text, City = restCityEditInput.Text, TripSegmentId = editedSegment.Id, Address = restAddressEditInput.Text, ContactInfo = restContactEditInput.Text };
+                if (restHostelEditRadioButton.Checked) { updateRestingPointFromEdit.Type = Model.Enums.RestingPointType.Hostel; } else if (restHotelEditRadioButton.Checked) { updateRestingPointFromEdit.Type = Model.Enums.RestingPointType.Hotel; } else if (restRoomEditRadioButton.Checked) { updateRestingPointFromEdit.Type = Model.Enums.RestingPointType.Room; } else if (restApartmentEditRadioButton.Checked) { updateRestingPointFromEdit.Type = Model.Enums.RestingPointType.Apartment; } else if (restCampingEditRadioButton.Checked) { updateRestingPointFromEdit.Type = Model.Enums.RestingPointType.Camping; }
+                controller.UpdateDestination(updateRestingPointFromEdit);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
+
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+        //REMOVE RESTING POINT IN EDIT
+        private void restRemoveEditButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteRestingPoint(editedRestingPoint);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateEditPanels(editedTrip, editedSegmentList);
+        }
+
+        //ADD EXPENSE IN EDIT
+        private void expAddEditButton_Click(object sender, EventArgs e)
+        {
+            if (!expValueEditInput.Text.IsNullOrEmpty() && !expNameEditInput.Text.IsNullOrEmpty())
+            {
+                controller.AddExpense(expNameEditInput.Text, ((double)expValueEditInput.Value), editedSegment.Id);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+        //UPDATE EXPENSE IN EDIT
+        private void expUpdateEditButton_Click(object sender, EventArgs e)
+        {
+            if (!expValueEditInput.Text.IsNullOrEmpty() && !expNameEditInput.Text.IsNullOrEmpty())
+            {
+                Expense updateExpense = new Expense() { Id = editedExpense.Id, Name = expNameEditInput.Text, Value = ((double)expValueEditInput.Value), TripSegmentId = editedSegment.Id };
+                controller.UpdateExpense(updateExpense);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+        //REMOVE EXPENSE IN EDIT
+        private void expRemoveEditButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteExpense(editedExpense);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateEditPanels(editedTrip, editedSegmentList);
+        }
+
+        //ADD MEMORY IN EDIT
+        private void memAddEditButton_Click(object sender, EventArgs e)
+        {
+            if (!memNameEditInput.Text.IsNullOrEmpty())
+            {
+                controller.AddTripMemory(memNameEditInput.Text, memPhotoEditInput.Text, memNoteEditInput.Text, memSongEditInput.Text, editedSegment.Id);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
+            }
+        }
+
+        //UPDATE MEMORY IN EDIT
+        private void memUpdateEditButton_Click(object sender, EventArgs e)
+        {
+            if (!memNameEditInput.Text.IsNullOrEmpty())
+            {
+                TripMemory updateMemory = new TripMemory() { Id = editedMemory.Id, Name = memNameEditInput.Text, Photo = memPhotoEditInput.Text, Note = memNoteEditInput.Text, SongURL = memSongEditInput.Text, TripSegmentId = editedSegment.Id };
+                controller.UpdateTripMemory(updateMemory);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateEditPanels(editedTrip, editedSegmentList);
+            }
+        }
+
+        //REMOVE MEMORY IN EDIT
+        private void memRemoveEditButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteTripMemory(editedMemory);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateEditPanels(editedTrip, editedSegmentList);
+        }
+
+        //RETURN FROM EDITING TRIP
+        private void returnFromEditTripButton_Click(object sender, EventArgs e)
+        {
+            ShowTripDetails(editedTrip, editedSegmentList);
+        }
         //---------------------returning from add new trips panel--------------------
         private void returnFromAddButton_Click(object sender, EventArgs e)
         {
@@ -1475,20 +1342,9 @@ namespace TravelPlaner.View.Forms
         //-------------------returning from inpect trips panel (the magnifying glass button)--------------------
         private void returnFromInspectButton_Click(object sender, EventArgs e)
         {
-            ShowPanel(browseTripPanel);
-            //tripInfoPanel.Controls.Clear();
-            //editButtonPanel.Controls.Clear();
+            browseTrips();
         }
 
-
-
-
-        //------------------------returning from edit trips panel----------------------
-        private void returnFromEditTrip_Click(object sender, EventArgs e)
-        {
-            ShowPanel(inspectTripPanel);
-            //editTripFlowLayoutPanel.Controls.Clear();
-        }
 
         private void recomLandmarkAddButton_Click(object sender, EventArgs e)
         {
@@ -1520,78 +1376,364 @@ namespace TravelPlaner.View.Forms
 
         private void saveAddTripButton_Click(object sender, EventArgs e)
         {
+            if (tripNameAddInput.Text.IsNullOrEmpty())
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+            else
+            {
+                controller.AddTrip(tripNameAddInput.Text, addTripDepartureDatePicker.Value, addTripReturnDatePicker.Value, new List<TripSegment>());
+                editedTrip = controller.GetLastTrip();
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+
+                PopupForm popup = new PopupForm(1);
+                popup.ShowDialog();
+
+                landNameLabel.Enabled = true;
+                landCountryLabel.Enabled = true;
+                landCityLabel.Enabled = true;
+                landAddressLabel.Enabled = true;
+                landDescLabel.Enabled = true;
+
+                landNameAddInput.Enabled = true;
+                landCountryAddInput.Enabled = true;
+                landCityAddInput.Enabled = true;
+                landAddressAddInput.Enabled = true;
+                landDescAddInput.Enabled = true;
+                recomLandmarkAddButton.Enabled = true;
+                landRemoveAddButton.Enabled = true;
+                landUpdateAddButton.Enabled = true;
+                landAddAddButton.Enabled = true;
 
 
-            landNameLabel.Enabled = true;
-            landCountryLabel.Enabled = true;
-            landCityLabel.Enabled = true;
-            landAddressLabel.Enabled = true;
-            landDescLabel.Enabled = true;
+                restNameLabel.Enabled = true;
+                restCountryLabel.Enabled = true;
+                restCityLabel.Enabled = true;
+                restContactLabel.Enabled = true;
+                restAddressLabel.Enabled = true;
 
-            landNameAddInput.Enabled = true;
-            landCountryAddInput.Enabled = true;
-            landCityAddInput.Enabled = true;
-            landAddressAddInput.Enabled = true;
-            landDescAddInput.Enabled = true;
-            recomLandmarkAddButton.Enabled = true;
-            landRemoveAddButton.Enabled = true;
-            landUpdateAddButton.Enabled = true;
-            landAddAddButton.Enabled = true;
+                restNameAddInput.Enabled = true;
+                restCountryAddInput.Enabled = true;
+                restCityAddInput.Enabled = true;
+                restContactAddInput.Enabled = true;
+                restAddressAddInput.Enabled = true;
 
+                restTypeLabel.Enabled = true;
+                restHotelAddRadioButton.Enabled = true;
+                restHostelAddRadioButton.Enabled = true;
+                restApartmentAddRadioButton.Enabled = true;
+                restRoomAddRadioButton.Enabled = true;
+                restCampingAddRadioButton.Enabled = true;
+                restRemoveAddButton.Enabled = true;
+                restUpdateAddButton.Enabled = true;
+                restAddAddButton.Enabled = true;
 
-            restNameLabel.Enabled = true;
-            restCountryLabel.Enabled = true;
-            restCityLabel.Enabled = true;
-            restContactLabel.Enabled = true;
-            restAddressLabel.Enabled = true;
+                expNameLabel.Enabled = true;
+                expValueLabel.Enabled = true;
+                expNameAddInput.Enabled = true;
+                expValueAddInput.Enabled = true;
+                expRemoveAddButton.Enabled = true;
+                expUpdateAddButton.Enabled = true;
+                expAddAddButton.Enabled = true;
 
-            restNameAddInput.Enabled = true;
-            restCountryAddInput.Enabled = true;
-            restCityAddInput.Enabled = true;
-            restContactAddInput.Enabled = true;
-            restAddressAddInput.Enabled = true;
-
-            restTypeLabel.Enabled = true;
-            restHotelAddRadioButton.Enabled = true;
-            restHostelAddRadioButton.Enabled = true;
-            restApartmAddRadioButton.Enabled = true;
-            restRoomAddRadioButton.Enabled = true;
-            restCampingAddRadioButton.Enabled = true;
-            restRemoveAddButton.Enabled = true;
-            restUpdateAddButton.Enabled = true;
-            restAddAddButton.Enabled = true;
-
-            expNameLabel.Enabled = true;
-            expValueLabel.Enabled = true;
-            expNameAddInput.Enabled = true;
-            expValueAddInput.Enabled = true;
-            expRemoveAddButton.Enabled = true;
-            expUpdateAddButton.Enabled = true;
-            expAddAddButton.Enabled = true;
-
-            memPhotoLabel.Enabled = true;
-            memAddPictureBox.Enabled = true;
-            memSongLabel.Enabled = true;
-            memSongAddInput.Enabled = true;
-            memAddNoteInput.Enabled = true;
-            memNoteLabel.Enabled = true;
-            memRemoveAddButton.Enabled = true;
-            memUpdateAddButton.Enabled = true;
-            memAddAddButton.Enabled = true;
+                memNameAddInput.Enabled = true;
+                memNameLabel.Enabled = true;
+                memPhotoAddButtonSelect.Enabled = true;
+                memPhotoLabel.Enabled = true;
+                memPhotoAddInput.Enabled = true;
+                memPhotoLabel.Enabled = true;
+                memSongLabel.Enabled = true;
+                memSongAddInput.Enabled = true;
+                memNoteAddInput.Enabled = true;
+                memNoteLabel.Enabled = true;
+                memRemoveAddButton.Enabled = true;
+                memUpdateAddButton.Enabled = true;
+                memAddAddButton.Enabled = true;
 
 
-            segNameLabel.Enabled = true;
-            segNameAddInput.Enabled = true;
-            segRemoveAddButton.Enabled = true;
-            segAddAddButton.Enabled = true;
-            segUpdateAddButton.Enabled = true;
-
+                segNameLabel.Enabled = true;
+                segNameAddInput.Enabled = true;
+                segRemoveAddButton.Enabled = true;
+                segAddAddButton.Enabled = true;
+                segUpdateAddButton.Enabled = true;
+            }
         }
+
+        private void segAddAddButton_Click(object sender, EventArgs e)
+        {
+            if (!segNameAddInput.Text.IsNullOrEmpty())
+            {
+                controller.AddTripSegment(segNameAddInput.Text, new List<TripMemory>(), new List<Expense>(), new List<Destination>(), editedTrip.Id);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+
+        private void segUpdateAddButton_Click(object sender, EventArgs e)
+        {
+            if (!segNameAddInput.Text.IsNullOrEmpty())
+            {
+
+                TripSegment updateSegment = new TripSegment() { Id = editedSegment.Id, Name = segNameAddInput.Text, TripId = editedTrip.Id };
+                controller.UpdateTripSegment(updateSegment);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+
+        private void segRemoveAddButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteTripSegment(editedSegment);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateAddPanels(editedTrip, editedSegmentList);
+        }
+
+        private void landAddAddButton_Click(object sender, EventArgs e)
+        {
+            if (!landNameAddInput.Text.IsNullOrEmpty() && !landCountryAddInput.Text.IsNullOrEmpty() && !landCityAddInput.Text.IsNullOrEmpty())
+            {
+                Landmark addLandmarkFromAdd = new Landmark() { Name = landNameAddInput.Text, Country = landCountryAddInput.Text, City = landCityAddInput.Text, TripSegmentId = editedSegment.Id, Address = landAddressAddInput.Text, Description = landDescAddInput.Text };
+                controller.AddDestination(addLandmarkFromAdd);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+
+        private void landUpdateAddButton_Click(object sender, EventArgs e)
+        {
+            if (!landNameAddInput.Text.IsNullOrEmpty() && !landCountryAddInput.Text.IsNullOrEmpty() && !landCityAddInput.Text.IsNullOrEmpty())
+            {
+
+                Landmark updateLandmarkFromAdd = new Landmark() { Id = editedLandmark.Id, Name = landNameAddInput.Text, Country = landCountryAddInput.Text, City = landCityAddInput.Text, Address = landAddressAddInput.Text, Description = landDescAddInput.Text, TripSegmentId = editedSegment.Id, };
+                controller.UpdateDestination(updateLandmarkFromAdd);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+
+        private void landRemoveAddButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteLandmark(editedLandmark);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateAddPanels(editedTrip, editedSegmentList);
+        }
+
+        private void restAddAddButton_Click(object sender, EventArgs e)
+        {
+            if (!restNameAddInput.Text.IsNullOrEmpty() && !restCountryAddInput.Text.IsNullOrEmpty() && !restCityAddInput.Text.IsNullOrEmpty() && (restHostelAddRadioButton.Checked || restHotelAddRadioButton.Checked || restCampingAddRadioButton.Checked || restApartmentAddRadioButton.Checked || restRoomAddRadioButton.Checked))
+            {
+
+                RestingPoint addRestingPointFromAdd = new RestingPoint() { Name = restNameAddInput.Text, Country = restCountryAddInput.Text, City = restCityAddInput.Text, TripSegmentId = editedSegment.Id, Address = restAddressAddInput.Text, ContactInfo = restContactAddInput.Text };
+                if (restHostelAddRadioButton.Checked) { addRestingPointFromAdd.Type = Model.Enums.RestingPointType.Hostel; } else if (restHotelAddRadioButton.Checked) { addRestingPointFromAdd.Type = Model.Enums.RestingPointType.Hotel; } else if (restRoomAddRadioButton.Checked) { addRestingPointFromAdd.Type = Model.Enums.RestingPointType.Room; } else if (restApartmentAddRadioButton.Checked) { addRestingPointFromAdd.Type = Model.Enums.RestingPointType.Apartment; } else if (restCampingAddRadioButton.Checked) { addRestingPointFromAdd.Type = Model.Enums.RestingPointType.Camping; }
+                controller.AddDestination(addRestingPointFromAdd);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+
+        private void restUpdateAddButton_Click(object sender, EventArgs e)
+        {
+            if (!restNameAddInput.Text.IsNullOrEmpty() && !restCountryAddInput.Text.IsNullOrEmpty() && !restCityAddInput.Text.IsNullOrEmpty() && (restHostelAddRadioButton.Checked || restHotelAddRadioButton.Checked || restCampingAddRadioButton.Checked || restApartmentAddRadioButton.Checked || restRoomAddRadioButton.Checked))
+            {
+
+                RestingPoint updateRestingPointFromAdd = new RestingPoint() { Id = editedRestingPoint.Id, Name = restNameAddInput.Text, Country = restCountryAddInput.Text, City = restCityAddInput.Text, TripSegmentId = editedSegment.Id, Address = restAddressAddInput.Text, ContactInfo = restContactAddInput.Text };
+                if (restHostelAddRadioButton.Checked) { updateRestingPointFromAdd.Type = Model.Enums.RestingPointType.Hostel; } else if (restHotelAddRadioButton.Checked) { updateRestingPointFromAdd.Type = Model.Enums.RestingPointType.Hotel; } else if (restRoomAddRadioButton.Checked) { updateRestingPointFromAdd.Type = Model.Enums.RestingPointType.Room; } else if (restApartmentAddRadioButton.Checked) { updateRestingPointFromAdd.Type = Model.Enums.RestingPointType.Apartment; } else if (restCampingAddRadioButton.Checked) { updateRestingPointFromAdd.Type = Model.Enums.RestingPointType.Camping; }
+                controller.UpdateDestination(updateRestingPointFromAdd);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+
+        private void restRemoveAddButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteRestingPoint(editedRestingPoint);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateAddPanels(editedTrip, editedSegmentList);
+        }
+
+
+        private void expAddAddButton_Click(object sender, EventArgs e)
+        {
+            if (!expValueAddInput.Text.IsNullOrEmpty() && !expNameAddInput.Text.IsNullOrEmpty())
+            {
+                controller.AddExpense(expNameAddInput.Text, ((double)expValueAddInput.Value), editedSegment.Id);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+
+        private void expUpdateAddButton_Click(object sender, EventArgs e)
+        {
+            if (!expValueAddInput.Text.IsNullOrEmpty() && !expNameAddInput.Text.IsNullOrEmpty())
+            {
+                Expense updateExpense = new Expense() { Id = editedExpense.Id, Name = expNameAddInput.Text, Value = ((double)expValueAddInput.Value), TripSegmentId = editedSegment.Id };
+                controller.UpdateExpense(updateExpense);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+            }
+            else
+            {
+                PopupForm popup = new PopupForm(4);
+                popup.ShowDialog();
+            }
+        }
+
+        private void expRemoveAddButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteExpense(editedExpense);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateAddPanels(editedTrip, editedSegmentList);
+        }
+
+
+        private void memAddAddButton_Click(object sender, EventArgs e)
+        {
+            if (!memNameAddInput.Text.IsNullOrEmpty())
+            {
+                controller.AddTripMemory(memNameAddInput.Text, memPhotoAddInput.Text, memNoteAddInput.Text, memSongAddInput.Text, editedSegment.Id);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+            }
+        }
+        private void memUpdateAddButton_Click(object sender, EventArgs e)
+        {
+            if (!memNameAddInput.Text.IsNullOrEmpty())
+            {
+                TripMemory updateMemory = new TripMemory() { Id = editedMemory.Id, Name = memNameAddInput.Text, Photo = memPhotoAddInput.Text, Note = memNoteAddInput.Text, SongURL = memSongAddInput.Text, TripSegmentId = editedSegment.Id };
+                controller.UpdateTripMemory(updateMemory);
+                editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+                UpdateAddPanels(editedTrip, editedSegmentList);
+            }
+        }
+
+        private void memRemoveAddButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteTripMemory(editedMemory);
+            editedSegmentList = controller.GetAllTripSegmentsByTripId(editedTrip.Id);
+            UpdateAddPanels(editedTrip, editedSegmentList);
+        }
+
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
             Trip trip = controller.GetFirstTrip();
             new PresentationForm(trip).Show();
+        }
+
+        private void memPhotoAddButtonSelect_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void memPhotoButtonSelect_Click(object sender, EventArgs e)
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "Image files (*.jpg)|*.png";
+                openFileDialog.FilterIndex = 3;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
+            }
+            memPhotoEditInput.Text = filePath;
+        }
+
+        private void memPhotoAddButtonSelect_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void memPhotoAddButtonSelect_Click_2(object sender, EventArgs e)
+        {
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.Filter = "Image files (*.jpg)|*.png";
+                openFileDialog.FilterIndex = 3;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = openFileDialog.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = openFileDialog.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
+            }
+            memPhotoAddInput.Text = filePath;
+        }
+
+        private void deleteEditTripButton_Click(object sender, EventArgs e)
+        {
+            controller.DeleteTrip(editedTrip);
+            PopupForm popup = new PopupForm(5);
+            popup.ShowDialog();
+            browseTrips();
         }
     }
 }
