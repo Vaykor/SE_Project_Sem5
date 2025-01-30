@@ -13,6 +13,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelPlaner.Controller;
 using TravelPlaner.Model.Classes.Database;
+using System.IO;
+using NAudio.Wave;
+using YoutubeExplode;
+using YoutubeExplode.Videos.Streams;
 using TravelPlaner.Controller.Helpers.APIs;
 
 namespace TravelPlaner.View.Forms
@@ -33,6 +37,10 @@ namespace TravelPlaner.View.Forms
 
 
 
+        private WaveOutEvent waveOut;
+        private MediaFoundationReader mediaReader;
+
+        
 
         public GUI()
         {
@@ -334,10 +342,12 @@ namespace TravelPlaner.View.Forms
             segUpdateAddButton.Enabled = false;
         }
 
+        
 
         //-------------------Browse Panel---------------------
         private void browseTripsButton_Click(object sender, EventArgs e)
         {
+
             browseTrips();
         }
         private void browseTrips()
