@@ -760,7 +760,7 @@ namespace TravelPlaner.View.Forms
                         item.Tag = restingPoint;
                     }
                     restingEditPointListView.ItemActivate += restingEditPointListView_ItemActivate;
-                    void restingEditPointListView_ItemActivate(object sender, EventArgs e)
+                    async void restingEditPointListView_ItemActivate(object sender, EventArgs e)
                     {
                         ListViewItem selectedEditRestingPointItem = restingEditPointListView.SelectedItems[0];
                         if (selectedEditRestingPointItem.Tag is RestingPoint restingPoint)
