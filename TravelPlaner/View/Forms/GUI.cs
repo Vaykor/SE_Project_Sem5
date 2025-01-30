@@ -54,7 +54,6 @@ namespace TravelPlaner.View.Forms
 
             InitializeComponent();
 
-
         }
         private void GUI_Load(object sender, EventArgs e)
         {
@@ -267,6 +266,10 @@ namespace TravelPlaner.View.Forms
                 List<TripSegment> tripSegments = controller.GetAllTripSegmentsByTripId(trip.Id);
 
                 int segmentCount = tripSegments.Count;
+
+
+
+
 
                 // Fetch destinations for the first segment (if needed)
                 string destinationName = tripSegments.FirstOrDefault() != null ? controller.GetAllDestinationsByTripSegmentId(tripSegments.First().Id).FirstOrDefault()?.Country : "Unknown";
