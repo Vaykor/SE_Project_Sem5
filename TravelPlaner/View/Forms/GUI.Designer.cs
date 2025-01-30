@@ -2251,6 +2251,7 @@ namespace TravelPlaner.View.Forms
             searchTextBox.TabIndex = 2;
             searchTextBox.Text = "search";
             searchTextBox.TextAlign = HorizontalAlignment.Center;
+            searchTextBox.Click += searchTextBox_Click;
             //
             // searchButton
             //
