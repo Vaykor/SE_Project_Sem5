@@ -1060,6 +1060,7 @@ namespace TravelPlaner.View.Forms
                 popup.ShowDialog();
             }
         }
+        //adding random text so i can commit, carry on
         //REMOVE RESTING POINT IN EDIT
         private void restRemoveEditButton_Click(object sender, EventArgs e)
         {
