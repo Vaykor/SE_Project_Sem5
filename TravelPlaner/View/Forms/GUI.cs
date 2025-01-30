@@ -17,6 +17,7 @@ using System.IO;
 using NAudio.Wave;
 using YoutubeExplode;
 using YoutubeExplode.Videos.Streams;
+using TravelPlaner.Controller.Helpers.APIs;
 
 namespace TravelPlaner.View.Forms
 {
@@ -32,6 +33,7 @@ namespace TravelPlaner.View.Forms
         Expense editedExpense = new Expense();
         TripMemory editedMemory = new TripMemory();
         private System.Windows.Forms.Timer timer;
+        private readonly CncApiHelper apiHelperCNC;
 
         private WaveOutEvent waveOut;
         private MediaFoundationReader mediaReader;
@@ -54,6 +56,9 @@ namespace TravelPlaner.View.Forms
 
             InitializeComponent();
 
+            apiHelperCNC = new CncApiHelper();
+            InitializeComboBoxes();
+
         }
         private void GUI_Load(object sender, EventArgs e)
         {
@@ -61,6 +66,94 @@ namespace TravelPlaner.View.Forms
             // Initialize with only Panel1 visible
             ShowPanel(menuPanel);
 
+        }
+
+        private async void InitializeComboBoxes()
+        {
+            landCountryEditInput.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            landCountryEditInput.AutoCompleteSource = AutoCompleteSource.ListItems;
+            landCityEditInput.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            landCityEditInput.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            restCountryEditInput.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            restCountryEditInput.AutoCompleteSource = AutoCompleteSource.ListItems;
+            restCityEditInput.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            restCityEditInput.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            try
+            {
+                var countries = await apiHelperCNC.GetCountriesAsync();
+
+                landCountryEditInput.DataSource = new BindingList<string>(countries);
+                restCountryEditInput.DataSource = new BindingList<string>(countries);
+                landCountryAddInput.DataSource = new BindingList<string>(countries);
+                restCountryAddInput.DataSource = new BindingList<string>(countries);
+
+                // Handle country selection change
+                landCountryEditInput.SelectedIndexChanged += async (sender, e) =>
+                {
+                    if (landCountryEditInput.SelectedItem is string selectedCountry)
+                    {
+                        var currentCity = landCityEditInput.Text;
+                        var cities = await apiHelperCNC.GetCitiesForCountryAsync(selectedCountry);
+                        landCityEditInput.DataSource = new BindingList<string>(cities);
+
+                        if (cities.Contains(currentCity))
+                        {
+                            landCityEditInput.Text = currentCity;
+                        }
+                    }
+                };
+
+                restCountryEditInput.SelectedIndexChanged += async (sender, e) =>
+                {
+                    if (restCountryEditInput.SelectedItem is string selectedCountry)
+                    {
+                        var currentCity = restCityEditInput.Text;
+                        var cities = await apiHelperCNC.GetCitiesForCountryAsync(selectedCountry);
+                        restCityEditInput.DataSource = new BindingList<string>(cities);
+
+                        if (cities.Contains(currentCity))
+                        {
+                            restCityEditInput.Text = currentCity;
+                        }
+                    }
+                };
+
+                restCountryAddInput.SelectedIndexChanged += async (sender, e) =>
+                {
+                    if (restCountryAddInput.SelectedItem is string selectedCountry)
+                    {
+                        var currentCity = restCityAddInput.Text;
+                        var cities = await apiHelperCNC.GetCitiesForCountryAsync(selectedCountry);
+                        restCityAddInput.DataSource = new BindingList<string>(cities);
+
+                        if (cities.Contains(currentCity))
+                        {
+                            restCityAddInput.Text = currentCity;
+                        }
+                    }
+                };
+
+                landCountryAddInput.SelectedIndexChanged += async (sender, e) =>
+                {
+                    if (landCountryAddInput.SelectedItem is string selectedCountry)
+                    {
+                        var currentCity = landCityAddInput.Text;
+                        var cities = await apiHelperCNC.GetCitiesForCountryAsync(selectedCountry);
+                        landCityAddInput.DataSource = new BindingList<string>(cities);
+
+                        if (cities.Contains(currentCity))
+                        {
+                            landCityAddInput.Text = currentCity;
+                        }
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error initializing comboboxes: {ex.Message}");
+            }
         }
 
         // Method to show a specific panel and hide others
@@ -638,17 +731,28 @@ namespace TravelPlaner.View.Forms
                         item.Tag = landmark;
                     }
                     landmarkEditListView.ItemActivate += landmarkEditListView_ItemActivate;
-                    void landmarkEditListView_ItemActivate(object sender, EventArgs e)
+                    async void landmarkEditListView_ItemActivate(object sender, EventArgs e)
                     {
                         ListViewItem selectedEditLandmarkItem = landmarkEditListView.SelectedItems[0];
                         if (selectedEditLandmarkItem.Tag is Landmark landmark)
                         {
-                            editedLandmark = landmark;
-                            landNameEditInput.Text = landmark.Name;
-                            landCountryEditInput.Text = landmark.Country;
+                            string countryValue = landmark.Country;
+
+                            // Only update the SelectedItem, not the DataSource
+                            if (landCountryEditInput.Items.Contains(countryValue))
+                            {
+                                landCountryEditInput.SelectedItem = countryValue;
+                            }
+                            else
+                            {
+                                landCountryEditInput.Text = countryValue;
+                            }
+
+                            // The city will be updated by the SelectedIndexChanged event
                             landCityEditInput.Text = landmark.City;
                             landAddressEditInput.Text = landmark.Address;
                             landDescEditInput.Text = landmark.Description;
+                            landNameEditInput.Text = landmark.Name;
                         }
                     }
 
@@ -671,8 +775,23 @@ namespace TravelPlaner.View.Forms
                         {
                             editedRestingPoint = restingPoint;
                             restNameEditInput.Text = restingPoint.Name;
-                            restCountryEditInput.Text = restingPoint.Country;
+
+                            // Store the country value before updating combobox
+                            string countryValue = restingPoint.Country;
+
+                            // Update country selection while preserving the DataSource
+                            if (restCountryEditInput.Items.Contains(countryValue))
+                            {
+                                restCountryEditInput.SelectedItem = countryValue;
+                            }
+                            else
+                            {
+                                restCountryEditInput.Text = countryValue;
+                            }
+
+                            // The city will be updated by the SelectedIndexChanged event of the country combobox
                             restCityEditInput.Text = restingPoint.City;
+
                             restAddressEditInput.Text = restingPoint.Address;
                             restContactEditInput.Text = restingPoint.ContactInfo;
                             switch ((int)restingPoint.Type)
