@@ -727,6 +727,7 @@ namespace TravelPlaner.View.Forms
                         ListViewItem selectedEditLandmarkItem = landmarkEditListView.SelectedItems[0];
                         if (selectedEditLandmarkItem.Tag is Landmark landmark)
                         {
+                            editedLandmark = landmark;
                             string countryValue = landmark.Country;
 
                             // Only update the SelectedItem, not the DataSource
